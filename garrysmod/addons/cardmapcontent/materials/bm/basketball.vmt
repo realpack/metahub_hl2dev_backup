@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "bm/basketball"
+	"$bumpmap" "bm/basketball_normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$model" 1
+}

@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	$color "[1 1 1]"
+	$basetexture "swshields\sw_shield_energy"
+	$translucent 1
+	"$nocull" "1"
+}

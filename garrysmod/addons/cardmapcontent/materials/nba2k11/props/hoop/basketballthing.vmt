@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "nba2k11/props/hoop/basketballthing"
+	"$surfaceprop" "plaster"
+}

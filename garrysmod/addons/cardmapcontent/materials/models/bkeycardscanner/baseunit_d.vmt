@@ -1,0 +1,21 @@
+//MODELS AND MATERIALS MADE BY II_PYRO_II\\
+//DO NOT REUPLOAD ANYWHERE\\
+//MADE FOR BILLY\\
+
+"VertexlitGeneric"
+{
+	"$basetexture" "models/bkeycardscanner/baseunit_d"
+	"$bumpmap" "models/bkeycardscanner/baseunit_n"
+	"$surfaceprop" "Metal"
+
+	"$phong" "1"
+	"$phongboost" "1"
+	"$phongexponent" "10"
+	"$phongtint" "[ .5 .5 .5 ]"
+	"$phongalbedotint" "10"
+	"$phongfresnelranges" "[ .5 .5 .5 ]"
+
+
+	//"$envmap" "env_cubemap"
+	//"$envmaptint" "[.02 .02 .02]"
+}

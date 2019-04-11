@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/christmas_gift/christmas_gift_texture.vtf
+	"$surfaceprop" "wood"
+	"$model" 1
+}

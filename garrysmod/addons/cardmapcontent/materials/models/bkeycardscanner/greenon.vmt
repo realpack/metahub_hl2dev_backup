@@ -1,0 +1,16 @@
+//MODELS AND MATERIALS MADE BY II_PYRO_II\\
+//DO NOT REUPLOAD ANYWHERE\\
+//MADE FOR BILLY\\
+
+"VertexlitGeneric"
+{
+	"$basetexture" "models/bkeycardscanner/greenon"
+	"$bumpmap" "models/bkeycardscanner/empty_normal"
+
+	"$phong" "1"
+	"$phongboost" "1"
+	"$phongexponent" "10"
+	"$phongtint" "[ .2 .2 .2 ]"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[ .5 .5 .5 ]"
+}
