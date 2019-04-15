@@ -101,8 +101,8 @@ rp.AddEntity("Денежный Принтер", {
 	price = 150,
 	allowed = {TEAM_CITIZEN24, TEAM_R2, TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon1', -- Если команды нету, то предмет нельзя купить.
-	max = 2,
-	pocket = true
+	max = 1,
+	pocket = false
 })
 
 rp.AddEntity("Улучшенный Принтер", {
@@ -111,8 +111,8 @@ rp.AddEntity("Улучшенный Принтер", {
 	price = 450,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon2', -- Если команды нету, то предмет нельзая купить.
-	max = 2,
-	pocket = true
+	max = 1,
+	pocket = false
 })
 
 rp.AddEntity("Качественный Принтер", {
@@ -121,8 +121,8 @@ rp.AddEntity("Качественный Принтер", {
 	price = 750,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon3', -- Если команды нету, то предмет нельзя купить.
-	max = 3,
-	pocket = true
+	max = 1,
+	pocket = false
 })
 
 
@@ -132,8 +132,8 @@ rp.AddEntity("Профессиональный Принтер", {
 	price = 1050,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon4', -- Если команды нету, то предмет нельзя купить.
-	max = 3,
-	pocket = true
+	max = 1,
+	pocket = false
 })
 
 -- Notes
@@ -142,7 +142,7 @@ rp.AddEntity("Помятая бумага (Мусор)", {
 	model = "models/props_junk/garbage_carboard002a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -151,7 +151,7 @@ rp.AddEntity("Ржавая банка (Мусор)", {
 	model = "models/props_junk/garbage_metalcan001a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -160,7 +160,7 @@ rp.AddEntity("Пустая бутылка (Мусор)", {
 	model = "models/props_junk/garbage_plasticbottle003a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -169,7 +169,7 @@ rp.AddEntity("Дерево", {
 	model = "models/props_c17/FurnitureDrawer001a_Chunk03.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -178,7 +178,7 @@ rp.AddEntity("Ткань", {
 	model = "models/props_c17/playground_swingset_seat01a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -187,7 +187,7 @@ rp.AddEntity("Метал", {
 	model = "models/props_debris/metal_panel01a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -196,7 +196,7 @@ rp.AddEntity("Инструменты", {
 	model = "models/props_c17/tools_wrench01a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 
@@ -205,7 +205,7 @@ rp.AddEntity("Карбон", {
 	model = "models/props_c17/lamp001a.mdl",
 	price = 100,
 	allowed = {},
-	max = 2,
+	max = 10,
 	pocket = true
 })
 

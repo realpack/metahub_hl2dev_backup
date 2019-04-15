@@ -137,6 +137,14 @@ nw.Register 'PropIsOwned'
 	end)
 	:SetNoSync()
 
+nw.Register 'PropGetOwner'
+	:Write(net.WriteBool)
+	:Read(net.ReadBool)
+	:Filter(function(self)
+		return self:CPPIGetOwner()
+	end)
+	:SetNoSync()
+
 -- Combine Shits
 nw.Register 'CPTerminal'
 	:Write(net.WriteTable)

@@ -116,6 +116,7 @@ function GM:AddEntityCommands(tblEnt)
 
 		local max = tonumber(tblEnt.max or 3)
 
+        -- PrintTable(tblEnt)
 		if ply:GetCount(tblEnt.ent) >= tonumber(max) then
 			rp.Notify(ply, NOTIFY_ERROR, rp.Term('ItemLimit'), tblEnt.name)
 			return ""

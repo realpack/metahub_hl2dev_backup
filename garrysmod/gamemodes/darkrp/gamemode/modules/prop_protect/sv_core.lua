@@ -157,6 +157,7 @@ end
 function ENTITY:CPPISetOwner(pl)
 	self.pp_owner = pl
 	self:SetNetVar('PropIsOwned', true)
+    self:SetNetVar('PropGetOwner', pl)
 end
 
 function ENTITY:CPPIGetOwner()

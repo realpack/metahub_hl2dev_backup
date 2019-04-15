@@ -28,7 +28,7 @@ net.Receive('Chat_PlayerSounds', function(len, pl)
 
     -- print(pl:GetNVar('meta_gender'))
 
-    pl:EmitSound(string.format(snd, pl:GetNetVar('Gender') == 1 and 'male' or 'female'), 50, 100, 1, CHAN_AUTO)
+    pl:EmitSound(string.format(snd, pl:GetNetVar('Gender') == 1 and 'male' or 'female'), 100, 100, 1, CHAN_AUTO)
 end)
 
 util.AddNetworkString 'rp.ChatMessage'

@@ -40,6 +40,18 @@ local function OpenContextMenu()
                 RunConsoleCommand("say", "/tasks")
             -- end)
         end, icon = Material('icon16/rosette.png') },
+        { text = 'Контент Сервера', func = function( self )
+            gui.OpenURL( 'https://steamcommunity.com/workshop/filedetails/?id=1554992606' )
+        end, icon = Material('icon16/link.png') },
+        { text = 'Дискорд Сервера', func = function( self )
+            gui.OpenURL( 'https://discordapp.com/invite/zsaRYv6' )
+        end, icon = Material('icon16/link.png') },
+        { text = 'Основные правила', func = function( self )
+            gui.OpenURL( 'https://docs.google.com/document/d/1igeD8p3n_ebRnpMgcD6qMbkQBR5K6zpFkoTc3ctKQBY/preview' )
+        end, icon = Material('icon16/link.png') },
+        { text = 'Правила профессий', func = function( self )
+            gui.OpenURL( 'https://docs.google.com/document/d/1jr6t06BH54W1rZparRhujVyV3A9cW2D9tBS3hD15VBo/preview' )
+        end, icon = Material('icon16/link.png') },
     }
 
     if LocalPlayer():IsCP() then
@@ -265,7 +277,7 @@ local function OpenContextMenu()
 				btn:SetText('')
 				btn.Paint = function( self, w, h )
 					draw.SimpleText(pl:Name(), "font_base_small", 3, 3, Color( 240, 240, 240, 255 ), 0, 0)
-					draw.SimpleText(pl:GetNetVar('CPProtocol'), "font_base_small", w-3, 3, Color( 240, 240, 240, 255 ), 2, 0)
+					-- draw.SimpleText(pl:GetNetVar('CPProtocol'), "font_base_small", w-3, 3, Color( 240, 240, 240, 255 ), 2, 0)
 
 					if self:IsHovered() then
 						draw.RoundedBox(0, 0, 0, w, h, Color(255,255,255,10))
@@ -275,12 +287,15 @@ local function OpenContextMenu()
 				btn.DoClick = function( self )
 					local menu = DermaMenu()
 					for i, p in pairs(rp.cfg.SupProtocols) do
-						menu:AddOption( p, function()
+						local opt = menu:AddOption( p, function()
 							net.Start('Combine_SendProtocol')
 								net.WriteUInt(i, 32)
 								net.WriteString(pl:SteamID())
 							net.SendToServer()
 						end )
+                        if pl:GetNetVar('CPProtocol') == p then
+                            opt:SetIcon('icon16/tick.png')
+                        end
 					end
 					menu:Open()
 				end

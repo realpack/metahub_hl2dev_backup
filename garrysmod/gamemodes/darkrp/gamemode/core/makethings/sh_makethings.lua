@@ -47,7 +47,7 @@ end
 
 rp.teamDoors = {}
 function rp.AddDoorGroup(name, ...)
-    print(123, istable(...))
+    -- print(123, istable(...))
 	rp.teamDoors[name] = rp.teamDoors[name] or {}
 	for k, v in ipairs(istable(...) and ... or {...}) do
 		rp.teamDoors[name][v] = true

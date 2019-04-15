@@ -57,8 +57,8 @@ end
 
 local jails = rp.cfg.JailPos[game.GetMap()]
 function PLAYER:Arrest(actor, reason)
-	local time = rp.Karma(self, rp.cfg.ArrestTimeMax, rp.cfg.ArrestTimeMin)
-	timer.Create('Arrested' .. self:SteamID64(), time, 1, function()
+	-- local time = rp.Karma(self, rp.cfg.ArrestTimeMax, rp.cfg.ArrestTimeMin)
+	timer.Create('Arrested' .. self:SteamID64(), 120, 1, function()
 		if IsValid(self) then
 			self:UnArrest()
 		end
