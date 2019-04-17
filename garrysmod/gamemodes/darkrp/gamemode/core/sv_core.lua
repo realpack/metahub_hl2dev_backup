@@ -260,6 +260,19 @@ function GM:PlayerDeath(ply, weapon, killer)
     end
 
 	ply.NextReSpawn = CurTime() + 1
+
+    if rp.cfg.ChangeTeamForDeath[ply:Team()] then
+        ply:SetTeam(rp.cfg.ChangeTeamForDeath[ply:Team()])
+    end
+
+    if ply:GetNetVar("RPID") and ply:IsCP() then
+        net.Start('LostSignalCP')
+            net.WriteString(ply:GetNetVar("RPID"))
+            net.WriteEntity(ply)
+        net.Send(player.GetAll())
+
+        AddLineTerminal(string.format( 'Биосигнал потерян %s.', ply:Name() ))
+    end
 end
 
 function GM:PlayerCanPickupWeapon(ply, weapon)

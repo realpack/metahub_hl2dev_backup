@@ -71,11 +71,11 @@ rp.cfg.HitMaxCost 		= 100000
 rp.cfg.weaponCheckerHideDefault = true
 rp.cfg.weaponCheckerHideNoLicense = false
 rp.cfg.noStripWeapons = {
-  'weapon_physcannon',
-  'weapon_physgun',
-  'gmod_tool',
-  'keys',
-  'pocket'
+	'weapon_physcannon',
+	'weapon_physgun',
+	'gmod_tool',
+	'keys',
+	'pocket'
 }
 
 rp.cfg.RewardForMurder = {
@@ -106,34 +106,34 @@ rp.cfg.TypesCanCP = {
 }
 
 rp.cfg.CaptureZones = {
-  ["nexus"] = {
-	pos = Vector('1336.793945 8980.597656 536.015259'),
-	ang = Angle('-1.450747 -0.670851 0.265785'),
-	color = Color( 54,200,200 ),
-	name = 'Администрация',
-	radius = 400,
-  },
-  ["park"] = {
-	pos = Vector('5903.124512 12759.245117 455.031250'),
-	ang = Angle('-4.537340 -90.687767 -0.207853'),
-	color = Color( 54,200,200 ),
-	name = 'Городской Парк C24',
-	radius = 600,
-  },
-  ["trade"] = {
-	pos = Vector('6542.536621 4395.420410 7.031250'),
-	ang = Angle('-2.926968 159.671570 -0.455180'),
-	color = Color( 54,200,200 ),
-	name = 'Пристань',
-	radius = 300,
-  },
-  ["plaza"] = {
-	pos = Vector('9720.645508 7778.965332 399.031250'),
-	ang = Angle('-1.543279 179.374313 0.499080'),
-	color = Color( 54,200,200 ),
-	name = 'Площадь',
-	radius = 400,
-  },
+	["nexus"] = {
+		pos = Vector('1336.793945 8980.597656 536.015259'),
+		ang = Angle('-1.450747 -0.670851 0.265785'),
+		color = Color( 54,200,200 ),
+		name = 'Администрация',
+		radius = 400,
+	},
+	["park"] = {
+		pos = Vector('5903.124512 12759.245117 455.031250'),
+		ang = Angle('-4.537340 -90.687767 -0.207853'),
+		color = Color( 54,200,200 ),
+		name = 'Городской Парк C24',
+		radius = 600,
+	},
+	["trade"] = {
+		pos = Vector('6542.536621 4395.420410 7.031250'),
+		ang = Angle('-2.926968 159.671570 -0.455180'),
+		color = Color( 54,200,200 ),
+		name = 'Пристань',
+		radius = 300,
+	},
+	["plaza"] = {
+		pos = Vector('9720.645508 7778.965332 399.031250'),
+		ang = Angle('-1.543279 179.374313 0.499080'),
+		color = Color( 54,200,200 ),
+		name = 'Площадь',
+		radius = 400,
+	},
 }
 
 rp.cfg.CpatureTeamCP = {
@@ -212,9 +212,36 @@ rp.cfg.CPUpCodes = {
 	['Код #0'] = 'Всё чисто, угрозы не обнаружено',
 }
 
-rp.cfg.InvLimit = 8
+rp.cfg.InvLimit = 20
 
 timer.Simple(.1, function()
+	rp.cfg.CanBrokenTerminal = { -- С ними будут терминалы ломатся.
+		TEAM_CITYWORKER,
+		TEAM_S3
+	}
+	rp.cfg.ChangeTeamForDeath = { -- Первый тем кем надо быть, а второй на что меняет.
+		[TEAM_ANTICITIZEN] = TEAM_CITIZEN24,
+		[TEAM_R1] = TEAM_CITIZEN24,
+		[TEAM_R2] = TEAM_CITIZEN24,
+		[TEAM_R3] = TEAM_CITIZEN24,
+		[TEAM_R4] = TEAM_CITIZEN24,
+		[TEAM_R5] = TEAM_CITIZEN24,
+		[TEAM_R6] = TEAM_CITIZEN24,
+		[TEAM_R7] = TEAM_CITIZEN24,
+		[TEAM_R8] = TEAM_CITIZEN24,
+		[TEAM_UN8] = TEAM_CITIZEN24,
+		[TEAM_S9] = TEAM_CITIZEN24,
+		[TEAM_COMBINE8] = TEAM_CITIZEN24,
+		[TEAM_SYNTH6] = TEAM_CITIZEN24,
+		[TEAM_CITIZEN1] = TEAM_CITIZEN24,
+		[TEAM_CITIZEN2] = TEAM_CITIZEN24,
+		[TEAM_CITIZEN3] = TEAM_CITIZEN24,
+		[TEAM_CITIZEN4] = TEAM_CITIZEN24,
+		[TEAM_HERO2] = TEAM_CITIZEN24,
+		[TEAM_HERO8] = TEAM_CITIZEN24,
+
+	}
+
 	rp.cfg.TeamSpawns = {
 		rp_c18_updated = {
 			[TEAM_UN1] = { Vector('3318.383301 210.928909 432.031250') },
@@ -283,12 +310,12 @@ timer.Simple(.1, function()
 			[TEAM_HERO10] = { Vector('1022.838135 4807.899902 636.438293') },
 			[TEAM_METH] = { Vector('-604.980408 3726.990479 910.031250') },
 			[TEAM_CRIME] = { Vector('-604.980408 3726.990479 910.031250') },
-            [TEAM_CRIME2] = { Vector('-604.980408 3726.990479 910.031250') },
-            [TEAM_CRIME3] = { Vector('-604.980408 3726.990479 910.031250') },
-            [TEAM_CRIMES] = { Vector('-604.980408 3726.990479 910.031250') },
-            [TEAM_HITMAN] = { Vector('-604.980408 3726.990479 910.031250') },
-            [TEAM_CWUWORK1] = { Vector('5100.308594 1402.978149 1010.031250') },
-            [TEAM_CWUVORT2] = { Vector('5100.308594 1402.978149 1010.031250') },
+			[TEAM_CRIME2] = { Vector('-604.980408 3726.990479 910.031250') },
+			[TEAM_CRIME3] = { Vector('-604.980408 3726.990479 910.031250') },
+			[TEAM_CRIMES] = { Vector('-604.980408 3726.990479 910.031250') },
+			[TEAM_HITMAN] = { Vector('-604.980408 3726.990479 910.031250') },
+			[TEAM_CWUWORK1] = { Vector('5100.308594 1402.978149 1010.031250') },
+			[TEAM_CWUVORT2] = { Vector('5100.308594 1402.978149 1010.031250') },
 			[TEAM_CITIZEN] = {
 				Vector('3872.062500 -2499.649902 878.374512'),
 				Vector('3735.903320 -2490.605225 875.260071'),
@@ -933,38 +960,6 @@ rp.cfg.KombatPos = {
 }
 
 rp.cfg.VoiceCommands = {
-    [TEAMTYPE_CITIZEN] = {
-    	{ title = "Логично", text = "Логично", sound = "vo/npc/%s01/answer03.wav" },
-		{ title = "Не думай", text = "Не думай об этом", sound = "vo/npc/%s01/answer04.wav" },
-		{ title = "Понятно", text = "Понятно", sound = "vo/npc/%s01/answer07.wav" },
-		{ title = "Поговорим об", text = "Поговорим об этом позже", sound = "vo/npc/%s01/answer05.wav" },
-		{ title = "Не говори", text = "Не говори так громко", sound = "vo/npc/%s01/answer10.wav" },
-		{ title = "Зачем мне", text = "Зачем мне это говоришь?", sound = "vo/npc/%s01/answer24.wav" },
-		{ title = "Ну и", text = "Ну и ну", sound = "vo/npc/%s01/answer25.wav" },
-		{ title = "Упс", text = "Упс", sound = "vo/npc/%s01/whoops01.wav" },
-		{ title = "Извини", text = "Извини", sound = "vo/npc/%s01/sorry01.wav" },
-		{ title = "Простите", text = "Простите", sound = "vo/npc/%s01/pardonme02.wav" },
-		{ title = "Окей", text = "Окей", sound = "vo/npc/%s01/ok01.wav" },
-		{ title = "Отлично", text = "Отлично", sound = "vo/npc/%s01/nice.wav" },
-		{ title = "Потрясающе", text = "Потрясающе", sound = "vo/npc/%s01/fantastic01.wav" },
-		{ title = "Гражданская Оборона", text = "Гражданская Оборона!", sound = "vo/npc/%s01/cps01.wav" },
-		{ title = "Ты ко мне?", text = "Ты ко мне?", sound = "vo/npc/%s01/answer30.wav" },
-		{ title = "Даже думать", text = "Даже думать страшно", sound = "vo/npc/%s01/answer12.wav" },
-		{ title = "Подумай лучше", text = "Подумай лучше о работе", sound = "vo/npc/%s01/answer19.wav" },
-		{ title = "Не переживай", text = "Не переживай", sound = "vo/npc/%s01/answer36.wav" },
-		{ title = "Занят", text = "Занят", sound = "vo/npc/%s01/busy02.wav" },
-		{ title = "Привет", text = "Привет", sound = "vo/npc/%s01/hi01.wav" },
-        { title = "Ведите нас!",          text = "Ведите нас!",            sound = "vo/npc/%s01/leadtheway01.wav" },
-		{ title = "Вперед!",              text = "Вперед!",                sound = "vo/npc/%s01/letsgo01.wav" },
-		{ title = "Сюда!",                text = "Сюда!",                  sound = "vo/npc/%s01/overhere01.wav" },
-		{ title = "Кого нибудь ждем?",    text = "Кого нибудь ждем?",      sound = "vo/npc/%s01/waitingsomebody.wav" },
-		{ title = "Берегись!",            text = "Берегись!",              sound = "vo/npc/%s01/watchout.wav" },
-		{ title = "А вот и мы!",          text = "А вот и мы!",            sound = "vo/npc/%s01/watchout.wav" },
-		{ title = "Спасайся!",            text = "Спасайся!",              sound = "vo/npc/%s01/runforyourlife01.wav" },
-		{ title = "Мы готовы!",           text = "Мы готовы!",             sound = "vo/npc/%s01/readywhenyouare01.wav" },
-		{ title = "Туда!",                text = "Туда!",                  sound = "vo/npc/%s01/overthere01.wav" },
-		{ title = "Прикрой, перезаряжу!", text = "Прикрой, перезаряжу!",   sound = "vo/npc/%s01/coverwhilereload01.wav" },
-    },
 	[TEAMTYPE_COMBINE] = {
 		{ title = "0", text = "Ноль.", sound = "npc/metropolice/vo/zero.wav" },
 		{ title = "1", text = "Один.", sound = "npc/metropolice/vo/one.wav" },
@@ -1331,9 +1326,6 @@ rp.cfg.VoiceCommands = {
 	}
 }
 rp.cfg.VoiceCommands[TEAMTYPE_SUP] = rp.cfg.VoiceCommands[TEAMTYPE_COMBINE]
-rp.cfg.VoiceCommands[TEAMTYPE_CWU] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
-rp.cfg.VoiceCommands[TEAMTYPE_RABEL] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
-rp.cfg.VoiceCommands[TEAMTYPE_LOYAL] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
 
 rp.cfg.DefaultModels = {
 	['0'] = {
@@ -1506,4 +1498,3 @@ rp.cfg.DefaultModels = {
 		'models/tnb/citizens/female_68.mdl',
 	}
 }
-

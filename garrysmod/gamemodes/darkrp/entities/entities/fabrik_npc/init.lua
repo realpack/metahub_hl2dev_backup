@@ -11,7 +11,7 @@ function ENT:Initialize()
 	self:SetSequence( self:LookupSequence( "idle" ) )
 	self:SetUseType( SIMPLE_USE ) -- Makes the ENT.Use hook only get called once at every use.
 	-- self:DropToFloor()
-	self:SetModel('models/Characters/hostage_04.mdl')
+	self:SetModel('models/odessa.mdl')
 	self:SetMaxYawSpeed( 90 ) --Sets the angle by which an NPC can rotate at once.
 end
 

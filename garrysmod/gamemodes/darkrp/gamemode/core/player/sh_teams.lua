@@ -1,5 +1,4 @@
 function team.GetModel(t)
-    print(t)
 	if not t or t == 0 then t = 1 end
 	return (istable(rp.teams[t].model) and rp.teams[t].model[math.random(1, #rp.teams[t].model)] or rp.teams[t].model)
 end

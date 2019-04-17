@@ -1,3 +1,5 @@
+util.AddNetworkString('LostSignalCP')
+
 local time = CurTime()
 hook.Add( "PlayerTick", "keypress_use_hi", function( ply, key )
 	if time > CurTime() and ply:Team() ~= TEAM_STALKER then return end
@@ -32,9 +34,15 @@ timer.Create( 'TerminalRepair', .5, 0, function()
 end )
 
 timer.Create( 'TerminalBreaks', 120, 0, function()
-	for _, ent in pairs(ents.FindByClass('combine_terminal')) do
-		if math.random(1,10) % 10 == 1 then
-			ent:SetNetVar('TerminalBreak', true)
-		end
-	end
+    local enginers = 0
+    for _, t in pairs(rp.cfg.CanBrokenTerminal) do
+        enginers = enginers + team.NumPlayers(t)
+    end
+    if enginers == 0 then
+        for _, ent in pairs(ents.FindByClass('combine_terminal')) do
+            if math.random(1,10) % 10 == 1 then
+                ent:SetNetVar('TerminalBreak', true)
+            end
+        end
+    end
 end )

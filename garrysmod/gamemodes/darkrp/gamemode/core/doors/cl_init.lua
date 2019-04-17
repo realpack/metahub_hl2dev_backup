@@ -41,7 +41,7 @@ timer.Create('RefreshDoorCache', 0.4, 0, function()
 	end
 end)
 
-hook('PostDrawOpaqueRenderables', function()
+hook.Add('PostDrawOpaqueRenderables', 'Doors_PostDrawOpaqueRenderables', function()
 	for _, ent in ipairs(DoorCache) do
 		if IsValid(ent) then
 			count 		= 0
@@ -71,16 +71,16 @@ hook('PostDrawOpaqueRenderables', function()
 				end
 				-- Owner
 				if IsValid(owner) then
-					AddText({owner:GetJobColor(), owner:Name(), "font_base_84_normal"})
+					AddText({owner:GetJobColor(), owner:GetNetVar('Name'), "font_base_84_normal"})
 				end
 				-- Co-Owners
 				if (ent:DoorGetCoOwners() ~= nil) then
 					for k, co in ipairs(ent:DoorGetCoOwners()) do
 						if IsValid(co) then
-							AddText({co:GetJobColor(), co:Name()})
+							AddText({co:GetJobColor(), co:GetNetVar('Name')})
 						end
 						if (k >= 4) then
-							AddText({color_white,  'and ' .. (#ent:DoorGetCoOwners() - 4) .. ' co-owners.'})
+							AddText({color_white,  ' и ' .. (#ent:DoorGetCoOwners() - 4) .. ' совладельцы:'})
 							break
 						end
 					end

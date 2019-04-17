@@ -138,8 +138,8 @@ nw.Register 'PropIsOwned'
 	:SetNoSync()
 
 nw.Register 'PropGetOwner'
-	:Write(net.WriteBool)
-	:Read(net.ReadBool)
+	:Write(net.WriteEntity)
+	:Read(net.ReadEntity)
 	:Filter(function(self)
 		return self:CPPIGetOwner()
 	end)

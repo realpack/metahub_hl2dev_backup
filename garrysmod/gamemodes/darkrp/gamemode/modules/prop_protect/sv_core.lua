@@ -49,7 +49,7 @@ local can_dupe = {
 
 
 function rp.pp.PlayerCanTool(pl, ent, tool)
-    print(pl, ent, tool)
+    -- print(pl, ent, tool)
 	-- if pl:IsBanned() then
 	-- 	return false
 	-- end
@@ -158,6 +158,7 @@ function ENTITY:CPPISetOwner(pl)
 	self.pp_owner = pl
 	self:SetNetVar('PropIsOwned', true)
     self:SetNetVar('PropGetOwner', pl)
+    self:SetNWEntity('PropGetOwner', pl)
 end
 
 function ENTITY:CPPIGetOwner()

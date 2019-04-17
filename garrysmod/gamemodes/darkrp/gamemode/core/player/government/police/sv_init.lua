@@ -4,7 +4,7 @@ function AddLineTerminal(msg)
     local tbl = nw.GetGlobal('CPTerminal') or {}
     table.insert(tbl, msg)
     if #tbl >= 11 then
-        table.remove(tbl, 11)
+        table.remove(tbl, 1)
     end
 
     nw.SetGlobal('CPTerminal', tbl)

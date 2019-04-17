@@ -48,7 +48,7 @@ if CLIENT then
             if rankData then
                 draw_lines({
                     { text = rankData.name, color = rankData.color },
-                    { text = v:Name().." - "..v:SteamName(), color = color_white },
+                    { text = v:Name().." - "..(v:GetNetVar('Name') or v:SteamName()), color = color_white },
                     { text = job, color = IsDark(color) },
                     { text = health, color = Color(200,50,50) },
                     { text = armor, color = Color(50,50,200) },

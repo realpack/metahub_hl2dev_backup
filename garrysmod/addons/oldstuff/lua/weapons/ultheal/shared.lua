@@ -94,12 +94,3 @@ elseif self.Cd <= 30 then
 end
 
 end
-
-function SWEP:DrawHUD()	
-	draw.RoundedBoxEx(10,ScrW()/2-50, ScrH()/2+410, 100, 100, self.Colors, true,true,true,true)
-	surface.SetDrawColor( 255, 255, 255, 255 )
-	surface.SetMaterial(Material( "skilliconhealaura3.png" ))
-	surface.DrawTexturedRect( ScrW()/2-50, ScrH()/2+410, 100, 100 )
-	
-	draw.SimpleText( self.Whatwrite , "CloseCaption_Bold", ScrW()/2-2, ScrH()/2+460, Color(0, 0, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-end

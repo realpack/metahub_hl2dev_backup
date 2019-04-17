@@ -11,12 +11,13 @@ function ENT:DrawTranslucent()
 		Ang:RotateAroundAxis( Ang:Right(), 90)
 
 		-- print(self:GetNetVar('TerminalRepair'))
+        local status = self:GetNetVar('TerminalRepair')
 
 		cam.Start3D2D(self:GetPos()+self:GetUp()*60, Ang, 0.05)
 			render.PushFilterMin(TEXFILTER.ANISOTROPIC)
 				draw.SimpleTextOutlined( 'Терминал Альянса', "font_base_large", -3, 0, Color(173,236,168), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, 1, Color(0, 0, 0, 255))
-				if self:GetNetVar('TerminalBreak') then
-					draw.SimpleTextOutlined( 'Сломан ('..tostring(self:GetNetVar('TerminalRepair')..'%')..')', "font_base_54", -3, 100, rp.col.Red, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, 1, Color(0, 0, 0, 255))
+				if self:GetNetVar('TerminalBreak') and status then
+					draw.SimpleTextOutlined( 'Сломан ('..tostring(status..'%')..')', "font_base_54", -3, 100, rp.col.Red, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, 1, Color(0, 0, 0, 255))
 				else
 					draw.SimpleTextOutlined( 'Работает', "font_base_54", -3, 100, rp.col.Green, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, 1, Color(0, 0, 0, 255))
 				end

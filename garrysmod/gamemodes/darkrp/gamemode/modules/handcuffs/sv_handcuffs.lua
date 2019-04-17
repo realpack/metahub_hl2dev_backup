@@ -171,13 +171,22 @@ end)
 
 hook.Add( "KeyPress", "Handcuffs_KeyPress", function( player, key )
 	if not player then return end
-	if ( player:KeyDown( IN_USE ) and player:KeyDown( IN_ATTACK ) ) and player.GetPlayerKidnapper then
+  
+  if key ~= IN_USE then return end
+  
+  local walk=player:KeyDown(IN_WALK)
+  if not walk then return end
+
+
+	if player.GetPlayerKidnapper then
+  
 		local trace = player:GetEyeTrace()
 		local target = trace.Entity
 
 		local pos = trace.HitPos
 
 		if not target:IsWorld() then return end
+    player:ChatPrint('kek')
 		if pos:DistToSqr(player:GetPos()) > 23000 then return end
 		if not player.GetPlayerKidnapper then return end
 

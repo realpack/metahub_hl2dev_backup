@@ -269,11 +269,11 @@ rp.AddWeapon("Элитные Сигареты", "models/props_c17/tools_wrench01
 rp.AddWeapon("Заменитель Сигарет", "models/props_c17/tools_wrench01a.mdl", "weapon_ciga_blat", 50, 10, false, 900, false, {TEAM_R8})
 rp.AddWeapon("Взломщик", "models/props_c17/tools_wrench01a.mdl", "lockpick", 7500, 10, false, 550, false, {TEAM_R8})
 rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt", TEAM_R8, false)
-rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool", TEAM_R8, false)
+rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool35", TEAM_R8, false)
 rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt", TEAM_CITIZEN2, false)
-rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool", TEAM_CITIZEN2, false)
+rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool6546", TEAM_CITIZEN2, false)
 rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt", TEAM_CITIZEN3, false)
-rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool", TEAM_CITIZEN3, false)
+rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool234", TEAM_CITIZEN3, false)
 ---
 -- rp.AddWeapon("Взлом Барьера", "models/props_c17/tools_wrench01a.mdl", "weapon_shieldsbreaker", 200, 10, true, 900, false, {TEAM_CWU2})
 -- rp.AddWeapon("Элитные Сигареты", "models/props_c17/tools_wrench01a.mdl", "weapon_ciga_cheap", 50, 10, false, 900, false, {TEAM_CWU2})
@@ -294,12 +294,12 @@ rp.AddEntity("Сульфур", "eml_sulfur", "models/props_junk/garbage_milkcart
 rp.AddEntity("Соляная Кислота", "eml_macid", "models/props_junk/garbage_milkcarton001a.mdl", 40, 4, "/buymet14", TEAM_METH, true)
 
 -- Black Market Dealer
-rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt27", TEAM_TRADE, false)
-rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool122", TEAM_TRADE, false)
-rp.AddEntity("Гитара", "guitar_stalker", "models/props_junk/PropaneCanister001a.mdl", 250, 10, "/buycool122", TEAM_TRADE, false)
-rp.AddEntity("Сигарета", "weapon_ciga_pachka", "models/props_junk/PropaneCanister001a.mdl", 150, 10, "/buycool123", TEAM_TRADE, false)
-rp.AddEntity("Отмычка", "lockpick", "models/props_junk/PropaneCanister001a.mdl", 450, 10, "/buycool124", TEAM_TRADE, false)
-rp.AddEntity("Взлом Щитов", "weapon_shieldsbreaker", "models/props_junk/PropaneCanister001a.mdl", 500, 10, "/buycool125", TEAM_TRADE, false)
+rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt26786787", TEAM_TRADE, false)
+rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool16787223", TEAM_TRADE, false)
+rp.AddEntity("Гитара", "guitar_stalker", "models/props_junk/PropaneCanister001a.mdl", 250, 10, "/buycool12278678", TEAM_TRADE, false)
+rp.AddEntity("Сигарета", "weapon_ciga_pachka", "models/props_junk/PropaneCanister001a.mdl", 150, 10, "/buycool12367867", TEAM_TRADE, false)
+rp.AddEntity("Отмычка", "lockpick", "models/props_junk/PropaneCanister001a.mdl", 450, 10, "/buycool12678674", TEAM_TRADE, false)
+rp.AddEntity("Взлом Щитов", "weapon_shieldsbreaker", "models/props_junk/PropaneCanister001a.mdl", 500, 10, "/buycool16786725", TEAM_TRADE, false)
 
 -- Bartender
 -- rp.AddShipment("Beer", "models/drug_mod/alcohol_can.mdl", "durgz_alcohol", 500, 12, false, 50, false, {TEAM_BARTENDER})

@@ -7,9 +7,10 @@ end )
 
 maplist = {}
 
--- resource.AddWorkshop( "927742964" )
--- resource.AddWorkshop( "841802655" )
--- resource.AddWorkshop( "1713531465" )
+resource.AddWorkshop( "1715080094" )
+resource.AddWorkshop( "1715088389" )
+resource.AddWorkshop( "1624787752" )
+resource.AddWorkshop( "1418478031" )
 
 -- maplist["rp_lusankya_metahub_v1"] = "1613799094"
 maplist["rp_city24_v2"] = "1542655022"

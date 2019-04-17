@@ -368,7 +368,7 @@ function CITYWORKER.Initialize()
 
     -- Checking to see if there are any free city workers, and if there are, give them jobs.
     timer.Create( "CITYWORKER.Timer", CITYWORKER.Config.Time, 0, function()
-        print('---')
+        -- print('---')
         for _, ply in pairs( team.GetPlayers( TEAM_CITYWORKER ) ) do
             print(ply)
             if not ply.CW_job then

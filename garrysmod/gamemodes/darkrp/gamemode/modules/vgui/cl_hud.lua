@@ -92,7 +92,7 @@ function PLAYER:CanSeeEnt(ent)
 end
 
 hook.Add('HUDPaint', 'vgui_HUDPaint', function()
-    draw.ShadowSimpleText('Баги в #баг-тред-hl2 / Discord: https://discord.gg/kSCECHP', "font_base_18", ScrW()/2, 10, Color(255, 148, 0), TEXT_ALIGN_CENTER)
+    draw.ShadowSimpleText('MetaHub.ru / Discord: https://discord.gg/gxmHRSB', "font_base_18", ScrW()/2, 10, Color(255, 148, 0), TEXT_ALIGN_CENTER)
 
     do -- gradient
     	local col = Color(0,0,0,90)
@@ -271,16 +271,25 @@ hook.Add('HUDPaint', 'vgui_HUDPaint', function()
     end
 
     do -- laws
-        if not show_laws:GetBool() then return end
+        if show_laws:GetBool() then
+            local x = scr_w - laws_box_wide - 10
+            local text 	= string.Wrap('font_base_18', (nw.GetGlobal('TheLaws') or rp.cfg.DefaultLaws), laws_box_wide - 6)
 
-        local x = scr_w - laws_box_wide - 10
-        local text 	= string.Wrap('font_base_18', (nw.GetGlobal('TheLaws') or rp.cfg.DefaultLaws), laws_box_wide - 6)
+            draw.RoundedBox(0, x, 17, laws_box_wide, 34 + (#text * 18), Color(0,0,0,90))
+            draw.ShadowSimpleText('(F7 - Закрыть правила)', 'font_base_18', scr_w - laws_box_wide, 20, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_RIGHT)
 
-        draw.RoundedBox(0, x, 17, laws_box_wide, 34 + (#text * 18), Color(0,0,0,90))
-        draw.ShadowSimpleText('(F7 - Закрыть правила)', 'font_base_18', scr_w - laws_box_wide, 20, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_RIGHT)
+            for k, v in ipairs(text) do
+                draw.ShadowSimpleText(v, 'font_base_18', scr_w - laws_box_wide, 34 + (k * 18), color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+            end
+        end
+    end
 
-        for k, v in ipairs(text) do
-            draw.ShadowSimpleText(v, 'font_base_18', scr_w - laws_box_wide, 34 + (k * 18), color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+    do -- prop_protect
+        local trace = LocalPlayer():GetEyeTrace()
+        local target = trace.Entity
+        local owner = target:GetNWEntity('PropGetOwner')
+        if target and IsValid(target) and owner and IsValid(owner) and LocalPlayer():GetActiveWeapon():GetClass() == 'weapon_physgun' then
+            draw.ShadowSimpleText(owner:Name(), 'font_base_small', 10, ScrH()*.5, team.GetColor(owner:Team()), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
         end
     end
 end)

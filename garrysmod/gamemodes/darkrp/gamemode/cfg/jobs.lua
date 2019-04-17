@@ -39,7 +39,7 @@ local citizens = {
 
 local ind_models = {
 	"models/industrial_uniforms/pm_industrial_uniform.mdl",
-    "models/industrial_uniforms/pm_industrial_uniform2.mdl",
+	"models/industrial_uniforms/pm_industrial_uniform2.mdl",
 }
 
 local loyal_models = {
@@ -75,7 +75,7 @@ TEAM_CITIZEN = rp.addTeam('Недавно Прибывший', {
 	candemote = false,
 })
 
-TEAM_CITIZEN24 = rp.addTeam('Гражданини Сити 18', {
+TEAM_CITIZEN24 = rp.addTeam('Гражданин Сити 18', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -220,7 +220,7 @@ TEAM_R5 = rp.addTeam('Специалист', {
 
 TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
 	color = Color(102,153,102),
-	model = "models/hgrunt2.mdl",
+	model = "models/player/bms_marine.mdl",
 	description = [[
 Человек попавший в это время прямиком из черной мезы, неизвестно как и зачем, но известно одно - Он решил объеденится с сопротивлением и дать отпор Альянсу!
 ]],
@@ -627,7 +627,7 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 
 TEAM_S2 = rp.addTeam("HEAVY", {
 	color = Color(51, 89, 160, 200),
-	model = "models/tnb/combine/combine_dvl.mdl",
+	model = "models/player/hl2_elitmalecp11.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Тяжелый юнит специального отделения ГО, оснащенный тяжелейшей броней и вооружением.]],
 	weapons = {""},
@@ -637,8 +637,17 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 	needteam = 's2',
 	max = 3,
 	mask_group = 1,
+	mask_type = 'metropolice_red',
 	PlayerLoadout = function(ply)
-		ply:SetBodygroup(1, 0)
+		ply:SetBodygroup(1, 3)
+		ply:SetBodygroup(2, 1)
+		ply:SetBodygroup(3, 1)
+		ply:SetBodygroup(4, 1)
+		ply:SetBodygroup(5, 1)
+		ply:SetBodygroup(6, 1)
+		ply:SetBodygroup(7, 1)
+    ply:SetBodygroup(8,1)
+		ply:SetSkin(3)
 	end,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
@@ -661,6 +670,7 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
 		ply:SetBodygroup(3, 1)
 		ply:SetBodygroup(4, 1)
 		ply:SetBodygroup(6, 1)
+    ply:SetBodygroup(8,1)
 		ply:SetSkin(1)
 	end,
 	needbuy = true,
@@ -1025,6 +1035,7 @@ TEAM_SYNTH3 = rp.addTeam("X3", {
 	crateWeapon = {},
 	command = "synth3",
 	max = 2,
+	mask_group = 1,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(500) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
@@ -1158,6 +1169,7 @@ TEAM_CITIZEN4 = rp.addTeam("Администратор Сити 18", {
 	command = "citizen5",
 	needteam = 'citizen4',
 	max = 1,
+	mayor = true,
 	radio = "cpu",
 	mask_group = 1,
 	needbuy = true,
@@ -1250,7 +1262,7 @@ TEAM_HERO1 = rp.addTeam("Марио", {
 	model = "models/tnb/citizens/male_67.mdl",
 	type = TEAMTYPE_CITIZEN,
 	description = mario_desc,
-	weapons = {"swb_ak47", "lockpick", "swb_knife", "takemoney"},
+	weapons = {"swb_ak47", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker"},
 	command = "mario",
 	max = 1,
 	needbuy = true,
@@ -1265,9 +1277,15 @@ TEAM_HERO2 = rp.addTeam("Ева", {
 	color = Color(155, 89, 182, 200),
 	model = "models/tnb/citizens/female_15.mdl",
 	description = eva_desc,
-	weapons = {"swb_mp5", "lockpick", "swb_knife"},
+	weapons = {"swb_mp5", "lockpick", "swb_knife", "id_loyal_l3", "weapon_shieldsbreaker"},
 	command = "eva",
 	type = TEAMTYPE_CITIZEN,
+	PlayerLoadout = function(ply)
+		ply:SetBodygroup(1, 4)
+		ply:SetBodygroup(2, 1)
+		ply:SetBodygroup(3, 1)
+		ply:SetBodygroup(4, 0)
+	end,
 	max = 1,
 	radio = "rebel",
 	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(300) end,
@@ -1280,7 +1298,7 @@ TEAM_HERO3 = rp.addTeam("Одноглазый", {
 	color = Color(41, 128, 185, 200),
 	model = "models/tnb/citizens/male_29.mdl",
 	description = oneeye_desc,
-	weapons = {"swb_deagle"},
+	weapons = {"swb_deagle", "lockpick", "swb_knife", "id_citizen"},
 	command = "oneeye",
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
@@ -1303,7 +1321,7 @@ TEAM_HERO4 = rp.addTeam("Синеглазый", {
 	color = Color(112, 161, 200, 200),
 	model = "models/tnb/citizens/male_19.mdl",
 	description = blueeyes_desc,
-	weapons = {"swb_tmp", "swb_usp"},
+	weapons = {"swb_tmp", "swb_usp", "id_citizen"},
 	command = "blueeyes",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1327,7 +1345,7 @@ TEAM_HERO5 = rp.addTeam("Майор Овербек", {
 	color = Color(0, 148, 50, 200),
 	model = "models/tnb/citizens/male_75.mdl",
 	description = major_desc,
-	weapons = {"swb_m4a1"},
+	weapons = {"swb_m4a1", "id_citizen", "swb_deagle"},
 	command = "major",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1351,7 +1369,7 @@ TEAM_HERO6 = rp.addTeam("Штаб-сержант МакТавиш", {
 	color = Color(211, 84, 0, 200),
 	model = "models/tnb/citizens/male_24.mdl",
 	description = mac_desc,
-	weapons = {"swb_m3super90"},
+	weapons = {"swb_m3super90", "id_citizen", "swb_deagle"},
 	command = "mactavish",
 	max = 1,
 	PlayerLoadout = function(ply)
@@ -1377,7 +1395,7 @@ TEAM_HERO7 = rp.addTeam("Мария", {
 	color = Color(255, 195, 18, 200),
 	model = "models/tnb/citizens/female_53.mdl",
 	description = maria_desc,
-	weapons = {"swb_mp5", "swb_mac10", "med_kit"},
+	weapons = {"swb_mp5", "swb_mac10", "med_kit", "id_citizen"},
 	command = "maria",
 	max = 1,
 	PlayerLoadout = function(ply)
@@ -1400,7 +1418,7 @@ TEAM_HERO8 = rp.addTeam("Неизвестный", {
 	color = Color(52, 73, 94, 200),
 	model = "models/tnb/citizens/male_miller.mdl",
 	description = unkn_desc,
-	weapons = {"swb_ar2"},
+	weapons = {"swb_ar2", "id_citizen"},
 	command = "unknown",
 	max = 1,
 	needbuy = true,
@@ -1425,7 +1443,7 @@ TEAM_HERO9 = rp.addTeam("Дрейк", {
 	color = Color(18, 203, 196, 200),
 	model = "models/tnb/citizens/male_88.mdl",
 	description = drake_desc,
-	weapons = {"swb_galil", "lockpick"},
+	weapons = {"swb_galil", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker"},
 	command = "drake",
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
@@ -1440,7 +1458,7 @@ TEAM_HERO10 = rp.addTeam("Валерия", {
 	color = Color(255, 71, 87, 200),
 	model = "models/tnb/citizens/female_28.mdl",
 	description = valeria_desc,
-	weapons = {"swb_mp5", "swb_usp"},
+	weapons = {"swb_mp5", "swb_usp", "id_citizen"},
 	command = "valeria",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1566,7 +1584,7 @@ TEAM_CWU3 = rp.addTeam("ГСР Уборщик", {
 TEAM_CWU4 = rp.addTeam("Надзиратель", {
 	color = Color(0, 156, 204),
 	type = TEAMTYPE_COMBINE,
-	model = "models/tnb/combine/metrocop.mdl",
+	model = "models/player/Police.mdl",
 	description = [[Специальный юнит отдела гражданской обороны СИТИ 18 следящий за сотрудниками ГСР]],
 	weapons = {"id_cwu", "stun_baton", "swb_pistol"},
 	command = "cwu5",
@@ -1591,6 +1609,8 @@ end
 -- loadstring('print(1)')
 -- PrintTable(cps)
 rp.AddDoorGroup('Гражданская Оборона', cps)
+rp.AddDoorGroup('Повстанческое движение', {TEAM_R1, TEAM_R2, TEAM_R3, TEAM_R4, TEAM_R5, TEAM_R6, TEAM_R7, TEAM_R8, TEAM_ALTER, TEAM_STATICREBEL})
+rp.AddDoorGroup('Гражданский Союз Рабочих', {TEAM_CWUWORK1, TEAM_CWUVORT2, TEAM_CITYWORKER, TEAM_CWU1, TEAM_CWU3, TEAM_CWU4})
 -- -- Agenda
 -- rp.AddAgenda('Mob Agenda', TEAM_MOBBOSS, {TEAM_GANGSTER})
 -- rp.AddAgenda('Police Agenda', TEAM_CHIEF, {TEAM_SWAT, TEAM_SWATLEAD, TEAM_POLICE})
@@ -1626,7 +1646,7 @@ rp.HitmanTeam = TEAM_HITMAN
 rp.cfg.NPCs = {
 	['rp_c18_updated'] = {
 		['reg_npc'] = {
-            title = 'Регистрация в Сити 18',
+			title = 'Регистрация в Сити 18',
 			color = Color(255,255,255,255),
 			pos = Vector('677.613220 -2817.400635 722.031250'),
 			Ang = Angle('4.898315 -0.029352 0.000000'),
@@ -1637,7 +1657,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['crime_npc'] = {
-            title = 'Криминальный Авторитет',
+			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),
 			pos = Vector('-499.215698 3823.459473 910.031250'),
 			Ang = Angle('4.562819 -126.236130 0.000000'),
@@ -1653,7 +1673,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['cwu_npc'] = {
-            title = 'ГСР',
+			title = 'ГСР',
 			color = Color(255,255,255,255),
 			pos = Vector('4900.031250 700.009216 1010.031250'),
 			Ang = Angle('1.677497 179.471313 0.000000'),
@@ -1669,7 +1689,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['loyal_npc'] = {
-            title = 'Центр Лояльности',
+			title = 'Центр Лояльности',
 			color = Color(255,255,255,255),
 			pos = Vector('-711.189819 -1263.968750 706.031250'),
 			Ang = Angle('6.240301 -88.065125 0.000000'),
@@ -1682,7 +1702,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['rebel_npc'] = {
-            title = 'Повстанческое Движение',
+			title = 'Повстанческое Движение',
 			color = Color(255,255,255,255),
 			pos = Vector('997.177368 4563.531738 636.031250'),
 			Ang = Angle('3.220815 -122.613106 0.000000'),
@@ -1700,7 +1720,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		 ['synth_npc'] = {
-             title = 'Синтетический Отдел',
+			 title = 'Синтетический Отдел',
 			 color = Color(255,255,255,255),
 			pos = Vector('1660.671997 158.998627 1476.031250'),
 			ang = Angle('0.092631 89.959465 0.000000'),
@@ -1715,7 +1735,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['cpu_npc'] = {
-            title = 'CPU.RCT.3322',
+			title = 'CPU.RCT.3322',
 			color = Color(255,255,255,255),
 			pos = Vector('2493.968750 689.537109 962.031250'),
 			ang = Angle('1.367537 0.842179 0.000000'),
@@ -1732,7 +1752,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['scpu_npc'] = {
-            title = 'SCPU.SHIELD.3223',
+			title = 'SCPU.SHIELD.3223',
 			color = Color(255,255,255,255),
 			pos = Vector('1964.102051 399.992615 962.031250'),
 			ang = Angle('1.568820 -36.935345 0.000000'),
@@ -1751,7 +1771,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['sup_npc'] = {
-            title = 'SUP.NOVA.2332',
+			title = 'SUP.NOVA.2332',
 			color = Color(255,255,255,255),
 			pos = Vector('2395.893555 584.898804 1476.031250'),
 			ang = Angle('2.306914 -88.946381 0.000000'),
@@ -1768,7 +1788,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['fake_npc'] = {
-            title = 'C#U.#5.43#7',
+			title = 'C#U.#5.43#7',
 			color = Color(255,255,255,255),
 			pos = Vector('1235.167480 4765.824707 636.031250'),
 			ang = Angle('3.112095 -165.431976 0.000000'),
@@ -1779,7 +1799,7 @@ rp.cfg.NPCs = {
 			}
 		},
 		['hero_npc'] = {
-            title = 'Барни Калхаун',
+			title = 'Барни Калхаун',
 			color = Color(255,255,255,255),
 			pos = Vector('1053.456177 4116.964844 606.031250'),
 			ang = Angle('1.166204 89.489426 0.000000'),
@@ -1815,7 +1835,7 @@ if SERVER then
 
 					-- PrintTable(data.jobs)
 					ent.jobs = data.jobs
-                    ent:SetTitle(data.title)
+					ent:SetTitle(data.title)
 					-- ent:SetTitleColor(table.ToString(data.title))
 				end
 			end

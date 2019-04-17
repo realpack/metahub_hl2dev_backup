@@ -8,7 +8,7 @@ Tasks.Config.SQL = {
 
 //Discord
 Tasks.Config.DiscordClientSecret = "PB8ER5qKh2hANu9kLGSNoL4cw_gAEDHj" // secret of your discord application
-Tasks.Config.BotToken = "NTIxNTkzMDIwNTcxNzEzNTQ2.Du-srQ.0yzSsXlabq3oHUvIBnecqJ_IcWo" // bot token of your discord application
+Tasks.Config.BotToken = "NTIxNTkzMDIwNTcxNzEzNTQ2.XLX36A.EMfvIR-S6Pd0cGB0ZEbrRA4SWFQ" // bot token of your discord application
 Tasks.Config.DiscordRedirectURI = "https://bxdroidcommando.xyz" // redirect url of your discord application
 
 // steam group reward

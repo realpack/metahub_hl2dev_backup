@@ -2,7 +2,7 @@
 local var = nw.Register 'MyVar' 	-- You MUST call this ALL shared
 	var:Write(net.WriteUInt, 32) 	-- Write function
 	var:Read(net.ReadUInt, 32) 		-- Read function
-	var:SetPlayer() 				-- Registers the var for use on players 
+	var:SetPlayer() 				-- Registers the var for use on players
 	var:SetLocalPlayer() 			-- Optionally set the var to only network to the player its set on, no need to call SetPlayer with this
 	var:SetGlobal() 				-- Registers the var for use with nw.SetGlobal
 	var:SetNoSync() 				-- Stops the var from syncing to new players, SetLocalPlayer does this for you.
@@ -84,7 +84,7 @@ function nw.Register(var, info) -- You must always call this on both the client 
 	else
 		net.Receive(t.NetworkString, function()
 			local index, value = t:_Read()
-			
+
 			if (not data[index]) then
 				data[index] = {}
 			end
@@ -246,9 +246,19 @@ if (SERVER) then
 			for index, _vars in pairs(data) do
 				for var, value in pairs(_vars) do
 					local ent = Entity(index)
-					if (not vars[var].LocalPlayerVar and not vars[var].NoSync) or (ent == pl) then
-						vars[var]:_Send(ent, value, pl)
-					end
+					-- if (not vars[var].LocalPlayerVar and not vars[var].NoSync) or (ent == pl) then
+					-- 	vars[var]:_Send(ent, value, pl)
+					-- end
+                    local kk = false
+                    if not vars[var].LocalPlayerVar then
+                        if not vars[var].NoSync then
+                            vars[var]:_Send(ent, value, pl)
+                            kk = true
+                        end
+                    end
+                    if kk and ent == pl then
+                        vars[var]:_Send(ent, value, pl)
+                    end
 				end
 			end
 
@@ -273,7 +283,7 @@ if (SERVER) then
 					net_WriteUInt(index, 12)
 				net_Broadcast()
 			end
-			
+
 			data[index] = nil
 		end
 	end)
@@ -309,7 +319,7 @@ if (SERVER) then
 		end
 
 		data[index][var] = value
-		
+
 		if (value ~= nil) then
 			vars[var]:_Send(self, value)
 		else
