@@ -207,17 +207,17 @@ btShield.shieldInfo = {
 
 
 
-hook.Add("PostGamemodeLoaded", "darkRP_GOGOGO!", function()
-	if (DarkRP) then
-		DarkRP.createShipment("riotShield", {
-			model = "models/arleitiss/riotshield/shield.mdl",
-			entity = "weapon_riotshield",
-			price = 500,
-			amount = 10,
-			separate = false,
-			pricesep = 200,
-			noship = false,
-			allowed = {TEAM_GUN}
-		})
-	end
-end)
+-- hook.Add("PostGamemodeLoaded", "darkRP_GOGOGO!", function()
+-- 	if (DarkRP) then
+-- 		-- DarkRP.createShipment("riotShield", {
+-- 		-- 	model = "models/arleitiss/riotshield/shield.mdl",
+-- 		-- 	entity = "weapon_riotshield",
+-- 		-- 	price = 500,
+-- 		-- 	amount = 10,
+-- 		-- 	separate = false,
+-- 		-- 	pricesep = 200,
+-- 		-- 	noship = false,
+-- 		-- 	allowed = {TEAM_GUN}
+-- 		-- })
+-- 	end
+-- end)

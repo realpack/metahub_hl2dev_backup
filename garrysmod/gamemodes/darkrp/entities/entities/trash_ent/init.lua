@@ -75,7 +75,7 @@ function ENT:SpawnTrash()
     local PosSpawn = self:GetPos()
 	local AnglesSpawn = self:GetAngles()
 
-	local Limit = 8
+	local Limit = rp.cfg.InvLimit
 
 	local p = self.cur_user:GetInv()
 	if (table.Count(p) >= Limit) then

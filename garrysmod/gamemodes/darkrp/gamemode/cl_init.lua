@@ -44,3 +44,5 @@ function GM:PlayerBindPress(ply, bind, pressed)
 	end
 	return
 end
+
+concommand.Remove('act')

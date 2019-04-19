@@ -105,9 +105,11 @@ hook.Add('PostDrawOpaqueRenderables', 'Doors_PostDrawOpaqueRenderables', functio
 						-- local _, th = draw_SimpleTextOutlined(v[2], '3d2d', 0, h, v[1], 1, 1, 3, color_black)
                         local font = v[3] or "3d2d"
                         surface.SetFont(font)
-                        local _, th = surface.GetTextSize(v[2])
-                        draw.ShadowSimpleText(v[2], font, 0, h, v[1], 1, 0)
-						h = h + th + 10
+                        if v[2] then
+                            local _, th = surface.GetTextSize(v[2])
+                            draw.ShadowSimpleText(v[2], font, 0, h, v[1], 1, 0)
+                            h = h + th + 10
+                        end
 					end
 				cam_End3D2D()
 			end

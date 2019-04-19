@@ -164,9 +164,14 @@ local function OpenPDAMenu()
                 db = true
             end
 
-            local layot_players =  vgui.Create( "DListLayout", em )
+            local scroll = vgui.Create('DScrollPanel',em)
+            scroll:SetPos(0,24)
+            scroll:SetSize( em:GetWide(), em:GetTall() )
+            -- scroll:Dock( FILL )
+
+            local layot_players =  vgui.Create( "DListLayout", scroll )
             layot_players:SetSize( 300, em:GetTall() )
-            layot_players:SetPos( 0, 24 )
+            layot_players:SetPos( 0, 0 )
             em:SetZPos( 32768 )
 
             local loyal_types = rp.cfg.LoyalTypes
@@ -284,9 +289,14 @@ local function OpenPDAMenu()
 
     CreateNewIcon('Розыск', Material('icon16/application_form_edit.png'), function( self )
         local em = OpenNewPanel( 200, 80, 460, 600, 'Розыск' )
-        local layot_players =  vgui.Create( "DListLayout", em )
+
+        local scroll = vgui.Create('DScrollPanel',em)
+        scroll:SetPos(0,24)
+        scroll:SetSize( em:GetWide(), em:GetTall() )
+
+        local layot_players =  vgui.Create( "DListLayout", scroll )
         layot_players:SetSize( em:GetWide(), em:GetTall() )
-        layot_players:SetPos( 0, 24 )
+        layot_players:SetPos( 0, 0 )
         em:SetZPos( 32768 )
 
         for k, pl in pairs(player.GetAll()) do
@@ -349,9 +359,15 @@ local function OpenPDAMenu()
 	if rp.cfg.CanManageStalker[LocalPlayer():Team()] then
 		CreateNewIcon('Персонал', Material('icon16/user_gray.png'), function( self )
 			local em = OpenNewPanel( 200, 80, 460, 600, 'Персонал' )
-			local layot_players =  vgui.Create( "DListLayout", em )
+
+            local scroll = vgui.Create('DScrollPanel',em)
+            scroll:SetPos(0,24)
+            scroll:SetSize( em:GetWide(), em:GetTall() )
+
+
+			local layot_players =  vgui.Create( "DListLayout", scroll )
 			layot_players:SetSize( em:GetWide(), em:GetTall() )
-			layot_players:SetPos( 0, 24 )
+			layot_players:SetPos( 0, 0 )
 			em:SetZPos( 32768 )
 
 			for k, pl in pairs(player.GetAll()) do
@@ -385,9 +401,15 @@ local function OpenPDAMenu()
 
     CreateNewIcon('Силовые щиты', Material('icon16/shield.png'), function( self )
         local em = OpenNewPanel( 200, 80, 460, 600, 'Силовые щиты' )
-        local layot_shields =  vgui.Create( "DListLayout", em )
+
+        local scroll = vgui.Create('DScrollPanel',em)
+        scroll:SetPos(0,24)
+        scroll:SetSize( em:GetWide(), em:GetTall() )
+
+
+        local layot_shields =  vgui.Create( "DListLayout", scroll )
         layot_shields:SetSize( em:GetWide(), 24 )
-        layot_shields:SetPos( 0, 24 )
+        layot_shields:SetPos( 0, 0 )
         em:SetZPos( 32768 )
 
         for k, ent in pairs(ents.FindByClass('forcefield')) do

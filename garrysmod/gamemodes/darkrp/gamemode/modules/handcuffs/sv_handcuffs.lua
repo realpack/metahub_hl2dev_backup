@@ -186,7 +186,7 @@ hook.Add( "KeyPress", "Handcuffs_KeyPress", function( player, key )
 		local pos = trace.HitPos
 
 		if not target:IsWorld() then return end
-    player:ChatPrint('kek')
+
 		if pos:DistToSqr(player:GetPos()) > 23000 then return end
 		if not player.GetPlayerKidnapper then return end
 

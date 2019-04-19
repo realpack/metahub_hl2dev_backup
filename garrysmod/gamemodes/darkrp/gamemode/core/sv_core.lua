@@ -272,6 +272,7 @@ function GM:PlayerDeath(ply, weapon, killer)
         net.Send(player.GetAll())
 
         AddLineTerminal(string.format( 'Биосигнал потерян %s.', ply:Name() ))
+        CreateMark( ply, ply:GetPos(), ply:Name(), 'Биосигнал потерян', 'icon16/cross.png', 25 )
     end
 end
 

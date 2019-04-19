@@ -102,25 +102,25 @@ player_manager.RegisterClass('rp_player', {
 		end
 	end,
 
-	TauntCam = TauntCamera(),
+	-- TauntCam = TauntCamera(),
 
-	CalcView = function(self, view)
-		if (self.TauntCam:CalcView(view, self.Player, self.Player:IsPlayingTaunt())) then
-			return true
-		end
-	end,
+	-- CalcView = function(self, view)
+	-- 	-- if (self.TauntCam:CalcView(view, self.Player, self.Player:IsPlayingTaunt())) then
+	-- 	-- 	return true
+	-- 	-- end
+	-- end,
 
-	CreateMove = function(self, cmd)
-		if (self.TauntCam:CreateMove(cmd, self.Player, self.Player:IsPlayingTaunt())) then
-			return true
-		end
-	end,
+	-- CreateMove = function(self, cmd)
+	-- 	-- if (self.TauntCam:CreateMove(cmd, self.Player, self.Player:IsPlayingTaunt())) then
+	-- 	-- 	return true
+	-- 	-- end
+	-- end,
 
-	ShouldDrawLocal = function(self)
-		if (self.TauntCam:ShouldDrawLocalPlayer(self.Player, self.Player:IsPlayingTaunt())) then
-			return true
-		end
-	end,
+	-- ShouldDrawLocal = function(self)
+	-- 	-- if (self.TauntCam:ShouldDrawLocalPlayer(self.Player, self.Player:IsPlayingTaunt())) then
+	-- 	-- 	return true
+	-- 	-- end
+	-- end,
 
 	JumpPower = 300,
 	DuckSpeed = 0.5,

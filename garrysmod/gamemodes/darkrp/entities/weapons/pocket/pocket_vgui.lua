@@ -95,7 +95,7 @@ function PANEL:LayoutIcons()
         -- local x, y = x + math.sin( a ) * radius, y + math.cos( a ) * radius
 
         x = ScrW()* 0.5 - v:GetWide()*.5
-        y = ScrH()* 0.5 - k*(v:GetTall()+2)
+        y = ScrH()* 0.8 - k*(v:GetTall()+2)
 
         v:SetPos(x, y);
         -- v:SetSize(iconSize,iconSize)
@@ -135,7 +135,7 @@ function PANEL:Paint(w, h)
     draw.Blur(self)
     draw.RoundedBox(0,0,0,w,h,Color(52, 73, 94, self.Alpha * 200))
 
-    draw.SimpleText('У вас '..#self.Icons..' вещей из '..tostring(8)..' доступных', "font_base_18", w*.5, h*.5 +20, color_white, 1, 1)
+    draw.SimpleText('У вас '..#self.Icons..' вещей из '..tostring(8)..' доступных', "font_base_18", w*.5, h*.8 +20, color_white, 1, 1)
 end
 
 function PANEL:PaintOver(w, h)
@@ -159,7 +159,7 @@ function ITEM:Init()
 end
 
 function ITEM:SetItem(itemData, itemKey)
-    if itemKey then 
+    if itemKey then
       self.ID = itemKey
     else
       self.ID = itemData.ID;

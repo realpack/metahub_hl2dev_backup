@@ -75,7 +75,10 @@ local t = {
 		poke = 		ACT_HL2MP_GESTURE_RANGE_ATTACK_SLAM,
 }
 
-concommand.Add('act2', function(pl, cmd, args)
+concommand.Remove('act')
+concommand.Remove('act2')
+concommand.Add('act', function(pl, cmd, args)
+    print(pl,'act')
 	if t[args[1]] then
 		pl:DoAnimationEvent(t[args[1]])
 	end

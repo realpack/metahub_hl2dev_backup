@@ -44,7 +44,7 @@ local function OpenContextMenu()
             gui.OpenURL( 'https://steamcommunity.com/workshop/filedetails/?id=1554992606' )
         end, icon = Material('icon16/link.png') },
         { text = 'Дискорд Сервера', func = function( self )
-            gui.OpenURL( 'https://discordapp.com/invite/zsaRYv6' )
+            gui.OpenURL( 'https://discord.gg/DRrZCdr' )
         end, icon = Material('icon16/link.png') },
         { text = 'Основные правила', func = function( self )
             gui.OpenURL( 'https://docs.google.com/document/d/1igeD8p3n_ebRnpMgcD6qMbkQBR5K6zpFkoTc3ctKQBY/preview' )

@@ -25,7 +25,7 @@ function GmLogger.PostMessageInDiscord(strMessage)
             ["X-Auth-Token"] = "a9sdv80masdm093f2",
             ["Content-Type"] = "application/json",
             ["Content-Length"] = string.len(json_post) or "0",
-            ["Webhook-URL"] = "https://discordapp.com/api/webhooks/516234289176903684/SiwAjSJlquEuyb1ebjX43xDRGoxKsxLFFq3TyWnjigPHQnZ4b72yFUZjq0CQ7pFJidq-"
+            ["Webhook-URL"] = "https://discordapp.com/api/webhooks/568211274647994368/28gVsynuoP5gZp-roW6oVh7VVDnEx_8RqZcPlWypZYBKVcqeWGH0FRgiWXAOFrHEMEM-"
         },
         ['success'] = function(c,b) print(c,b) end,
         ["body"] = json_post

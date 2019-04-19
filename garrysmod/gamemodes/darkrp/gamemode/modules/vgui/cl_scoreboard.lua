@@ -1,5 +1,11 @@
 local HeightLine = 26
 
+if MainPanel and IsValid(MainPanel) then
+    MainPanel:Remove()
+end
+if Main and IsValid(Main) then
+    Main:Remove()
+end
 
 local mat_wrench = Material('icons/wrench.png', 'noclamp smooth')
 local mat_star = Material('icons/star.png', 'noclamp smooth')
@@ -36,7 +42,8 @@ end
 team.SetColor( 0, Color(131,138,142) )
 team.SetColor( 1001, Color(131,138,142) )
 
-local MainPanel, Main
+local MainPanel = MainPanel or nil
+local Main = Main or nil
 local alpha, alpha_lerp = 0, 0
 function ScoreboardOpen()
 	if not IsValid(Main) then
@@ -107,7 +114,7 @@ function ScoreboardOpen()
                 local pcol = team.GetColor(pl:Team())
                 h = 28
                 if pl and pcol then
-                    draw.RoundedBox(0,0,0,w,h,Color(110, 110, 110, 250))
+                    draw.RoundedBox(0,0,0,w,h,Color(66, 139, 202, 250))
 
                     -- local rpid = pl:GetRPID()
                     -- rpid = (rpid and rpid ~= '') and ' '..rpid..'' or '   ----  '

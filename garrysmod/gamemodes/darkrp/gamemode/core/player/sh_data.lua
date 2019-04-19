@@ -12,9 +12,9 @@ function PLAYER:Name()
         if not rp.names[self:SteamID()] then
             return LocalPlayer():IsAdmin() and '['..self:SteamName()..']' or 'Незнакомец'
         end
-        return LocalPlayer():IsAdmin() and (self:GetNetVar('Name')..' ['..self:SteamName()..']' or self:SteamName()) or (self:GetNetVar('Name') or self:SteamName())
+        return LocalPlayer():IsAdmin() and (self:GetNetVar('Name')..' ['..self:SteamName()..']' or self:SteamName()) or (self:GetNetVar('Name') or self:SteamName()) or "Unknown"
     end
-    return (self:GetNetVar('Name') or self:SteamName())
+    return (self:GetNetVar('Name') or self:SteamName() or "Unknown")
 end
 PLAYER.Nick 	= PLAYER.Name
 PLAYER.GetName 	= PLAYER.Name

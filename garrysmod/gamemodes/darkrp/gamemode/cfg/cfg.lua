@@ -238,8 +238,6 @@ timer.Simple(.1, function()
 		[TEAM_CITIZEN3] = TEAM_CITIZEN24,
 		[TEAM_CITIZEN4] = TEAM_CITIZEN24,
 		[TEAM_HERO2] = TEAM_CITIZEN24,
-		[TEAM_HERO8] = TEAM_CITIZEN24,
-
 	}
 
 	rp.cfg.TeamSpawns = {
@@ -448,7 +446,7 @@ timer.Simple(.1, function()
 		[TEAM_CWU4] = 'ГСР:%s.%s',
 	}
 	rp.cfg.AliveCodes 		= {
-		['red'] = { text = 'Красный код', color = rp.col.Red },
+		['red'] = { text = 'Красный код', color = Color(255,32,18) },
 		['yellow'] = { text = 'Желтый код', color = rp.col.Orange },
 		['work'] = { text = 'Рабочая фаза', color = rp.col.Blue }
 	}

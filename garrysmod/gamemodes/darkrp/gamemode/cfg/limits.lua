@@ -15,8 +15,14 @@ rp.cfg.Limits = {
 	['vehicles']	= 0,
 	['sents']		= 25,
 	['keypads']		= 10,
-  ['prop_doors']   = 10,
-	['textscreens'] = 3
+	['textscreens'] = 3,
+	['item_ammo_crates'] = 10,
+	['prop_doors'] = 10,
+	['env_headcrabcanisters'] = 10,
+	['headcrabcanisters'] = 10,
+	['item_item_crates'] = 10,
+	['prop_npc_crates'] = 10,
+	['prop_thumpers'] = 10,
 }
 
 function rp.GetLimit(name)
@@ -45,17 +51,19 @@ rp.cfg.ToolLimits = {
 	['npctool_proficiency'] = 4,
 	['npctool_spawner'] = 4,
 	['npctool_viewcam'] = 4,
-	['permaprops'] = 2,
-	['item_ammo_crates'] = 2,
-	['prop_doors'] = 2,
-	['env_headcrabcanisters'] = 2,
+	['permaprop'] = 2,
+	['item_item_crate'] = 2,
+	['prop_door'] = 2,
+	['env_headcrabcanister'] = 2,
 	['headcrabcanisters'] = 2,
-	['item_item_crates'] = 2,
+	['item_ammo_crate'] = 2,
 	['prop_npc_crates'] = 2,
-	['prop_thumpers'] = 2,
-	['permaprops'] = 2,
-	['lamps'] = 2,
-	['lights'] = 2,
+	['prop_thumper'] = 2,
+	['lamp'] = 2,
+	['light'] = 2,
+	['trigger'] = 2,
+	['prop_npc_crate'] = 2,
+	['headcrabcanister'] = 2
 
 }
 

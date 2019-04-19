@@ -246,19 +246,19 @@ if (SERVER) then
 			for index, _vars in pairs(data) do
 				for var, value in pairs(_vars) do
 					local ent = Entity(index)
-					-- if (not vars[var].LocalPlayerVar and not vars[var].NoSync) or (ent == pl) then
-					-- 	vars[var]:_Send(ent, value, pl)
-					-- end
-                    local kk = false
-                    if not vars[var].LocalPlayerVar then
-                        if not vars[var].NoSync then
-                            vars[var]:_Send(ent, value, pl)
-                            kk = true
-                        end
-                    end
-                    if kk and ent == pl then
-                        vars[var]:_Send(ent, value, pl)
-                    end
+					if (not vars[var].LocalPlayerVar and not vars[var].NoSync) or (ent == pl) then
+						vars[var]:_Send(ent, value, pl)
+					end
+                    -- local kk = false
+                    -- if not vars[var].LocalPlayerVar then
+                    --     if not vars[var].NoSync then
+                    --         vars[var]:_Send(ent, value, pl)
+                    --         kk = true
+                    --     end
+                    -- end
+                    -- if kk and ent == pl then
+                    --     vars[var]:_Send(ent, value, pl)
+                    -- end
 				end
 			end
 
