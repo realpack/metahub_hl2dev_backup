@@ -288,7 +288,7 @@ hook.Add('HUDPaint', 'vgui_HUDPaint', function()
         local trace = LocalPlayer():GetEyeTrace()
         local target = trace.Entity
         local owner = target:GetNWEntity('PropGetOwner')
-        if target and IsValid(target) and owner and IsValid(owner) and LocalPlayer():GetActiveWeapon():GetClass() == 'weapon_physgun' then
+        if target and IsValid(target) and owner and IsValid(owner) and IsValid(LocalPlayer():GetActiveWeapon()) and LocalPlayer():GetActiveWeapon():GetClass() == 'weapon_physgun' then
             draw.ShadowSimpleText(owner:Name(), 'font_base_small', 10, ScrH()*.5, team.GetColor(owner:Team()), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
         end
     end

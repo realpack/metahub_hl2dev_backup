@@ -41,7 +41,7 @@ function SWEP:PrimaryAttack()
             end
         end
     else
-        RunConsoleCommand("say", "/me "..self.TextToSay..". ID #" ..self.Owner:GetNetVar('RPID'));
+        RunConsoleCommand("say", "/me "..self.TextToSay..". ID #" ..self.Owner:GetNWString('RPID'));
     end
 	self:SetNextPrimaryFire(CurTime() + 2)
 end

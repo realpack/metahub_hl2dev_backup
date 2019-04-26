@@ -1,12 +1,8 @@
-ENT.Type = "anim"
 ENT.Base = "base_anim"
-ENT.PrintName = "Control Point"
-ENT.Author = ""
-ENT.Category = "RP"
-ENT.Spawnable = true
-ENT.AdminSpawnable = true
+ENT.Type = "anim"
 
-function ENT:SetupDataTables()
-  self:NetworkVar("String",0,"Id")
-  self:NetworkVar("String",1,"Fraction")
-end
+ENT.PrintName = "Control Point (NoUse)"
+ENT.Author = "pack"
+ENT.Category = "MetaHub | Разработки"
+
+ENT.Spawnable = true

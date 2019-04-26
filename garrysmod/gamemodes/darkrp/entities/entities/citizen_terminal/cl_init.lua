@@ -59,7 +59,7 @@ net.Receive('Citizen_TerminalOpenMenu', function()
 		self:DrawTextEntryText(Color(47,47,47,255), Color(0,165,255,255), Color(47,47,47,255))
 	end
 
-	entry:SetText( LocalPlayer():GetNetVar('Name') )
+	entry:SetText( LocalPlayer():Name() )
 
 	local changename = vgui.Create('DButton', panel)
 	changename:SetSize(150,24)

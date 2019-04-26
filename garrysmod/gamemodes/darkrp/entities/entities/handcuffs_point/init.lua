@@ -27,6 +27,6 @@ function ENT:Use(activator, caller)
 
 	-- print(self,self:GetNVar('GetPlayerKidnapper'))
 
-	self:GetNVar('GetPlayerKidnapper'):SetHandcuffed(true,activator)
+	self:GetNWEntity('GetPlayerKidnapper'):SetHandcuffed(true,activator)
 	self:Remove()
 end

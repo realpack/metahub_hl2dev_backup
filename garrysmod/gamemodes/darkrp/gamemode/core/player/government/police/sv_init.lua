@@ -58,6 +58,7 @@ end
 local jails = rp.cfg.JailPos[game.GetMap()]
 function PLAYER:Arrest(actor, reason)
 	-- local time = rp.Karma(self, rp.cfg.ArrestTimeMax, rp.cfg.ArrestTimeMin)
+    local time = 120
 	timer.Create('Arrested' .. self:SteamID64(), 120, 1, function()
 		if IsValid(self) then
 			self:UnArrest()
@@ -69,15 +70,17 @@ function PLAYER:Arrest(actor, reason)
 
 	rp.ArrestedPlayers[self:SteamID64()] = true
 
+    self:SetPos(rp.cfg.JailPos[game.GetMap()][math.random(#jails)])
+
 	self:StripWeapons()
 	self:SetHunger(100)
+    self:SetThirst(100)
 	self:SetHealth(100)
 	self:SetArmor(0)
 
 	rp.NotifyAll('Arrested', rp.Term('Arrested'), self)
 	hook.Call('PlayerArrested', GAMEMODE, self, actor)
 
-	self:SetPos(util.FindEmptyPos(jails[math.random(#jails)]))
 	self.CanEscape = true
 
     AddLineTerminal(string.format( '%s арестовал %s.', actor:Name(), self:Name() ))
@@ -182,8 +185,19 @@ net.Receive('Combine_SendRpCode', function(len, pl)
     elseif code == 'work' then
         BroadcastLua( "surface.PlaySound('gmtech_dispatch/1/wp.mp3')" )
     end
+
+    if code == '' then
+        rp.NotifyAll(NOTIFY_GREEN, string.format('%s объявил %s.', pl:Name(), 'Зеленый код') )
+    else
+        rp.NotifyAll(NOTIFY_GREEN, string.format('%s объявил %s.', pl:Name(), rp.cfg.AliveCodes[code].text) )
+    end
+
+    local name = pl:Nick()
+    local steamID = pl:SteamID()
+
+    GmLogger.PostMessageInDiscord("**"..name.."**(``"..steamID.."``) переключил рп-код на \"("..code..")\"")
+
 	nw.SetGlobal('CPCode', code)
-	rp.NotifyAll(NOTIFY_GREEN, string.format('%s объявил %s.', pl:Name(), rp.cfg.AliveCodes[code].text) )
 end)
 
 net.Receive('Combine_WantedPlayer', function(len, pl)
@@ -318,26 +332,26 @@ hook.Add( "KeyPress", "hl2rp_door_activate", DoorActivate )
 -- end)
 
 
-local bounds = rp.cfg.Jails[game.GetMap()]
-if bounds then
-	hook('PlayerThink', function(pl)
-		if IsValid(pl) and pl:IsArrested() and pl.CanEscape and (not pl:InBox(bounds[1], bounds[2])) then
-			rp.ArrestedPlayers[pl:SteamID64()] = nil
-			pl:SetNetVar('ArrestedInfo', nil)
-			timer.Destroy('Arrested' .. pl:SteamID64())
+-- local bounds = rp.cfg.Jails[game.GetMap()]
+-- if bounds then
+-- 	hook('PlayerThink', function(pl)
+-- 		-- if IsValid(pl) and pl:IsArrested() and pl.CanEscape and (not pl:InBox(bounds[1], bounds[2])) then
+-- 		-- 	rp.ArrestedPlayers[pl:SteamID64()] = nil
+-- 		-- 	pl:SetNetVar('ArrestedInfo', nil)
+-- 		-- 	timer.Destroy('Arrested' .. pl:SteamID64())
 
-			pl:Wanted(nil, 'Jail Escapee')
+-- 		-- 	pl:Wanted(nil, 'Jail Escapee')
 
-			hook.Call('PlayerLoadout', GAMEMODE, pl)
-		end
-	end)
-end
+-- 		-- 	hook.Call('PlayerLoadout', GAMEMODE, pl)
+-- 		-- end
+-- 	end)
+-- end
 
-hook('PlayerEntityCreated', function(pl)
-	if pl:IsArrested() then
-		pl:Arrest(nil, 'Disconnecting to avoid arrest')
-	end
-end)
+-- hook('PlayerEntityCreated', function(pl)
+-- 	-- if pl:IsArrested() then
+-- 	-- 	pl:Arrest(nil, 'Disconnecting to avoid arrest')
+-- 	-- end
+-- end)
 
 hook('PlayerDeath', function(pl, killer, dmginfo)
 	if (!killer:IsPlayer()) then return end

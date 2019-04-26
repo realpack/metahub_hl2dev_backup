@@ -1,16 +1,15 @@
-AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
-
+AddCSLuaFile("cl_init.lua")
 include("shared.lua")
 
-util.AddNetworkString('Combine_TerminalOpenMenu')
-
 function ENT:Initialize()
-	self:SetModel( "models/props_combine/combine_interface003.mdl" )
+	self:SetModel('models/props_combine/combine_interface002.mdl')
 
-    self:PhysicsInit( SOLID_VPHYSICS )
+	self:PhysicsInit( SOLID_VPHYSICS )
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:SetSolid( SOLID_VPHYSICS )
+
+	self:SetUseType( SIMPLE_USE )
 
 	-- Wake the physics object up
 	local phys = self.Entity:GetPhysicsObject()
@@ -19,12 +18,15 @@ function ENT:Initialize()
 		phys:Wake()
 	end
 
-	self:SetUseType( SIMPLE_USE )
-  self:SetNetVar('Control_Capture',0)
+    self:SetCustomCollisionCheck( true )
 end
 
-function ENT:Use(pl)
-  if table.HasValue(capture.TeamCP, pl:Team()) or table.HasValue(capture.TeamRabel, pl:Team()) then
-    capture.StartCapture(pl, self:GetId())
-  end
+function ENT:Use(activator, caller)
+	-- if not (activator and IsValid(activator)) then return end
+
+    -- local kid = self:GetNVar('GetPlayerKidnapper')
+    -- if kid then
+	--     kid:SetHandcuffed(true,activator)
+    -- end
+	-- self:Remove()
 end

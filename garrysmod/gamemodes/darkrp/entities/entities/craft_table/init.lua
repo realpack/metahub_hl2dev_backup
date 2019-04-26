@@ -43,7 +43,7 @@ net.Receive('CraftItem', function( len, pl )
     if (pl.LastCraft or 0) > CurTime() then
         return
     end
-    pl.LastCraft = CurTime() + 1
+    pl.LastCraft = CurTime() + 3
 
     local near = false
     for _, ent in pairs(ents.FindByClass('craft_table')) do

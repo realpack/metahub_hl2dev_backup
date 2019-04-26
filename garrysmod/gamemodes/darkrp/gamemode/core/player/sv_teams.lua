@@ -51,6 +51,13 @@ hook('OnPlayerChangedTeam', 'Disguise.OnPlayerChangedTeam', function(pl, prevTea
 	if pl:IsDisguised() then
 		pl:UnDisguise()
 	end
+
+    for _, v in pairs(ents.GetAll()) do
+        if v and IsValid(v) and v.ItemOwner == pl then
+            v:Remove()
+        end
+    end
+
 	if (pl:GetNetVar('Employer') ~= nil) then
 		rp.Notify(pl:GetNetVar('Employer'), NOTIFY_ERROR, rp.Term('EmployeeChangedJob'))
 		rp.Notify(pl, NOTIFY_ERROR, rp.Term('EmployeeChangedJobYou'))

@@ -199,7 +199,7 @@ TEAM_R4 = rp.addTeam('Медик', {
 
 TEAM_R5 = rp.addTeam('Специалист', {
 	color = Color(102,153,102),
-	model = "models/jessev92/hl2/characters/kurt_ply.mdl",
+	model = false,
 	description = [[
 Верный боец сопротивления, который, проявив смелость, решился выйти на поверхность, чтобы активно докладывать командованию об обстановке в Сити-18.
 ]],
@@ -368,7 +368,8 @@ TEAM_UN1 = rp.addTeam("RCT", {
 	flashlight = true,
 	command = "rct",
 	mask_group = 1,
-	mask_type = 'metropolice_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_blue',
 	needbuy = true,
 	salary = 45,
 	PlayerLoadout = function(ply)
@@ -391,7 +392,8 @@ TEAM_UN2 = rp.addTeam("i6", {
 	flashlight = true,
 	command = "pvt",
 	mask_group = 2,
-	mask_type = 'metropolice_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_blue',
 	needbuy = true,
 	needteam = 'rct',
 	salary = 45,
@@ -416,7 +418,8 @@ TEAM_UN3 = rp.addTeam("i5", {
 	command = "cpl",
 	max = 4,
 	mask_group = 5,
-	mask_type = 'metropolice_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_blue',
 	needbuy = true,
 	needteam = 'pvt',
 	salary = 45,
@@ -438,7 +441,8 @@ TEAM_ALTER = rp.addTeam("i5", {
 	command = "reb3",
 	radio = "cpu",
 	mask_group = 5,
-	mask_type = 'metropolice_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_blue',
 	police = true,
 	flashlight = true,
 	max = 2,
@@ -464,7 +468,8 @@ TEAM_UN4 = rp.addTeam("i4", {
 	flashlight = true,
 	command = "sgt",
 	mask_group = 4,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	needbuy = true,
 	needteam = 'cp1',
 	salary = 45,
@@ -482,12 +487,13 @@ TEAM_UN5 = rp.addTeam("i3", {
 	model = cp_models,
 	type = TEAMTYPE_COMBINE,
 	description = [[
-Следую��ий по иерархии званий в ГО. Верный и преданный слуга Альянса, не имеющий человеческих чувствю]],
+Следующий по иерархии званий в ГО. Верный и преданный слуга Альянса, не имеющий человеческих чувствю]],
 	weapons = {""},
 	radio = "cpu",
 	flashlight = true,
 	mask_group = 3,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	needbuy = true,
 	needteam = 'sgt',
 	command = "i3",
@@ -512,7 +518,8 @@ TEAM_UN6 = rp.addTeam("i2", {
 	flashlight = true,
 	command = "CPT",
 	mask_group = 7,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	needbuy = true,
 	needteam = 'i3',
 	salary = 45,
@@ -537,7 +544,8 @@ TEAM_UN7 = rp.addTeam("i1", {
 	command = "LT",
 	max = 1,
 	mask_group = 6,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	needbuy = true,
 	needteam = 'cpt',
 	salary = 45,
@@ -564,7 +572,9 @@ TEAM_UN8 = rp.addTeam("Sectorial.Commander", {
 	needteam = 'LT',
 	salary = 45,
 	max = 1,
-	PlayerLoadout = function(ply)
+	mask_group = 1,
+	control = CONTROL_COMBINE,
+    PlayerLoadout = function(ply)
 		ply:SetBodygroup(2, 1)
 		ply:SetBodygroup(4, 1)
 		ply:SetSkin(2)
@@ -587,7 +597,8 @@ TEAM_S0 = rp.addTeam("ZIEGLER", {
 	flashlight = true,
 	command = "s1",
 	mask_group = 2,
-	mask_type = 'metropolice_yellow',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_yellow',
 	max = 4,
 	PlayerLoadout = function(ply)
 		ply:SetSkin(4)
@@ -611,7 +622,8 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 	command = "s2",
 	needteam = 's1',
 	mask_group = 2,
-	mask_type = 'metropolice_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_blue',
 	max = 4,
 	PlayerLoadout = function(ply)
 		ply:SetSkin(1)
@@ -620,6 +632,7 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 		ply:SetBodygroup(5, 1)
 		ply:SetBodygroup(6, 1)
 		ply:SetBodygroup(7, 1)
+		ply:SetBodygroup(8, 1)
 	end,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(300) end,
@@ -637,7 +650,8 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 	needteam = 's2',
 	max = 3,
 	mask_group = 1,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 3)
 		ply:SetBodygroup(2, 1)
@@ -646,7 +660,7 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 		ply:SetBodygroup(5, 1)
 		ply:SetBodygroup(6, 1)
 		ply:SetBodygroup(7, 1)
-    ply:SetBodygroup(8,1)
+		ply:SetBodygroup(8, 1)
 		ply:SetSkin(3)
 	end,
 	needbuy = true,
@@ -664,13 +678,14 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
 	command = "s4",
 	needteam = 's3',
 	mask_group = 4,
-	mask_type = 'metropolice_yellow',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_yellow',
 	max = 2,
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(3, 1)
 		ply:SetBodygroup(4, 1)
 		ply:SetBodygroup(6, 1)
-    ply:SetBodygroup(8,1)
+		ply:SetBodygroup(8, 1)
 		ply:SetSkin(1)
 	end,
 	needbuy = true,
@@ -689,7 +704,8 @@ TEAM_S4 = rp.addTeam("POLICE", {
 	needteam = 's4',
 	max = 3,
 	mask_group = 1,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
 })
@@ -706,7 +722,8 @@ TEAM_S5 = rp.addTeam("ASSASSIN", {
 	needteam = 's5',
 	max = 2,
 	mask_group = 1,
-	mask_type = 'combine_elite_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_elite_blue',
 	police = true,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(200) end,
@@ -723,7 +740,8 @@ TEAM_S6 = rp.addTeam("EOD", {
 	command = "s7",
 	needteam = 's6',
 	mask_group = 4,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	max = 2,
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(3, 2)
@@ -732,6 +750,7 @@ TEAM_S6 = rp.addTeam("EOD", {
 		ply:SetSkin(3)
 		ply:SetBodygroup(5, 1)
 		ply:SetBodygroup(7, 1)
+		ply:SetBodygroup(8, 1)
 	end,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
@@ -748,7 +767,8 @@ TEAM_S7 = rp.addTeam("LEAK", {
 	command = "s8",
 	needteam = 's7',
 	mask_group = 1,
-	max = 1,
+	control = CONTROL_COMBINE,
+    max = 1,
 	needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
 })
@@ -766,7 +786,8 @@ TEAM_S8 = rp.addTeam("REAPER", {
 	needbuy = true,
 	needteam = 's8',
 	mask_group = 1,
-	mask_type = 'combine_soldier_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_red',
 	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
 })
 
@@ -783,7 +804,8 @@ TEAM_S9 = rp.addTeam("PHOENIX", {
 	max = 1,
 	needbuy = true,
 	mask_group = 6,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	PlayerLoadout = function(ply)
 		ply:SetSkin(3)
 		ply:SetBodygroup(3, 1)
@@ -807,7 +829,8 @@ TEAM_COMBINE1 = rp.addTeam('RISE', {
 	salary = 45,
 	admin = 0,
 	mask_group = 1,
-	mask_type = 'combine_soldier_blueq',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_red',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -817,7 +840,7 @@ TEAM_COMBINE1 = rp.addTeam('RISE', {
 
 TEAM_COMBINE2 = rp.addTeam('STATIC', {
 	color = Color(150,170,200),
-	model = { "models/player/combine_super_elite_soldier_armored.mdl" },
+	model = { "models/player/combine_soldier_armored.mdl" },
 	description = [[]],
 	weapons = {},
 	radio = "cpu",
@@ -829,7 +852,8 @@ TEAM_COMBINE2 = rp.addTeam('STATIC', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'combine_soldier_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_blue',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -839,7 +863,7 @@ TEAM_COMBINE2 = rp.addTeam('STATIC', {
 
 TEAM_STATICREBEL = rp.addTeam("STATIC", {
 	color = Color(38, 97, 204, 200),
-	model = { "models/player/combine_super_elite_soldier_armored.mdl" },
+	model = { "models/player/combine_soldier_armored.mdl" },
 	type = TEAMTYPE_SUP,
 	description = [[]],
 	weapons = {"id_rebel"},
@@ -851,7 +875,8 @@ TEAM_STATICREBEL = rp.addTeam("STATIC", {
 	radio = "cpu",
 	max = 1,
 	mask_group = 0,
-	mask_type = 'combine_soldier_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_blue',
 	police = true,
 	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
 })
@@ -870,7 +895,8 @@ TEAM_COMBINE3 = rp.addTeam('STRIKE', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'combine_soldier_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_red',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -892,7 +918,8 @@ TEAM_COMBINE4 = rp.addTeam('RHINO', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'combine_elite_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_elite_red',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -914,7 +941,8 @@ TEAM_COMBINE5 = rp.addTeam('PRIME', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'combine_soldier_blue',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_blue',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -936,7 +964,8 @@ TEAM_COMBINE6 = rp.addTeam('ORDER', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'metropolice_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_red',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -958,7 +987,8 @@ TEAM_COMBINE7 = rp.addTeam('NOVA', {
 	salary = 45,
 	admin = 0,
 	mask_group = 0,
-	mask_type = 'combine_soldier_yellow',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_soldier_yellow',
 	police = true,
 	needbuy = true,
 	hasLicense = false,
@@ -966,7 +996,7 @@ TEAM_COMBINE7 = rp.addTeam('NOVA', {
 	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
 })
 
-TEAM_COMBINE8 = rp.addTeam('SUPERIOR', {
+TEAM_COMBINE8 = rp.addTeam('SUPREME', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_super_soldier_armored.mdl" },
 	description = [[]],
@@ -982,7 +1012,8 @@ TEAM_COMBINE8 = rp.addTeam('SUPERIOR', {
 	needbuy = true,
 	hasLicense = false,
 	mask_group = 0,
-	mask_type = 'combine_elite_red',
+	control = CONTROL_COMBINE,
+    mask_type = 'combine_elite_red',
 	police = true,
 	candemote = false,
 	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
@@ -1003,7 +1034,8 @@ TEAM_SYNTH1 = rp.addTeam("X1", {
 	max = 4,
 	needbuy = true,
 	mask_group = 1,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
+	control = CONTROL_COMBINE,
+    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "euclid" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1020,7 +1052,8 @@ TEAM_SYNTH2 = rp.addTeam("X2", {
 	max = 3,
 	needbuy = true,
 	mask_group = 1,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(450) end,
+	control = CONTROL_COMBINE,
+    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(450) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "euclid" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1036,7 +1069,8 @@ TEAM_SYNTH3 = rp.addTeam("X3", {
 	command = "synth3",
 	max = 2,
 	mask_group = 1,
-	needbuy = true,
+	control = CONTROL_COMBINE,
+    needbuy = true,
 	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(500) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
@@ -1054,7 +1088,8 @@ TEAM_SYNTH4 = rp.addTeam("ZEN", {
 	max = 1,
 	needbuy = true,
 	mask_group = 1,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(550) end,
+	control = CONTROL_COMBINE,
+    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(550) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1071,7 +1106,8 @@ TEAM_SYNTH5 = rp.addTeam("CREMATOR", {
 	max = 2,
 	needbuy = true,
 	mask_group = 1,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(600) end,
+	control = CONTROL_COMBINE,
+    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(600) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1088,7 +1124,8 @@ TEAM_SYNTH6 = rp.addTeam("TRU", {
 	max = 1,
 	needbuy = true,
 	mask_group = 1,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(650) end,
+	control = CONTROL_COMBINE,
+    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(650) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" end,
 })
 
@@ -1172,7 +1209,8 @@ TEAM_CITIZEN4 = rp.addTeam("Администратор Сити 18", {
 	mayor = true,
 	radio = "cpu",
 	mask_group = 1,
-	needbuy = true,
+	control = CONTROL_COMBINE,
+    needbuy = true,
 
 })
 -- TEAM_COMBINE3 = rp.addTeam('I3', {
@@ -1590,7 +1628,8 @@ TEAM_CWU4 = rp.addTeam("Надзиратель", {
 	command = "cwu5",
 	max = 2,
 	mask_group = 1,
-	mask_type = 'metropolice_white',
+	control = CONTROL_COMBINE,
+    mask_type = 'metropolice_white',
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 5)
 	end,
@@ -1609,8 +1648,8 @@ end
 -- loadstring('print(1)')
 -- PrintTable(cps)
 rp.AddDoorGroup('Гражданская Оборона', cps)
-rp.AddDoorGroup('Повстанческое движение', {TEAM_R1, TEAM_R2, TEAM_R3, TEAM_R4, TEAM_R5, TEAM_R6, TEAM_R7, TEAM_R8, TEAM_ALTER, TEAM_STATICREBEL})
-rp.AddDoorGroup('Гражданский Союз Рабочих', {TEAM_CWUWORK1, TEAM_CWUVORT2, TEAM_CITYWORKER, TEAM_CWU1, TEAM_CWU3, TEAM_CWU4})
+rp.AddDoorGroup('Повстанческое движение', TEAM_ADMIN, {TEAM_R1, TEAM_R2, TEAM_R3, TEAM_R4, TEAM_R5, TEAM_R6, TEAM_R7, TEAM_R8, TEAM_ALTER, TEAM_STATICREBEL})
+rp.AddDoorGroup('Гражданский Союз Рабочих', TEAM_ADMIN, {TEAM_CWUWORK1, TEAM_CWUVORT2, TEAM_CITYWORKER, TEAM_CWU1, TEAM_CWU3, TEAM_CWU4})
 -- -- Agenda
 -- rp.AddAgenda('Mob Agenda', TEAM_MOBBOSS, {TEAM_GANGSTER})
 -- rp.AddAgenda('Police Agenda', TEAM_CHIEF, {TEAM_SWAT, TEAM_SWATLEAD, TEAM_POLICE})
@@ -1644,12 +1683,12 @@ rp.HitmanTeam = TEAM_HITMAN
 -- end
 
 rp.cfg.NPCs = {
-	['rp_c18_updated'] = {
+	['rp_cyberz_c18_v1'] = {
 		['reg_npc'] = {
 			title = 'Регистрация в Сити 18',
 			color = Color(255,255,255,255),
-			pos = Vector('677.613220 -2817.400635 722.031250'),
-			Ang = Angle('4.898315 -0.029352 0.000000'),
+			pos = Vector('560.968750 -2946.482666 739.031250'),
+			Ang = Angle('4.027951 1.222446 0.000000'),
 			model = 'models/Police.mdl',
 			ang = Angle('0 -90 0'),
 			jobs = {
@@ -1659,8 +1698,8 @@ rp.cfg.NPCs = {
 		['crime_npc'] = {
 			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),
-			pos = Vector('-499.215698 3823.459473 910.031250'),
-			Ang = Angle('4.562819 -126.236130 0.000000'),
+			pos = Vector('-523.008179 3677.673096 927.031250'),
+			Ang = Angle('3.376335 -178.476929 0.332769'),
 			model = 'models/Eli.mdl',
 			jobs = {
 				[TEAM_CRIME] = 10000,
@@ -1704,8 +1743,8 @@ rp.cfg.NPCs = {
 		['rebel_npc'] = {
 			title = 'Повстанческое Движение',
 			color = Color(255,255,255,255),
-			pos = Vector('997.177368 4563.531738 636.031250'),
-			Ang = Angle('3.220815 -122.613106 0.000000'),
+			pos = Vector('3680.239014 4710.220215 675.031250'),
+			Ang = Angle('6.752675 -87.942657 -0.047975'),
 			model = 'models/Humans/Group03/male_06.mdl',
 			jobs = {
 				[TEAM_R1] = 1500,
@@ -1790,8 +1829,8 @@ rp.cfg.NPCs = {
 		['fake_npc'] = {
 			title = 'C#U.#5.43#7',
 			color = Color(255,255,255,255),
-			pos = Vector('1235.167480 4765.824707 636.031250'),
-			ang = Angle('3.112095 -165.431976 0.000000'),
+			pos = Vector('2163.023682 2497.973877 675.031250'),
+			ang = Angle('-2.622424 -18.288578 0.000000'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_ALTER] = 40000,
@@ -1801,8 +1840,8 @@ rp.cfg.NPCs = {
 		['hero_npc'] = {
 			title = 'Барни Калхаун',
 			color = Color(255,255,255,255),
-			pos = Vector('1053.456177 4116.964844 606.031250'),
-			ang = Angle('1.166204 89.489426 0.000000'),
+			pos = Vector('-2559.780762 3949.379639 687.919495'),
+			ang = Angle('setang 0.688346 -179.982269 0.000000'),
 			model = 'models/Barney.mdl',
 			jobs = {
 				[TEAM_HERO1] = 40000,
@@ -1841,6 +1880,6 @@ if SERVER then
 			end
 		end
 	end
-	hook.Add( "PostCleanupMap", "SpawnNPCs_PostCleanupMap", SpawnNPCs)
+	-- hook.Add( "PostCleanupMap", "SpawnNPCs_PostCleanupMap", SpawnNPCs)
 	hook.Add( "InitPostEntity", "SpawnNPCs_InitPostEntity", SpawnNPCs)
 end

@@ -105,85 +105,136 @@ rp.cfg.TypesCanCP = {
 	[TEAMTYPE_COMBINE] = true
 }
 
-rp.cfg.CaptureZones = {
-	["nexus"] = {
-		pos = Vector('1336.793945 8980.597656 536.015259'),
-		ang = Angle('-1.450747 -0.670851 0.265785'),
-		color = Color( 54,200,200 ),
-		name = 'Администрация',
-		radius = 400,
-	},
-	["park"] = {
-		pos = Vector('5903.124512 12759.245117 455.031250'),
-		ang = Angle('-4.537340 -90.687767 -0.207853'),
-		color = Color( 54,200,200 ),
-		name = 'Городской Парк C24',
-		radius = 600,
-	},
-	["trade"] = {
-		pos = Vector('6542.536621 4395.420410 7.031250'),
-		ang = Angle('-2.926968 159.671570 -0.455180'),
-		color = Color( 54,200,200 ),
-		name = 'Пристань',
-		radius = 300,
-	},
-	["plaza"] = {
-		pos = Vector('9720.645508 7778.965332 399.031250'),
-		ang = Angle('-1.543279 179.374313 0.499080'),
-		color = Color( 54,200,200 ),
-		name = 'Площадь',
-		radius = 400,
-	},
+-- rp.cfg.CaptureZones = {
+-- 	["nexus"] = {
+-- 		pos = Vector('1336.793945 8980.597656 536.015259'),
+-- 		ang = Angle('-1.450747 -0.670851 0.265785'),
+-- 		color = Color( 54,200,200 ),
+-- 		name = 'Администрация',
+-- 		radius = 400,
+-- 	},
+-- 	["park"] = {
+-- 		pos = Vector('5903.124512 12759.245117 455.031250'),
+-- 		ang = Angle('-4.537340 -90.687767 -0.207853'),
+-- 		color = Color( 54,200,200 ),
+-- 		name = 'Городской Парк C24',
+-- 		radius = 600,
+-- 	},
+-- 	["trade"] = {
+-- 		pos = Vector('6542.536621 4395.420410 7.031250'),
+-- 		ang = Angle('-2.926968 159.671570 -0.455180'),
+-- 		color = Color( 54,200,200 ),
+-- 		name = 'Пристань',
+-- 		radius = 300,
+-- 	},
+-- 	["plaza"] = {
+-- 		pos = Vector('9720.645508 7778.965332 399.031250'),
+-- 		ang = Angle('-1.543279 179.374313 0.499080'),
+-- 		color = Color( 54,200,200 ),
+-- 		name = 'Площадь',
+-- 		radius = 400,
+-- 	},
+-- }
+
+-- rp.cfg.CpatureTeamCP = {
+-- 	TEAM_SYNTH1,
+-- 	TEAM_SYNTH2,
+-- 	TEAM_SYNTH3,
+-- 	TEAM_SYNTH4,
+-- 	TEAM_SYNTH5,
+-- 	TEAM_UN1,
+-- 	TEAM_UN2,
+-- 	TEAM_UN3,
+-- 	TEAM_UN4,
+-- 	TEAM_UN5,
+-- 	TEAM_UN6,
+-- 	TEAM_UN7,
+-- 	TEAM_UN8,
+-- 	TEAM_S0,
+-- 	TEAM_S1,
+-- 	TEAM_S2,
+-- 	TEAM_S3,
+-- 	TEAM_S4,
+-- 	TEAM_S5,
+-- 	TEAM_S6,
+-- 	TEAM_S7,
+-- 	TEAM_S8,
+-- 	TEAM_S9,
+-- 	TEAM_COMBINE1,
+-- 	TEAM_COMBINE2,
+-- 	TEAM_COMBINE3,
+-- 	TEAM_COMBINE4,
+-- 	TEAM_COMBINE5,
+-- 	TEAM_COMBINE6,
+-- 	TEAM_COMBINE7,
+-- 	TEAM_COMBINE8
+-- }
+
+-- rp.cfg.CpatureTeamRabel = {
+-- 	TEAM_R1,
+-- 	TEAM_R2,
+-- 	TEAM_R3,
+-- 	TEAM_R4,
+-- 	TEAM_R5,
+-- 	TEAM_R6,
+-- 	TEAM_R7,
+-- 	TEAM_VORT,
+-- 	TEAM_R8
+-- }
+
+-- rp.cfg.CpatureTimeReward = 1000
+-- rp.cfg.CpatureTimeToReward = 60*10
+
+rp.cfg.controlpoints_icon = {
+    ['Shield'] = Material('metaui/captureebalo/cpp.png', 'smooth noclamp'),
+    ['Robot'] = Material('meta_ui/genders/robot.png', 'smooth noclamp'),
+    ['Falcon'] = Material('meta_ui/metaui/falcon.png', 'smooth noclamp'),
+    ['Shield2'] = Material('meta_ui/metaui/metascoreboard/staff.png', 'smooth noclamp'),
+    ['User'] = Material('meta_ui/metaui/metascoreboard/user.png', 'smooth noclamp'),
+    ['Vip'] = Material('meta_ui/metaui/metascoreboard/vip.png', 'smooth noclamp')
 }
 
-rp.cfg.CpatureTeamCP = {
-	TEAM_SYNTH1,
-	TEAM_SYNTH2,
-	TEAM_SYNTH3,
-	TEAM_SYNTH4,
-	TEAM_SYNTH5,
-	TEAM_UN1,
-	TEAM_UN2,
-	TEAM_UN3,
-	TEAM_UN4,
-	TEAM_UN5,
-	TEAM_UN6,
-	TEAM_UN7,
-	TEAM_UN8,
-	TEAM_S0,
-	TEAM_S1,
-	TEAM_S2,
-	TEAM_S3,
-	TEAM_S4,
-	TEAM_S5,
-	TEAM_S6,
-	TEAM_S7,
-	TEAM_S8,
-	TEAM_S9,
-	TEAM_COMBINE1,
-	TEAM_COMBINE2,
-	TEAM_COMBINE3,
-	TEAM_COMBINE4,
-	TEAM_COMBINE5,
-	TEAM_COMBINE6,
-	TEAM_COMBINE7,
-	TEAM_COMBINE8
+CONTROL_COMBINE = 1 -- Прописывать в профах control = CONTROL_COMBINE,
+CONTROL_REBEL = 2
+
+rp.cfg.controlpoints_teams = {
+    [0] = { color = Color(191,191,191,255), name = 'Никто'},
+    [CONTROL_COMBINE] = { color = Color(84,144,181,255), name = 'Альянс'},
+    [CONTROL_REBEL] = { color = Color(255,37,37,255), name = 'Повстанческое движение'}
 }
 
-rp.cfg.CpatureTeamRabel = {
-	TEAM_R1,
-	TEAM_R2,
-	TEAM_R3,
-	TEAM_R4,
-	TEAM_R5,
-	TEAM_R6,
-	TEAM_R7,
-	TEAM_VORT,
-	TEAM_R8
+rp.cfg.Controls = {
+    ['Test 1'] = {
+        time = 200,
+        radius = 220,
+        icon = 'Shield',
+        pos = Vector('900.455627 6166.350586 744.031250'),
+        ang = Angle('0 -90 0')
+    }
 }
 
-rp.cfg.CpatureTimeReward = 1000
-rp.cfg.CpatureTimeToReward = 60*10
+if SERVER then
+	local function SpawnControls()
+		for name, ct in pairs(rp.cfg.Controls) do
+            local ent = ents.Create('control_point')
+            ent:Spawn()
+            ent:SetAngles( ct.ang )
+            ent:SetPos( ct.pos )
+            ent:SetNWString( "Name", name )
+            ent:SetNWString( "Icon", 'Shield' )
+
+            ent:SetNWInt( "Occupied", 100 )
+            ent:SetNWBool( "CountBuff", true )
+            ent:SetNWBool( "CountOccupied", true )
+            ent:SetNWBool( "MomentOccupied", false )
+            ent:SetNWInt( "Team", 0 )
+            ent:SetNWInt( "Time", ct.time )
+            ent:SetNWInt( "Radius", ct.radius )
+		end
+	end
+	-- hook.Add( "PostCleanupMap", "SpawnControls_PostCleanupMap", SpawnControls)
+	hook.Add( "InitPostEntity", "SpawnControls_InitPostEntity", SpawnControls)
+end
 
 rp.cfg.TypesCanCP = {
 	[TEAMTYPE_SUP] = true,
@@ -220,67 +271,59 @@ timer.Simple(.1, function()
 		TEAM_S3
 	}
 	rp.cfg.ChangeTeamForDeath = { -- Первый тем кем надо быть, а второй на что меняет.
-		[TEAM_ANTICITIZEN] = TEAM_CITIZEN24,
-		[TEAM_R1] = TEAM_CITIZEN24,
-		[TEAM_R2] = TEAM_CITIZEN24,
-		[TEAM_R3] = TEAM_CITIZEN24,
-		[TEAM_R4] = TEAM_CITIZEN24,
-		[TEAM_R5] = TEAM_CITIZEN24,
-		[TEAM_R6] = TEAM_CITIZEN24,
-		[TEAM_R7] = TEAM_CITIZEN24,
 		[TEAM_R8] = TEAM_CITIZEN24,
 		[TEAM_UN8] = TEAM_CITIZEN24,
 		[TEAM_S9] = TEAM_CITIZEN24,
 		[TEAM_COMBINE8] = TEAM_CITIZEN24,
 		[TEAM_SYNTH6] = TEAM_CITIZEN24,
-		[TEAM_CITIZEN1] = TEAM_CITIZEN24,
-		[TEAM_CITIZEN2] = TEAM_CITIZEN24,
 		[TEAM_CITIZEN3] = TEAM_CITIZEN24,
 		[TEAM_CITIZEN4] = TEAM_CITIZEN24,
 		[TEAM_HERO2] = TEAM_CITIZEN24,
+		[TEAM_HERO8] = TEAM_CITIZEN24,
+
 	}
 
 	rp.cfg.TeamSpawns = {
-		rp_c18_updated = {
-			[TEAM_UN1] = { Vector('3318.383301 210.928909 432.031250') },
-			[TEAM_UN2] = { Vector('3328.847412 310.317596 432.031250') },
-			[TEAM_UN3] = { Vector('3193.406250 225.552628 432.031250') },
-			[TEAM_UN4] = { Vector('3421.347412 482.433044 432.031250') },
-			[TEAM_UN5] = { Vector('3419.248047 370.685486 432.031250') },
-			[TEAM_UN6] = { Vector('3318.383301 210.928909 432.031250') },
-			[TEAM_UN7] = { Vector('3193.406250 225.552628 432.031250') },
-			[TEAM_UN8] = { Vector('3306.598877 335.605499 432.031250') },
-			[TEAM_S0] = { Vector('3365.998047 541.447388 432.031250') },
-			[TEAM_S1] = { Vector('3294.758057 186.110397 432.031250') },
-			[TEAM_S2] = { Vector('3421.347412 482.433044 432.031250') },
-			[TEAM_S3] = { Vector('3342.180420 249.997269 432.031250') },
-			[TEAM_S4] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_S5] = { Vector('3318.383301 210.928909 432.031250') },
-			[TEAM_ALTER] = { Vector('3294.758057 186.110397 432.031250') },
-			[TEAM_S6] = { Vector('3298.416016 562.584045 432.031250') },
-			[TEAM_S7] = { Vector('3356.432617 283.739319 432.796844') },
-			[TEAM_S8] = { Vector('3208.520264 364.324677 432.031250') },
-			[TEAM_S9] = { Vector('3380.902832 157.689941 432.031250') },
-			[TEAM_COMBINE1] = { Vector('3318.383301 210.928909 432.031250') },
-			[TEAM_COMBINE2] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_STATICREBEL] = { Vector('3208.520264 364.324677 432.031250') },
-			[TEAM_COMBINE3] = { Vector('3380.902832 157.689941 432.031250') },
-			[TEAM_COMBINE4] = { Vector('3365.998047 541.447388 432.031250') },
-			[TEAM_COMBINE5] = { Vector('3378.327637 305.003113 432.031250') },
-			[TEAM_COMBINE6] = { Vector('3358.275391 505.432129 432.031250') },
-			[TEAM_COMBINE7] = { Vector('3328.847412 310.317596 432.031250') },
-			[TEAM_COMBINE8] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_SYNTH1] = { Vector('3208.520264 364.324677 432.031250') },
-			[TEAM_SYNTH2] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_SYNTH3] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_SYNTH4] = { Vector('3380.902832 157.689941 432.031250') },
-			[TEAM_SYNTH5] = { Vector('3388.298828 385.239014 432.031250') },
-			[TEAM_SYNTH6] = { Vector('3342.180420 249.997269 432.031250') },
-			[TEAM_CITIZEN1] = { Vector('-721.068909 -1529.571899 706.031250') },
-			[TEAM_CITIZEN2] = { Vector('-729.002197 -1402.169067 706.031250') },
-			[TEAM_CITIZEN3] = { Vector('-721.068909 -1529.571899 706.031250') },
-			[TEAM_CITIZEN4] = { Vector('1470.503662 -1264.002808 1693.935669') },
-			[TEAM_STALKER] = { Vector('3132.358398 564.562744 432.031250') },
+		rp_cyberz_c18_v1 = {
+			[TEAM_UN1] = { Vector('3024.835938 859.752014 393.781250') },
+			[TEAM_UN2] = { Vector('3024.835938 859.752014 393.781250') },
+			[TEAM_UN3] = { Vector('3129.832520 860.679138 393.781250') },
+			[TEAM_UN4] = { Vector('3129.832520 860.679138 393.781250') },
+			[TEAM_UN5] = { Vector('3257.791504 849.492432 394.282776') },
+			[TEAM_UN6] = { Vector('3257.791504 849.492432 394.282776') },
+			[TEAM_UN7] = { Vector('3366.300049 832.007385 394.844360') },
+			[TEAM_UN8] = { Vector('3366.300049 832.007385 394.844360') },
+			[TEAM_S0] = { Vector('3366.392090 704.579651 399.097626') },
+			[TEAM_S1] = { Vector('3366.392090 704.579651 399.097626') },
+			[TEAM_S2] = { Vector('3253.906738 702.790710 399.097626') },
+			[TEAM_S3] = { Vector('3253.906738 702.790710 399.097626') },
+			[TEAM_S4] = { Vector('3133.922363 700.882507 399.097626') },
+			[TEAM_S5] = { Vector('3133.922363 700.882507 399.097626') },
+			[TEAM_ALTER] = { Vector('3043.934082 699.451355 399.097626') },
+			[TEAM_S6] = { Vector('3043.934082 699.451355 399.097626') },
+			[TEAM_S7] = { Vector('3208.221436 601.914734 431.947571') },
+			[TEAM_S8] = { Vector('3208.221436 601.914734 431.947571') },
+			[TEAM_S9] = { Vector('3208.221436 601.914734 431.947571') },
+			[TEAM_COMBINE1] = { Vector('1468.381958 652.653015 1529.205933') },
+			[TEAM_COMBINE2] = { Vector('1468.381958 652.653015 1529.205933') },
+			[TEAM_STATICREBEL] = { Vector('1467.889404 540.153931 1529.205933') },
+			[TEAM_COMBINE3] = { Vector('1467.889404 540.153931 1529.205933') },
+			[TEAM_COMBINE4] = { Vector('1467.396851 427.654846 1529.205933') },
+			[TEAM_COMBINE5] = { Vector('1467.396851 427.654846 1529.205933') },
+			[TEAM_COMBINE6] = { Vector('1466.838623 300.155884 1529.205933') },
+			[TEAM_COMBINE7] = { Vector('1466.838623 300.155884 1529.205933') },
+			[TEAM_COMBINE8] = { Vector('1466.838623 300.155884 1529.205933') },
+			[TEAM_SYNTH1] = { Vector('1616.836182 299.498535 1529.860229') },
+			[TEAM_SYNTH2] = { Vector('1616.836182 299.498535 1529.860229') },
+			[TEAM_SYNTH3] = { Vector('1617.460083 441.997375 1529.860229') },
+			[TEAM_SYNTH4] = { Vector('1617.460083 441.997375 1529.860229') },
+			[TEAM_SYNTH5] = { Vector('1618.215332 614.495972 1529.860229') },
+			[TEAM_SYNTH6] = { Vector('1618.215332 614.495972 1529.860229') },
+			[TEAM_CITIZEN1] = { Vector('870.035767 -1251.159546 803.357117') },
+			[TEAM_CITIZEN2] = { Vector('870.035767 -1251.159546 803.357117') },
+			[TEAM_CITIZEN3] = { Vector('872.247437 -1376.140015 803.357117') },
+			[TEAM_CITIZEN4] = { Vector('872.247437 -1376.140015 803.357117') },
+			[TEAM_STALKER] = { Vector('3213.313232 795.411560 491.337799') },
 			[TEAM_TRADE] = { Vector('-508.673157 3632.693115 910.031250') },
 			[TEAM_METH] = { Vector('-604.980408 3726.990479 910.031250') },
 			[TEAM_VORT] = { Vector('1022.838135 4807.899902 636.438293') },
@@ -288,24 +331,24 @@ timer.Simple(.1, function()
 			[TEAM_CWU1] = { Vector('5100.308594 1402.978149 1010.031250') },
 			[TEAM_CWU3] = { Vector('5205.186523 1401.291260 1010.031250') },
 			[TEAM_CWU4] = { Vector('5036.684570 1406.666138 1010.031250') },
-			[TEAM_R1] = { Vector('1087.479614 4864.078125 636.031250') },
-			[TEAM_R2] = { Vector('1183.682861 4807.981445 636.031250') },
-			[TEAM_R3] = { Vector('1087.479614 4864.078125 636.031250') },
-			[TEAM_R4] = { Vector('1106.311890 4782.497070 636.031250ё') },
-			[TEAM_R5] = { Vector('1087.479614 4864.078125 636.031250') },
-			[TEAM_R6] = { Vector('1110.326904 4945.665527 636.031250') },
-			[TEAM_R7] = { Vector('1087.479614 4864.078125 636.031250') },
-			[TEAM_R8] = { Vector('1110.326904 4945.665527 636.031250') },
-			[TEAM_HERO1] = { Vector('-508.673157 3632.693115 910.031250') },
-			[TEAM_HERO2] = { Vector('-729.002197 -1402.169067 706.031250') },
-			[TEAM_HERO3] = { Vector('-508.673157 3632.693115 910.031250') },
-			[TEAM_HERO4] = { Vector('1022.838135 4807.899902 636.438293') },
-			[TEAM_HERO5] = { Vector('1022.838135 4807.899902 636.438293') },
-			[TEAM_HERO6] = { Vector('1022.838135 4807.899902 636.438293') },
-			[TEAM_HERO7] = { Vector('1022.838135 4807.899902 636.438293') },
-			[TEAM_HERO8] = { Vector('-604.980408 3726.990479 910.031250') },
-			[TEAM_HERO9] = { Vector('-508.673157 3632.693115 910.031250') },
-			[TEAM_HERO10] = { Vector('1022.838135 4807.899902 636.438293') },
+			[TEAM_R1] = { Vector('4023.985352 4394.261719 696.906250') },
+			[TEAM_R2] = { Vector('4023.985352 4394.261719 696.906250') },
+			[TEAM_R3] = { Vector('4018.155273 4550.401855 696.90625') },
+			[TEAM_R4] = { Vector('4018.155273 4550.401855 696.90625') },
+			[TEAM_R5] = { Vector('3842.821045 4651.119141 698.167297') },
+			[TEAM_R6] = { Vector('3842.821045 4651.119141 698.167297') },
+			[TEAM_R7] = { Vector('3571.745117 4661.205566 692.362305') },
+			[TEAM_R8] = { Vector('3571.745117 4661.205566 692.362305') },
+			[TEAM_HERO1] = { Vector('3341.070801 4540.125977 690.750793') },
+			[TEAM_HERO2] = { Vector('3341.070801 4540.125977 690.750793') },
+			[TEAM_HERO3] = { Vector('3341.070801 4540.125977 690.750793') },
+			[TEAM_HERO4] = { Vector('3352.703857 4363.481445 698.517517') },
+			[TEAM_HERO5] = { Vector('3352.703857 4363.481445 698.517517') },
+			[TEAM_HERO6] = { Vector('3352.703857 4363.481445 698.517517') },
+			[TEAM_HERO7] = { Vector('3506.095703 4481.564453 698.569824') },
+			[TEAM_HERO8] = { Vector('3506.095703 4481.564453 698.569824') },
+			[TEAM_HERO9] = { Vector('3506.095703 4481.564453 698.569824') },
+			[TEAM_HERO10] = { Vector('3506.095703 4481.564453 698.569824') },
 			[TEAM_METH] = { Vector('-604.980408 3726.990479 910.031250') },
 			[TEAM_CRIME] = { Vector('-604.980408 3726.990479 910.031250') },
 			[TEAM_CRIME2] = { Vector('-604.980408 3726.990479 910.031250') },
@@ -378,7 +421,7 @@ timer.Simple(.1, function()
 		[TEAM_S0] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "ultheal", "ammothreeaura", "med_kit_nn", "swb_mac10", "swb_knife"},
 		[TEAM_S1] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "weapon_smallriotshield", "swb_knife"},
 		[TEAM_S2] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_m3super90", "swb_knife"},
-		[TEAM_S3] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_ump", "swb_knife", "alydus_fortificationbuildertablet", "weapon_wrench"},
+		[TEAM_S3] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_ump", "swb_knife", "cp_fort", "weapon_wrench"},
 		[TEAM_S4] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_tmp", "swb_knife", "m9k_m61_frag", "weapon_controllable_manhack"},
 		[TEAM_S5] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_awp", "swb_knife", "weapon_controllable_manhack", "hook"},
 		[TEAM_S6] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_p90", "weapon_slam", "weapon_rpg", "swb_knife"},
@@ -389,7 +432,7 @@ timer.Simple(.1, function()
 		-- [TEAM_SUP2] = {"swb_357", "findbadweapons",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2", "m9k_m61_frag"},
 		[TEAM_STATICREBEL] = {"swb_357", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_ar2", "m9k_m61_frag"},
 		-- [TEAM_REB7] = {"swb_357", "findbadweapons",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2", "m9k_m61_frag"},
-		[TEAM_COMBINE1] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2"},
+		[TEAM_COMBINE1] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_smg"},
 		[TEAM_COMBINE2] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2", "m9k_m61_frag"},
 		[TEAM_COMBINE3] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_m3super90"},
 		[TEAM_COMBINE4] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_m249"},
@@ -415,6 +458,7 @@ timer.Simple(.1, function()
 		[TEAM_UN6] = 'CPU:%s.%s',
 		[TEAM_UN7] = 'CPU:%s.%s',
 		[TEAM_UN8] = 'CPU:%s.%s',
+		[TEAM_ALTER] = 'CPU:%s.%s',
 		--
 		[TEAM_S0] = 'SCPU:%s.%s',
 		[TEAM_S1] = 'SCPU:%s.%s',
@@ -435,6 +479,7 @@ timer.Simple(.1, function()
 		[TEAM_COMBINE6] = 'SUP:%s.%s',
 		[TEAM_COMBINE7] = 'SUP:%s.%s',
 		[TEAM_COMBINE8] = 'SUP:%s.%s',
+		[TEAM_STATICREBEL] = 'SUP:%s.%s',
 		--
 		[TEAM_SYNTH1] = 'SYNTH:%s.%s',
 		[TEAM_SYNTH2] = 'SYNTH:%s.%s',
@@ -446,7 +491,7 @@ timer.Simple(.1, function()
 		[TEAM_CWU4] = 'ГСР:%s.%s',
 	}
 	rp.cfg.AliveCodes 		= {
-		['red'] = { text = 'Красный код', color = Color(255,32,18) },
+		['red'] = { text = 'Красный код', color = rp.col.Red },
 		['yellow'] = { text = 'Желтый код', color = rp.col.Orange },
 		['work'] = { text = 'Рабочая фаза', color = rp.col.Blue }
 	}
@@ -601,12 +646,12 @@ rp.cfg.CraftRecipes = {
 		['trash_wood'] = 1,
 		['trash_bottle'] = 2,
 	},
-	['swb_awp'] = {
-		['trash_metal'] = 4,
-		['trash_wood'] = 2,
-		['trash_bottle'] =2 ,
-		['trash_tools'] = 2
-	},
+	-- ['swb_awp'] = {
+	-- 	['trash_metal'] = 4,
+	-- 	['trash_wood'] = 2,
+	-- 	['trash_bottle'] =2 ,
+	-- 	['trash_tools'] = 2
+	-- },
 	['swb_deagle'] = {
 		['trash_metal'] = 3,
 		['trash_wood'] = 2,
@@ -626,39 +671,39 @@ rp.cfg.CraftRecipes = {
 		['trash_metal'] = 2,
 		['trash_tools'] = 1,
 	},
-	['swb_g3sg1'] = {
-		['trash_metal'] = 4,
-		['trash_carbon'] = 3,
-		['trash_tools'] = 2
-	},
-	['swb_glock18'] = {
-		['trash_metal'] = 2,
-		['trash_bottle'] = 2,
-	},
+	-- ['swb_g3sg1'] = {
+	-- 	['trash_metal'] = 4,
+	-- 	['trash_carbon'] = 3,
+	-- 	['trash_tools'] = 2
+	-- },
+	-- ['swb_glock18'] = {
+	-- 	['trash_metal'] = 2,
+	-- 	['trash_bottle'] = 2,
+	-- },
 	['swb_mp5'] = {
 		['trash_metal'] = 3,
 		['trash_wood'] = 2,
 		['trash_tools'] = 2
 	},
-	['swb_galil'] = {
-		['trash_metal'] = 2,
-		['trash_wood'] = 2,
-		['trash_tools'] = 1
-	},
-	['swb_m249'] = {
-		['trash_metal'] = 6,
-		['trash_tools'] = 5,
-	},
-	['swb_m3super90'] = {
-		['trash_metal'] = 4,
-		['trash_tools'] = 2,
-		['trash_carbon'] = 3,
-	},
-	['swb_m4a1'] = {
-		['trash_metal'] = 4,
-		['trash_tools'] = 3,
-		['trash_bottle'] = 3,
-	},
+	-- ['swb_galil'] = {
+	-- 	['trash_metal'] = 2,
+	-- 	['trash_wood'] = 2,
+	-- 	['trash_tools'] = 1
+	-- },
+	-- ['swb_m249'] = {
+	-- 	['trash_metal'] = 6,
+	-- 	['trash_tools'] = 5,
+	-- },
+	-- ['swb_m3super90'] = {
+	-- 	['trash_metal'] = 4,
+	-- 	['trash_tools'] = 2,
+	-- 	['trash_carbon'] = 3,
+	-- },
+	-- ['swb_m4a1'] = {
+	-- 	['trash_metal'] = 4,
+	-- 	['trash_tools'] = 3,
+	-- 	['trash_bottle'] = 3,
+	-- },
 	['swb_mac10'] = {
 		['trash_metal'] = 2,
 		['trash_bottle'] = 1,
@@ -687,10 +732,10 @@ rp.cfg.CraftRecipes = {
 		['trash_metal'] = 5,
 		['trash_tools'] = 2,
 	},
-	['swb_m3super90'] = {
-		['trash_metal'] = 3,
-		['trash_tools'] = 2,
-	},
+	-- ['swb_m3super90'] = {
+	-- 	['trash_metal'] = 3,
+	-- 	['trash_tools'] = 2,
+	-- },
 	['swb_tmp'] = {
 		['trash_metal'] = 2,
 		['trash_bottle'] = 3,
@@ -705,10 +750,10 @@ rp.cfg.CraftRecipes = {
 		['trash_bottle'] = 2,
 		['trash_tools'] = 1
 	},
-	['swb_xm1014'] = {
-		['trash_metal'] = 5,
-		['trash_tools'] = 3,
-	},
+	-- ['swb_xm1014'] = {
+	-- 	['trash_metal'] = 5,
+	-- 	['trash_tools'] = 3,
+	-- },
 	['swb_pistol'] = {
 		['trash_metal'] = 2,
 		['trash_carbon'] = 1,
@@ -748,14 +793,14 @@ rp.cfg.SpawnDisallow = {
 }
 
 rp.cfg.Spawns = {
-	rp_c18_updated = {
+	rp_cyberz_c18_v1 = {
 		-- Vector(5641.457520, 10454.310547, 760.031250),
 		-- Vector(6086.138184, 10427.055664, 760.031250)
 	}
 }
 
 rp.cfg.SpawnPos = {
-	rp_c18_updated = {
+	rp_cyberz_c18_v1 = {
 		Vector('9100 11150 516.031250'),
 		Vector('9200 11150 516.031250'),
 		Vector('9300 11150 516.031250'),
@@ -819,7 +864,7 @@ rp.cfg.JailPos = {
 		Vector(-2254, 245, -160),
 		Vector(-2081, 238, -160),
 	},
-	rp_c18_updated = {
+	rp_cyberz_c18_v1 = {
 		Vector('2199.307861 947.452759 432.031250'),
 		Vector('2323.974609 948.926147 432.031250'),
 		Vector('1883.433228 940.497925 432.031250'),
@@ -827,7 +872,7 @@ rp.cfg.JailPos = {
 	},
 
 }
-rp.cfg.JailPos['rp_downtown_sup_b5c_night'] = rp.cfg.JailPos['rp_c18_updated']
+rp.cfg.JailPos['rp_downtown_sup_b5c_night'] = rp.cfg.JailPos['rp_cyberz_c18_v1']
 
 -- -- Theater
 -- rp.cfg.Theaters = {
@@ -958,6 +1003,38 @@ rp.cfg.KombatPos = {
 }
 
 rp.cfg.VoiceCommands = {
+    [TEAMTYPE_CITIZEN] = {
+		{ title = "Логично", text = "Логично", sound = "vo/npc/%s01/answer03.wav" },
+		{ title = "Не думай", text = "Не думай об этом", sound = "vo/npc/%s01/answer04.wav" },
+		{ title = "Понятно", text = "Понятно", sound = "vo/npc/%s01/answer07.wav" },
+		{ title = "Поговорим об", text = "Поговорим об этом позже", sound = "vo/npc/%s01/answer05.wav" },
+		{ title = "Не говори", text = "Не говори так громко", sound = "vo/npc/%s01/answer10.wav" },
+		{ title = "Зачем мне", text = "Зачем мне это говоришь?", sound = "vo/npc/%s01/answer24.wav" },
+		{ title = "Ну и", text = "Ну и ну", sound = "vo/npc/%s01/answer25.wav" },
+		{ title = "Упс", text = "Упс", sound = "vo/npc/%s01/whoops01.wav" },
+		{ title = "Извини", text = "Извини", sound = "vo/npc/%s01/sorry01.wav" },
+		{ title = "Простите", text = "Простите", sound = "vo/npc/%s01/pardonme02.wav" },
+		{ title = "Окей", text = "Окей", sound = "vo/npc/%s01/ok01.wav" },
+		{ title = "Отлично", text = "Отлично", sound = "vo/npc/%s01/nice.wav" },
+		{ title = "Потрясающе", text = "Потрясающе", sound = "vo/npc/%s01/fantastic01.wav" },
+		{ title = "Гражданская Оборона", text = "Гражданская Оборона!", sound = "vo/npc/%s01/cps01.wav" },
+		{ title = "Ты ко мне?", text = "Ты ко мне?", sound = "vo/npc/%s01/answer30.wav" },
+		{ title = "Даже думать", text = "Даже думать страшно", sound = "vo/npc/%s01/answer12.wav" },
+		{ title = "Подумай лучше", text = "Подумай лучше о работе", sound = "vo/npc/%s01/answer19.wav" },
+		{ title = "Не переживай", text = "Не переживай", sound = "vo/npc/%s01/answer36.wav" },
+		{ title = "Занят", text = "Занят", sound = "vo/npc/%s01/busy02.wav" },
+		{ title = "Привет", text = "Привет", sound = "vo/npc/%s01/hi01.wav" },
+		{ title = "Ведите нас!",          text = "Ведите нас!",            sound = "vo/npc/%s01/leadtheway01.wav" },
+		{ title = "Вперед!",              text = "Вперед!",                sound = "vo/npc/%s01/letsgo01.wav" },
+		{ title = "Сюда!",                text = "Сюда!",                  sound = "vo/npc/%s01/overhere01.wav" },
+		{ title = "Кого нибудь ждем?",    text = "Кого нибудь ждем?",      sound = "vo/npc/%s01/waitingsomebody.wav" },
+		{ title = "Берегись!",            text = "Берегись!",              sound = "vo/npc/%s01/watchout.wav" },
+		{ title = "А вот и мы!",          text = "А вот и мы!",            sound = "vo/npc/%s01/watchout.wav" },
+		{ title = "Спасайся!",            text = "Спасайся!",              sound = "vo/npc/%s01/runforyourlife01.wav" },
+		{ title = "Мы готовы!",           text = "Мы готовы!",             sound = "vo/npc/%s01/readywhenyouare01.wav" },
+		{ title = "Туда!",                text = "Туда!",                  sound = "vo/npc/%s01/overthere01.wav" },
+		{ title = "Прикрой, перезаряжу!", text = "Прикрой, перезаряжу!",   sound = "vo/npc/%s01/coverwhilereload01.wav" },
+	},
 	[TEAMTYPE_COMBINE] = {
 		{ title = "0", text = "Ноль.", sound = "npc/metropolice/vo/zero.wav" },
 		{ title = "1", text = "Один.", sound = "npc/metropolice/vo/one.wav" },
@@ -1496,3 +1573,4 @@ rp.cfg.DefaultModels = {
 		'models/tnb/citizens/female_68.mdl',
 	}
 }
+

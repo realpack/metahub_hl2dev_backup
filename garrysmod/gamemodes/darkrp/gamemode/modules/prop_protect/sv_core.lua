@@ -134,7 +134,8 @@ hook.Add('InitPostEntity', 'pp.InitPostEntity', function()
         timer.Simple(1, function()
             if rp.pp.Whitelist then
                 nw.SetGlobal('Whitelist', rp.pp.Whitelist)
-                nw.GetGlobal('Whitelist')
+                -- game.GetWorld():SetNWString('PropWhitelist', util.TableToJSON(rp.pp.Whitelist))
+                -- nw.GetGlobal('Whitelist')
             end
         end)
 	end)

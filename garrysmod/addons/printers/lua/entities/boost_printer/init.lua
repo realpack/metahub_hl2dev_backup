@@ -49,7 +49,7 @@ function ENT:Use(ply)
 
 	if ply:IsCP() then
 		self:Remove()
-		ply:AddMoney(400)
+		ply:AddMoney(80)
 		rp.Notify(ply, NOTIFY_GENERIC, "Вы получили K400 за уничтожение принтера")
 		return
 	end

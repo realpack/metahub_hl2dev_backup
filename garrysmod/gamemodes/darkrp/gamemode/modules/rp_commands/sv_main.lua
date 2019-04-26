@@ -756,6 +756,18 @@ local function MaskRevert(ply, args)
 end
 rp.AddCommand("/mask", MaskRevert, 0)
 
+local function SendLoyal(ply, args)
+	if ply:IsLoyal() then
+    	for _, pl in pairs(player.GetAll()) do
+            if pl:IsCP() or ply == pl then
+                CreateMark( pl, ply:GetPos(), ply:Name(), 'Вызов от лоялиста', 'icon16/shield.png', 45 )
+            end
+        end
+        rp.Notify(ply, NOTIFY_GENERIC, 'Вы вызвали Гражданскую Оборону. Оставайтесь на месте')
+    end
+end
+rp.AddCommand("/sendloyal", SendLoyal, 0)
+
 
 -- local function CreateCheque(ply, args)
 -- 	local argt = string.Explode(" ", args)

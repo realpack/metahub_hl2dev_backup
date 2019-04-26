@@ -171,15 +171,15 @@ end)
 
 hook.Add( "KeyPress", "Handcuffs_KeyPress", function( player, key )
 	if not player then return end
-  
+
   if key ~= IN_USE then return end
-  
+
   local walk=player:KeyDown(IN_WALK)
   if not walk then return end
 
 
 	if player.GetPlayerKidnapper then
-  
+
 		local trace = player:GetEyeTrace()
 		local target = trace.Entity
 
@@ -198,7 +198,7 @@ hook.Add( "KeyPress", "Handcuffs_KeyPress", function( player, key )
 
 		player.GetPlayerKidnapper:SetHandcuffed(true,entity)
 
-		entity:SetNVar('GetPlayerKidnapper',entity.GetPlayerKidnapper)
+		entity:SetNWEntity('GetPlayerKidnapper',entity.GetPlayerKidnapper)
 		-- end
 	end
 end )

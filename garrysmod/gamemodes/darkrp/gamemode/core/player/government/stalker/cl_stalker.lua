@@ -51,7 +51,7 @@ net.Receive('LostSignalCP', function()
     local rpid = net.ReadString()
     local ply = net.ReadEntity()
 
-    if not ply:IsCP() then return end
+    if not ply.IsCP or not ply:IsCP() then return end
 
     ply:EmitSound('npc/overwatch/radiovoice/die'..math.random(1,3)..'.wav')
 

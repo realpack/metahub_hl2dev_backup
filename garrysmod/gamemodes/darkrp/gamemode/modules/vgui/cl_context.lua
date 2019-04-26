@@ -60,6 +60,12 @@ local function OpenContextMenu()
         end, icon = Material('icon16/cog_error.png') })
     end
 
+    if LocalPlayer():IsLoyal() then
+        table.insert(contextoptions, { text = 'Вызвать ГО', func = function( self )
+            RunConsoleCommand("say", "/sendloyal")
+        end, icon = Material('icon16/shield.png') })
+    end
+
 	if rp.cfg.CanManageCode[LocalPlayer():Team()] then
         table.insert(contextoptions, { text = 'Объявить красный код', func = function( self )
             net.Start('Combine_SendRpCode')

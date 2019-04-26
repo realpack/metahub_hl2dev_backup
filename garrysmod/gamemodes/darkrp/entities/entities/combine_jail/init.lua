@@ -42,9 +42,11 @@ function ENT:AcceptInput(inputName, user)
     if no_citizens then
 		rp.Notify(user, NOTIFY_ERROR, 'Рядом нет никого.')
     else
-		net.Start('NPCJail_OpenMenu')
-			net.WriteTable(citizens)
-		net.Send(user)
+        if user:IsCP() then
+            net.Start('NPCJail_OpenMenu')
+                net.WriteTable(citizens)
+            net.Send(user)
+        end
     end
 end
 

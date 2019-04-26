@@ -93,7 +93,7 @@ local function loadDoorData()
 	end
 	db:Query('SELECT * FROM rp_doordata WHERE Map="' .. string.lower(game.GetMap()) .. '";', function(data)
 		for k, v in ipairs(data or {}) do
-            print(v.Index + game.MaxPlayers())
+            -- print(v.Index + game.MaxPlayers())
 			local ent = Entity(v.Index + game.MaxPlayers())
 			if IsValid(ent) then
 				if (v.Title ~= nil) and (v.Title ~= 'NULL') then -- fuck you if you rethink im redoing the door data
@@ -104,9 +104,6 @@ local function loadDoorData()
 					ent:DoorSetTeam(tonumber(v.Team))
 				end
 
-                -- print(ent)
-                PrintTable(v)
-                -- print(v.Group)
 				if (v.Group ~= nil) and (v.Group ~= 'NULL') then
 					ent:DoorSetGroup(v.Group)
 				end
@@ -194,7 +191,8 @@ rp.AddCommand('/buydoor', function(pl, text, args)
 	end
 
 	local ent = pl:GetEyeTrace().Entity
-	if IsValid(ent) and ent:IsDoor() and ent:DoorIsOwnable() and (ent:GetPos():DistToSqr(pl:GetPos()) < 13225) then
+    print(IsValid(ent), ent:IsDoor(), ent:DoorIsOwnable(), (ent:GetPos():DistToSqr(pl:GetPos()) < 712^2))
+	if IsValid(ent) and ent:IsDoor() and (not ent:DoorGetOwner() ~= nil) and (ent:GetPos():DistToSqr(pl:GetPos()) < 712^2) then
 		pl:TakeMoney(cost)
 		rp.Notify(pl, NOTIFY_GREEN, rp.Term('DoorBought'), rp.FormatMoney(cost))
 		ent:DoorOwn(pl)

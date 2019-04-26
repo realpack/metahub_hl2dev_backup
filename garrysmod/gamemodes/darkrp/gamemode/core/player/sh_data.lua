@@ -4,17 +4,18 @@ end
 
 PLAYER.SteamName = PLAYER.SteamName or PLAYER.Name
 function PLAYER:Name()
-    if self and self:Team() and rp.cfg.NickNameRegex[self:Team()] then
-        return self:IsAdmin() and string.format(rp.cfg.NickNameRegex[self:Team()]..' ['..self:SteamName()..']', team.GetName(self:Team()), self:GetNetVar("RPID")) or string.format(rp.cfg.NickNameRegex[self:Team()], team.GetName(self:Team()), self:GetNetVar("RPID"))
+    if self and IsValid(self) and self:Team() and rp.cfg.NickNameRegex[self:Team()] then
+        return self:IsAdmin() and string.format(rp.cfg.NickNameRegex[self:Team()]..' ['..self:SteamName()..']', team.GetName(self:Team()), self:GetNWString("RPID")) or string.format(rp.cfg.NickNameRegex[self:Team()], team.GetName(self:Team()), self:GetNWString("RPID"))
     end
 
     if CLIENT and LocalPlayer() ~= self then
         if not rp.names[self:SteamID()] then
             return LocalPlayer():IsAdmin() and '['..self:SteamName()..']' or 'Незнакомец'
         end
-        return LocalPlayer():IsAdmin() and (self:GetNetVar('Name')..' ['..self:SteamName()..']' or self:SteamName()) or (self:GetNetVar('Name') or self:SteamName()) or "Unknown"
+        local name = self:GetNetVar('Name') and self:GetNetVar('Name') or 'nil'
+        return LocalPlayer():IsAdmin() and (name..' ['..self:SteamName()..']' or self:SteamName()) or (name or self:SteamName())
     end
-    return (self:GetNetVar('Name') or self:SteamName() or "Unknown")
+    return (self:GetNetVar('Name') or self:SteamName())
 end
 PLAYER.Nick 	= PLAYER.Name
 PLAYER.GetName 	= PLAYER.Name

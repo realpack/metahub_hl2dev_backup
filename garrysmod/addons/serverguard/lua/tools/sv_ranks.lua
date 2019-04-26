@@ -506,7 +506,7 @@ Restrictions = {
 serverguard.ranks:AddRank("serverstaff", "Сенат Сервера", 70, Color(117, 0, 211), "icon16/eye.png", {
 	Permissions = {
 		["Sandbox settings"] = false,
-		["Set Rank"] = true,
+		["Set Rank"] = false,
 		["Edit Ranks"] = false,
 		["Manage Players"] = false,
 		["Extinguish"] = true,

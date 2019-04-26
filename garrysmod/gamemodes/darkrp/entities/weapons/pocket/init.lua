@@ -229,11 +229,16 @@ rp.AddCommand('/invdrop', function(p, s, a)
 		ent:SetPos(tr.HitPos + Vector(0, 0, 10))
         ent.bodygroup = item.bodygroup or nil
 
-        timer.Simple(60,function()
-            if ent and IsValid(ent) then
-                ent:Remove()
-            end
-        end)
+        PrintTable(item)
+        print(weapons.Get( ent_class ))
+
+        if weapons.Get( ent_class ) == nil then
+            timer.Simple(60,function()
+                if ent and IsValid(ent) then
+                    ent:Remove()
+                end
+            end)
+        end
 
 		Finalize(ent, item, p)
 	end

@@ -17,26 +17,26 @@ end
 
 GROUP:AddItem(
  	IGS("20 000 Крон", "120k_deneg"):SetMetaMoney(20000)
- 	:SetPrice(99) -- руб
+ 	:SetPrice(200) -- руб
 )
 GROUP:AddItem(
  	IGS("100 000 Крон", "150k_deneg"):SetMetaMoney(100000)
- 	:SetPrice(199) -- руб
+ 	:SetPrice(400) -- руб
 )
 
 GROUP:AddItem(
  	IGS("449 999 Крон", "200k_deneg"):SetMetaMoney(450000)
- 	:SetPrice(399) -- руб
+ 	:SetPrice(609) -- руб
 )
 
 GROUP:AddItem(
  	IGS("999 999 Крон", "500k_deneg"):SetMetaMoney(1000000)
- 	:SetPrice(599) -- руб
+ 	:SetPrice(800) -- руб
 )
 
 GROUP:AddItem(
  	IGS("1 999 999 Крон", "1200k_deneg"):SetMetaMoney(2000000)
- 	:SetPrice(899) -- руб
+ 	:SetPrice(1100) -- руб
 )
 
 --[[-------------------------------------------------------------------------
@@ -123,8 +123,8 @@ for group,t in pairs({
 		image = "https://i.imgur.com/mBMcpgq.jpg",
 		icon =  "https://i.ibb.co/q53Jqkd/EUCLID.jpg",
 		weight = 2,
-		{100,30},
-		{300},
+		{200,30},
+		{400},
 	},
 	["keter"] = {
 		name   = "Кетер",
@@ -133,8 +133,8 @@ for group,t in pairs({
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/VmPdSrV/KETER.jpg",
 		weight = 3,
-		{400,20},
-		{600},
+		{500,20},
+		{700},
 	},
 	["afina"] = {
 		name   = "Афина",
@@ -143,8 +143,8 @@ for group,t in pairs({
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/sq9fJPt/AFINA.jpg",
 		weight = 3,
-		{700,30},
-		{900},
+		{800,30},
+		{1000},
 	},
 	["thaumiel"] = {
 		name   = "Таумиель",
@@ -153,8 +153,8 @@ for group,t in pairs({
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/DLKhnnD/THAUMIEL.jpg",
 		weight = 3,
-		{1000,30},
-		{1200},
+		{1100,30},
+		{1300},
 	},
 	["apollo"] = {
 		name   = "Аполлион",
@@ -163,8 +163,8 @@ for group,t in pairs({
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/sVR1PG3/APPOLION.jpg",
 		weight = 3,
-		{1300,30},
-		{1500},
+		{1400,30},
+		{1600},
 	},
 }) do
 	local GROUP = IGS.NewGroup(t["name"])

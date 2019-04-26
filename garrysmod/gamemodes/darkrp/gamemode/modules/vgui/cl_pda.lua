@@ -187,7 +187,7 @@ local function OpenPDAMenu()
                     btn.Paint = function( self, w, h)
 						if k % 2 == 1 then draw.RoundedBox(0,0,0,w,h,Color(255,255,255,1)) end
 
-                        draw.SimpleText('ID: '..pl:GetNetVar("RPID"), "DermaDefault", 8, h/2, Color( 255, 255, 255, 255 ), 0, 1)
+                        draw.SimpleText('ID: '..pl:GetNWString("RPID"), "DermaDefault", 8, h/2, Color( 255, 255, 255, 255 ), 0, 1)
                         draw.SimpleText(ldata.text, "DermaDefault", w-8, h/2, ldata.col, 2, 1)
                     end
 

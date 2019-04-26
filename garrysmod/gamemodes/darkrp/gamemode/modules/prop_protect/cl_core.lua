@@ -20,26 +20,26 @@ end
 --
 -- Spawnlist
 --
-http.Fetch(rp.cfg.whitelistHandler, function(body)
-	local spawnlist = {}
-	spawnlist.name = 'Разрешённые пропы'
-	spawnlist.id = math.random(1000, 9999)
-	spawnlist.icon = 'icon16/package.png'
-	spawnlist.parentid = 0
-	spawnlist.version = 3
-	spawnlist.contents = {}
+-- http.Fetch(rp.cfg.whitelistHandler, function(body)
+-- 	local spawnlist = {}
+-- 	spawnlist.name = 'Разрешённые пропы'
+-- 	spawnlist.id = math.random(1000, 9999)
+-- 	spawnlist.icon = 'icon16/package.png'
+-- 	spawnlist.parentid = 0
+-- 	spawnlist.version = 3
+-- 	spawnlist.contents = {}
 
-	for k, v in ipairs(util.JSONToTable(body)) do
-		if (mdl ~= '') then
-			spawnlist.contents[#spawnlist.contents + 1] = {
-				type = 'model',
-				model = v.Model
-			}
-		end
-	end
+-- 	for k, v in ipairs(util.JSONToTable(body)) do
+-- 		if (mdl ~= '') then
+-- 			spawnlist.contents[#spawnlist.contents + 1] = {
+-- 				type = 'model',
+-- 				model = v.Model
+-- 			}
+-- 		end
+-- 	end
 
-	spawnmenu.AddPropCategory('', spawnlist.name, spawnlist.contents, spawnlist.icon, spawnlist.id, 0)
-end)
+-- 	spawnmenu.AddPropCategory('', spawnlist.name, spawnlist.contents, spawnlist.icon, spawnlist.id, 0)
+-- end)
 
 --
 -- Menus
@@ -241,7 +241,7 @@ function PANEL:BuildList()
     number = 1
 
     -- PrintTable(nw.GetGlobal('Whitelist'))
-    for model, _ in pairs(nw.GetGlobal('Whitelist')) do
+    for model, _ in pairs( rp.cfg.PropWhitelist or nw.GetGlobal('Whitelist') ) do
 
         local Icon = vgui.Create("SpawnIcon", self)
 

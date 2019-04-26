@@ -15,7 +15,7 @@ resource.AddWorkshop( "1418478031" )
 -- maplist["rp_lusankya_metahub_v1"] = "1613799094"
 maplist["rp_city24_v2"] = "1542655022"
 maplist["rp_c18_updated"] = "1318848337"
--- maplist["rp_hanamura"] = "1392013140"
+maplist["rp_cyberz_c18_v1"] = "1702639487"
 -- maplist["event_cdx_dathbase"] = "969977945"
 -- maplist["event_cdx_dathcanyon"] = "969977945"
 -- maplist["rp_venator_providence_battle"] = "804649089"

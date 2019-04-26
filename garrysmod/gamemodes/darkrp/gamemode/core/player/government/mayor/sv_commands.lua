@@ -17,7 +17,7 @@ function rp.resetLaws(pl)
 		rp.Notify(pl, NOTIFY_ERROR, rp.Term('MustBeMayorResetLaws'))
 		return ''
 	end
-	
+
 	nw.SetGlobal('TheLaws', nil)
 
 	hook.Call('mayorResetLaws', GAMEMODE, pl)
@@ -30,7 +30,7 @@ net('rp.SendLaws', function(len, pl)
 	if not pl:IsMayor() then return end
 
 	local str = net.ReadString()
-	if string.len(str) >= 26 * 10 then 
+	if string.len(str) >= 26 * 10 then
 		pl:ChatPrint('This is too long!')
 		return
 	end
@@ -187,13 +187,13 @@ function GM:UnLockdown(ply)
 end
 rp.AddCommand("/unlockdown", function(ply) GAMEMODE:UnLockdown(ply) end)
 
-hook("OnPlayerChangedTeam", "mayorgrace.OnPlayerChangedTeam", function(pl, before, after)
-	if (rp.teams[after].mayor == true) then
-		nw.SetGlobal('mayorGrace', CurTime() + 300)
-	elseif (rp.teams[before].mayor == true) then
-		nw.SetGlobal('mayorGrace', nil)
-	end
-end)
+-- hook("OnPlayerChangedTeam", "mayorgrace.OnPlayerChangedTeam", function(pl, before, after)
+	-- if (rp.teams[after].mayor == true) then
+	-- 	nw.SetGlobal('mayorGrace', CurTime() + 300)
+	-- elseif (rp.teams[before].mayor == true) then
+	-- 	nw.SetGlobal('mayorGrace', nil)
+	-- end
+-- end)
 
 -- Demote classes upon death
 hook("PlayerDeath","DemoteOnDeath",function(v, k)

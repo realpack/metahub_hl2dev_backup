@@ -265,9 +265,9 @@ function GM:PlayerDeath(ply, weapon, killer)
         ply:SetTeam(rp.cfg.ChangeTeamForDeath[ply:Team()])
     end
 
-    if ply:GetNetVar("RPID") and ply:IsCP() then
+    if ply:GetNWString("RPID") and ply:IsCP() then
         net.Start('LostSignalCP')
-            net.WriteString(ply:GetNetVar("RPID"))
+            net.WriteString(ply:GetNWString("RPID"))
             net.WriteEntity(ply)
         net.Send(player.GetAll())
 
@@ -428,7 +428,7 @@ function GM:PlayerLoadout(ply)
 		job.PlayerLoadout(ply)
 	end
 
-    ply:SetNetVar('RPID', math.random(10000,99999))
+    ply:SetNWString('RPID', math.random(10000,99999))
 
     if Team ~= TEAM_STALKER then
         for k, v in ipairs(rp.teams[Team].weapons or {}) do

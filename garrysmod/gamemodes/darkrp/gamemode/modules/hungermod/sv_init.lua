@@ -117,7 +117,7 @@ local function BuyFood(pl, args)
 	local SpawnedFood = ents.Create("spawned_food")
 	SpawnedFood:SetPos(tr.HitPos)
 	SpawnedFood:SetModel(rp.Foods[args].model)
-    PrintTable(rp.Foods[args])
+    -- PrintTable(rp.Foods[args])
 	SpawnedFood.ItemOwner = pl
 	SpawnedFood:Spawn()
 
