@@ -96,15 +96,13 @@ cats.config.triggerText = function(ply, text)
 end
 cats.config.notify = function(ply, msg, type, duration)
     if IsValid(ply) then
-        -- rp.Notify(ply, type, msg)
+        rp.Notify(ply, type, msg)
         -- DarkRP.notify(ply, type, duration, msg)
         -- meta.util.Notify('red', ply, msg)
-        rp.Notify(ply, type, msg)
     else
-        -- rp.NotifyAll(type, msg)
+        rp.NotifyAll(type, msg)
         -- DarkRP.notifyAll(type, duration, msg)
         -- meta.util.NotifyAll('red', msg)
-        rp.NotifyAll(type, msg)
     end
 end
 

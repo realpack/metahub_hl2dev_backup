@@ -236,6 +236,49 @@ if SERVER then
 	hook.Add( "InitPostEntity", "SpawnControls_InitPostEntity", SpawnControls)
 end
 
+rp.cfg.Doors = {
+    {
+        pos = Vector('2142.937500 -509.437500 595.406250'),
+        ang = Angle('0 -180 0'),
+        model = 'models/props_combine/combine_door01.mdl'
+    },
+    {
+        pos = Vector('2374.781250 1111.281250 1011.406250'),
+        ang = Angle('0 -90 0'),
+        model = 'models/props_combine/combine_door01.mdl'
+    },
+    {
+        pos = Vector('1903.781250 1436.562500 1395.406250'),
+        ang = Angle('0 0 0'),
+        model = 'models/props_combine/combine_door01.mdl'
+    },
+    {
+        pos = Vector('3733.875000 689.781250 945.031250'),
+        ang = Angle('0 0 0'),
+        model = 'models/combine_gate_citizen.mdl'
+    }
+}
+
+if SERVER then
+	local function SpawnDoors()
+		for name, d in pairs(rp.cfg.Doors) do
+            local ent = ents.Create('prop_dynamic')
+            ent:SetModel(d.model)
+            ent:SetPos(d.pos)
+            ent:SetAngles(d.ang)
+
+            ent:SetKeyValue("solid", "6")
+            ent:SetKeyValue("MinAnimTime", "1")
+            ent:SetKeyValue("MaxAnimTime", "5")
+
+            ent:Spawn()
+            ent:Activate()
+		end
+	end
+	-- hook.Add( "PostCleanupMap", "SpawnDoors_PostCleanupMap", SpawnDoors)
+	hook.Add( "InitPostEntity", "SpawnDoors_InitPostEntity", SpawnDoors)
+end
+
 rp.cfg.TypesCanCP = {
 	[TEAMTYPE_SUP] = true,
 	[TEAMTYPE_COMBINE] = true,
@@ -280,6 +323,8 @@ timer.Simple(.1, function()
 		[TEAM_CITIZEN4] = TEAM_CITIZEN24,
 		[TEAM_HERO2] = TEAM_CITIZEN24,
 		[TEAM_HERO8] = TEAM_CITIZEN24,
+		[TEAM_ALTER] = TEAM_CITIZEN24,
+		[TEAM_STATICREBEL] = TEAM_CITIZEN24,
 
 	}
 
@@ -435,7 +480,7 @@ timer.Simple(.1, function()
 		[TEAM_COMBINE1] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_smg"},
 		[TEAM_COMBINE2] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2", "m9k_m61_frag"},
 		[TEAM_COMBINE3] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_m3super90"},
-		[TEAM_COMBINE4] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_m249"},
+		[TEAM_COMBINE4] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_m249", "m9k_m61_frag"},
 		[TEAM_COMBINE5] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_sg552"},
 		[TEAM_COMBINE6] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "m9k_m61_frag"},
 		[TEAM_COMBINE7] = {"swb_357", "weaponchecker",  "stun_baton", "handcuffs", "swb_knife", "swb_xm1014", "m9k_m61_frag"},
@@ -865,10 +910,10 @@ rp.cfg.JailPos = {
 		Vector(-2081, 238, -160),
 	},
 	rp_cyberz_c18_v1 = {
-		Vector('2199.307861 947.452759 432.031250'),
-		Vector('2323.974609 948.926147 432.031250'),
-		Vector('1883.433228 940.497925 432.031250'),
-		Vector('2007.810791 945.797302 432.031250'),
+		Vector('2199.307861 947.452759 402.031250'),
+		Vector('2323.974609 948.926147 402.031250'),
+		Vector('1883.433228 940.497925 402.031250'),
+		Vector('2007.810791 945.797302 402.031250'),
 	},
 
 }
@@ -1401,6 +1446,7 @@ rp.cfg.VoiceCommands = {
 	}
 }
 rp.cfg.VoiceCommands[TEAMTYPE_SUP] = rp.cfg.VoiceCommands[TEAMTYPE_COMBINE]
+rp.cfg.VoiceCommands[TEAMTYPE_CWU] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
 
 rp.cfg.DefaultModels = {
 	['0'] = {

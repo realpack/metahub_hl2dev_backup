@@ -1,6 +1,7 @@
 function PLAYER:CheckLimit(str)
 	local c = rp.GetLimit(str)
-	if (c < 0) then return true end
+    -- print(self,str, c)
+	if (c <= 0) then return true end
 	if (self:GetCount(str) >= c) then
 		self:LimitHit(str)
 		return false
@@ -16,6 +17,7 @@ function PLAYER:GetCount(str, minus)
 end
 
 function PLAYER:AddCount(str, ent)
+    -- print(str)
 	if (SERVER) then
 		if not self._Counts then
 			self._Counts = {}
@@ -23,11 +25,27 @@ function PLAYER:AddCount(str, ent)
 
 		self._Counts[str] = (self._Counts[str] or 0) + 1
 
+        -- function ent:OnRemove()
+        --     print(1)
+        -- end
 		ent.OnRemoveCount = function() --CallOnRemove is broke
 			if IsValid(self) then
 				self._Counts[str] = self._Counts[str] - 1
 			end
 		end
+
+		-- ent.OnRemove = function() --CallOnRemove is broke
+        --     print(2)
+		-- 	if IsValid(self) then
+		-- 		self._Counts[str] = self._Counts[str] - 1
+		-- 	end
+		-- end
+		-- ent.RemoveCallOnRemove = function() --CallOnRemove is broke
+        --     print(1)
+		-- 	if IsValid(self) then
+		-- 		self._Counts[str] = self._Counts[str] - 1
+		-- 	end
+		-- end
 	end
 end
 
@@ -36,6 +54,12 @@ function PLAYER:LimitHit(str)
 end
 
 function PLAYER:AddCleanup(type, ent)
+    ent.OnRemoveCount = function() --CallOnRemove is broke
+        if IsValid(self) then
+            self._Counts[type] = self._Counts[type] - 1
+        end
+    end
+
 	cleanup.Add(self, type, ent)
 end
 
@@ -50,5 +74,12 @@ function PLAYER:GetTool( mode )
 end
 
 hook.Add('EntityRemoved', 'CallEntityRemoved', function(ent)
-	if ent.OnRemoveCount then ent.OnRemoveCount() end
+    -- print(ent.pp_owner)
+    print(ent, ent.OnRemoveCount)
+	if ent.OnRemoveCount then ent.OnRemoveCount() return end
+    -- print(ent,ent:GetNVar(''))
+    -- if ent:CPPIGetOwner() and IsValid(ent:CPPIGetOwner()) then
+    --     local owner = ent.pp_owner
+    --     owner._Counts[str] = owner._Counts[str] - 1
+    -- end
 end)

@@ -650,7 +650,7 @@ net.Receive('cats.closeTicket', function(e)
     local e = net.ReadString()
 
     if e == LocalPlayer():SteamID() and t then
-        if IsValid(t.admin) then
+        if t.adminID then
             cats.myTicketFrame:SwitchToRating()
         else
             cats.myTicketFrame:Remove()

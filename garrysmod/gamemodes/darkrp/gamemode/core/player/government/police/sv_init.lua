@@ -95,11 +95,13 @@ function PLAYER:UnArrest(actor)
 		self:SetPos(pos)
 		self:SetHealth(100)
 		hook.Call('PlayerLoadout', GAMEMODE, self)
-		rp.NotifyAll('UnArrested', rp.Term('UnArrested'), self)
+		-- rp.NotifyAll('UnArrested', rp.Term('UnArrested'), self)
 		hook.Call('PlayerUnArrested', GAMEMODE, self, actor)
 	end)
 
-	AddLineTerminal(string.format( '%s выпустил %s', actor:Name(), self:Name() ))
+    if actor and IsValid(actor) then
+	    AddLineTerminal(string.format( '%s выпустил %s', actor:Name(), self:Name() ))
+    end
 end
 
 

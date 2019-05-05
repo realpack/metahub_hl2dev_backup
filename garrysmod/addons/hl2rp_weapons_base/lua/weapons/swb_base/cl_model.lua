@@ -33,23 +33,23 @@ function SWEP:CreateShell(sh)
 	if not IsValid(self.Owner) or self.Owner:ShouldDrawLocalPlayer() or self.NoShells then
 		return
 	end
-	
+
 	sh = self.Shell or sh
 	vm = self.Owner:GetViewModel()
-	
+
 	if not IsValid(vm) then
 		return
 	end
 
 	att = vm:GetAttachment(2)
-	
+
 	if att then
 		if self.InvertShellEjectAngle then
 			dir = -att.Ang:Forward()
 		else
 			dir = att.Ang:Forward()
 		end
-		
+
 		SWB_MakeFakeShell(sh, att.Pos + dir, EyeAngles(), dir * 200, 0.6, 10, self.ShellScale)
 	end
 end
@@ -60,27 +60,27 @@ function SWEP:CreateMuzzle(pos, ang)
 	end
 
 	vm = self.Owner:GetViewModel()
-	
+
 	if IsValid(vm) then
 		vm:StopParticles()
 
 		muz = vm:LookupAttachment("1")
-		
+
 		if muz then
 			muz2 = vm:GetAttachment(muz)
-			
+
 			if muz2 then
 				EA = EyeAngles()
-				
+
 				if self.MuzzlePosMod then
 					pos = pos + EA:Right() * self.MuzzlePosMod.x + EA:Forward() * self.MuzzlePosMod.y + EA:Up() * self.MuzzlePosMod.z
 				end
-				
+
 				if self.dt.State == SWB_AIMING and self.SimulateCenterMuzzle then
 					pos = self.Owner:GetShootPos() + EA:Forward() * 15 - EA:Up() * 6
 					self.CenterPos = pos
 				end
-				
+
 				if self.dt.Suppressed then
 					if self.MuzzleEffectSupp then
 						if not self.NoSilMuz then
@@ -107,10 +107,10 @@ function SWEP:CreateMuzzle(pos, ang)
 							end
 						end
 					end
-					
+
 					dlight = DynamicLight(self:EntIndex())
-					
-					dlight.r = 255 
+
+					dlight.r = 255
 					dlight.g = 218
 					dlight.b = 74
 					dlight.Brightness = 4
@@ -135,37 +135,37 @@ function SWB_MakeFakeShell(shell, pos, ang, vel, time, removetime, shellscale)
 	end
 
 	local t = SWBShells[shell]
-	
+
 	if not t then
 		return
 	end
-	
+
 	vel = vel or Vector(0, 0, -100)
 	vel = vel + VectorRand() * 5
 	time = time or 0.5
 	removetime = removetime or 5
 	shellscale = shellscale or 1
-	
-	local ent = ClientsideModel(t.m, RENDERGROUP_BOTH) 
+
+	local ent = ClientsideModel(t.m, RENDERGROUP_BOTH)
 	ent:SetPos(pos)
 	ent:PhysicsInitBox(Vector(-0.5, -0.15, -0.5), Vector(0.5, 0.15, 0.5))
 	ent:SetAngles(ang)
 	ent:SetModelScale(shellscale, 0)
-	ent:SetMoveType(MOVETYPE_VPHYSICS) 
-	ent:SetSolid(SOLID_VPHYSICS) 
+	ent:SetMoveType(MOVETYPE_VPHYSICS)
+	ent:SetSolid(SOLID_VPHYSICS)
 	ent:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
-	
+
 	local phys = ent:GetPhysicsObject()
 	phys:SetMaterial("gmod_silent")
 	phys:SetMass(10)
 	phys:SetVelocity(vel)
 
 	timer.Simple(time, function()
-		if t.s then
+		if t.s and IsValid(ent) then
 			ent:EmitSound(table.Random(t.s), 35, 100)
 		end
 	end)
-	
+
 	SafeRemoveEntityDelayed(ent, removetime)
 end
 
@@ -174,25 +174,25 @@ function SWEP:FireAnimationEvent(pos, ang, ev, name)
 		if self.MuzzleEffect then
 			self:CreateMuzzle(pos, ang)
 		end
-		
+
 		if self.NoStockMuzzle then
 			return true
 		end
-		
+
 		return self.dt.Suppressed
 	end
-	
+
 	if ev == 20 then
 		if self.Shell then
 			self:CreateShell()
 		end
-		
+
 		return self.NoStockShells
 	end
 end
 
 SWEP.ApproachSpeed = 10
-local SP = game.SinglePlayer() 
+local SP = game.SinglePlayer()
 local PosMod, AngMod = Vector(0, 0, 0), Vector(0, 0, 0)
 local CurPosMod, CurAngMod = Vector(0, 0, 0), Vector(0, 0, 0)
 local veldepend = {pitch = 0, yaw = 0, roll = 0}
@@ -202,26 +202,26 @@ local EA2
 function SWEP:PreDrawViewModel()
 	CT = UnPredictedCurTime()
 	vm = self.Owner:GetViewModel()
-	
+
 	self.Sequence = vm:GetSequenceName(vm:GetSequence())
 	self.IsReloading = self.Sequence:find("reload")
-	
+
 	if not self.IsReloading then
 		self.IsReloading = self.Sequence:find("insert")
 	end
-	
+
 	if not self.IsReloading then
 		self.IsFiddlingWithSuppressor = self.Sequence:find("silencer")
 	end
-	
+
 	self.Cycle = vm:GetCycle()
-	
+
 	EA = EyeAngles()
 	FT = FrameTime()
-	
+
 	delta = Angle(EA.p, EA.y, 0) - self.OldDelta
 	delta.p = math.Clamp(delta.p, -10, 10)
-		
+
 	self.OldDelta = Angle(EA.p, EA.y, 0)
 	self.AngleDelta = LerpAngle(math.Clamp(FT * 10, 0, 1), self.AngleDelta, delta)
 	self.AngleDelta.y = math.Clamp(self.AngleDelta.y, -10, 10)
@@ -229,12 +229,12 @@ function SWEP:PreDrawViewModel()
 	vel = GetVelocity(self.Owner)
 	len = Length(vel)
 	ws = self.Owner:GetWalkSpeed()
-	
+
 	PosMod, AngMod = Vec0 * 1, Vec0 * 1
 	mod2 = 1
-	
+
 	veldepend.roll = math.Clamp((vel:DotProduct(EA:Right()) * 0.04) * len / ws, -5, 5)
-	
+
 	if self.dt.State == SWB_AIMING then
 		mod2 = 0.2
 		TargetPos, TargetAng = self.AimPos * 1, self.AimAng * 1
@@ -252,14 +252,14 @@ function SWEP:PreDrawViewModel()
 				TargetPos, TargetAng = Vec0 * 1, Vec0 * 1
 			end
 		end
-		
+
 		rs = self.Owner:GetRunSpeed()
 		mod = 7 + math.Clamp(rs / 100, 0, 6)
 		mul = math.Clamp(len / rs, 0, 1)
 		sin1 = math.sin(CT * mod) * mul
 		cos1 = math.cos(CT * mod) * mul
 		tan1 = math.tan(sin1 * cos1) * mul
-		
+
 		if (self.IsReloading or self.IsFiddlingWithSuppressor) and self.Cycle <= 0.9 then
 			AngMod.x = AngMod.x + tan1 * 0.2 * self.ViewModelMovementScale * mul
 			AngMod.y = AngMod.y - cos1 * 1.5 * self.ViewModelMovementScale * mul
@@ -267,7 +267,7 @@ function SWEP:PreDrawViewModel()
 			PosMod.x = PosMod.x - sin1 * 1.2 * self.ViewModelMovementScale * mul
 			PosMod.y = PosMod.y + tan1 * 3 * self.ViewModelMovementScale * mul
 			PosMod.z = PosMod.z + tan1 * 1.5 * self.ViewModelMovementScale * mul
-			
+
 			self.ApproachSpeed = math.Approach(self.ApproachSpeed, 4, FT * 100)
 		else
 			AngMod.x = AngMod.x + tan1 * 0.2 * self.ViewModelMovementScale * mul
@@ -276,7 +276,7 @@ function SWEP:PreDrawViewModel()
 			PosMod.x = PosMod.x - sin1 * 1.2 * self.ViewModelMovementScale * mul
 			PosMod.y = PosMod.y + tan1 * 3 * self.ViewModelMovementScale * mul
 			PosMod.z = PosMod.z + tan1 * 1.5 * self.ViewModelMovementScale * mul
-			
+
 			self.ApproachSpeed = math.Approach(self.ApproachSpeed, 6, FT * 100)
 		end
 	else
@@ -287,28 +287,28 @@ function SWEP:PreDrawViewModel()
 		end
 
 		self.ApproachSpeed = math.Approach(self.ApproachSpeed, 10, FT * 100)
-		
+
 		td.start = self.Owner:GetShootPos()
 		td.endpos = td.start + self.Owner:EyeAngles():Forward() * 30
 		td.filter = self.Owner
-		
+
 		tr = util.TraceLine(td)
-		
+
 		if tr.Hit then
 			self.NearWall = true
 			TargetPos.y = TargetPos.y - math.Clamp(30 * (1 - tr.Fraction), 0, 15)
 		end
 	end
-	
+
 	if len < 10 or not self.Owner:OnGround() then
 		if self.dt.State != SWB_AIMING then
 			cos1, sin1 = math.cos(CT), math.sin(CT)
 			tan = math.atan(cos1 * sin1, cos1 * sin1)
-			
+
 			AngMod.x = AngMod.x + tan * 1.15
 			AngMod.y = AngMod.y + cos1 * 0.4
 			AngMod.z = AngMod.z + tan
-			
+
 			PosMod.y = PosMod.y + tan * 0.2 * mod2
 		end
 	elseif len > 10 and len < ws * 1.2 then
@@ -317,7 +317,7 @@ function SWEP:PreDrawViewModel()
 		sin1 = math.sin(CT * mod) * mul
 		cos1 = math.cos(CT * mod) * mul
 		tan1 = math.tan(sin1 * cos1) * mul
-		
+
 		AngMod.x = AngMod.x + tan1 * self.ViewModelMovementScale * mod2
 		AngMod.y = AngMod.y - cos1 * self.ViewModelMovementScale * mod2
 		AngMod.z = AngMod.z + cos1 * self.ViewModelMovementScale * mod2
@@ -325,38 +325,38 @@ function SWEP:PreDrawViewModel()
 		PosMod.y = PosMod.y + tan1 * 1 * self.ViewModelMovementScale * mod2
 		PosMod.z = PosMod.z + tan1 * 0.5 * self.ViewModelMovementScale * mod2
 	end
-	
+
 	FT = FrameTime()
-	
+
 	TargetAng.z = TargetAng.z + veldepend.roll
 	self.BlendPos = LerpVector(FT * self.ApproachSpeed, self.BlendPos, TargetPos)
 	self.BlendAng = LerpVector(FT * self.ApproachSpeed, self.BlendAng, TargetAng)
-	
+
 	CurPosMod = LerpVector(FT * 10, CurPosMod, PosMod)
 	CurAngMod = LerpVector(FT * 10, CurAngMod, AngMod)
-	
+
 	self.FireMove = Lerp(FT * 15, self.FireMove, 0)
 end
 
 function SWEP:GetViewModelPosition(pos, ang)
 	CT = UnPredictedCurTime()
-	
+
 	if self.InstantDissapearOnAim and self.dt.State == SWB_AIMING then
 		self.ViewModelFOV = 90
 		pos = pos - ang:Forward() * 100
 		return pos, ang
 	end
-	
+
 	if self.MoveWepAwayWhenAiming and CT > self.AimTime and self.dt.State == SWB_AIMING then
 		self.ViewModelFOV = 90
 		pos = pos - ang:Forward() * 100
 		return pos, ang
 	end
-	
+
 	self.ViewModelFOV = self.ViewModelFOV_Orig
-	
+
 	RotateAroundAxis(ang, Right(ang), CurAngMod.x + self.BlendAng.x + self.AngleDelta.p * mod2)
-	
+
 	if not self.ViewModelFlip then
 		RotateAroundAxis(ang, Up(ang), CurAngMod.y + self.BlendAng.y + self.AngleDelta.y * 0.3 * mod2)
 		RotateAroundAxis(ang, Forward(ang), CurAngMod.z + self.BlendAng.z + self.AngleDelta.y * 0.3 * mod2)
@@ -370,10 +370,10 @@ function SWEP:GetViewModelPosition(pos, ang)
 	else
 		pos = pos + (CurPosMod.x + self.BlendPos.x - self.AngleDelta.y * 0.1 * mod2) * Right(ang)
 	end
-	
+
 	pos = pos + (CurPosMod.y + self.BlendPos.y - self.FireMove) * Forward(ang)
 	pos = pos + (CurPosMod.z + self.BlendPos.z - self.AngleDelta.p * 0.1) * Up(ang)
-	
+
 	return pos, ang
 end
 
@@ -398,25 +398,25 @@ function SWEP:DrawWorldModel()
 			end
 		end
 	end
-				
+
 	if self.DrawTraditionalWorldModel then
 		self:DrawModel()
 	else
 		wm = self.WMEnt
-		
+
 		if IsValid(wm) then
 			if IsValid(self.Owner) then
 				pos, ang = GetBonePosition(self.Owner, self.Owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-				
+
 				if pos and ang then
 					RotateAroundAxis(ang, Right(ang), self.WMAng[1])
 					RotateAroundAxis(ang, Up(ang), self.WMAng[2])
 					RotateAroundAxis(ang, Forward(ang), self.WMAng[3])
 
-					pos = pos + self.WMPos[1] * Right(ang) 
+					pos = pos + self.WMPos[1] * Right(ang)
 					pos = pos + self.WMPos[2] * Forward(ang)
 					pos = pos + self.WMPos[3] * Up(ang)
-					
+
 					wm:SetRenderOrigin(pos)
 					wm:SetRenderAngles(ang)
 					wm:DrawModel()

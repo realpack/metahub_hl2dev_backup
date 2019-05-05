@@ -18,11 +18,11 @@ TOOL.ClientConVar["index"] = "7"
 
 local DoorTypes = {
 	{name = "Combine Door", folder = true},
-		{name = "Tall", class = "prop_dynamic", model = "models/props_combine/combine_door01.mdl"},
-		{name = "Big", class = "prop_dynamic", model = "models/combine_gate_Vehicle.mdl"},
-		{name = "Small", class = "prop_dynamic", model = "models/combine_gate_citizen.mdl"},
+		{name = "Tall", class = "prop_dynamic", model = "models/props_combine/combine_door01.mdl", for_cp = true},
+		{name = "Big", class = "prop_dynamic", model = "models/combine_gate_Vehicle.mdl", for_cp = true},
+		{name = "Small", class = "prop_dynamic", model = "models/combine_gate_citizen.mdl", for_cp = true},
 	{folderend = true},
-			
+
 	{name = "Door", folder = true},
 		{name = "No Handle", hardware = "0", class = "prop_door_rotating", model = "models/props_c17/door01_left.mdl"},
 		{name = "Lever", hardware = "1", class = "prop_door_rotating", model = "models/props_c17/door01_left.mdl"},
@@ -65,7 +65,7 @@ local function SetDoor( Player, Entity, Data )
 	if ( SERVER ) then
 		duplicator.StoreEntityModifier( Entity, "door", Data )
 	end
-	
+
 end
 duplicator.RegisterEntityModifier( "door", SetDoor )
 */
@@ -93,7 +93,7 @@ if SERVER then
 		PrintTable( data )
 		duplicator.GenericDuplicatorFunction( ply, data )
 	end, "Data" )
-	
+
 	local Doors = {}
 	local function Save( save )
 		saverestore.WriteTable( Doors, save )
@@ -114,24 +114,27 @@ if SERVER then
 		if not ent:IsValid() then return end
 		ent:Fire("setanimation", "close", "0")
 	end
-	numpad.Register("door_open", openDoor) 
+	numpad.Register("door_open", openDoor)
 	numpad.Register("door_close", closeDoor)
-	
-	function makeDoor(ply, trace, ang, model, open, close, autoclose, closetime, class, hardware, skin, lock)
+
+	function makeDoor(ply, trace, ang, model, open, close, autoclose, closetime, class, hardware, skin, lock, for_cp)
 		if (!ply:CheckLimit("doors")) then return nil end
-		
+
 		-- if (!checkIfValidModel(model)) then return nil end
-		
+
 		local ent = ents.Create(class)
 		ent:SetModel(model)
-		
+
 		local BBMin = ent:OBBMins()
 		local pos = Vector(trace.HitPos.X,trace.HitPos.Y,trace.HitPos.Z - (trace.HitNormal.z * BBMin.z) )
-		
+
 		ent:SetSkin(skin)
 		ent:SetPos(pos)
 		ent:SetAngles(Angle(0, ang.Yaw, 0))
-		
+
+        ent.door_tool = true
+        ent.for_cp = for_cp
+
 		if tostring(class) == "prop_dynamic" then
 			ent:SetKeyValue("solid", "6")
 			ent:SetKeyValue("MinAnimTime", "1")
@@ -152,9 +155,21 @@ if SERVER then
 			return
 		end
 
+        -- function ent:Use()
+        --     print(2)
+        -- end
+
+
+
 		ent:Spawn()
 		ent:Activate()
-		
+
+
+        -- print(1)
+        -- ent.Use = function()
+        --     print(2)
+        -- end
+
 		local chip
 		if WireLib then
 		//	chip = ents.Create("gmod_door_gate")
@@ -164,17 +179,17 @@ if SERVER then
 		//		chip:Spawn()
 		end
 
-		numpad.OnDown(ply, open, "door_open", ent, autoclose, closetime)			
+		numpad.OnDown(ply, open, "door_open", ent, autoclose, closetime)
 		if tostring(class) != "prop_door_rotating" then
-			numpad.OnDown(ply, close, "door_close", ent, autoclose, closetime)	
+			numpad.OnDown(ply, close, "door_close", ent, autoclose, closetime)
 		end
-		
+
 		ply:AddCount("doors", ent)
 		ply:AddCleanup("doors", ent)
 		if IsValid(chip) then
 			ply:AddCleanup("doors", chip)
 		end
-		
+
 		local index = ply:UniqueID()
 		Doors[index] = Doors[index] or {}
 		--Doors[index][1] = Doors[index][1] or {}
@@ -183,7 +198,7 @@ if SERVER then
 		ent.closekey = close
 		ent.autoclose = autoclose
 		table.insert(Doors[index], ent)
-		
+
 		undo.Create("Door")
 			undo.AddEntity(ent)
 			undo.SetPlayer(ply)
@@ -196,27 +211,28 @@ function TOOL:LeftClick( tr )
 
 	--local model	= self:GetClientInfo("model")
 	local open = self:GetClientNumber("open")
-	local close = self:GetClientNumber("close") 
-	--local class = self:GetClientInfo("class") 
+	local close = self:GetClientNumber("close")
+	--local class = self:GetClientInfo("class")
 	local ply = self:GetOwner()
 	local ang = ply:GetAimVector():Angle()
-	local autoclose = self:GetClientNumber("autoclose") 
-	local closetime = self:GetClientNumber("closetime") 
+	local autoclose = self:GetClientNumber("autoclose")
+	local closetime = self:GetClientNumber("closetime")
 	--local hardware = self:GetClientNumber("hardware")
 	local skin = self:GetClientNumber("skin")
 	local lock = self:GetClientNumber("lock")
-	
+
 	local door = DoorTypes[self:GetClientNumber("index")]
 	if (!door or door.folder or door.folderend) then return false end
 	local hardware = door.hardware
 	local model = door.model
 	local class = door.class
-	
+    local for_cp = door.for_cp
+
 	if (!self:GetSWEP():CheckLimit("doors")) then return false end
 
 	if !util.IsValidModel(model) then return end
-	makeDoor(ply, tr, ang, model, open, close, autoclose, closetime, class, hardware, skin, lock)
-	
+	makeDoor(ply, tr, ang, model, open, close, autoclose, closetime, class, hardware, skin, lock, for_cp)
+
 	return true
 end
 
@@ -287,7 +303,7 @@ function TOOL.BuildCPanel( CPanel )
 						Command2 = "door_close",
 						ButtonSize = 22})
 
-	CPanel:AddControl("Slider", { 
+	CPanel:AddControl("Slider", {
 						Label	= "Auto-Close Delay",
 						Type	= "Float",
 						Min		= 0,
@@ -335,7 +351,7 @@ function TOOL:MakeGhostEntity( model, pos, angle )
 
 	-- Check for invalid model
 	if (!util.IsValidModel( model )) then return end
-	
+
 	if (CLIENT) then
 		self.GhostEntity = ents.CreateClientProp(model)
 	else
@@ -356,7 +372,7 @@ function TOOL:MakeGhostEntity( model, pos, angle )
 	self.GhostEntity:SetPos( pos )
 	self.GhostEntity:SetAngles( angle )
 	self.GhostEntity:Spawn()
-	
+
 	self.GhostEntity:SetSolid( SOLID_VPHYSICS );
 	self.GhostEntity:SetMoveType( MOVETYPE_NONE )
 	self.GhostEntity:SetNotSolid( true );
@@ -367,13 +383,13 @@ end
 function TOOL:UpdateGhost(ent, ply)
 	if !ent then return end
 	if !ent:IsValid() then return end
-	
+
 	local tr = util.GetPlayerTrace(ply)
 	local trace = util.TraceLine(tr)
 
 	if (!trace.Hit) then return end
 
-	local ang = ply:GetAimVector():Angle() 
+	local ang = ply:GetAimVector():Angle()
 	local BBMin = ent:OBBMins()
 	local pos = Vector(trace.HitPos.X, trace.HitPos.Y, trace.HitPos.Z - (trace.HitNormal.z * BBMin.z))
 	local skin = self:GetClientNumber("skin")
@@ -392,6 +408,6 @@ function TOOL:Think()
 		self:MakeGhostEntity(DoorTypes[tonumber(self:GetClientInfo("index"))].model, Vector(0,0,0), Angle(0,0,0))
 		self:UpdateSkinCount()
 	end
-	
+
 	self:UpdateGhost(self.GhostEntity, self:GetOwner())
 end

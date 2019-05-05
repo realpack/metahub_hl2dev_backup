@@ -156,6 +156,7 @@ function ENTITY:IsProp()
 end
 
 function ENTITY:CPPISetOwner(pl)
+    if not self or not IsValid(self) or self:GetClass() == 'prop_dynamic' then return end
 	self.pp_owner = pl
 	self:SetNetVar('PropIsOwned', true)
     self:SetNetVar('PropGetOwner', pl)

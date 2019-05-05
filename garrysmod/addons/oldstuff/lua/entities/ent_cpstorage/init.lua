@@ -32,7 +32,7 @@ function ENT:Open()
 
 	local button = ents.Create( "ent_cpbox" )
 	if ( !IsValid( button ) ) then return end
-	button:SetModel( "models/cca_tech_props/combine_cargo01a.mdl" )
+	button:SetModel( "models/props_junk/TrashDumpster02.mdl" )
 	button:SetPos( self:GetPos()+self:GetRight()*-240+self:GetUp()*12 )
 	button:Spawn()
     button:Activate()

@@ -76,7 +76,32 @@ end)
 /*---------------------------------------------------------
  Gamemode functions
  ---------------------------------------------------------*/
+local cp_doors_models = {
+   'models/combine_gate_vehicle.mdl',
+   'models/props_combine/combine_door01.mdl',
+   'models/combine_gate_citizen.mdl',
+}
+
+
 function GM:PlayerUse(pl, ent)
+    -- print(ent)
+    -- print(ent.for_cp)
+    -- print(ent, ent:IsDoor())
+    if (ent:IsDoor() or ent:GetClass() == 'prop_dynamic' ) and table.HasValue(cp_doors_models,ent:GetModel()) then
+        if pl:IsCP() then
+            -- print(ent)
+            ent:Fire("setanimation","open",.1)
+            ent:Fire('open')
+
+            timer.Simple(6, function()
+                ent:Fire("setanimation","close",.1)
+            end)
+            return true
+        else
+            return false
+        end
+    end
+
 	return not pl:IsStalker()
 end
 function GM:PlayerSpawnSENT(pl, model) return pl:IsSuperAdmin() end
@@ -265,14 +290,18 @@ function GM:PlayerDeath(ply, weapon, killer)
         ply:SetTeam(rp.cfg.ChangeTeamForDeath[ply:Team()])
     end
 
-    if ply:GetNWString("RPID") and ply:IsCP() then
+    if ply:IsCP() then
         net.Start('LostSignalCP')
             net.WriteString(ply:GetNWString("RPID"))
             net.WriteEntity(ply)
         net.Send(player.GetAll())
 
         AddLineTerminal(string.format( 'Биосигнал потерян %s.', ply:Name() ))
-        CreateMark( ply, ply:GetPos(), ply:Name(), 'Биосигнал потерян', 'icon16/cross.png', 25 )
+        for _, v in pairs(player.GetAll()) do
+            if v:IsCP() then
+                CreateMark( v, ply:GetPos(), ply:Name(), 'Биосигнал потерян', 'icon16/cross.png', 25 )
+            end
+        end
     end
 end
 

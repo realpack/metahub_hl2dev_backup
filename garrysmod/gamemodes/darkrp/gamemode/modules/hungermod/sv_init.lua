@@ -84,7 +84,7 @@ local function BuyFood(pl, args)
 	if args == "" then return "" end
 	if not rp.Foods[args] then return "" end
 
-	if pl:GetCount('Food') >= 15 then
+	if pl:GetCount('spawned_food') >= 15 then
 		pl:Notify(NOTIFY_ERROR, rp.Term('FoodLimitReached'))
 		return
 	end
@@ -124,7 +124,8 @@ local function BuyFood(pl, args)
 	SpawnedFood.FoodEnergy = rp.Foods[args].amount
     SpawnedFood.FoodThirst = rp.Foods[args].thirst
 
-	pl:_AddCount('Food', SpawnedFood)
+	pl:_AddCount("spawned_food", SpawnedFood)
+    pl:AddCleanup("spawned_food", SpawnedFood)
 	return ""
 end
 rp.AddCommand("/buyfood", BuyFood)

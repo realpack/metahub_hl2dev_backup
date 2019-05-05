@@ -23,6 +23,14 @@ rp.cfg.Limits = {
 	['item_item_crates'] = 10,
 	['prop_npc_crates'] = 10,
 	['prop_thumpers'] = 10,
+    ['doors'] = 300,
+    ['boost_printer_green'] = 2,
+    ['boost_printer'] = 2,
+    ['boost_cooling'] = 2,
+    ['boost_battery'] = 2,
+    ['boost_printer_purple'] = 2,
+    ['boost_printer_red'] = 2,
+    ['boost_printer_yellow'] = 2,
 }
 
 function rp.GetLimit(name)
@@ -63,7 +71,10 @@ rp.cfg.ToolLimits = {
 	['light'] = 2,
 	['trigger'] = 2,
 	['prop_npc_crate'] = 2,
-	['headcrabcanister'] = 2
+	['headcrabcanister'] = 2,
+    ['door'] = 2,
+    ['witchergate'] = 2,
+
 
 }
 

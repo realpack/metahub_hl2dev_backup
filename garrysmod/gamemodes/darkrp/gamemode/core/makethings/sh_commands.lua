@@ -142,6 +142,14 @@ function GM:AddEntityCommands(tblEnt)
 		item:Spawn()
 		item:PhysWake()
 
+        item.OnRemoveCount = function() --CallOnRemove is broke
+            -- print(1)
+			if IsValid(ply) then
+                -- print(tblEnt.cmd)
+				ply._Counts[tblEnt.ent] = ply._Counts[tblEnt.ent] - 1
+			end
+		end
+
 		timer.Simple(0, function()
 			if item.Setowning_ent then
 				item:Setowning_ent(ply)

@@ -67,13 +67,7 @@ function cats:DispatchMessage(a, t, e)
     local i = cats.config.getPlayerName(a)
     local n = n(t)
 
-    if self.currentTickets[t] then
-        if self.currentTickets[t].ended then
-            cats.config.notify(a, cats.lang.error_needToRate, NOTIFY_ERROR, 10)
-
-            return
-        end
-
+    if self.currentTickets[t] and not self.currentTickets[t].ended then
         table.insert(self.currentTickets[t].chatLog, {i, e, a:SteamID() ~= t})
     else
         if a:SteamID() == t and cats.config.playerCanSeeTicket(a) then
@@ -157,7 +151,9 @@ net.Receive('cats.closeTicket', function(t, a)
 
     if not t then
         cats.config.notify(a, cats.lang.error_ticketNotFound, NOTIFY_ERROR, 3)
-
+        net.Start('cats.closeTicket')
+        net.WriteString(e)
+        net.Send(n(e))
         return
     end
 
@@ -198,7 +194,9 @@ net.Receive('cats.setRating', function(a, t)
 
     if not a then
         cats.config.notify(t, cats.lang.error_ticketNotFound, NOTIFY_ERROR, 3)
-
+        net.Start('cats.closeTicket')
+        net.WriteString(e)
+        net.Send(n(e))
         return
     end
 
@@ -259,7 +257,9 @@ net.Receive('cats.claimTicket', function(a, t)
 
     if not a then
         cats.config.notify(t, cats.lang.error_ticketNotFound, NOTIFY_ERROR, 3)
-
+        net.Start('cats.closeTicket')
+        net.WriteString(e)
+        net.Send(n(e))
         return
     end
 
@@ -300,6 +300,29 @@ function cats:GetAdminList(t, a)
             a(data)
         end
     end)
+end
+
+function cats:InvalidateTickets()
+
+    for steamID, ticket in pairs(cats.currentTickets) do
+        local ply = player.GetBySteamID(steamID)
+
+        if not IsValid(ticket.admin) then
+            cats:ClaimTicket(t, a, false)
+        end
+
+        if not IsValid(ply) then
+            cats.currentTickets[steamID] = nil
+            if IsValid(ticket.admin) then
+                cats.config.notify(ticket.admin, cats.lang.ticketUserLeft, NOTIFY_ERROR, 8)
+            end
+            net.Start('cats.closeTicket')
+                net.WriteString(t)
+            net.Send(n(t))
+            return
+        end
+    end
+
 end
 
 net.Receive('cats.getAdminList', function(a, t)

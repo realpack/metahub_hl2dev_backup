@@ -296,8 +296,10 @@ rp.AddEntity("Соляная Кислота", "eml_macid", "models/props_junk/ga
 -- Black Market Dealer
 rp.AddEntity("Батарея Принтера", "boost_battery", "models/props_c17/consolebox05a.mdl", 100, 10, "/buybatt26786787", TEAM_TRADE, false)
 rp.AddEntity("Охлаждение Принтера", "boost_cooling", "models/props_junk/PropaneCanister001a.mdl", 120, 10, "/buycool16787223", TEAM_TRADE, false)
-rp.AddEntity("Гитара", "guitar_stalker", "models/props_junk/PropaneCanister001a.mdl", 250, 10, "/buycool12278678", TEAM_TRADE, false)
-rp.AddEntity("Сигарета", "weapon_ciga_pachka", "models/props_junk/PropaneCanister001a.mdl", 150, 10, "/buycool12367867", TEAM_TRADE, false)
+-- rp.AddWeapon("Гитара", "guitar_stalker", "models/props_junk/PropaneCanister001a.mdl", 250, 10, "/buycool12278678", TEAM_TRADE, false)
+-- rp.AddWeapon("Сигарета", "weapon_ciga_pachka", "models/props_junk/PropaneCanister001a.mdl", 150, 10, "/buycool12367867", TEAM_TRADE, false)
+rp.AddWeapon("Сигареты", "models/props_c17/tools_wrench01a.mdl", "weapon_ciga_pachka", 50, 10, false, 300, false, {TEAM_TRADE})
+rp.AddWeapon("Гитара", "models/props_c17/tools_wrench01a.mdl", "guitar_stalker", 250, 10, false, 500, false, {TEAM_TRADE})
 rp.AddEntity("Отмычка", "lockpick", "models/props_junk/PropaneCanister001a.mdl", 450, 10, "/buycool12678674", TEAM_TRADE, false)
 rp.AddEntity("Взлом Щитов", "weapon_shieldsbreaker", "models/props_junk/PropaneCanister001a.mdl", 500, 10, "/buycool16786725", TEAM_TRADE, false)
 

@@ -33,7 +33,7 @@ end
 -- Remove a single entity
 --
 function TOOL:LeftClick( trace )
-    if trace.Entity:IsDoor() then return false end
+    if trace.Entity:IsDoor() and trace.Entity.pp_owner ~= self:GetOwner() then return false end
 
 	if ( DoRemoveEntity( trace.Entity ) ) then
 

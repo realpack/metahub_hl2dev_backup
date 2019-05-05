@@ -5,8 +5,8 @@ function ENT:Draw()
 end
 
 local StockMenu
-local icon_lock = Material("gmtech/lock.png", 'noclamp smooth')
-local icon_skull = Material("gmtech/skull.png", 'noclamp smooth')
+local icon_lock = Material("metahub/lock.png", 'noclamp smooth')
+local icon_skull = Material("metahub/skull.png", 'noclamp smooth')
 
 -- netstream.Hook( "OpenStockMenu", function( data )
 net.Receive('OpenStockMenu', function()

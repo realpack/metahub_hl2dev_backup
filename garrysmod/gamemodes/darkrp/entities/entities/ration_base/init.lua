@@ -48,7 +48,7 @@ function ENT:AddItem(user, name)
     -- PrintTable(item)
 
 
-    PrintTable(sh_data)
+    -- PrintTable(sh_data)
     if not sh_data then return end
 
     local inv = user:GetInv()

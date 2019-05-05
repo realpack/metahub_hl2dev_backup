@@ -212,22 +212,24 @@ function ENT:SpawnProps()
     if CLIENT then return end
 
     self.left_prop = ents.Create("prop_dynamic");
-    self.left_prop:SetPos(self:GetPos() + self:GetRight() * -43.525 + self:GetUp() * -16);
     self.left_prop:SetAngles(angles);
     self.left_prop:SetModel("models/props_combine/combine_fence01a.mdl")
     self.left_prop:Activate();
     self.left_prop:SetParent(self);
     self.left_prop:Spawn();
+    self.left_prop:SetPos(Vector(0,0,-1000));
+    self.left_prop:SetPos(self:GetPos() + self:GetRight() * -43.525 + self:GetUp() * -16);
     -- self.left_prop:DeleteOnRemove(self);
 
     self.right_prop = ents.Create("prop_dynamic");
-    self.right_prop:SetPos(self:GetPos() + self:GetUp() * 122 + self:GetRight() * -44);
     self.right_prop:SetAngles(angles2);
     self.right_prop:SetModel("models/props_combine/combine_fence01b.mdl")
     self.right_prop:Activate();
 
     self.right_prop:SetParent(self);
     self.right_prop:Spawn();
+    self.right_prop:SetPos(Vector(0,0,-1000));
+    self.right_prop:SetPos(self:GetPos() + self:GetUp() * 122 + self:GetRight() * -44);
 
     -- print(right)
     -- right:DeleteOnRemove(self);

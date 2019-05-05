@@ -26,7 +26,7 @@ util.AddNetworkString('OpenStockMenu')
 util.AddNetworkString('HackStockMenu')
 
 function ENT:Use( activator, caller )
-    if not activator:IsCP() then
+    if not activator:IsCP() and nw.GetGlobal('CPCode') ~= 'red' then
         net.Start('OpenStockMenu')
         net.Send(activator)
     end
@@ -46,11 +46,19 @@ function ENT:Use( activator, caller )
 end
 
 local table_random = {
-    'cw_357',
+    'swb_aug',
+    'swb_m4a1',
+    'swb_usp',
+    'swb_m249',
+    'swb_ar2',
+    'swb_357',
+    'swb_shotgun',
 }
 
 -- netstream.Hook( "HackStockMenu", function( ply, data )
 net.Receive('HackStockMenu', function( len, ply )
+    if CLIENT then return end
+
     local ent = false
     for _, e in pairs(ents.FindInSphere(ply:GetPos(), 300)) do
         if e:GetClass() == 'combine_stock' then
@@ -63,44 +71,50 @@ net.Receive('HackStockMenu', function( len, ply )
         return
     end
 
-    nw.SetGlobal('CPCode', 'red')
-    rp.NotifyAll(NOTIFY_ERROR, 'Цитадель объявила красный код. Причина: Взлом арсенала, '..ply:Name()..'.' )
+    -- ent:Remove()
 
-    local Limit = 8
-    local item_names = {}
-    for i = 1, 20 do
-        local p = ply:GetInv()
-        if (table.Count(p) < Limit) then
-            local cl = table.Random(table_random)
-            local b = math.random(1, 2)==2
-            if b then
-                local tab = {}
-                tab.Class = cl
+    timer.Simple(1, function()
+        if not ent then return end
+        -- ent:Remove()
+        nw.SetGlobal('CPCode', 'red')
+        BroadcastLua( "surface.PlaySound('gmtech_dispatch/1/jw.mp3')" )
+        rp.NotifyAll(NOTIFY_ERROR, 'Цитадель объявила красный код. Причина: Взлом арсенала, '..ply:Name()..'.' )
 
-                local sh_data = false
-                for i, s in pairs(rp.shipments) do
-                    if s.entity == cl then
-                        sh_data = s
+        -- print('------------------------|')
+
+        local Limit = rp.cfg.InvLimit
+        local item_names = {}
+        for i = 1, 20 do
+            local p = ply:GetInv()
+            if (table.Count(p) < Limit) then
+                local cl = table.Random(table_random)
+                local b = math.random(1, 2)==2
+                if b then
+                    local tab = {}
+                    tab.Class = cl
+
+                    local sh_data = false
+                    for i, s in pairs(rp.shipments) do
+                        if s.entity == cl then
+                            sh_data = s
+                        end
                     end
+                    if not sh_data then return end
+
+                    tab.Model = sh_data.model
+                    tab.Title = sh_data.name
+
+                    item_names[ID] = tab.Title
+
+                    p[ID] = tab
+
+                    ID = ID + 1
                 end
-                if not sh_data then return end
-
-                tab.Model = sh_data.model
-                tab.Title = sh_data.name
-
-                item_names[ID] = tab.Title
-
-                p[ID] = tab
-
-                ID = ID + 1
             end
         end
-    end
 
-    if ent then
         ply:SaveInv()
         ply:SendInv()
-        rp.Notify(ply, NOTIFY_GREEN, 'Вы взламали арсинал альянса. Мы заполнили ваш инвентарь большим количеством оружия, удачи!')
-    end
-    ent:Remove()
+        rp.Notify(ply, NOTIFY_GREEN, 'Вы взломали арсенал альянса. Мы заполнили ваш инвентарь большим количеством оружия, удачи!')
+    end)
 end )
