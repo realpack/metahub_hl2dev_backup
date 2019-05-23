@@ -251,11 +251,6 @@ rp.cfg.Doors = {
         pos = Vector('1903.781250 1436.562500 1395.406250'),
         ang = Angle('0 0 0'),
         model = 'models/props_combine/combine_door01.mdl'
-    },
-    {
-        pos = Vector('3733.875000 689.781250 945.031250'),
-        ang = Angle('0 0 0'),
-        model = 'models/combine_gate_citizen.mdl'
     }
 }
 
@@ -325,6 +320,7 @@ timer.Simple(.1, function()
 		[TEAM_HERO8] = TEAM_CITIZEN24,
 		[TEAM_ALTER] = TEAM_CITIZEN24,
 		[TEAM_STATICREBEL] = TEAM_CITIZEN24,
+		[TEAM_ANTICITIZEN] = TEAM_CITIZEN24,
 
 	}
 
@@ -371,7 +367,7 @@ timer.Simple(.1, function()
 			[TEAM_STALKER] = { Vector('3213.313232 795.411560 491.337799') },
 			[TEAM_TRADE] = { Vector('-508.673157 3632.693115 910.031250') },
 			[TEAM_METH] = { Vector('-604.980408 3726.990479 910.031250') },
-			[TEAM_VORT] = { Vector('1022.838135 4807.899902 636.438293') },
+			[TEAM_VORT] = { Vector('4018.155273 4550.401855 696.90625') },
 			[TEAM_CITYWORKER] = { Vector('5036.684570 1406.666138 1010.031250') },
 			[TEAM_CWU1] = { Vector('5100.308594 1402.978149 1010.031250') },
 			[TEAM_CWU3] = { Vector('5205.186523 1401.291260 1010.031250') },
@@ -466,11 +462,11 @@ timer.Simple(.1, function()
 		[TEAM_S0] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "ultheal", "ammothreeaura", "med_kit_nn", "swb_mac10", "swb_knife"},
 		[TEAM_S1] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "weapon_smallriotshield", "swb_knife"},
 		[TEAM_S2] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_m3super90", "swb_knife"},
-		[TEAM_S3] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_ump", "swb_knife", "cp_fort", "weapon_wrench"},
+		[TEAM_S3] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_ump", "swb_knife", "cp_fort", "weapon_wrench",'constructable_turret','repair_tool_evan'},
 		[TEAM_S4] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_tmp", "swb_knife", "m9k_m61_frag", "weapon_controllable_manhack"},
 		[TEAM_S5] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_awp", "swb_knife", "weapon_controllable_manhack", "hook"},
 		[TEAM_S6] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_p90", "weapon_slam", "weapon_rpg", "swb_knife"},
-		[TEAM_S7] = {"weaponchecker", "stun_baton", "handcuffs", "swb_glock18", "swb_knife", "swb_scout"},
+		[TEAM_S7] = {"weaponchecker", "stun_baton", "handcuffs", "swb_glock18", "swb_knife", "swb_scout",'cloaking-3'},
 		[TEAM_S8] = {"weaponchecker", "stun_baton", "handcuffs", "swb_glock18", "swb_knife", "swb_xm1014"},
 		[TEAM_S9] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_sg552", "swb_knife", "weapon_controllable_manhack"},
 		-- [TEAM_SUP1] = {"swb_357", "findbadweapons",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2"},
@@ -889,33 +885,9 @@ rp.cfg.Jails = {
 rp.cfg.Jails['rp_downtown_sup_b5c_night'] = rp.cfg.Jails['rp_downtown_sup_b5c']
 
 rp.cfg.JailPos = {
-	rp_downtown_sup_b5c = {
-		Vector(-2304, 332, -156),
-		Vector(-2304, 332, -12),
-		Vector(-2519, 344, -12),
-		Vector(-2504, 348, -155),
-		Vector(-2732, 346, -156),
-		Vector(-2732, 346, -12),
-		Vector(-2948, 358, -12),
-		Vector(-2949, 355, -156),
-	},
-	rp_c18_sup_b1 = {
-		Vector(3253, 862, 368),
-		Vector(3427, 845, 368),
-		Vector(3041, 761, 368),
-	},
-	rp_downtown_v4c_v2 = {
-		Vector(-2436, 269, -160),
-		Vector(-2254, 245, -160),
-		Vector(-2081, 238, -160),
-	},
 	rp_cyberz_c18_v1 = {
-		Vector('2199.307861 947.452759 402.031250'),
-		Vector('2323.974609 948.926147 402.031250'),
-		Vector('1883.433228 940.497925 402.031250'),
-		Vector('2007.810791 945.797302 402.031250'),
-	},
-
+		Vector('2300.770752 957.736511 355‬.031250'),
+	}
 }
 rp.cfg.JailPos['rp_downtown_sup_b5c_night'] = rp.cfg.JailPos['rp_cyberz_c18_v1']
 
@@ -1000,52 +972,52 @@ rp.cfg.JailPos['rp_downtown_sup_b5c_night'] = rp.cfg.JailPos['rp_cyberz_c18_v1']
 -- }
 -- rp.cfg.Dumpsters['rp_downtown_sup_b5c_night'] = rp.cfg.Dumpsters['rp_downtown_sup_b5c']
 
-rp.cfg.KombatPos = {
-	['sup_silenthill_b5'] = {
-		Box = {
-			{x = -6462, y = 4089, x2 = -6462, y2 = 3316},
-			{x = -6462, y = 3316, x2 = -5691, y2 = 3316},
-			{x = -5691, y = 3316, x2 = -5691, y2 = 4089},
-			{x = -5691, y = 4089, x2 = -6462, y2 = 4089}
-		},
-		SpawnPoint = Vector(-6089, 3697, -296),
-		ZCutOff = -375,
-		MaxPlayers = 25
-	},
-	rp_c18_sup_b1= {
-		Box = {
-			{x = 857, y = -147, x2 = 857, y2 = -148},
-			{x = 857, y = -148, x2 = 1601, y2 = -148},
-			{x = 1601, y = -148, x2 = 1601, y2 = -147},
-			{x = 1601, y = -147, x2 = 857, y2 = -147},
-		},
-		SpawnPoint = Vector(1165, 299, 288),
-		ZCutOff = 155,
-		MaxPlayers = 15
-	},
-	rp_downtown_sup_b5c = {
-		Box = {
-			{x = -5144, y = -2039, x2 = -5144, y2 = -1299},
-			{x = -5144, y = -1299, x2 = -4385, y2 = -1299},
-			{x = -4385, y = -1299, x2 = -4385, y2 = -2039},
-			{x = -4385, y = -2039, x2 = -5144, y2 = -2039},
-		},
-		SpawnPoint = Vector(-4703, -1642, -530),
-		ZCutOff = -650,
-		MaxPlayers = 15
-	},
-	rp_downtown_sup_b5c_night = {
-		Box = {
-			{x = -5144, y = -2039, x2 = -5144, y2 = -1299},
-			{x = -5144, y = -1299, x2 = -4385, y2 = -1299},
-			{x = -4385, y = -1299, x2 = -4385, y2 = -2039},
-			{x = -4385, y = -2039, x2 = -5144, y2 = -2039},
-		},
-		SpawnPoint = Vector(-4703, -1642, -485),
-		ZCutOff = -555,
-		MaxPlayers = 15
-	},
-}
+-- rp.cfg.KombatPos = {
+-- 	['sup_silenthill_b5'] = {
+-- 		Box = {
+-- 			{x = -6462, y = 4089, x2 = -6462, y2 = 3316},
+-- 			{x = -6462, y = 3316, x2 = -5691, y2 = 3316},
+-- 			{x = -5691, y = 3316, x2 = -5691, y2 = 4089},
+-- 			{x = -5691, y = 4089, x2 = -6462, y2 = 4089}
+-- 		},
+-- 		SpawnPoint = Vector(-6089, 3697, -296),
+-- 		ZCutOff = -375,
+-- 		MaxPlayers = 25
+-- 	},
+-- 	rp_c18_sup_b1= {
+-- 		Box = {
+-- 			{x = 857, y = -147, x2 = 857, y2 = -148},
+-- 			{x = 857, y = -148, x2 = 1601, y2 = -148},
+-- 			{x = 1601, y = -148, x2 = 1601, y2 = -147},
+-- 			{x = 1601, y = -147, x2 = 857, y2 = -147},
+-- 		},
+-- 		SpawnPoint = Vector(1165, 299, 288),
+-- 		ZCutOff = 155,
+-- 		MaxPlayers = 15
+-- 	},
+-- 	rp_downtown_sup_b5c = {
+-- 		Box = {
+-- 			{x = -5144, y = -2039, x2 = -5144, y2 = -1299},
+-- 			{x = -5144, y = -1299, x2 = -4385, y2 = -1299},
+-- 			{x = -4385, y = -1299, x2 = -4385, y2 = -2039},
+-- 			{x = -4385, y = -2039, x2 = -5144, y2 = -2039},
+-- 		},
+-- 		SpawnPoint = Vector(-4703, -1642, -530),
+-- 		ZCutOff = -650,
+-- 		MaxPlayers = 15
+-- 	},
+-- 	rp_downtown_sup_b5c_night = {
+-- 		Box = {
+-- 			{x = -5144, y = -2039, x2 = -5144, y2 = -1299},
+-- 			{x = -5144, y = -1299, x2 = -4385, y2 = -1299},
+-- 			{x = -4385, y = -1299, x2 = -4385, y2 = -2039},
+-- 			{x = -4385, y = -2039, x2 = -5144, y2 = -2039},
+-- 		},
+-- 		SpawnPoint = Vector(-4703, -1642, -485),
+-- 		ZCutOff = -555,
+-- 		MaxPlayers = 15
+-- 	},
+-- }
 
 rp.cfg.VoiceCommands = {
     [TEAMTYPE_CITIZEN] = {
@@ -1447,6 +1419,8 @@ rp.cfg.VoiceCommands = {
 }
 rp.cfg.VoiceCommands[TEAMTYPE_SUP] = rp.cfg.VoiceCommands[TEAMTYPE_COMBINE]
 rp.cfg.VoiceCommands[TEAMTYPE_CWU] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
+rp.cfg.VoiceCommands[TEAMTYPE_RABEL] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
+rp.cfg.VoiceCommands[TEAMTYPE_LOYAL] = rp.cfg.VoiceCommands[TEAMTYPE_CITIZEN]
 
 rp.cfg.DefaultModels = {
 	['0'] = {

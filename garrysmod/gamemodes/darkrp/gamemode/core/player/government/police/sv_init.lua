@@ -88,8 +88,8 @@ end
 
 function PLAYER:UnArrest(actor)
 	self:SetNetVar('ArrestedInfo', nil)
-	timer.Destroy('Arrested' .. self:SteamID64())
 	rp.ArrestedPlayers[self:SteamID64()] = nil
+	timer.Destroy('Arrested' .. self:SteamID64())
 	timer.Simple(0.3, function() -- fucks up otherwise
 		local _, pos = GAMEMODE:PlayerSelectSpawn(self)
 		self:SetPos(pos)

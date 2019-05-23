@@ -228,7 +228,15 @@ hook.Add('HUDPaint', 'vgui_HUDPaint', function()
                     draw.Arc( {x = pos.x, y = pos.y}, ra-rotate, ro, 50/scale, 32/scale, 2, Color(240,240,240,90*(cin+.5)) )
                     draw.Arc( {x = pos.x, y = pos.y}, ro+(ra*3)-rotate, ro, 50/scale, 32/scale, 2, Color(240,240,240,90*(cin+.5)) )
 
-                    if pPlayer:IsCP() then
+                    if pPlayer:IsWanted() and pPlayer:GetWantedReason() then
+                    -- if LocalPlayer():IsSuperAdmin() then
+                        draw.Arc( {x = pos.x, y = pos.y}, ra-cin2*360, ro, 65/scale, 32/scale, 5, Color(255,167,0,90*(cin+.5)) )
+                        draw.Arc( {x = pos.x, y = pos.y}, ro+(ra*3)-cin2*360, ro, 65/scale, 32/scale, 5, Color(255,167,0,90*(cin+.5)) )
+
+                        draw.SimpleText( pPlayer:GetWantedReason(), 'font_base_18', pos.x, pos.y-100, Color(255,167,0,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+                    -- end
+                    elseif pPlayer:IsCP() then
+                    -- if pPlayer:IsCP() then
                         draw.Arc( {x = pos.x, y = pos.y}, ra-cin2*360, ro, 65/scale, 32/scale, 5, Color(25,106,255,90*(cin+.5)) )
                         draw.Arc( {x = pos.x, y = pos.y}, ro+(ra*3)-cin2*360, ro, 65/scale, 32/scale, 5, Color(25,106,255,90*(cin+.5)) )
                     elseif pPlayer:IsRabel() then

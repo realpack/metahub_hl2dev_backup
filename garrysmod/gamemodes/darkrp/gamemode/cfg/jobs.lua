@@ -1536,7 +1536,7 @@ TEAM_METH = rp.addTeam("Варщик Мета", {
 
 TEAM_VORT = rp.addTeam("Свободный Вортигонт", {
 	color = Color(57, 112, 50),
-	model = vort_models,
+	model = "models/player/vortigaunt.mdl",
 	type = TEAMTYPE_CITIZEN,
 	description = [[]],
 	weapons = {"swep_vortigaunt_beam", "id_vortigaunt"},

@@ -78,6 +78,10 @@ hook.Add( "SetupMove", "Handcuffs_SetupMove", function(ply, mv, cmd)
 end)
 
 function PLAYER:SetHandcuffed(bool,player)
+	self.GetPlayerHandcuffed = false
+    -- self.GetPlayerHandcuffed = bool and player or false
+    self.IsHandcuffed = bool
+
     if bool then
         self.UnHandcuffedWeapons = {}
         for _, wep in pairs(self:GetWeapons()) do
@@ -94,18 +98,23 @@ function PLAYER:SetHandcuffed(bool,player)
 				self:Give(wep)
 			end
 		end
+
+        if self.GetPlayerHandcuffed and IsValid(self.GetPlayerHandcuffed) and self.GetPlayerHandcuffed:GetClass() == 'handcuffs_point' then
+            self.GetPlayerHandcuffed:Remove()
+        end
     end
+
 	if self.GetPlayerHandcuffed then
 		self.GetPlayerHandcuffed.GetPlayerKidnapper = false
 	end
 
-    self.IsHandcuffed = bool
-
-	self.GetPlayerHandcuffed = false
-    self.GetPlayerHandcuffed = bool and player or false
-
-	if player then
+	if player and IsValid(player) then
 		player.GetPlayerKidnapper = bool and self or false
+        self.GetPlayerHandcuffed = bool and player or false
+    else
+        -- player.GetPlayerKidnapper = false
+        self.GetPlayerHandcuffed = false
+        self.IsHandcuffed = false
 	end
 
     self:SetNWBool('IsHandcuffed', self.IsHandcuffed)
@@ -171,22 +180,13 @@ end)
 
 hook.Add( "KeyPress", "Handcuffs_KeyPress", function( player, key )
 	if not player then return end
-
-  if key ~= IN_USE then return end
-
-  local walk=player:KeyDown(IN_WALK)
-  if not walk then return end
-
-
-	if player.GetPlayerKidnapper then
-
+	if ( player:KeyDown( IN_USE ) and player:KeyDown( IN_ATTACK ) ) and player.GetPlayerKidnapper then
 		local trace = player:GetEyeTrace()
 		local target = trace.Entity
 
 		local pos = trace.HitPos
 
 		if not target:IsWorld() then return end
-
 		if pos:DistToSqr(player:GetPos()) > 23000 then return end
 		if not player.GetPlayerKidnapper then return end
 

@@ -160,6 +160,13 @@ net.Receive('cats.closeTicket', function(t, a)
     if t.ended then
         cats.config.notify(a, cats.lang.error_ticketEnded, NOTIFY_ERROR, 3)
 
+        net.Start('cats.closeTicket')
+        net.WriteString(e)
+        net.Send(n(e))
+        if cats.currentTickets[e] then
+            cats.currentTickets[e] = nil
+        end
+
         return
     end
 

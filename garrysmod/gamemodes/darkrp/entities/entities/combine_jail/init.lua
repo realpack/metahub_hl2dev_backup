@@ -31,7 +31,7 @@ function ENT:AcceptInput(inputName, user)
     local no_citizens = true
     local citizens = {}
     for k, v in pairs(pls) do
-        if v:IsPlayer() and not v:IsCP() then
+        if v:IsPlayer() and not v:IsCP() and v ~= user then
             table.insert(citizens, v)
             if no_citizens then
                 no_citizens = false
@@ -75,8 +75,8 @@ net.Receive('NPCJail_GoPlayer', function(len, player)
         end
     end
 
-	print(tostring(npc))
-	print(not player:IsCP(), target:IsCP(), target:IsArrested(), target:GetPos():DistToSqr(npc:GetPos()) < 128^2 )
+	-- print(tostring(npc))
+	-- print(not player:IsCP(), target:IsCP(), target:IsArrested(), target:GetPos():DistToSqr(npc:GetPos()) < 128^2 )
 
 
     if npc and target:GetPos():DistToSqr(npc:GetPos()) < 128^2 then
