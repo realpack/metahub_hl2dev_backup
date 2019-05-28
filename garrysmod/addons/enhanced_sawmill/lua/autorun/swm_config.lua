@@ -40,7 +40,7 @@ end
 ******************/
 ----------------------------------
 	-- Price for one Log.
-	SWM_LOG_PRICE = 50
+	SWM_LOG_PRICE = 200
 	-- Removing log time which isn't used
 	SWM_LOG_REMOVE_TIME = 120
 	-- Maximum logs in cart.

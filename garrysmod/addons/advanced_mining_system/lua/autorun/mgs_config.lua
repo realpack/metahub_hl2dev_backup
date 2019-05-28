@@ -54,9 +54,9 @@ end
 	--    NEW   "20" - time for ore to be broken.
 
 	MGS_ORE_TYPES = {
-		{"Ruby", Color(255,0,0), 3, math.Rand(7, 15), 0.2, 10},
-		{"Gold", Color(255,255,0), 10, math.Rand(5, 10), 0.5, 20},
-		{"Diamond", Color(100,100,255), 100, math.Rand(1, 5), 0.9, 30}
+		{"Ruby", Color(255,0,0), 20, math.Rand(7, 15), 0.2, 10},
+		{"Gold", Color(255,255,0), 50, math.Rand(5, 10), 0.5, 20},
+		{"Diamond", Color(100,100,255), 180, math.Rand(1, 5), 0.9, 30}
 	}
 ----------------------------------
 /*****************

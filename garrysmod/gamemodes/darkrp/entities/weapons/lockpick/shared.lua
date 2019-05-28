@@ -218,6 +218,7 @@ end
 
 function SWEP:DrawWorldModel()
 	-- self.Hand = nil
+    if not self.Owner or not IsValid(self.Owner) then return end
 	if (not self.Hand) then
 		self.Hand = self.Owner:LookupAttachment("anim_attachment_rh")
 	end

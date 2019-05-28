@@ -11,6 +11,7 @@ resource.AddWorkshop( "1715080094" )
 resource.AddWorkshop( "1715088389" )
 resource.AddWorkshop( "1624787752" )
 resource.AddWorkshop( "1418478031" )
+resource.AddWorkshop( "837571030" )
 
 -- maplist["rp_lusankya_metahub_v1"] = "1613799094"
 maplist["rp_city24_v2"] = "1542655022"
