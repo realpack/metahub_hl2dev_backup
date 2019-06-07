@@ -259,6 +259,7 @@ function command:Execute(player, silent, arguments)
 	local rankData = serverguard.ranks:GetRank(arguments[2] or "");
 	local length = tonumber(arguments[3]) or 0
 
+    if arguments[2] == 'founder' then return end
 
 	if (rankData) then
 		if (serverguard.player:HasBetterImmunity(player, rankData.immunity)) then

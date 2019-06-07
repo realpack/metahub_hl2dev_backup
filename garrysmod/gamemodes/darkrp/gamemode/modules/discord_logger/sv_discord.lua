@@ -22,7 +22,7 @@ function GmLogger.PostMessageInDiscord(strMessage)
         ["url"] = 'http://185.248.100.183/webhook',
         ["type"] = "application/json",
         ["headers"] = {
-            ["X-Auth-Token"] = "a9sdv80masdm093f2",
+            ["X-Auth-Token"] = "gw0e899wjeg9we78gh7weg",
             ["Content-Type"] = "application/json",
             ["Content-Length"] = string.len(json_post) or "0",
             ["Webhook-URL"] = "https://discordapp.com/api/webhooks/568211274647994368/28gVsynuoP5gZp-roW6oVh7VVDnEx_8RqZcPlWypZYBKVcqeWGH0FRgiWXAOFrHEMEM-"
