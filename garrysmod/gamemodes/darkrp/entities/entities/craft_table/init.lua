@@ -40,7 +40,8 @@ function ENT:Use( activator, caller )
 end
 
 net.Receive('CraftItem', function( len, pl )
-    if (pl.LastCraft or 0) > CurTime() then
+    pl.LastCraft = pl.LastCraft or 2
+    if pl.LastCraft > CurTime() then
         return
     end
     pl.LastCraft = CurTime() + 3

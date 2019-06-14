@@ -28,6 +28,7 @@ function GmLogger.PostMessageInDiscord(strMessage)
             ["Webhook-URL"] = "https://discordapp.com/api/webhooks/568211274647994368/28gVsynuoP5gZp-roW6oVh7VVDnEx_8RqZcPlWypZYBKVcqeWGH0FRgiWXAOFrHEMEM-"
         },
         ['success'] = function(c,b) print(c,b) end,
+        ['failed'] = function(c,b) print(c,b) end,
         ["body"] = json_post
     }
 
