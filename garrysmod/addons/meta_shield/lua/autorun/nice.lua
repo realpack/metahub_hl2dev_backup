@@ -159,7 +159,7 @@ if (CLIENT) then
                     if table.KeyFromValue( btShield.dualWield, client:GetActiveWeapon():GetClass() ) ~= nil then
                         bone = 'ValveBiped.Bip01_Spine2'
                         ang_r = Angle(90,-90,-180)
-                        pos_r = Vector(0,-45,5)
+                        pos_r = Vector(3,-45,-8)
 
                         ang_b = Angle(90,0,90)
                         pos_b = Angle(0,0,10)
@@ -240,7 +240,7 @@ if (CLIENT) then
 							-- 		+ tempAng:Right() * pos_b[3]
 							-- 	tempAng = nil
 							-- 	cam.Start3D2D(pos, ang, 1)
-							-- 		draw.RoundedBox(0, -sInfo.block.sizex/2, -sInfo.block.sizey/2, sInfo.block.sizex, sInfo.block.sizey, color_white)
+							-- 		draw.RoundedBox(0, -sInfo.block.sizex/2, -sInfo.block.sizey/2, sInfo.block.sizex, sInfo.block.sizey, Color(255,255,255,10))
 							-- 	cam.End3D2D()
 
 							-- 	surface.SetDrawColor(255, 255, 255)
@@ -295,7 +295,7 @@ btShield:addHook("EntityFireBullets", function(entity, bulletTable, attacker)
                 local pos_r, pos_b = sInfo.render.pos, sInfo.block.pos
                 local bone = sInfo.bone
 
-                if table.KeyFromValue( btShield.dualWield, client:GetActiveWeapon():GetClass() ) ~= nil then
+                if IsValid(client) and IsValid(client:GetActiveWeapon()) and table.KeyFromValue( btShield.dualWield, client:GetActiveWeapon():GetClass() ) ~= nil then
                     bone = 'ValveBiped.Bip01_Spine2'
                     ang_r = Angle(90,-90,0)
                     pos_r = Vector(0,40,0)

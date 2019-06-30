@@ -151,7 +151,7 @@ TEAM_R2 = rp.addTeam('Повстанец', {
 	hasLicense = false,
 	candemote = false,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(100) end,
+	PlayerSpawn = function(ply) ply:SetArmor(100) end,
 })
 
 TEAM_R3 = rp.addTeam('Штурмовик', {
@@ -172,7 +172,8 @@ TEAM_R3 = rp.addTeam('Штурмовик', {
 	hasLicense = false,
 	candemote = false,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_R4 = rp.addTeam('Медик', {
@@ -193,7 +194,7 @@ TEAM_R4 = rp.addTeam('Медик', {
 	hasLicense = false,
 	candemote = false,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(100) end,
+	PlayerSpawn = function(ply) ply:SetArmor(100) end,
 })
 
 TEAM_R5 = rp.addTeam('Специалист', {
@@ -214,7 +215,8 @@ TEAM_R5 = rp.addTeam('Специалист', {
 	candemote = false,
 	needbuy = true,
 	needteam = 'r4',
-	PlayerSpawn = function(ply) ply:SetHealth(150) ply:SetArmor(150) end,
+    health = 150,
+	PlayerSpawn = function(ply) ply:SetArmor(150) end,
 })
 
 TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
@@ -235,7 +237,8 @@ TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
 	candemote = false,
 	needbuy = true,
 	needteam = 'r5',
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(250) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 })
 
 TEAM_R7 = rp.addTeam('Лидер Сопротивления', {
@@ -255,13 +258,14 @@ TEAM_R7 = rp.addTeam('Лидер Сопротивления', {
 	candemote = false,
 	needbuy = true,
 	needteam = 'r6',
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(300) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_R8 = rp.addTeam('Бывший Сотрудник ГСР', {
 	color = Color(102,153,102),
 	model = false,
-	description = [[]],
+	description = [[Бывший Сотрудник ГСР, решивший примкнуть к Сопротивлению. Знает нахождение многих складов ГСР из-за этого, у него большой ассортимент, снабжает Сопротивление всем, что есть на складах ГСР.]],
 	weapons = {"id_citizen", "id_rebel", "swb_usp"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
@@ -275,7 +279,8 @@ TEAM_R8 = rp.addTeam('Бывший Сотрудник ГСР', {
 	needbuy = true,
 	cook = true,
 	needteam = 'r1',
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(300) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_CRIME = rp.addTeam("Гражданин Вор", {
@@ -335,7 +340,8 @@ TEAM_CRIMES = rp.addTeam("Шпион Альянса", {
 	command = "crimes",
 	needbuy = true,
 	needteam = 'crime2',
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(150) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(150) end,
 	max = 1
 })
 
@@ -377,7 +383,7 @@ TEAM_UN1 = rp.addTeam("RCT", {
 		ply:SetBodygroup(3, 0)
 		ply:SetBodygroup(4, 0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(200) end,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN2 = rp.addTeam("i6", {
@@ -402,7 +408,7 @@ TEAM_UN2 = rp.addTeam("i6", {
 		ply:SetBodygroup(3, 2)
 		ply:SetBodygroup(1, 0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(200) end,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN3 = rp.addTeam("i5", {
@@ -428,7 +434,7 @@ TEAM_UN3 = rp.addTeam("i5", {
 		ply:SetBodygroup(4, 1)
 		ply:SetBodygroup(1, 0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(200) end,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_ALTER = rp.addTeam("i5", {
@@ -453,7 +459,7 @@ TEAM_ALTER = rp.addTeam("i5", {
 	end,
 	needbuy = true,
 	needteam = 'cp1',
-	PlayerSpawn = function(ply) ply:SetHealth(100) ply:SetArmor(200) end,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN4 = rp.addTeam("i4", {
@@ -478,7 +484,8 @@ TEAM_UN4 = rp.addTeam("i4", {
 		ply:SetSkin(1)
 		ply:SetBodygroup(4, 0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(150) ply:SetArmor(200) end,
+    health = 150,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN5 = rp.addTeam("i3", {
@@ -503,7 +510,8 @@ TEAM_UN5 = rp.addTeam("i3", {
 		ply:SetBodygroup(4, 1)
 		ply:SetSkin(1)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(150) ply:SetArmor(200) end,
+    health = 150,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN6 = rp.addTeam("i2", {
@@ -528,7 +536,8 @@ TEAM_UN6 = rp.addTeam("i2", {
 		ply:SetSkin(3)
 		ply:SetBodygroup(3, 0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(150) ply:SetArmor(200) end,
+    health = 150,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN7 = rp.addTeam("i1", {
@@ -554,7 +563,8 @@ TEAM_UN7 = rp.addTeam("i1", {
 		ply:SetBodygroup(5, 1)
 		ply:SetSkin(3)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(150) ply:SetArmor(200) end,
+    health = 150,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_UN8 = rp.addTeam("Sectorial.Commander", {
@@ -578,7 +588,8 @@ TEAM_UN8 = rp.addTeam("Sectorial.Commander", {
 		ply:SetBodygroup(4, 1)
 		ply:SetSkin(2)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 -- ============================================================== --
@@ -607,7 +618,8 @@ TEAM_S0 = rp.addTeam("ZIEGLER", {
 	end,
 	needbuy = true,
 	needteam = 'i3',
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 })
 
 TEAM_S1 = rp.addTeam("SHIELD", {
@@ -634,7 +646,8 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 		ply:SetBodygroup(8, 1)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(300) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_S2 = rp.addTeam("HEAVY", {
@@ -663,7 +676,8 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 		ply:SetSkin(3)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
 })
 
 TEAM_S3 = rp.addTeam("ENGINEER", {
@@ -688,7 +702,8 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
 		ply:SetSkin(1)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_S4 = rp.addTeam("POLICE", {
@@ -706,7 +721,8 @@ TEAM_S4 = rp.addTeam("POLICE", {
 	control = CONTROL_COMBINE,
     mask_type = 'metropolice_red',
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 })
 
 TEAM_S5 = rp.addTeam("ASSASSIN", {
@@ -725,7 +741,8 @@ TEAM_S5 = rp.addTeam("ASSASSIN", {
     mask_type = 'combine_elite_blue',
 	police = true,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(200) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_S6 = rp.addTeam("EOD", {
@@ -752,7 +769,8 @@ TEAM_S6 = rp.addTeam("EOD", {
 		ply:SetBodygroup(8, 1)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 })
 
 TEAM_S7 = rp.addTeam("LEAK", {
@@ -769,7 +787,8 @@ TEAM_S7 = rp.addTeam("LEAK", {
 	control = CONTROL_COMBINE,
     max = 1,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_S8 = rp.addTeam("REAPER", {
@@ -787,7 +806,8 @@ TEAM_S8 = rp.addTeam("REAPER", {
 	mask_group = 1,
 	control = CONTROL_COMBINE,
     mask_type = 'combine_soldier_red',
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
 })
 
 TEAM_S9 = rp.addTeam("PHOENIX", {
@@ -811,13 +831,14 @@ TEAM_S9 = rp.addTeam("PHOENIX", {
 		ply:SetBodygroup(4, 1)
 		ply:SetBodygroup(5, 1)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
 })
 
 TEAM_COMBINE1 = rp.addTeam('RISE', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_super_elite_soldier.mdl" },
-	description = [[]],
+	description = [[Новобранец в SUP отделе, имеет низкий показатель интеллекта и мобильности, имеет слабое вооружение, одна из основных боевых единиц SUP отдела.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -834,13 +855,14 @@ TEAM_COMBINE1 = rp.addTeam('RISE', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_COMBINE2 = rp.addTeam('STATIC', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_soldier_armored.mdl" },
-	description = [[]],
+	description = [[Рядовой в SUP отделе, более совершенная боевая единица, имеет хорошее вооружение, одна из основных боевых единиц SUP отдела.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -857,14 +879,17 @@ TEAM_COMBINE2 = rp.addTeam('STATIC', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_STATICREBEL = rp.addTeam("STATIC", {
 	color = Color(38, 97, 204, 200),
 	model = { "models/player/combine_soldier_armored.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[]],
+	description = [[Перечипированная и перекодированная рядовая боевая единица SUP отдела.
+Очень ценная и мощная боевая единица Сопротивления. Подчиняется лидеру Сопротивления.
+Действует как шпионская и боевая единица Сопротивления.]],
 	weapons = {"id_rebel"},
 	radio = "cpu",
 	command = "reb7",
@@ -877,13 +902,14 @@ TEAM_STATICREBEL = rp.addTeam("STATIC", {
 	control = CONTROL_COMBINE,
     mask_type = 'combine_soldier_blue',
 	police = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_COMBINE3 = rp.addTeam('STRIKE', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_shotgunner_armored.mdl" },
-	description = [[]],
+	description = [[Ударная единица в SUP отделе, предназначен для ведения боя на ближних дистанциях.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -900,13 +926,14 @@ TEAM_COMBINE3 = rp.addTeam('STRIKE', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_COMBINE4 = rp.addTeam('RHINO', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_heavy.mdl" },
-	description = [[]],
+	description = [[Тяжелая единица в SUP отделе, за счет своей брони, имеет низкий показатель мобильности. Действует как танк, также поддерживает огнем в боевых действиях.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -923,13 +950,14 @@ TEAM_COMBINE4 = rp.addTeam('RHINO', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(350) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(350) end,
 })
 
 TEAM_COMBINE5 = rp.addTeam('PRIME', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_advisor_guard_soldier_armored.mdl" },
-	description = [[]],
+	description = [[Охранная единица в SUP отделе, используется для патруля и зачастую для защиты важных лиц Альянса, редко используется в боевых действиях.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -946,13 +974,14 @@ TEAM_COMBINE5 = rp.addTeam('PRIME', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(500) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(500) end,
 })
 
 TEAM_COMBINE6 = rp.addTeam('ORDER', {
 	color = Color(150,170,200),
 	model = { "models/player/police_elite.mdl" },
-	description = [[]],
+	description = [[Офицерская единица в SUP отделе, в отсутствии SUP.SUPREME и SYNTH.TRU, командует SUP и SYNTH отделами.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -969,13 +998,14 @@ TEAM_COMBINE6 = rp.addTeam('ORDER', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_COMBINE7 = rp.addTeam('NOVA', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_guard_armored.mdl" },
-	description = [[]],
+	description = [[Тюремная единица в SUP отделе, проводит допросы гражданских лиц, участвует в боевых действиях, предназначен для ведения боя на ближних дистанциях.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -992,13 +1022,14 @@ TEAM_COMBINE7 = rp.addTeam('NOVA', {
 	needbuy = true,
 	hasLicense = false,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(300) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 })
 
 TEAM_COMBINE8 = rp.addTeam('SUPREME', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_super_soldier_armored.mdl" },
-	description = [[]],
+	description = [[Командующая единица в SUP отделе, полностью командует SUP отделом, в отсутсвии SYNTH.TRU командует SYNTH отделом.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1015,7 +1046,8 @@ TEAM_COMBINE8 = rp.addTeam('SUPREME', {
     mask_type = 'combine_elite_red',
 	police = true,
 	candemote = false,
-	PlayerSpawn = function(ply) ply:SetHealth(500) ply:SetArmor(500) end,
+    health = 500,
+	PlayerSpawn = function(ply) ply:SetArmor(500) end,
 })
 -- ============================================================== --
 -- =        ПОВСТАНЦЫ  //  ВСЕ ПРАВА ЗАЩИЩЕНЫ МУГАЛЬНЫМ         = --
@@ -1024,7 +1056,7 @@ TEAM_SYNTH1 = rp.addTeam("X1", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/synth/elite_brown_pm.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С EUCLID]],
+	description = [[Рядовая боевая единица в SYNTH отделе, используется в боевых действиях, одна из основных боевых единиц SYNTH отдела.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1034,7 +1066,8 @@ TEAM_SYNTH1 = rp.addTeam("X1", {
 	needbuy = true,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(400) end,
+    health = 300,
+    PlayerSpawn = function(ply) ply:SetArmor(400) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "euclid" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1042,7 +1075,7 @@ TEAM_SYNTH2 = rp.addTeam("X2", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/synth/elite_green_pm.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С EUCLID]],
+	description = [[Стандартная боевая единица в SYNTH отделе, используется в боевых действиях, одна из основных боевых единиц SYNTH отдела.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1052,7 +1085,8 @@ TEAM_SYNTH2 = rp.addTeam("X2", {
 	needbuy = true,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(450) end,
+    health = 300,
+    PlayerSpawn = function(ply) ply:SetArmor(450) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "euclid" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1060,7 +1094,7 @@ TEAM_SYNTH3 = rp.addTeam("X3", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/synth/elite_pm_police.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С KETER]],
+	description = [[Продвинутация боевая единица в SYNTH отделе, используется в боевых действиях.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1070,7 +1104,8 @@ TEAM_SYNTH3 = rp.addTeam("X3", {
 	mask_group = 1,
 	control = CONTROL_COMBINE,
     needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(500) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(500) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1078,7 +1113,7 @@ TEAM_SYNTH4 = rp.addTeam("ZEN", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/player/cmb_synth_soldier_pm.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С AFINA]],
+	description = [[Элитная боевая единица в SYNTH отделе, используется в боевых действиях, имеет высокие показатели интеллекта и мобильности.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1088,7 +1123,8 @@ TEAM_SYNTH4 = rp.addTeam("ZEN", {
 	needbuy = true,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(550) end,
+    health = 300,
+    PlayerSpawn = function(ply) ply:SetArmor(550) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1096,7 +1132,7 @@ TEAM_SYNTH5 = rp.addTeam("CREMATOR", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/player/cremator_player.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С THAMIEL]],
+	description = [[Специальная единица в SYNTH отделе, используется для уборки улиц от мусора и трупов, не боевая единица.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1106,7 +1142,8 @@ TEAM_SYNTH5 = rp.addTeam("CREMATOR", {
 	needbuy = true,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(600) end,
+    health = 300,
+    PlayerSpawn = function(ply) ply:SetArmor(600) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "thaumiel" end,
 })
 
@@ -1114,7 +1151,7 @@ TEAM_SYNTH6 = rp.addTeam("TRU", {
 	color = Color(28, 80, 175, 200),
 	model = { "models/player/cmb_synth_elite_pm.mdl" },
 	type = TEAMTYPE_SUP,
-	description = [[ДОСТУП С APOLLO]],
+	description = [[Элитная командующая единица в SYNTH отделе, полностью командует SYNTH отделом, в отсутствии SUP.ORDER и SUP.SUPREME командует SUP отделом.]],
 	weapons = {},
 	radio = "cpu",
 	flashlight = true,
@@ -1124,14 +1161,16 @@ TEAM_SYNTH6 = rp.addTeam("TRU", {
 	needbuy = true,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(650) end,
+    health = 300,
+    PlayerSpawn = function(ply) ply:SetArmor(650) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" end,
 })
 
 TEAM_CITIZEN1 = rp.addTeam("Авторитетный Гражданин", {
 	color = Color(178, 35, 35),
 	model = loyal_models,
-	description = [[]],
+	description = [[Получил свои первые очки Лояльности, вы хорошо знаете правила города и стараетесь их не нарушать, уважая ГО.
+Вы пытаетесь действовать во благо города и Альянса. Первая ступень Лояльности.]],
 	weapons = {"id_loyal_l1"},
 	type = TEAMTYPE_LOYAL,
 	command = "citizen2",
@@ -1153,7 +1192,8 @@ TEAM_CITIZEN1 = rp.addTeam("Авторитетный Гражданин", {
 TEAM_CITIZEN2 = rp.addTeam("Элитный Гражданин", {
 	color = Color(178, 35, 35),
 	model = loyal_models,
-	description = [[]],
+	description = [[Вы имеете большее количество очков Лояльности, вы отлично знаете правила города и не нарушаете их, уважая ГО.
+Вы действуйте во благо города и Альянса. Вторая ступень Лояльности.]],
 	weapons = {"stunstick", "id_loyal_l2"},
 	command = "citizen3",
 	max = 3,
@@ -1177,7 +1217,7 @@ TEAM_CITIZEN3 = rp.addTeam("Референт Администрации", {
 	color = Color(178, 35, 35),
 	model = loyal_models,
 	type = TEAMTYPE_LOYAL,
-	description = [[]],
+	description = [[Вы достигли наивысшего количества очков Лояльности, уровень доверия ГО к вам наивысший. Вы действуйте на благо города и непрекословно повинуйтесь Альянсу. Высшая ступень Лояльности.]],
 	weapons = {"stunstick", "swb_usp", "id_loyal_l3"},
 	command = "citizen4",
 	max = 2,
@@ -1261,7 +1301,7 @@ TEAM_CWUWORK1 = rp.addTeam("ГСР Рабочий Завода", {
 	color = Color(0, 156, 204),
 	type = TEAMTYPE_CWU,
 	model = ind_models,
-	description = [[]],
+	description = [[Гражданин в специальном костюме с противогазом, работает на заводе по переработке руды. Одна из самых трудных должностей в ГСР, но также одна из самых прибыльных.]],
 	weapons = {"id_cwu",'mgs_pickaxe'},
 	command = "cwuvort2",
 	max = 4,
@@ -1272,7 +1312,7 @@ TEAM_CWUVORT2 = rp.addTeam("ГСР Рабочий Вортигонт", {
 	color = Color(0, 156, 204),
 	type = TEAMTYPE_CWU,
 	model = "models/player/bms_vortigaunt.mdl",
-	description = [[]],
+	description = [[Раса порабощенная Альянсом, для сдерживания их силы, на них одели оковы. Выполняет все требования Альянса, а также работает на заводе для Вортигонтов.]],
 	weapons = {"id_cwu",'swm_chopping_axe'},
 	command = "cwuvort1",
 	max = 4,
@@ -1303,7 +1343,8 @@ TEAM_HERO1 = rp.addTeam("Марио", {
 	command = "mario",
 	max = 1,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "euclid" or  ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная проф��ссия доступна только с Евклид!",
 	})
@@ -1325,7 +1366,8 @@ TEAM_HERO2 = rp.addTeam("Ева", {
 	end,
 	max = 1,
 	radio = "rebel",
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(300) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 	needbuy = true,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "euclid" or  ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклид!",
@@ -1347,7 +1389,8 @@ TEAM_HERO3 = rp.addTeam("Одноглазый", {
 		ply:SetSkin(0)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(200) ply:SetArmor(200) end,
+    health = 200,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "euclid" or  ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклид!",
 })
@@ -1371,7 +1414,8 @@ TEAM_HERO4 = rp.addTeam("Синеглазый", {
 		ply:SetSkin(0)
 	end,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Кетер!",
 })
@@ -1394,7 +1438,8 @@ TEAM_HERO5 = rp.addTeam("Майор Овербек", {
 		ply:SetBodygroup(4, 3)
 		ply:SetSkin(0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(250) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 	needbuy = true,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Кетер!",
@@ -1418,7 +1463,8 @@ TEAM_HERO6 = rp.addTeam("Штаб-сержант МакТавиш", {
 	end,
 	type = TEAMTYPE_RABEL,
 	radio = "rebel",
-	PlayerSpawn = function(ply) ply:SetHealth(300) ply:SetArmor(300) end,
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 	needbuy = true,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Афина!",
@@ -1445,7 +1491,8 @@ TEAM_HERO7 = rp.addTeam("Мария", {
 	needbuy = true,
 	type = TEAMTYPE_RABEL,
 	radio = "rebel",
-	PlayerSpawn = function(ply) ply:SetHealth(350) ply:SetArmor(350) end,
+    health = 350,
+	PlayerSpawn = function(ply) ply:SetArmor(350) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "euclid" or  ply:GetNWString("serverguard_rank") == "keter" or ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклида!",
 })
@@ -1467,13 +1514,14 @@ TEAM_HERO8 = rp.addTeam("Неизвестный", {
 		ply:SetBodygroup(4, 0)
 		ply:SetSkin(0)
 	end,
-	PlayerSpawn = function(ply) ply:SetHealth(350) ply:SetArmor(350) end,
+    health = 350,
+	PlayerSpawn = function(ply) ply:SetArmor(350) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "afina" or ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Афина!",
 })
 local drake_desc = [[Нейтан Дрейк - опытный охотник за сокровищами, готовый “всадить пулю в лоб” любому, кто встанет на его пути. Мать Нейтана рано умерла, отец отказался от него. Воспитанием Дрейка занимался его старший брат Сэм, замеченный в преступной деятельности. Он же и соблазнил Нейта сбежать из христианского приюта, где тот был вынужден содержаться.
 Братья всё сознательное детство занимались криминалом, и поэтому, когда они узнали о том, кто выкупил все вещи их покойной матери, занимавшейся изучением истории и оставившей после себя много ценного, не долго раздумывая проникли в чужой дом. Именно тогда Нейт и Сэм, найдя дневник матери, узнали, что она была не унылым историком-ар��ивист��м, а самым настоящим авантюристом, ищущим древние затерянные сокровища.
-Братья продолжили дело покойной родительницы. Послужной список их специфической деятельности крайне велик, они жили этим делом. И даже после событий семичасовой войны, ��есмотря на необходимость разделиться на время, авантюристы продолжают поиск сокровищ.
+Братья продолжили дело покойной родительницы. Послужной список их специфической деятельности крайне велик, они жили этим делом. И даже после событий семичасовой войны, несмотря на необходимость разделиться на время, авантюристы продолжают поиск сокровищ.
 Нейт, переходя из одной подпольной группировки в другую, добрался до штата Мэн, где по его данным находится человек, имеющий информацию о редчайшем кладе, который совсем недавно был найден Альянсом и сохранен в качестве диковинной реликвии.
 (ДОСТУП С AFINA)]]
 TEAM_HERO9 = rp.addTeam("Дрейк", {
@@ -1485,7 +1533,8 @@ TEAM_HERO9 = rp.addTeam("Дрейк", {
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(400) ply:SetArmor(400) end,
+    health = 400,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Таумиель!",
 })
@@ -1501,7 +1550,8 @@ TEAM_HERO10 = rp.addTeam("Валерия", {
 	type = TEAMTYPE_RABEL,
 	radio = "rebel",
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(450) ply:SetArmor(450) end,
+    health = 450,
+	PlayerSpawn = function(ply) ply:SetArmor(450) end,
 	customCheck = function(ply) return ply:GetNWString("serverguard_rank") == "apollo" or ply:GetNWString("serverguard_rank") == "thaumiel" or ply:GetNWString("serverguard_rank") == "founder" or ply:GetNWString("serverguard_rank") == "serverstaff" or ply:GetNWString("serverguard_rank") == "moderator" end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Таумиель!",
 })
@@ -1510,7 +1560,7 @@ TEAM_TRADE = rp.addTeam("Торговец", {
 	color = Color(57, 112, 50),
 	model = nil,
 	type = TEAMTYPE_CITIZEN,
-	description = [[]],
+	description = [[Обычный торговец, уже освоившийся в городе, решивший зарабатывать продавая контрабанду.]],
 	weapons = {"id_citizen"},
 	command = "trade",
 	max = 2,
@@ -1524,7 +1574,7 @@ TEAM_METH = rp.addTeam("Варщик Мета", {
 	color = Color(57, 112, 50),
 	model = nil,
 	type = TEAMTYPE_CITIZEN,
-	description = [[]],
+	description = [[Гражданин, который решил зарабатывать и выживать, за счет варки и продажи психотропных веществ скупщику.]],
 	weapons = {"id_citizen"},
 	command = "meth23",
 	max = 3,
@@ -1538,19 +1588,20 @@ TEAM_VORT = rp.addTeam("Свободный Вортигонт", {
 	color = Color(57, 112, 50),
 	model = "models/player/vortigaunt.mdl",
 	type = TEAMTYPE_CITIZEN,
-	description = [[]],
+	description = [[Вортигонт, которого освободили от оков, теперь он имеет мощную силу, в целях благодарности, он решил помочь движению Сопротивления.]],
 	weapons = {"swep_vortigaunt_beam", "id_vortigaunt"},
 	command = "vort2",
 	max = 4,
 	needbuy = true,
-	PlayerSpawn = function(ply) ply:SetHealth(250) ply:SetArmor(200) end,
+    health = 250,
+	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
 TEAM_CITYWORKER = rp.addTeam("ГСР Рабочий", {
 	color = Color(0, 156, 204),
 	model = nil,
 	type = TEAMTYPE_CWU,
-	description = [[]],
+	description = [[Гражданин, занимается различными поручениями от офиса, такие как уборка завалов, починка электроники и так далее.]],
 	weapons = {"id_cwu", "cityworker_pliers", "cityworker_shovel", "cityworker_wrench", "weapon_wrench"},
 	command = "cwu1",
 	max = 5,
@@ -1565,7 +1616,7 @@ TEAM_CWU1 = rp.addTeam("ГСР Повар", {
 	color = Color(0, 156, 204),
 	model = nil,
 	type = TEAMTYPE_CWU,
-	description = [[]],
+	description = [[Гражданин получивший специализацию повара. Открывает магазины, закусочные, кафе. Продает разные продукты одобренные Альянсом.]],
 	weapons = {"id_cwu"},
 	command = "cwu2",
 	cook = true,
@@ -1577,38 +1628,46 @@ TEAM_CWU1 = rp.addTeam("ГСР Повар", {
 	needbuy = true,
 })
 
--- TEAM_CWU2 = rp.addTeam("ГСР Продавец", {
--- 	color = Color(0, 156, 204),
--- 	model = nil,
--- 	type = TYPE_CWU,
--- 	description = [[
--- Альянс отнял у людей многое. Свободу, развлечения, нормальную жизнь. Человечество в упадке. Даже не гитаре сыграть не дадут! Но ведь Сити 17 повезло с вами? Ведь вы бывший складской рабочий! Используя свои таланты, а также смекалку, организуйте продажу разных предметов Гражданским Лицам!
--- Разрешено:
--- - Выполнять предоставляемую Альянсом работу.
--- - Залезать на крыши, мосты, фонари и прочие сооружения для выполнения своей работы.
--- - Во время рабочей фазы продолжать выполнять свою стандартную работу.
--- - Во время рабочей фазы помогать сотрудникам ГО с выдачей и реализацией работы для гражданских.
--- Запрещено:
--- - Работать во время КК.
--- - Находиться на улице во время КК.
--- - Сотрудничать с Сопротивлением.
--- - Сотрудничать с Преступным миро��.
--- - Нахо��иться в Некс��с-Центре.
--- ]],
--- 	weapons = {"id_cwu"},
--- 	command = "cwu3",
--- 	max = 4,
--- 	PlayerLoadout = function(ply)
--- 		ply:SetBodygroup(1, 2)
--- 		ply:SetBodygroup(2, 4)
--- 	end,
--- })
+TEAM_CWUMED = rp.addTeam("ГСР Медик", {
+	color = Color(0, 156, 204),
+	model = nil,
+	type = TEAMTYPE_CWU,
+	description = [[Гражданин, получивший специализацию медика. Лечит обычных граждан от трамв, болезней и так далее.]],
+	weapons = {"id_cwu"},
+	command = "cwumed",
+	-- cook = true,
+	max = 4,
+	PlayerLoadout = function(ply)
+		ply:SetBodygroup(1, 2)
+		ply:SetBodygroup(2, 4)
+	end,
+	needbuy = true,
+})
+
+TEAM_CWUTRADE = rp.addTeam("ГСР Продавец", {
+	color = Color(0, 156, 204),
+	model = nil,
+	type = TYPE_CWU,
+	description = [[
+Альянс отнял у людей многое. Свободу, развлечения, нормальную жизнь. Человечество в упадке.
+Даже не гитаре сыграть не дадут! Но ведь Сити 17 повезло с вами? Ведь вы бывший складской рабочий!
+Используя свои таланты, а также смекалку, организуйте продажу разных предметов Гражданским Лицам!
+]],
+	weapons = {"id_cwu"},
+	command = "cwutrade",
+	max = 4,
+	PlayerLoadout = function(ply)
+		ply:SetBodygroup(1, 2)
+		ply:SetBodygroup(2, 4)
+	end,
+})
 
 TEAM_CWU3 = rp.addTeam("ГСР Уборщик", {
 	color = Color(0, 156, 204),
 	type = TEAMTYPE_CWU,
 	model = nil,
-	description = [[]],
+	description = [[Гражданин, задачей которого, является уборка улиц города от мусора.
+Во время рабочей фазы сдает мусор в терминал по переработке мусора. Когда Рабочей Фазы нету, может продать мусор нелегальному скупщику мусора.]],
 	weapons = {"id_cwu"},
 	command = "cwu4",
 	max = 6,
@@ -1683,22 +1742,32 @@ rp.HitmanTeam = TEAM_HITMAN
 -- end
 
 rp.cfg.NPCs = {
-	['rp_city2_v4_finalb'] = {
+	['rp_city17_metahub_v2'] = {
 		['reg_npc'] = {
 			title = 'Регистрация в Сити 2',
 			color = Color(255,255,255,255),
-			pos = Vector('642.298950 3500.351807 630'),
-			ang = Angle('0 -129.506714 0.000000'),
+			pos = Vector('-2784.740723 607.062073 144.031250'),
+			ang = Angle('0 90 0.000000'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_CITIZEN24] = 0,
 			}
 		},
+		-- ['reg_npc2'] = {
+		-- 	title = 'Регистрация в Сити 2',
+		-- 	color = Color(255,255,255,255),
+		-- 	pos = Vector('-249.274704 1304.031250 642.031250'),
+		-- 	ang = Angle('0 -129.506714 0.000000'),
+		-- 	model = 'models/Police.mdl',
+		-- 	jobs = {
+		-- 		[TEAM_CITIZEN24] = 0,
+		-- 	}
+		-- },
 		['crime_npc'] = {
 			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),
-			pos = Vector('-946.031250 1836.517212 -47'),
-			ang = Angle('0 158.124023 0.000000'),
+			pos = Vector('-3998.024414 3189.872070 168.965256'),
+			ang = Angle('0 -30 0.000000'),
 			model = 'models/Eli.mdl',
 			jobs = {
 				[TEAM_CRIME] = 10000,
@@ -1713,15 +1782,16 @@ rp.cfg.NPCs = {
 		['cwu_npc'] = {
 			title = 'ГСР',
 			color = Color(255,255,255,255),
-			pos = Vector('-264.817627 409.968750 409.031250'),
+			pos = Vector('-456.712402 1532.031250 144.031250'),
 			ang = Angle('0 -90 0'),
 			model = 'models/Humans/Group02/Female_03.mdl',
 			jobs = {
 				[TEAM_CITYWORKER] = 4000,
+				[TEAM_CWUTRADE] = 4000,
+                [TEAM_CWUMED] = 6000,
 				[TEAM_CWUWORK1] = 8000,
 				[TEAM_CWUVORT2] = 13000,
 				[TEAM_CWU1] = 15000,
-				-- [TEAM_CWU2] = 10000,
 				[TEAM_CWU3] = 25000,
 				[TEAM_CWU4] = 50000,
 			}
@@ -1729,8 +1799,8 @@ rp.cfg.NPCs = {
 		['loyal_npc'] = {
 			title = 'Центр Лояльности',
 			color = Color(255,255,255,255),
-			pos = Vector('754.148560 377.832397 610'),
-			ang = Angle('0 -125.642334 0.000000'),
+			pos = Vector('-75.968750 -1273.094116 80‬.031250'),
+			ang = Angle('0 180 0.000000'),
 			model = 'models/mossman.mdl',
 			jobs = {
 				[TEAM_CITIZEN1] = 50000,
@@ -1742,8 +1812,8 @@ rp.cfg.NPCs = {
 		['rebel_npc'] = {
 			title = 'Повстанческое Движение',
 			color = Color(255,255,255,255),
-			pos = Vector('-2235.956055 435.538177 -1115'),
-			ang = Angle('0 90 0'),
+			pos = Vector('1099.557007 2280.070313 -1427.968750'),
+			ang = Angle('0 -130 0'),
 			model = 'models/Humans/Group03/male_06.mdl',
 			jobs = {
 				[TEAM_R1] = 1500,
@@ -1757,11 +1827,11 @@ rp.cfg.NPCs = {
 				[TEAM_VORT] = 50000
 			}
 		},
-		 ['synth_npc'] = {
-			 title = 'Синтетический Отдел',
-			 color = Color(255,255,255,255),
-			pos = Vector('-697.997192 2326.769287 600'),
-			ang = Angle('1.861175 -1.321977 0.000000'),
+		['synth_npc'] = {
+			title = 'Синтетический Отдел',
+			color = Color(255,255,255,255),
+			pos = Vector('4728.981934 -2380.657227 1610.031250'),
+			ang = Angle('0 90 0'),
 			model = 'models/Combine_Super_Soldier.mdl',
 			jobs = {
 				[TEAM_SYNTH1] = 50000,
@@ -1775,8 +1845,8 @@ rp.cfg.NPCs = {
 		['cpu_npc'] = {
 			title = 'CPU.RCT.3322',
 			color = Color(255,255,255,255),
-			pos = Vector('614.439270 1945.634155 600'),
-			ang = Angle('3.841171 90.035179 0.000000'),
+			pos = Vector('3915.636719 70.661247 74.031250'),
+			ang = Angle('0 -90 0'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_UN1] = 2500,
@@ -1792,8 +1862,8 @@ rp.cfg.NPCs = {
 		['scpu_npc'] = {
 			title = 'SCPU.SHIELD.3223',
 			color = Color(255,255,255,255),
-			pos = Vector('-746.434082 1850.723389 600'),
-			ang = Angle('5.444973 177.155350 0.000000'),
+			pos = Vector('4876.147461 -2247.672363 74.031250'),
+			ang = Angle('0 45 0'),
 			model = 'models/Combine_Soldier.mdl',
 			jobs = {
 				[TEAM_S0] = 8000,
@@ -1811,8 +1881,8 @@ rp.cfg.NPCs = {
 		['sup_npc'] = {
 			title = 'SUP.NOVA.2332',
 			color = Color(255,255,255,255),
-			pos = Vector('-873.014526 2215.600342 600'),
-			ang = Angle('1.920580 3.054101 0.000000'),
+			pos = Vector('4764.400879 -2387.083984 1610.031250'),
+			ang = Angle('0 90 0'),
 			model = 'models/Combine_Super_Soldier.mdl',
 			jobs = {
 				[TEAM_COMBINE1] = 20000,
@@ -1828,8 +1898,8 @@ rp.cfg.NPCs = {
 		['fake_npc'] = {
 			title = 'C#U.#5.43#7',
 			color = Color(255,255,255,255),
-			pos = Vector('-1989.703491 646.978271 -1125'),
-			ang = Angle('3.940285 -97.312149 0.000000'),
+			pos = Vector('-453.249146 2341.024902 -1427.968750'),
+			ang = Angle('0 -40 0'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_ALTER] = 40000,
@@ -1839,8 +1909,8 @@ rp.cfg.NPCs = {
 		['hero_npc'] = {
 			title = 'Барни Калхаун',
 			color = Color(255,255,255,255),
-			pos = Vector('-1106.702148 -183.708130 -1125'),
-			ang = Angle('2.039486 140.307632 0.000000'),
+			pos = Vector('662.260010 1749.661743 -1427.968750'),
+			ang = Angle('0 -35 0'),
 			model = 'models/Barney.mdl',
 			jobs = {
 				[TEAM_HERO1] = 40000,

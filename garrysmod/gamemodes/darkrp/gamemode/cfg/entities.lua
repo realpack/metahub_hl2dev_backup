@@ -95,10 +95,20 @@
 -- 		rp.Notify(pl, NOTIFY_GREEN, rp.Term('USENote'))
 -- 	end
 -- })
+rp.AddEntity("Флакон Здоровья", {
+	ent = "heal_buy",
+	model = "models/healthvial.mdl",
+	price = 150,
+	allowed = {TEAM_CWUMED},
+	cmd = '/healcwu', -- Если команды нету, то предмет нельзя купить.
+	max = 3,
+	pocket = true
+})
+
 rp.AddEntity("Денежный Принтер", {
 	ent = "boost_printer_green",
 	model = "models/props_c17/consolebox01a.mdl",
-	price = 150,
+	price = 1000,
 	allowed = {TEAM_CITIZEN24, TEAM_R2, TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon1', -- Если команды нету, то предмет нельзя купить.
 	max = 1,
@@ -108,7 +118,7 @@ rp.AddEntity("Денежный Принтер", {
 rp.AddEntity("Улучшенный Принтер", {
 	ent = "boost_printer_yellow",
 	model = "models/props_c17/consolebox01a.mdl",
-	price = 450,
+	price = 2000,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon2', -- Если команды нету, то предмет нельзая купить.
 	max = 1,
@@ -118,7 +128,7 @@ rp.AddEntity("Улучшенный Принтер", {
 rp.AddEntity("Качественный Принтер", {
 	ent = "boost_printer_red",
 	model = "models/props_c17/consolebox01a.mdl",
-	price = 750,
+	price = 2500,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon3', -- Если команды нету, то предмет нельзя купить.
 	max = 1,
@@ -129,7 +139,7 @@ rp.AddEntity("Качественный Принтер", {
 rp.AddEntity("Профессиональный Принтер", {
 	ent = "boost_printer_purple",
 	model = "models/props_c17/consolebox01a.mdl",
-	price = 1050,
+	price = 3000,
 	allowed = {TEAM_CITIZEN1, TEAM_CITIZEN2, TEAM_CITIZEN3},
 	cmd = '/mon4', -- Если команды нету, то предмет нельзя купить.
 	max = 1,
@@ -223,19 +233,19 @@ rp.AddEntity("Пищевой Рацион", {
 
 -- Gun Dealer
 -- rp.AddWeapon("Revolver", "models/weapons/w_357.mdl", "cw_357", 10000, 10, false, 1300, false, {TEAM_CITIZEN})
-rp.AddClothe("Шапка с Повязкой", "models/tnb/items/beaniewrap.mdl", "hat", 500, 10, true, 1300, false, {}, {key=4,value=1,buff=0.16})
-rp.AddClothe("Повязка", "models/tnb/items/facewrap.mdl", "beret", 300, 10, true, 1300, false, {}, {key=4,value=1,buff=0.16})
+rp.AddClothe("Шапка с Повязкой", "models/tnb/items/beaniewrap.mdl", "hat", 500, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=4,value=1,buff=0.16})
+rp.AddClothe("Повязка", "models/tnb/items/facewrap.mdl", "beret", 300, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=4,value=1,buff=0.16})
 rp.AddClothe("Противогаз", "models/tnb/items/beaniewrap.mdl", "gas", 600, 10, true, 1300, false, {}, {key=4,value=2,buff=0.18})
-rp.AddClothe("Перчатки", "models/tnb/items/beaniewrap.mdl", "gloves", 250, 10, true, 1300, false, {}, {key=3,value=1,buff=0.6})
-rp.AddClothe("Штаны", "models/tnb/items/pants_citizen.mdl", "pants", 750, 10, true, 1300, false, {}, {key=2,value=2,buff=0.20})
+rp.AddClothe("Перчатки", "models/tnb/items/beaniewrap.mdl", "gloves", 250, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=3,value=1,buff=0.6})
+rp.AddClothe("Штаны", "models/tnb/items/pants_citizen.mdl", "pants", 750, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=2,value=2,buff=0.20})
 rp.AddClothe("Повстанческие Штаны", "models/tnb/items/pants_rebel.mdl", "pants2", 900, 10, true, 1300, false, {}, {key=4,value=1,buff=0.16})
 rp.AddClothe("Лёгкая Броня", "models/tnb/items/shirt_rebel1.mdl", "pants3", 1200, 10, true, 1300, false, {}, {key=1,value=7,buff=0.30})
 rp.AddClothe("Стандартная Броня", "models/tnb/items/shirt_rebel_molle.mdl", "pants4", 1500, 10, true, 1300, false, {}, {key=1,value=8,buff=0.40})
 rp.AddClothe("Особая Броня", "models/tnb/items/shirt_rebelbag.mdl", "pants5", 1800, 10, true, 1300, false, {}, {key=1,value=15,buff=0.50})
 rp.AddClothe("Броня ГО", "models/tnb/items/shirt_rebelmetrocop.mdl", "pants6", 2500, 10, true, 1300, false, {}, {key=1,value=14,buff=0.60})
 rp.AddClothe("Броня Надзора", "models/tnb/items/shirt_rebeloverwatch.mdl", "pants7", 4000, 10, true, 1300, false, {}, {key=1,value=13,buff=0.70})
-rp.AddClothe("Тёплая Одежда", "models/tnb/items/wintercoat.mdl", "pants8", 2000, 10, true, 1300, false, {}, {key=1,value=16,buff=0.20})
-rp.AddClothe("Пальто", "models/tnb/items/trenchcoat.mdl", "pants9", 1800, 10, true, 1300, false, {}, {key=1,value=3,buff=0.25})
+rp.AddClothe("Тёплая Одежда", "models/tnb/items/wintercoat.mdl", "pants8", 2000, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=1,value=16,buff=0.20})
+rp.AddClothe("Пальто", "models/tnb/items/trenchcoat.mdl", "pants9", 1800, 10, true, 1300, false, {TEAM_CWUTRADE}, {key=1,value=3,buff=0.25})
 
 rp.AddWeapon("Pistol", "models/weapons/w_pist_usp.mdl", "swb_pistol", 6200, 10, false, 1300, false, {})
 rp.AddWeapon("SMG", "models/weapons/w_pist_usp.mdl", "swb_smg", 8200, 10, false, 1300, false, {})

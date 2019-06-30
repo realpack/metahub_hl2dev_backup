@@ -477,6 +477,7 @@ function GM:PlayerLoadout(ply)
         ply:SetBodygroup(2,job.mask_group)
     end
 
+    ply:SetHealth(job.health and job.health or 100)
 	ply:SelectWeapon('weapon_physgun')
 
 	ply.Weapons = ply:GetWeapons()
@@ -494,6 +495,8 @@ function GM:PlayerDisconnected(ply)
 	if ply:IsAgendaManager() then
 		nw.SetGlobal('Agenda;' .. ply:Team(), nil)
 	end
+
+    rp.ArrestedPlayers[ply:SteamID64()] = nil
 
 	if ply:IsMayor() then
 		nw.SetGlobal('mayorGrace', nil)

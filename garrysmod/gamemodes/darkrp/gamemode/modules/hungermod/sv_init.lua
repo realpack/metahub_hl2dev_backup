@@ -7,7 +7,7 @@ timer.Create("HungerUpdate", 5, 0, function()
 	for k, v in ipairs(player.GetAll()) do
         if IsValid(v) and v:Alive() then
             local job = rp.teams[v:Team()]
-            if job and job.type == TEAMTYPE_SUP then
+            if job and job.type == TEAMTYPE_SUP or v:Team() == TEAM_HERO4 then
                 for _, ent in pairs(ents.FindByClass('combine_terminal')) do
                     if v:GetPos():DistToSqr(ent:GetPos()) < 128^2 then
                         v:AddHunger(10)

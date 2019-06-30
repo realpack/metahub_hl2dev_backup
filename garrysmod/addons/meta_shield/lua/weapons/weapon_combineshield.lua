@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 if (CLIENT) then
-	SWEP.PrintName = "Продвинутый Щит"
+	SWEP.PrintName = "Щит комбайнов"
 	SWEP.Slot = 1
 	SWEP.SlotPos = 2
 	SWEP.DrawAmmo = false

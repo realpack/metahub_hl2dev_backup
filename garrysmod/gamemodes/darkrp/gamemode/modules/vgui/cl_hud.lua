@@ -92,7 +92,7 @@ function PLAYER:CanSeeEnt(ent)
 end
 
 hook.Add('HUDPaint', 'vgui_HUDPaint', function()
-    draw.ShadowSimpleText('MetaHub.ru / Discord: https://discord.gg/gxmHRSB', "font_base_18", ScrW()/2, 10, Color(255, 148, 0), TEXT_ALIGN_CENTER)
+    -- draw.ShadowSimpleText('MetaHub.ru / Discord: https://discord.gg/gxmHRSB', "font_base_18", ScrW()/2, 10, Color(255, 148, 0), TEXT_ALIGN_CENTER)
 
     do -- gradient
     	local col = Color(0,0,0,90)
@@ -157,7 +157,7 @@ hook.Add('HUDPaint', 'vgui_HUDPaint', function()
 
     do -- cpmask
         local job = rp.teams[LocalPlayer():Team()]
-        if job and job.mask_group and LocalPlayer():GetNetVar('CPMask') then
+        if (job and job.mask_group and LocalPlayer():GetNetVar('CPMask')) or LocalPlayer():Team() == TEAM_HERO4 then
             overlay = combine_overlay
             overlay:SetFloat("$alpha", "0.3")
             overlay:Recompute()

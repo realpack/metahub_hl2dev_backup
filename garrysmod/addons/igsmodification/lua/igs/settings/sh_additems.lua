@@ -17,26 +17,26 @@ end
 
 GROUP:AddItem(
  	IGS("20 000 Крон", "120k_deneg"):SetMetaMoney(20000)
- 	:SetPrice(200) -- руб
+ 	:SetPrice(140) -- 200 руб
 )
 GROUP:AddItem(
  	IGS("100 000 Крон", "150k_deneg"):SetMetaMoney(100000)
- 	:SetPrice(400) -- руб
+ 	:SetPrice(280) -- 400 руб
 )
 
 GROUP:AddItem(
  	IGS("449 999 Крон", "200k_deneg"):SetMetaMoney(450000)
- 	:SetPrice(609) -- руб
+ 	:SetPrice(420) -- 600 руб
 )
 
 GROUP:AddItem(
  	IGS("999 999 Крон", "500k_deneg"):SetMetaMoney(1000000)
- 	:SetPrice(800) -- руб
+ 	:SetPrice(560) -- 800 руб
 )
 
 GROUP:AddItem(
  	IGS("1 999 999 Крон", "1200k_deneg"):SetMetaMoney(2000000)
- 	:SetPrice(1100) -- руб
+ 	:SetPrice(770) -- 1100 руб
 )
 
 --[[-------------------------------------------------------------------------
@@ -123,8 +123,8 @@ for group,t in pairs({
 		image = "https://i.imgur.com/mBMcpgq.jpg",
 		icon =  "https://i.ibb.co/q53Jqkd/EUCLID.jpg",
 		weight = 2,
-		{200,30},
-		{400},
+		{50,30}, -- 50
+		{140}, -- 200
 	},
 	["keter"] = {
 		name   = "Кетер",
@@ -133,8 +133,8 @@ for group,t in pairs({
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/VmPdSrV/KETER.jpg",
 		weight = 3,
-		{500,20},
-		{700},
+		{210,20}, -- 300
+		{350}, -- 500
 	},
 	["afina"] = {
 		name   = "Афина",
@@ -142,9 +142,9 @@ for group,t in pairs({
 		desc   = afina_description,
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/sq9fJPt/AFINA.jpg",
-		weight = 3,
-		{800,30},
-		{1000},
+		weight = 4,
+		{420,30}, -- 600
+		{560}, -- 800
 	},
 	["thaumiel"] = {
 		name   = "Таумиель",
@@ -152,9 +152,9 @@ for group,t in pairs({
 		desc   = thaumiel_description,
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/DLKhnnD/THAUMIEL.jpg",
-		weight = 3,
-		{1100,30},
-		{1300},
+		weight = 5,
+		{630,30}, -- 900
+		{770}, -- 1100
 	},
 	["apollo"] = {
 		name   = "Аполлион",
@@ -162,10 +162,17 @@ for group,t in pairs({
 		desc   = apollo_description,
 		image  = "https://i.imgur.com/fQpcfvR.jpg",
 		icon   = "https://i.ibb.co/sVR1PG3/APPOLION.jpg",
-		weight = 3,
-		{1400,30},
-		{1600},
+		weight = 6,
+		{910,30}, -- 1300
+		{1050}, -- 1500
 	},
+	-- ["jedi"] = {
+	-- 	name  = "Орден Джедаев",
+	-- 	alias = "Покупка Джедая",
+	-- 	desc  = jedi_description,
+	-- 	weight = 1,
+	-- 	{420}, -- 600
+	-- },
 }) do
 	local GROUP = IGS.NewGroup(t["name"])
 	GROUP:SetIcon(t["icon"])

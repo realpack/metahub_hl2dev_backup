@@ -34,7 +34,7 @@ end
 --
 function TOOL:LeftClick( trace )
     if trace.Entity:IsDoor() or trace.Entity:GetClass() == 'npc_jobs' then return false end
-    if trace.Entity.pp_owner ~= self:GetOwner() and not self:IsAdmin() then return false end
+    if trace.Entity.pp_owner ~= self:GetOwner() and not self:GetOwner():IsAdmin() then return false end
 
 	if ( DoRemoveEntity( trace.Entity ) ) then
 

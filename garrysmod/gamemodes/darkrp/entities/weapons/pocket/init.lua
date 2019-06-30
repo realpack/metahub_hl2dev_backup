@@ -141,8 +141,9 @@ local function GetEntityInfo(ent)
 		end
 	elseif (c == "spawned_food") then
 		tab.FoodEnergy = ent.FoodEnergy
-		title = "Food"
-		subtitle = "Energy: " .. tab.FoodEnergy
+        tab.FoodThirst = ent.FoodThirst
+		title = "Еда"
+		subtitle = "Голод: " .. tab.FoodEnergy .. ', Жажда: '.. tab.FoodThirst
 	elseif (c == "spawned_weapon") then
 		tab.weaponclass = ent.weaponclass
 		if ent.number then tab.number = ent.number end
@@ -185,6 +186,7 @@ local function Finalize(ent, tab, owner)
 	elseif (c == "spawned_food") then
 		ent:SetModel(tab.Model)
 		ent.FoodEnergy = tab.FoodEnergy
+        ent.FoodThirst = tab.FoodThirst
 	elseif (c == "spawned_weapon") then
 		ent:SetModel(tab.Model)
 		ent.weaponclass = tab.weaponclass
@@ -229,8 +231,8 @@ rp.AddCommand('/invdrop', function(p, s, a)
 		ent:SetPos(tr.HitPos + Vector(0, 0, 10))
         ent.bodygroup = item.bodygroup or nil
 
-        PrintTable(item)
-        print(weapons.Get( ent_class ))
+        -- PrintTable(item)
+        -- print(weapons.Get( ent_class ))
 
         if weapons.Get( ent_class ) == nil then
             timer.Simple(60,function()

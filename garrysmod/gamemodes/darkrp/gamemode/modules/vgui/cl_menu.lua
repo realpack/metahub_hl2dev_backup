@@ -67,7 +67,7 @@ function GM:ShowSpare2()
         draw.RoundedBox(0, 0, h-(1+line_h), (health/100)*w, line_h, Color(214,45,32,fr.Alpha * 190))
         draw.SimpleText('Здоровье: '..health, "font_base_small", 4, h-(2+line_h/2), Color( 255, 255, 255, fr.Alpha * 120 ), 0, 1)
 
-        local issup = rp.teams[LocalPlayer():Team()].type == TEAMTYPE_SUP
+        local issup = rp.teams[LocalPlayer():Team()].type == TEAMTYPE_SUP or LocalPlayer():Team() == TEAM_HERO4
         local hunger_title = issup and 'Энергия: ' or 'Голод: '
 
         draw.RoundedBox(0, 0, h-(1+line_h)*2, w, line_h, Color(0,0,0,fr.Alpha * 40))

@@ -77,13 +77,13 @@ function NPCJobs_OpenMenu()
 
 
 
-    local Panel = vgui.Create('DListLayout', Scroll)
-    -- Panel:SetSize(600,Menu:GetTall()-200)
+    -- local Panel = vgui.Create('DListLayout', Scroll)
+    -- Panel:SetSize(600,0)
     -- Panel:SetPos(0,0)
-    Panel:Dock( FILL )
-    Panel.Paint = function( self, w, h )
-        -- draw.RoundedBox(0,0,0,w,h,Color(52, 73, 94, 90))
-    end
+    -- -- Panel:Dock( FILL )
+    -- Panel.Paint = function( self, w, h )
+    --     draw.RoundedBox(0,0,0,w,h,Color(255, 73, 94, 90))
+    -- end
 
     local _, teams = SortedPairs(table.Copy(net.ReadTable()))
     teams = teams.KeyValues
@@ -103,9 +103,12 @@ function NPCJobs_OpenMenu()
 
         local has_t = LocalPlayer():HasTeam(t)
 
-        local team_panel = vgui.Create('DButton')
-        team_panel:SetSize(Panel:GetWide(),100)
+        -- local team_panel = vgui.Create('DButton')
+        local team_panel = Scroll:Add( "DButton" )
+        team_panel:SetSize(Scroll:GetWide(),100)
         team_panel:SetText( '' )
+        team_panel:Dock( TOP )
+	    team_panel:DockMargin( 0, 0, 0, 5 )
         team_panel.Paint = function( self, w, h )
             h = h - 2
             w = w - 2
@@ -182,7 +185,7 @@ function NPCJobs_OpenMenu()
             end
         end
 
-        Panel:Add( team_panel )
+        -- Panel:Add( team_panel )
     end
 end
 

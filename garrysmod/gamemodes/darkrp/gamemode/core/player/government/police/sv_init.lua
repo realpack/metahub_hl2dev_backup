@@ -78,12 +78,16 @@ function PLAYER:Arrest(actor, reason)
 	self:SetHealth(100)
 	self:SetArmor(0)
 
-	rp.NotifyAll('Arrested', rp.Term('Arrested'), self)
+	-- rp.NotifyAll(NOTIFY_HINT, rp.Term('Arrested'), self)
 	hook.Call('PlayerArrested', GAMEMODE, self, actor)
 
 	self.CanEscape = true
 
-    AddLineTerminal(string.format( '%s арестовал %s.', actor:Name(), self:Name() ))
+    if actor and IsValid(actor) then
+        AddLineTerminal(string.format( '%s арестовал %s.', actor:Name(), self:Name() ))
+    else
+        AddLineTerminal(string.format( '%s арестован.', self:Name() ))
+    end
 end
 
 function PLAYER:UnArrest(actor)
@@ -94,9 +98,11 @@ function PLAYER:UnArrest(actor)
 		local _, pos = GAMEMODE:PlayerSelectSpawn(self)
 		self:SetPos(pos)
 		self:SetHealth(100)
-		hook.Call('PlayerLoadout', GAMEMODE, self)
+
+        self:Spawn()
+		-- hook.Call('PlayerLoadout', GAMEMODE, self)
 		-- rp.NotifyAll('UnArrested', rp.Term('UnArrested'), self)
-		hook.Call('PlayerUnArrested', GAMEMODE, self, actor)
+		-- hook.Call('PlayerUnArrested', GAMEMODE, self, actor)
 	end)
 
     if actor and IsValid(actor) then

@@ -109,7 +109,7 @@ CITYWORKER.Config.Rubble.Models = {
 
 -- Payout per second it takes to clear a given pile of rubble.
 -- (i.e. 10 seconds = 10 * 30 = 300)
-CITYWORKER.Config.Rubble.Payout = 9
+CITYWORKER.Config.Rubble.Payout = 40
 
 -------------------
 -- FIRE HYDRANTS --

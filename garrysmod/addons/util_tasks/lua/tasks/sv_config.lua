@@ -1,6 +1,6 @@
 Tasks.Config.SQL = {
-    username = "root",
-    password = "tgrfedws",
+    username = "server",
+    password = "g2t6\\N1udAdCl1CWN",
     database = "gmod_cwrp",
     port = "3306",
     ip = "127.0.0.1"
