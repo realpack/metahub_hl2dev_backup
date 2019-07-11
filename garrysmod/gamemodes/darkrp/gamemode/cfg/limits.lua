@@ -73,7 +73,7 @@ rp.cfg.ToolLimits = {
 	['prop_npc_crate'] = 2,
 	['headcrabcanister'] = 2,
     ['door'] = 2,
-    ['witchergate'] = 2,
+    ['witchergate'] = 3,
 
 
 }

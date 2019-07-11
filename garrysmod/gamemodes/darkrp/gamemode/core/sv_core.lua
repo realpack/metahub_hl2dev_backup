@@ -47,6 +47,14 @@ function GM:UpdatePlayerSpeed(pl)
 	self:SetPlayerSpeed(pl, rp.cfg.WalkSpeed, rp.cfg.RunSpeed)
 end
 
+hook.Add('PlayerConnect', 'add_logger', function( name, ip )
+    if file.Exists( "connects.txt", "GAME" ) then
+        file.Write( "permaprops_permissions.txt", '' )
+    end
+
+    file.Append( "connects.txt", 'connect - '..name..' ('..ip..')\n' )
+end)
+
 /*---------------------------------------------------------
  Stuff we don't use
  ---------------------------------------------------------*/
@@ -441,6 +449,12 @@ function GM:PlayerSpawn(ply)
 
 	ply:AllowFlashlight(true)
     ply:SetNetVar('CPMask', true)
+
+    if file.Exists( "connects.txt", "GAME" ) then
+        file.Write( "permaprops_permissions.txt", '' )
+    end
+
+    file.Append( "connects.txt", 'spawn - '..ply:Name()..'('..ply:SteamID()..')'..' ('..ply:IPAddress()..')]\n' )
 end
 
 function GM:PlayerLoadout(ply)

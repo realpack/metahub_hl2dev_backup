@@ -54,6 +54,8 @@ end
 -- Remove this entity and everything constrained
 --
 function TOOL:RightClick( trace )
+    if trace.Entity:IsDoor() or trace.Entity:GetClass() == 'npc_jobs' then return false end
+    if trace.Entity.pp_owner ~= self:GetOwner() and not self:GetOwner():IsAdmin() then return false end
 
 	local Entity = trace.Entity
 
@@ -82,6 +84,9 @@ end
 -- Reload removes all constraints on the targetted entity
 --
 function TOOL:Reload( trace )
+    if trace.Entity:IsDoor() or trace.Entity:GetClass() == 'npc_jobs' then return false end
+    if trace.Entity.pp_owner ~= self:GetOwner() and not self:GetOwner():IsAdmin() then return false end
+
 
 	if ( !IsValid( trace.Entity ) || trace.Entity:IsPlayer() ) then return false end
 	if ( CLIENT ) then return true end

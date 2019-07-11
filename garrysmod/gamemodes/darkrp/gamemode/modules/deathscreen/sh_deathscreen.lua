@@ -112,19 +112,4 @@ if CLIENT then
 			hook.Remove("HUDPaint", "RespawnTimer")
 		end
 	end)
-
-hook.Add("CalcView", "FirstPersonDeath", function(pl, pos, ang, fov, nearz, farz)
-  if pl:Alive() or not IsValid(pl:GetNWEntity("ShareDRag")) then return end
-  local rag = pl:GetNWEntity("ShareDRag")
-  local eyeattach = rag:LookupAttachment('eyes')
-  if (not eyeattach) then return end
-  local eyes = rag:GetAttachment(eyeattach)
-  if (not eyes) then return end
-
-  return {
-    origin = eyes.Pos,
-    angles = eyes.Ang,
-    fov = fov
-  }
-end)
 end

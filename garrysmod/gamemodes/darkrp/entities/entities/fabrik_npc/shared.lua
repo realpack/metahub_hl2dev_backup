@@ -5,7 +5,7 @@ ENT.PrintName = "NPC Fabrik"
 ENT.Author = "Packages"
 ENT.Category = "MetaHub"
 ENT.Instructions = ""
-ENT.MoneyForBox = 350
+ENT.MoneyForBox = 500
 
 ENT.Spawnable = true
 ENT.AdminSpawnable = true

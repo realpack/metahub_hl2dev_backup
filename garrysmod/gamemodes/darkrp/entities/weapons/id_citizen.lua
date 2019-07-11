@@ -4,4 +4,4 @@ SWEP.Author                = "roni_sl"
 SWEP.Spawnable             = true
 SWEP.Base                  = "id_card_base"
 
-SWEP.TextToSay             = "предъявил CID карту Гражданина Сити 2"
+SWEP.TextToSay             = "предъявил CID карту Гражданина Сити 17"
