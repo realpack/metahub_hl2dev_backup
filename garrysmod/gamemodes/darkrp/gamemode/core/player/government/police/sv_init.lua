@@ -264,6 +264,31 @@ function DoorActivate(ply, key)
 end
 hook.Add( "KeyPress", "hl2rp_door_activate", DoorActivate )
 
+hook.Add( "PlayerSay", "Combine_PlayerSay", function( player, text, public )
+    if not player:IsCP() then return end
+    local first_char = string.sub( string.lower(text), 1, 1 )
+	if first_char ~= "!" and first_char ~= "/" then
+		return "<:: "..text.." ::>"
+	end
+end)
+
+local cpwalk = {
+    "npc/metropolice/gear1.wav",
+    "npc/metropolice/gear2.wav",
+    "npc/metropolice/gear3.wav",
+    "npc/metropolice/gear4.wav",
+    "npc/metropolice/gear5.wav",
+    "npc/metropolice/gear6.wav"
+}
+
+hook.Add( "PlayerFootstep", "Combine_Footstep", function( pPlayer )
+	local walk = table.Random(cpwalk)
+	if pPlayer:IsCP() then
+        local len = pPlayer:GetVelocity():Length()
+        pPlayer:EmitSound(walk, len > 150 and 45 or 35, 100, 1, CHAN_AUTO)
+	end
+end)
+
 
 -- rp.AddCommand('/want', function(pl, text, args)
 -- 	if not pl:IsCP() and not pl:IsMayor() or not args[1] or not args[2] then return end

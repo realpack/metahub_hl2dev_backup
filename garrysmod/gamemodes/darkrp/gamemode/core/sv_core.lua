@@ -55,9 +55,7 @@ hook.Add('PlayerConnect', 'add_logger', function( name, ip )
     file.Append( "connects.txt", 'connect - '..name..' ('..ip..')\n' )
 end)
 
-/*---------------------------------------------------------
- Stuff we don't use
- ---------------------------------------------------------*/
+
 timer.Simple(0.5, function()
 	local GM = GAMEMODE
 	GM.CalcMainActivity 		= nil
@@ -95,6 +93,12 @@ function GM:PlayerUse(pl, ent)
     -- print(ent)
     -- print(ent.for_cp)
     -- print(ent, ent:IsDoor())
+	if ent:MapCreationID() == 3634 or ent:MapCreationID() == 3635 then
+		-- ent:Fire("setanimation","open",.1)
+		ent:Fire('open')
+
+		return true
+	end
     if (ent:IsDoor() or ent:GetClass() == 'prop_dynamic' ) and table.HasValue(cp_doors_models,ent:GetModel()) then
         if pl:IsCP() then
             -- print(ent)

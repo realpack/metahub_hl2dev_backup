@@ -26,40 +26,40 @@ function ENT:Think()
 
                 self:HookAdd("Think", "UpdateClientModel", function()
                     if IsValid(playerController) then
-                        if not IsValid(self.ownerClientPlayerModel) then
-                            self.ownerClientPlayerModel = ClientsideModel(playerController:GetModel(), RENDERGROUP_BOTH)
-                            self.ownerClientPlayerModel:SetAngles(angle)
-                            self.ownerClientPlayerModel:SetSequence(playerController:LookupSequence(self.ClientPlayerModelSequence))
-                            self.ownerClientPlayerModel.GetPlayerColor = function()
-                                if IsValid(playerController) and playerController.GetPlayerColor then
-                                    return playerController:GetPlayerColor()
-                                else
-                                    return Vector()
-                                end
-                            end
-                        end
+                        -- if not IsValid(self.ownerClientPlayerModel) then
+                        --     self.ownerClientPlayerModel = ClientsideModel(playerController:GetModel(), RENDERGROUP_BOTH)
+                        --     self.ownerClientPlayerModel:SetAngles(angle)
+                        --     self.ownerClientPlayerModel:SetSequence(playerController:LookupSequence(self.ClientPlayerModelSequence))
+                        --     self.ownerClientPlayerModel.GetPlayerColor = function()
+                        --         if IsValid(playerController) and playerController.GetPlayerColor then
+                        --             return playerController:GetPlayerColor()
+                        --         else
+                        --             return Vector()
+                        --         end
+                        --     end
+                        -- end
 
-                        self.ownerClientPlayerModel:SetPos(playerController:GetPos())
+                        -- self.ownerClientPlayerModel:SetPos(playerController:GetPos())
 
-                        local glassesBone = self.ownerClientPlayerModel:LookupBone(self.ClientGlassesBone)
+                        -- local glassesBone = self.ownerClientPlayerModel:LookupBone(self.ClientGlassesBone)
 
-                        if glassesBone then
-                            local headBoneMatrix = self.ownerClientPlayerModel:GetBoneMatrix(self.ownerClientPlayerModel:LookupBone(self.ClientGlassesBone))
+                        -- if glassesBone then
+                        --     local headBoneMatrix = self.ownerClientPlayerModel:GetBoneMatrix(self.ownerClientPlayerModel:LookupBone(self.ClientGlassesBone))
 
-                            if headBoneMatrix then
-                                if not IsValid(self.ownerClientGlassesModel) then
-                                    self.ownerClientGlassesModel = ClientsideModel(self.ClientGlassesModel, RENDERGROUP_BOTH)
-                                    self.ownerClientGlassesModel:SetModelScale(self.ClientGlassesScale, 0)
-                                end
+                        --     if headBoneMatrix then
+                        --         if not IsValid(self.ownerClientGlassesModel) then
+                        --             self.ownerClientGlassesModel = ClientsideModel(self.ClientGlassesModel, RENDERGROUP_BOTH)
+                        --             self.ownerClientGlassesModel:SetModelScale(self.ClientGlassesScale, 0)
+                        --         end
 
-                                local position, angle = LocalToWorld(self.ClientGlassesOffsetPos, self.ClientGlassesOffsetAngle, headBoneMatrix:GetTranslation(), headBoneMatrix:GetAngles())
+                        --         local position, angle = LocalToWorld(self.ClientGlassesOffsetPos, self.ClientGlassesOffsetAngle, headBoneMatrix:GetTranslation(), headBoneMatrix:GetAngles())
 
-                                self.ownerClientGlassesModel:SetPos(position)
-                                self.ownerClientGlassesModel:SetAngles(angle)
-                            end
-                        end
+                        --         self.ownerClientGlassesModel:SetPos(position)
+                        --         self.ownerClientGlassesModel:SetAngles(angle)
+                        --     end
+                        -- end
 
-                        playerController:SetNoDraw(true)
+                        -- playerController:SetNoDraw(true)
                     end
                 end)
 
@@ -288,7 +288,7 @@ function ENT:StopControlling()
     local playerController = self:GetPlayerController()
 
     if IsValid(playerController) then
-        playerController:SetNoDraw(false)
+        -- playerController:SetNoDraw(false)
 
         if playerController == LocalPlayer() and IsValid(ControllableManhack.manhackBeingControlled) and ControllableManhack.manhackBeingControlled == self then
             ControllableManhack.manhackBeingControlled = nil

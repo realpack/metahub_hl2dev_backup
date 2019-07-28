@@ -111,6 +111,8 @@ function GM:ShowSpare2()
     spanel.Paint = function( self, w, h )
         draw.RoundedBox(0, 0, 0, w, h, Color(0,0,0,fr.Alpha * 45))
     end
+	-- print(spanel:GetVBar())
+	spanel:GetVBar():SetWide(0)
 
     -- ppanel
 

@@ -35,16 +35,16 @@ local function OpenContextMenu()
                 -- netstream.Start('DoorSaleAll',nil)
             -- end)
         end, icon = Material('icon16/door.png') },
-        { text = 'Награды', func = function( self )
-            -- Derma_StringRequest("Выкинуть деньги.", "Сколько денег вы хотите сбросить?", "", function(s)
-                RunConsoleCommand("say", "/tasks")
-            -- end)
-        end, icon = Material('icon16/rosette.png') },
+        -- { text = 'Награды', func = function( self )
+        --     -- Derma_StringRequest("Выкинуть деньги.", "Сколько денег вы хотите сбросить?", "", function(s)
+        --         RunConsoleCommand("say", "/tasks")
+        --     -- end)
+        -- end, icon = Material('icon16/rosette.png') },
         { text = 'Контент Сервера', func = function( self )
-            gui.OpenURL( 'https://steamcommunity.com/workshop/filedetails/?id=1554992606' )
+            gui.OpenURL( 'https://steamcommunity.com/sharedfiles/filedetails/?id=1774238972' )
         end, icon = Material('icon16/link.png') },
         { text = 'Дискорд Сервера', func = function( self )
-            gui.OpenURL( 'https://discord.gg/DRrZCdr' )
+            gui.OpenURL( 'https://discord.gg/E4PBdxe' )
         end, icon = Material('icon16/link.png') },
         { text = 'Основные правила', func = function( self )
             gui.OpenURL( 'https://docs.google.com/document/d/1igeD8p3n_ebRnpMgcD6qMbkQBR5K6zpFkoTc3ctKQBY/preview' )

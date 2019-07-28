@@ -115,7 +115,7 @@ TEAM_ANTICITIZEN = rp.addTeam('Беженец', {
 	needbuy = true,
 })
 
-TEAM_R1 = rp.addTeam('Рекрут', {
+TEAM_R1 = rp.addTeam('Рекрут Сопротивления', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -154,7 +154,7 @@ TEAM_R2 = rp.addTeam('Повстанец', {
 	PlayerSpawn = function(ply) ply:SetArmor(100) end,
 })
 
-TEAM_R3 = rp.addTeam('Штурмовик', {
+TEAM_R3 = rp.addTeam('Повстанец Штурмовик', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -176,7 +176,7 @@ TEAM_R3 = rp.addTeam('Штурмовик', {
 	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 })
 
-TEAM_R4 = rp.addTeam('Медик', {
+TEAM_R4 = rp.addTeam('Повстанец Медик', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -197,13 +197,13 @@ TEAM_R4 = rp.addTeam('Медик', {
 	PlayerSpawn = function(ply) ply:SetArmor(100) end,
 })
 
-TEAM_R5 = rp.addTeam('Специалист', {
+TEAM_R5 = rp.addTeam('Повстанец Снайпер', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
 Верный боец сопротивления, который, проявив смелость, решился выйти на поверхность, чтобы активно докладывать командованию об обстановке в Сити 17.
 ]],
-	weapons = {"id_citizen", "id_rebel", "swb_usp", "swb_scout", 'hook'},
+	weapons = {"id_citizen", "id_rebel", "swb_usp", "weapon_crossbow", 'hook'},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r5',
@@ -225,7 +225,7 @@ TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
 	description = [[
 Человек попавший в это время прямиком из черной мезы, неизвестно как и зачем, но известно одно - Он решил объеденится с сопротивлением и дать отпор Альянсу!
 ]],
-	weapons = {"id_rebel", "swb_m4a1", "m9k_rpg7", "m9k_m61_frag"},
+	weapons = {"id_rebel", "swb_m4a1", "m9k_m61_frag"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r6',
@@ -238,10 +238,75 @@ TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
 	needbuy = true,
 	needteam = 'r5',
     health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
+})
+
+TEAM_R7 = rp.addTeam('Повстанец Инженер', {
+	color = Color(102,153,102),
+	model = "models/tnb/citizens/male_woodland.mdl",
+	description = [[
+В прошлом ГСР Рабочий 4 разряда, сбежавший к Сопротивлению.
+Сейчас он Инженер в ячейке Сопротивления Сити-17. В бою, вы строите укрепления, баррикады и помогаете своим товарищам ]],
+	weapons = {"id_rebel", "cp_fort", "swb_famas", "swb_fiveseven", "m9k_m61_frag", "weapon_wrench", "ammothreeaura"},
+	radio = "rebel",
+	type = TEAMTYPE_RABEL,
+	command = 'r7',
+	max = 2,
+	salary = 45,
+	admin = 0,
+	flashlight = true,
+	hasLicense = false,
+	candemote = false,
+	needbuy = true,
+	needteam = 'r5',
+    health = 300,
+	PlayerSpawn = function(ply) ply:SetArmor(400) end,
+})
+
+TEAM_R11 = rp.addTeam('Повстанец Подрывник', {
+	color = Color(102,153,102),
+	model = "models/tnb/citizens/male_hooded.mdl",
+	description = [[
+Опытный боец и эксперт по взрывчатке. Имеет мощное и тяжелое оружие. ]],
+	weapons = {"id_rebel", "swb_mac10", "weapon_rpg", "weapon_slam", "m9k_sticky_grenade", "m9k_m61_frag"},
+	radio = "rebel",
+	type = TEAMTYPE_RABEL,
+	command = 'r11',
+	max = 2,
+	salary = 45,
+	admin = 0,
+	flashlight = true,
+	hasLicense = false,
+	candemote = false,
+	needbuy = true,
+	needteam = 'r5',
+    health = 300,
 	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 })
 
-TEAM_R7 = rp.addTeam('Лидер Сопротивления', {
+TEAM_R9 = rp.addTeam('Повстанец Пулеметчик', {
+	color = Color(102,153,102),
+	model = "models/tnb/citizens/male_plates.mdl",
+	description = [[ Тяжеловооруженный и бронированный боец, действует как танк.
+Поддерживает огнем своих товарищей в боевых действиях.
+]],
+	weapons = {"id_rebel", "swb_m249", "swb_deagle", "m9k_m61_frag"},
+	radio = "rebel",
+	type = TEAMTYPE_RABEL,
+	command = 'r9',
+	max = 2,
+	salary = 45,
+	admin = 0,
+	flashlight = true,
+	hasLicense = false,
+	candemote = false,
+	needbuy = true,
+	needteam = 'r5',
+    health = 400,
+	PlayerSpawn = function(ply) ply:SetArmor(450) end,
+})
+
+TEAM_R10 = rp.addTeam('Лидер Сопротивления', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -249,7 +314,7 @@ TEAM_R7 = rp.addTeam('Лидер Сопротивления', {
 	weapons = {"id_citizen", "id_rebel", "swb_ar2"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
-	command = 'r7',
+	command = 'r10',
 	max = 1,
 	salary = 45,
 	admin = 0,
@@ -368,7 +433,7 @@ TEAM_UN1 = rp.addTeam("RCT", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Начальный юнит гражданской обороны, который прошел первичный курс подготовки.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "rct",
@@ -392,7 +457,7 @@ TEAM_UN2 = rp.addTeam("i6", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Юнит, заслуживший свое первое повышение, во время службы.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "pvt",
@@ -417,7 +482,7 @@ TEAM_UN3 = rp.addTeam("i5", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Юнит гражданской обороны, сумевший проявить себя перед командованием и получил возможность показать свои командирские навыки.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "cpl",
@@ -468,7 +533,7 @@ TEAM_UN4 = rp.addTeam("i4", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Сотрудник гражданской обороны, проявивший себя, как достойный командир группы и тем самым, получил повышение.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "sgt",
@@ -494,7 +559,7 @@ TEAM_UN5 = rp.addTeam("i3", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Следующий по иерархии званий в ГО. Верный и преданный слуга Альянса, не имеющий человеческих чувствю]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	mask_group = 3,
@@ -520,7 +585,7 @@ TEAM_UN6 = rp.addTeam("i2", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Командует Штрафбатом, а так же младшим составом ГО. Не имеет почти ничего общего с человеком.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "CPT",
@@ -546,7 +611,7 @@ TEAM_UN7 = rp.addTeam("i1", {
 	type = TEAMTYPE_COMBINE,
 	description = [[
 Правая рука Sectorial Commander. Командует младшим составом ГО.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "LT",
@@ -602,7 +667,7 @@ TEAM_S0 = rp.addTeam("ZIEGLER", {
 	model = "models/player/hl2_malecp13.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, деятельность которого направлена на поддержание уровня боеспособности остальных бойцов.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s1",
@@ -627,7 +692,7 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 	model = cp2_models,
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, который, находясь впереди всех, принимает весь удар на себя.]],
-	weapons = {},
+	weapons = {"weapon_combineshield"},
 	radio = "cpu",
 	flashlight = true,
 	command = "s2",
@@ -655,7 +720,7 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 	model = "models/player/hl2_elitmalecp11.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Тяжелый юнит специального отделения ГО, оснащенный тяжелейшей броней и вооружением.]],
-	weapons = {""},
+	weapons = {"weapon_combineshield"},
 	radio = "cpu",
 	flashlight = true,
 	command = "s3",
@@ -685,7 +750,7 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
 	model = cp2_models,
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, занимающийся в основном обустройкой постов альянса по городу.]],
-	weapons = {""},
+	weapons = {"weapon_combineshield"},
 	radio = "cpu",
 	flashlight = true,
 	command = "s4",
@@ -711,7 +776,7 @@ TEAM_S4 = rp.addTeam("POLICE", {
 	model = "models/novacp_player/novacp.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Особый патрульный юнит специального отделения ГО, следящий за порядком внутри ГО.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s5",
@@ -730,7 +795,7 @@ TEAM_S5 = rp.addTeam("ASSASSIN", {
 	model = "models/assassin/fassassin.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Прошедший особую систему подготовки юнит специального отделения ГО, предназначенный для скрытного устранения целей.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s6",
@@ -750,7 +815,7 @@ TEAM_S6 = rp.addTeam("EOD", {
 	model = cp2_models,
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, которому не составит труда подорвать группу врагов, при помощи своего арсенала.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s7",
@@ -796,7 +861,7 @@ TEAM_S8 = rp.addTeam("REAPER", {
 	model = 'models/jessev92/player/hl2/conceptbine.mdl',
 	type = TEAMTYPE_COMBINE,
 	description = [[Заместитель командира специального отдела ГО, строгий и требовательный командир]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s9",
@@ -815,7 +880,7 @@ TEAM_S9 = rp.addTeam("PHOENIX", {
 	model = "models/player/hl2_malecp13.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Командующий юнит, который руководит всем специальным отделением ГО.]],
-	weapons = {""},
+	weapons = {},
 	radio = "cpu",
 	flashlight = true,
 	command = "s10",
@@ -885,7 +950,7 @@ TEAM_COMBINE2 = rp.addTeam('STATIC', {
 
 TEAM_STATICREBEL = rp.addTeam("STATIC", {
 	color = Color(38, 97, 204, 200),
-	model = { "models/player/combine_soldier_armored.mdl" },
+	model = { "models/player/armored_soldier.mdl" },
 	type = TEAMTYPE_SUP,
 	description = [[Перечипированная и перекодированная рядовая боевая единица SUP отдела.
 Очень ценная и мощная боевая единица Сопротивления. Подчиняется лидеру Сопротивления.
@@ -934,7 +999,7 @@ TEAM_COMBINE4 = rp.addTeam('RHINO', {
 	color = Color(150,170,200),
 	model = { "models/player/combine_heavy.mdl" },
 	description = [[Тяжелая единица в SUP отделе, за счет своей брони, имеет низкий показатель мобильности. Действует как танк, также поддерживает огнем в боевых действиях.]],
-	weapons = {},
+	weapons = {"weapon_combineshield"},
 	radio = "cpu",
 	flashlight = true,
 	type = TEAMTYPE_SUP,
@@ -1028,7 +1093,7 @@ TEAM_COMBINE7 = rp.addTeam('NOVA', {
 
 TEAM_COMBINE8 = rp.addTeam('SUPREME', {
 	color = Color(150,170,200),
-	model = { "models/player/combine_super_soldier_armored.mdl" },
+	model = { "models/armored_elite/armored_elite.mdl" },
 	description = [[Командующая единица в SUP отделе, полностью командует SUP отделом, в отсутсвии SYNTH.TRU командует SYNTH отделом.]],
 	weapons = {},
 	radio = "cpu",
@@ -1036,6 +1101,9 @@ TEAM_COMBINE8 = rp.addTeam('SUPREME', {
 	type = TEAMTYPE_SUP,
 	command = 'combine2',
 	needteam = 'combine7',
+PlayerLoadout = function(ply)
+		ply:SetBodygroup(1, 2)
+	end,
 	max = 1,
 	salary = 45,
 	admin = 0,
@@ -1425,7 +1493,7 @@ TEAM_HERO3 = rp.addTeam("Одноглазый", {
 	color = Color(41, 128, 185, 200),
 	model = "models/tnb/citizens/male_29.mdl",
 	description = oneeye_desc,
-	weapons = {"swb_deagle", "lockpick", "swb_knife", "id_citizen"},
+	weapons = {"swb_deagle", "swb_scout", "lockpick", "swb_knife", "id_citizen"},
 	command = "oneeye",
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
@@ -1637,7 +1705,7 @@ TEAM_HERO10 = rp.addTeam("Валерия", {
 	color = Color(255, 71, 87, 200),
 	model = "models/tnb/citizens/female_28.mdl",
 	description = valeria_desc,
-	weapons = {"swb_mp5", "swb_usp", "id_citizen"},
+	weapons = {"swb_mp5", "swb_usp", "lockpick", "id_citizen"},
 	command = "valeria",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1684,10 +1752,10 @@ TEAM_METH = rp.addTeam("Варщик Мета", {
 
 TEAM_VORT = rp.addTeam("Свободный Вортигонт", {
 	color = Color(57, 112, 50),
-	model = "models/player/vortigaunt.mdl",
+	model = "models/player/bms_vortigaunt.mdl",
 	type = TEAMTYPE_CITIZEN,
-	description = [[Вортигонт, которого освободили от оков, теперь он имеет мощную силу, в целях благодарности, он решил помочь движению Сопротивления.]],
-	weapons = {"swep_vortigaunt_beam", "id_vortigaunt"},
+	description = [[Вортигонт, которого освободили от гнёта Альянса, теперь он имеет мощную силу, в целях благодарности, он решил помочь движению Сопротивления.]],
+	weapons = {"swep_vortigaunt_beam", "id_vortigaunt", "ultheal"},
 	command = "vort2",
 	max = 4,
 	needbuy = true,
@@ -1864,7 +1932,7 @@ rp.cfg.NPCs = {
 		['crime_npc'] = {
 			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),
-			pos = Vector('-3998.024414 3189.872070 168.965256'),
+			pos = Vector('3542.677734 -3284.575439 104.031186'),
 			ang = Angle('0 -30 0.000000'),
 			model = 'models/Eli.mdl',
 			jobs = {
@@ -1922,6 +1990,10 @@ rp.cfg.NPCs = {
 				[TEAM_R5] = 80000,
 				[TEAM_R6] = 125000,
 				[TEAM_R7] = 200000,
+				[TEAM_R8] = 250000,
+				[TEAM_R9] = 300000,
+				[TEAM_R11] = 150000,
+				[TEAM_R10] = 350000,
 				[TEAM_VORT] = 50000
 			}
 		},
@@ -1954,7 +2026,7 @@ rp.cfg.NPCs = {
 				[TEAM_UN5] = 70000,
 				[TEAM_UN6] = 100000,
 				[TEAM_UN7] = 200000,
-				[TEAM_UN8] = 350000
+				[TEAM_UN8] = 600000
 			}
 		},
 		['scpu_npc'] = {

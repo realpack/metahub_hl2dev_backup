@@ -172,7 +172,7 @@ function PLAYER:ChangeTeam(t, force)
 		return false
 	end
 
-    print(t, self:HasTeam(t))
+    -- print(t, self:HasTeam(t))
 	if not self:HasTeam(t) and not force then
 		return false
 	end

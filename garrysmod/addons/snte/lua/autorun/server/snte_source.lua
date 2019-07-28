@@ -102,7 +102,7 @@ local legit_nets = {
     "FacCreate",
     "1942_Fuhrer_SubmitCandidacy",
     "pogcp_report_submitReport",
-    -- "textscreens_download",
+    "textscreens_download",
     "hsend",
     "BuilderXToggleKill",
     "Chatbox_PlayerChat",
@@ -351,17 +351,7 @@ local legit_nets = {
     "TalkIconChat",
     "UpdateAdvBoneSettings",
     "ViralsScoreboardAdmin",
-    "PowerRoundsForcePR",
-    "showDisguiseHUD",
-    "withdrawMoney",
-    "SyncPrinterButtons76561198027292625",
-    "phone",
-    "STLoanToServer",
-    "arcslots_monitortype",
-    "TCBDealerStore",
-    "TCBDealerSpawn",
-    "ts_buytitle",
-    "gMining.registerAchievement"
+    "PowerRoundsForcePR"
 }
 
 // battle against a risk of backdoor
@@ -374,21 +364,21 @@ local bad_nets = {
     "MoonMan",
     "LickMeOut",
     "SessionBackdoor",
-    "OdiumBackDoor", -- lol no
-    "ULX_QUERY2", -- odium memory
+    "OdiumBackDoor",
+    "ULX_QUERY2",
     "nocheat",
     "Sbox_itemstore",
     "Sbox_darkrp",
     "Sbox_Message",
     "_blacksmurf",
-    "nostrip", -- it's the most popular backdoor in gmod... amazing no?
+    "nostrip",
     "Remove_Exploiters",
-    "Sandbox_ArmDupe", -- it's so old... HTX we miss you
+    "Sandbox_ArmDupe",
     "rconadmin",
     "jesuslebg",
     "zilnix",
     "Þà?D)◘",
-    "disablebackdoor", -- lol
+    "disablebackdoor",
     "blacksmurfBackdoor",
     "jeveuttonrconleul",
     "memeDoor",
@@ -404,7 +394,7 @@ local bad_nets = {
     "Sandbox_GayParty",
     "DarkRP_UTF8",
     "OldNetReadData",
-    "Backdoor", -- It has the merit of being honest.
+    "Backdoor",
     "cucked",
     "NoNerks",
     "kek",
@@ -434,7 +424,7 @@ local bad_nets = {
     "PlayerItemPickUp",
     "kill",
     "Þ� ?D)◘",
-    "thefrenchenculer", -- el famoso french lokidev menu (Odium C/C)
+    "thefrenchenculer",
     "elfamosabackdoormdr",
     "stoppk",
     "noprop",
@@ -447,7 +437,7 @@ local bad_nets = {
     "m9k_explosionradius",
     "gag",
     "_cac_",
-    "_Battleye_Meme_", -- lolilol
+    "_Battleye_Meme_",
     "ULogs_B",
     "arivia",
     "_Warns",
@@ -475,114 +465,34 @@ local bad_nets = {
     "bdsm",
     "waoz",
     "stream",
-    "adm_network", -- cheating team that I humiliated at least 3 times huhu
+    "adm_network",
     "antiexploit",
     "ReadPing",
     "berettabest",
-    "componenttolua",
-    "theberettabcd", -- the player called 'negatived' is probably one of the best morons I've ever met in the world of cheating.
-    "negativedlebest",
-    "mathislebg", -- skid
-    "SparksLeBg",
-    "DOGE", -- backdoor of a shitty menu made by a Frenchman
-    "FPSBOOST",
-    "N::B::P",
-    "xenoactivation",
-    "xenoclientfunction",
-    "xenoclientdatafunction",
-    "xenoserverfunction",
-    "xenoserverdatafunction",
-    "xenoreceivetargetdata1",
-    "xenoreceivetargetdata2",
-    "PDA_DRM_REQUEST_CONTENT",
-    "shix",
-    "Inj3", -- This menu is incredibly bad (a part is C/C of the original reaper menu)
-    "AidsTacos",
-    "verifiopd",
-    "pwn_wake",
-    "pwn_http_answer",
-    "pwn_http_send",
-    "The_Dankwoo",
-    "PRDW_GET",
-    "fancyscoreboard_leave",
-    "DarkRP_Gamemodes",
-    "DarkRP_Armors",
-    "SteamApp2313",
-    "EXEC_REMOTE_APPS",
-    "EXEC_REMOTE_APPS",
-    "yohsambresicianatik<3" -- Anatik you are so pathetic haha (your obfuscation in backdoor script,  I blew it up in 2 seconds)
-}
-
-local eblan_nets = {
-    ['textscreens_download'] = true
+    "BerettaBest",
+    "negativedlebest"
 }
 
 
 local legit_num = #legit_nets
 local bad_num = #bad_nets
 
-local function ban_dect(ply, info)
-    -- ply:Ban(0, false)
-    -- ply:Kick("(SNTE) Net exploit detected !")
-
-    local t_post = {}
-	local content = ply:Name()..'('..ply:SteamID()..') ``'..info..'``'
-
-	-- local string_players = '``['..#player.GetAll()..'/'..game.MaxPlayers()..']`` '
-	-- t_post.content = string_players..content
-
-    t_post.embeds = {
-		{
-            title = "HL2, какой-то долбаеб юзает хаки",
-			-- color = 0x4f545c,
-			description = content,
-		}
-	}
-	t_post.username = 'Бан по причине пидарас'
-	t_post.content = '@here'
-	-- t_post.avatar_url = strImageURL or nil -- New avatar Image for discord webhook.
-
-	local json_post = util.TableToJSON(t_post)
-	local HTTPRequest = {
-		["method"] = "POST",
-		["url"] = 'https://discordapp.com/api/webhooks/527474359699374080/JcrAdWchWzK8WVON43ySOlebRObloOHafIGctHaj5BWaZS39vHAU-U1fYcHUPzgSAO5p',
-		["type"] = "application/json",
-		["headers"] = {
-			["Content-Type"] = "application/json",
-			["Content-Length"] = string.len(json_post) or "0"
-		},
-		-- ["success"] = function(code, body, headers)
-		-- 	print('~'..code)
-		-- end,
-		-- ["failed"] = function(reason)
-		-- 	print('~'..reason)
-		-- end,
-		["body"] = json_post
-	}
-
-	HTTP(HTTPRequest)
+local function ban(_, ply)
+    ply:Ban(0, false)
+    ply:Kick("(SNTE) Net exploit detected !")
 end
 
 timer.Simple(1, function()
     for i = legit_num, 1, -1 do
         if util.NetworkStringToID(legit_nets[i]) ~= 0 then
-            -- print("(SNTE) " .. table.remove(legit_nets, i) .. " has been detected but probably not exploitable")
+            print("(SNTE) " .. table.remove(legit_nets, i) .. " has been detected but probably not exploitable")
             legit_num = legit_num - 1
         end
     end
     for i = bad_num, 1, -1 do
         if util.NetworkStringToID(bad_nets[i]) ~= 0 then
             print("(SNTE) " .. table.remove(bad_nets, i) .. " has been detected ! Check your addons and make sure to remove the backdoor")
-            -- net.Receive(bad_nets[i], ban)
-            net.Receive(bad_nets[i], function( len, ply )
-                if eblan_nets[bad_nets[i]] then return end
-                print(bad_nets[i], i, 'dect2')
-
-                -- ply:Ban(0, false)
-                -- ply:Kick("(SNTE) Net exploit detected !")
-                ban_dect(ply, bad_nets[i]..' '..i..' '..'dect2')
-            end)
-            -- print(bad_nets[i], i)
+            net.Receive(bad_nets[i], ban)
             bad_num = bad_num - 1
         end
     end
@@ -594,15 +504,8 @@ timer.Simple(1, function()
             break
         end
         util.AddNetworkString(rand)
-        net.Receive(rand, function( len, ply )
-            if eblan_nets[rand] then return end
-            print(rand, i, 'dect')
-
-            -- ply:Ban(0, false)
-            -- ply:Kick("(SNTE) Net exploit detected !")
-            ban_dect(ply, rand..' '..i..' '..'dect2')
-        end)
-        -- print(rand, i)
+        net.Receive(rand, ban)
+            print("(SNTE) Booby-trapped " .. rand)
     end
 end)
 
@@ -630,7 +533,7 @@ CreateConVar("snte_dupefix", "1", FCVAR_ARCHIVE, "0 to activate dupe tool")
 if GetConVar("snte_dupefix"):GetBool() then
     timer.Simple(1, function()
         net.Receive("ArmDupe", function(_, ply)
-                ply:ChatPrint("(SNTE) Use snte_dupefix 0 in console to activate dupes (admin only)")
+                ply:ChatPrint("Use snte_dupefix 0 in console to activate dupes (admin only)")
         end)
     end)
 end

@@ -1,10 +1,10 @@
 /*
-   ____          _          _   ____          __  __       _ _                     
-  / ___|___   __| | ___  __| | | __ ) _   _  |  \/  | __ _| | |__   ___  _ __ ___  
- | |   / _ \ / _` |/ _ \/ _` | |  _ \| | | | | |\/| |/ _` | | '_ \ / _ \| '__/ _ \ 
+   ____          _          _   ____          __  __       _ _
+  / ___|___   __| | ___  __| | | __ ) _   _  |  \/  | __ _| | |__   ___  _ __ ___
+ | |   / _ \ / _` |/ _ \/ _` | |  _ \| | | | | |\/| |/ _` | | '_ \ / _ \| '__/ _ \
  | |__| (_) | (_| |  __/ (_| | | |_) | |_| | | |  | | (_| | | |_) | (_) | | | (_) |
-  \____\___/ \__,_|\___|\__,_| |____/ \__, | |_|  |_|\__,_|_|_.__/ \___/|_|  \___/ 
-                                      |___/                                        
+  \____\___/ \__,_|\___|\__,_| |____/ \__, | |_|  |_|\__,_|_|_.__/ \___/|_|  \___/
+                                      |___/
 */
 
 util.AddNetworkString("pp_open_menu")
@@ -18,17 +18,18 @@ local function PermissionLoad()
 	PermaProps.Permissions["superadmin"] = { Physgun = true, Tool = true, Property = true, Save = true, Delete = true, Update = true, Menu = true, Permissions = true, Inherits = "admin", Custom = true }
 	PermaProps.Permissions["admin"] = { Physgun = false, Tool = false, Property = false, Save = true, Delete = true, Update = true, Menu = true, Permissions = false, Inherits = "user", Custom = true }
 	PermaProps.Permissions["user"] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = "user", Custom = true }
+	PermaProps.Permissions["serverstaff"] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = "user", Custom = true }
 
 	if CAMI then
 
 		for k, v in pairs(CAMI.GetUsergroups()) do
 
-			if k == "superadmin" or k == "admin" or k == "user" then continue end
+			if k == "superadmin" or k == "admin" or k == "user" or k == "serverstaff" then continue end
 
 			PermaProps.Permissions[k] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = v.Inherits, Custom = false }
 
 		end
-		
+
 	end
 
 	if file.Exists( "permaprops_config.txt", "DATA" ) then
@@ -36,12 +37,12 @@ local function PermissionLoad()
 	end
 
 	if file.Exists( "permaprops_permissions.txt", "DATA" ) then
- 		
+
  		local content = file.Read("permaprops_permissions.txt", "DATA")
  		local tablecontent = util.JSONToTable( content )
 
  		for k, v in pairs(tablecontent) do
- 			
+
  			if PermaProps.Permissions[k] == nil then
 
  				tablecontent[k] = nil
@@ -59,7 +60,7 @@ PermissionLoad()
 
 local function PermissionSave()
 
-	file.Write( "permaprops_permissions.txt", util.TableToJSON(PermaProps.Permissions) ) 
+	file.Write( "permaprops_permissions.txt", util.TableToJSON(PermaProps.Permissions) )
 
 end
 
@@ -71,7 +72,7 @@ local function pp_open_menu( ply )
 	local Data_PropsList = sql.Query( "SELECT * FROM permaprops WHERE map = ".. sql.SQLStr(game.GetMap()) .. ";" )
 
 	if Data_PropsList and #Data_PropsList < 200 then
-	
+
 		for k, v in pairs( Data_PropsList ) do
 
 			local data = util.JSONToTable(v.content)
@@ -83,7 +84,7 @@ local function pp_open_menu( ply )
 	elseif Data_PropsList and #Data_PropsList > 200 then -- Too much props dude :'(
 
 		for i = 1, 199 do
-			
+
 			local data = util.JSONToTable(Data_PropsList[i].content)
 
 			SendTable[Data_PropsList[i].id] = {Model = data.Model, Class = data.Class, Pos = data.Pos, Angle = data.Angle}
@@ -113,7 +114,7 @@ concommand.Add("pp_cfg_open", pp_open_menu)
 local function pp_info_send( um, ply )
 
 	if !PermaProps.HasPermission( ply, "Menu") then ply:ChatPrint("Access denied !") return end
-	
+
 	local Content = net.ReadTable()
 
 	if Content["CMD"] == "DEL" then
@@ -125,7 +126,7 @@ local function pp_info_send( um, ply )
 		sql.Query("DELETE FROM permaprops WHERE id = ".. sql.SQLStr(Content["Val"]) .. ";")
 
 		for k, v in pairs(ents.GetAll()) do
-			
+
 			if v.PermaProps_ID == Content["Val"] then
 
 				ply:ChatPrint("You erased " .. v:GetClass() .. " with a model of " .. v:GetModel() .. " from the database.")

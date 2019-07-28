@@ -4,9 +4,9 @@ local CurTime 		= CurTime
 
 rp.Foods = {}
 
-function rp.AddFoodItem(name, mdl, amount, thirst)
-	rp.Foods[name] = { model = mdl, amount = amount, thirst = thirst } -- to laz
-	rp.Foods[#rp.Foods + 1] = {name = name, model = mdl, amount = amount, thirst = thirst}
+function rp.AddFoodItem(name, mdl, amount, thirst, price)
+	rp.Foods[name] = { model = mdl, amount = amount, thirst = thirst, price = price } -- to laz
+	rp.Foods[#rp.Foods + 1] = {name = name, model = mdl, amount = amount, thirst = thirst, price = price }
 end
 
 function PLAYER:GetHunger()

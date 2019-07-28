@@ -1,4 +1,4 @@
-zbtShield = btShield or {}
+btShield = btShield or {}
 
 -- Lambda Wars Riot Shield
 -- http://steamcommunity.com/sharedfiles/filedetails/?l=czech&id=543527096

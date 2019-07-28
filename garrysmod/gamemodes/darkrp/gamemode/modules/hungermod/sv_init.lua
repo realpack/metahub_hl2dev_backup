@@ -104,7 +104,7 @@ local function BuyFood(pl, args)
 
 	if not rp.Foods[args] then return end
 
-	local cost = 50
+	local cost = rp.Foods[args].price
 	if pl:CanAfford(cost) then
 		pl:AddMoney(-cost)
 	else

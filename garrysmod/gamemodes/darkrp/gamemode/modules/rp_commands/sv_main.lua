@@ -299,10 +299,10 @@ local function BuyAmmo(ply, args)
 		end
 	end
 
-	if not found or (found.customCheck and not found.customCheck(ply)) then
-		rp.Notify(ply, NOTIFY_ERROR, found and rp.Term(found.CustomCheckFailMsg) or rp.Term('ItemUnavailable'))
-		return ""
-	end
+	-- if not found or (found.customCheck and not found.customCheck(ply)) then
+	-- 	rp.Notify(ply, NOTIFY_ERROR, found and rp.Term(found.CustomCheckFailMsg) or rp.Term('ItemUnavailable'))
+	-- 	return ""
+	-- end
 
 	if not ply:CanAfford(found.price) then
 		rp.Notify(ply, NOTIFY_ERROR, rp.Term('CannotAfford'))

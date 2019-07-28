@@ -149,7 +149,7 @@ if (CLIENT) then
                 return
             end
 
-			if (curShield and weapon:GetDTBool(0, false) != true) then
+			if (curShield and weapon:GetDTBool(0, false) != true) and btShield.shieldInfo[curShield] then
 					local sInfo = btShield.shieldInfo[curShield]
 
                     local ang_r, ang_b = sInfo.render.ang, sInfo.block.ang
