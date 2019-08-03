@@ -689,7 +689,7 @@ TEAM_S0 = rp.addTeam("ZIEGLER", {
 
 TEAM_S1 = rp.addTeam("SHIELD", {
 	color = Color(51, 89, 160, 200),
-	model = cp2_models,
+	model = "models/player/police_armored.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, который, находясь впереди всех, принимает весь удар на себя.]],
 	weapons = {"weapon_combineshield"},
@@ -717,7 +717,7 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 
 TEAM_S2 = rp.addTeam("HEAVY", {
 	color = Color(51, 89, 160, 200),
-	model = "models/player/hl2_elitmalecp11.mdl",
+	model = "models/dpfilms/metropolice/playermodels/pm_rtb_police.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Тяжелый юнит специального отделения ГО, оснащенный тяжелейшей броней и вооружением.]],
 	weapons = {"weapon_combineshield"},
@@ -728,17 +728,9 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 	max = 3,
 	mask_group = 1,
 	control = CONTROL_COMBINE,
-    mask_type = 'metropolice_red',
 	PlayerLoadout = function(ply)
-		ply:SetBodygroup(1, 3)
-		ply:SetBodygroup(2, 1)
-		ply:SetBodygroup(3, 1)
-		ply:SetBodygroup(4, 1)
-		ply:SetBodygroup(5, 1)
-		ply:SetBodygroup(6, 1)
-		ply:SetBodygroup(7, 1)
-		ply:SetBodygroup(8, 1)
-		ply:SetSkin(3)
+		ply:SetBodygroup(1, 0)
+		ply:SetBodygroup(2, 0)
 	end,
 	needbuy = true,
     health = 300,
@@ -747,7 +739,7 @@ TEAM_S2 = rp.addTeam("HEAVY", {
 
 TEAM_S3 = rp.addTeam("ENGINEER", {
 	color = Color(51, 89, 160, 200),
-	model = cp2_models,
+	model = "models/dpfilms/metropolice/playermodels/pm_biopolice.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Юнит специального отделения ГО, занимающийся в основном обустройкой постов альянса по городу.]],
 	weapons = {"weapon_combineshield"},
@@ -760,11 +752,9 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
     mask_type = 'metropolice_yellow',
 	max = 2,
 	PlayerLoadout = function(ply)
-		ply:SetBodygroup(3, 1)
-		ply:SetBodygroup(4, 1)
-		ply:SetBodygroup(6, 1)
-		ply:SetBodygroup(8, 1)
-		ply:SetSkin(1)
+		ply:SetBodygroup(1, 0)
+		ply:SetBodygroup(2, 0)
+		ply:SetSkin(0)
 	end,
 	needbuy = true,
     health = 200,
@@ -773,7 +763,7 @@ TEAM_S3 = rp.addTeam("ENGINEER", {
 
 TEAM_S4 = rp.addTeam("POLICE", {
 	color = Color(51, 89, 160, 200),
-	model = "models/novacp_player/novacp.mdl",
+	model = "models/dpfilms/metropolice/playermodels/pm_rogue_police.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Особый патрульный юнит специального отделения ГО, следящий за порядком внутри ГО.]],
 	weapons = {},
@@ -840,7 +830,7 @@ TEAM_S6 = rp.addTeam("EOD", {
 
 TEAM_S7 = rp.addTeam("LEAK", {
 	color = Color(51, 89, 160, 200),
-	model = 'models/player/leak_combine_elite_sniper_fc.mdl',
+	model = 'models/player/leak_combine_elite_sniper_bm.mdl',
 	type = TEAMTYPE_COMBINE,
 	description = [[Развед.юнит специального отделения ГО, главной особенностью которого является невидимость.]],
 	weapons = {"itemstore_pickup"},

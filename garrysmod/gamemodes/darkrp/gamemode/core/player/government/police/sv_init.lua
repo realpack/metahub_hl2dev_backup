@@ -264,13 +264,13 @@ function DoorActivate(ply, key)
 end
 hook.Add( "KeyPress", "hl2rp_door_activate", DoorActivate )
 
-hook.Add( "PlayerSay", "Combine_PlayerSay", function( player, text, public )
-    if not player:IsCP() then return end
-    local first_char = string.sub( string.lower(text), 1, 1 )
-	if first_char ~= "!" and first_char ~= "/" then
-		return "<:: "..text.." ::>"
-	end
-end)
+-- hook.Add( "PlayerSay", "Combine_PlayerSay", function( player, text, public )
+--     -- if not player:IsCP() then return end
+--     -- local first_char = string.sub( string.lower(text), 1, 1 )
+-- 	-- if first_char ~= "!" and first_char ~= "/" then
+-- 	-- 	return "<:: "..text.." ::>"
+-- 	-- end
+-- end)
 
 local cpwalk = {
     "npc/metropolice/gear1.wav",

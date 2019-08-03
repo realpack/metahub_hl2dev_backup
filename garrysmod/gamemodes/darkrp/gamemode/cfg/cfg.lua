@@ -8,6 +8,7 @@ TEAMTYPE_STALKER = 6
 HANDCUFFED_DURATION = 3
 UN_HANDCUFFED_DURATION = 3
 
+
 function PLAYER:IsRabel()
 	local job = rp.teams[self:Team()]
 	if job and job.type == TEAMTYPE_RABEL then
@@ -88,7 +89,7 @@ rp.cfg.RationLevels = {
 	[TEAMTYPE_CITIZEN] = 'citizen_ration',
 	[TEAMTYPE_LOYAL] = 'citizen_ration',
 	[TEAMTYPE_COMBINE] = 'citizen_ration',
-	[TEAMTYPE_CWU] = 'citizen_ration'
+	[TEAMTYPE_CWU] = 'citizen_ration',
 }
 
 -- Combines
@@ -365,8 +366,8 @@ timer.Simple(.1, function()
 			[TEAM_CITIZEN3] = { Vector('-310.309113 -1257.680908 114.031250') },
 			[TEAM_CITIZEN4] = { Vector('6402.031250 456.956085 3733.161133') },
 			[TEAM_STALKER] = { Vector('6243.923828 2831.841797 1131.031250') },
-			[TEAM_TRADE] = { Vector('-3657.035645 2672.417725 144.031250') },
-			[TEAM_METH] = { Vector('-3657.035645 2672.417725 144.031250') },
+			[TEAM_TRADE] = { Vector('3541.396484 -3309.705811 124.074181') },
+			[TEAM_METH] = { Vector('3541.396484 -3309.705811 124.074181') },
 			[TEAM_VORT] = { Vector('-3657.035645 2672.417725 144.031250') },
 			[TEAM_CITYWORKER] = { Vector('-473.388519 1453.749390 300.031250') },
 			[TEAM_CWU1] = { Vector('-473.388519 1453.749390 300.031250') },
@@ -396,11 +397,11 @@ timer.Simple(.1, function()
 			[TEAM_HERO9] = { Vector('954.595703 1044.845825 -1427.968750'), Vector('956.849609 1199.787720 -1427.968750'), Vector('957.870300 1340.682495 -1427.968750') },
 			[TEAM_HERO10] = { Vector('954.595703 1044.845825 -1427.968750'), Vector('956.849609 1199.787720 -1427.968750'), Vector('957.870300 1340.682495 -1427.968750') },
 			-- [TEAM_METH] = { Vector('947.396179 2444.477539 736.152100') },
-			[TEAM_CRIME] = { Vector('-1100.391479 2912.780273 208.965271') },
-			[TEAM_CRIME2] = { Vector('-1100.391479 2912.780273 208.965271') },
-			[TEAM_CRIME3] = { Vector('-1100.391479 2912.780273 208.965271') },
-			[TEAM_CRIMES] = { Vector('-1100.391479 2912.780273 208.965271') },
-			[TEAM_HITMAN] = { Vector('-1100.391479 2912.780273 208.965271') },
+			[TEAM_CRIME] = { Vector('3541.396484 -3309.705811 124.074181') },
+			[TEAM_CRIME2] = { Vector('3541.396484 -3309.705811 124.074181') },
+			[TEAM_CRIME3] = { Vector('3541.396484 -3309.705811 124.074181') },
+			[TEAM_CRIMES] = { Vector('3541.396484 -3309.705811 124.074181') },
+			[TEAM_HITMAN] = { Vector('3541.396484 -3309.705811 124.074181') },
 			[TEAM_CWUWORK1] = { Vector('625.172546 -3554.649658 144.031250') },
 			[TEAM_CWUVORT2] = { Vector('625.172546 -3554.649658 144.031250') },
 			[TEAM_CITIZEN] = {
@@ -464,8 +465,8 @@ timer.Simple(.1, function()
 		[TEAM_ALTER] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_smg"},
 		[TEAM_UN4] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_smg"},
 		[TEAM_UN5] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_smg", "m9k_m61_frag"},
-		[TEAM_UN6] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_smg", "m9k_m61_frag"},
-		[TEAM_UN7] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_smg", "m9k_m61_frag"},
+		[TEAM_UN6] = {"swb_fiveseven", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_mp5", "m9k_m61_frag"},
+		[TEAM_UN7] = {"swb_fiveseven", "weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_mp5", "m9k_m61_frag"},
 		[TEAM_UN8]  = {"weaponchecker", "stun_baton", "handcuffs", "swb_knife", "swb_mp5", "m9k_m61_frag"},
 		-- [TEAM_ODMEN] = {"swb_mp5", "findbadweapons", "stun_baton", "handcuffs", "swb_knife"},
 		[TEAM_S0] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "ultheal", "ammothreeaura", "med_kit_nn", "swb_mac10", "swb_knife"},
@@ -474,8 +475,8 @@ timer.Simple(.1, function()
 		[TEAM_S3] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_ump", "swb_knife", "cp_fort", "weapon_wrench",'constructable_turret','repair_tool_evan'},
 		[TEAM_S4] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_tmp", "swb_knife", "m9k_m61_frag", "weapon_controllable_manhack"},
 		[TEAM_S5] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_awp", "swb_knife", "weapon_controllable_manhack", "hook"},
-		[TEAM_S6] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_p90", "weapon_slam", "weapon_rpg", "swb_knife"},
-		[TEAM_S7] = {"weaponchecker", "stun_baton", "handcuffs", "swb_glock18", "swb_knife", "swb_scout",'cloaking-3'},
+		[TEAM_S6] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_p90", "weapon_slam", "weapon_rpg", "swb_knife", "m9k_m61_frag"},
+		[TEAM_S7] = {"weaponchecker", "stun_baton", "handcuffs", "swb_smg", "swb_knife", "swb_scout",'cloaking-3'},
 		[TEAM_S8] = {"weaponchecker", "stun_baton", "handcuffs", "swb_glock18", "swb_knife", "swb_xm1014"},
 		[TEAM_S9] = {"swb_pistol", "weaponchecker", "stun_baton", "handcuffs", "swb_sg552", "swb_knife", "weapon_controllable_manhack"},
 		-- [TEAM_SUP1] = {"swb_357", "findbadweapons",  "stun_baton", "handcuffs", "swb_knife", "swb_ar2"},
@@ -878,7 +879,14 @@ rp.cfg.Jails = {
 
 rp.cfg.JailPos = {
 	rp_city17_metahub_v2 = {
-		Vector('4317.746582 795.168030 138.031250'),
+		Vector('6423.431641 1230.583618 76.031250'),
+		Vector('6412.847168 1068.650146 76.031250'),
+		Vector('6412.711426 935.356995 76.031250'),
+		Vector('6410.973633 775.401245 76.031250'),
+		Vector('6413.871582 756.328308 204.031250'),
+		Vector('6421.287109 914.738586 204.031250'),
+		Vector('6419.704590 1050.902954 204.031250'),
+		Vector('6399.091309 1217.402832 204.780212'),
 	}
 }
 
