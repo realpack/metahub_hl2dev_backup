@@ -84,7 +84,7 @@ TEAM_CITIZEN24 = rp.addTeam('Гражданин Сити 17', {
 На первый взгляд город напоминает шепот старого мира из-за своего поддельного положения престижа и комфорта, его дорожные и уличные здания остаются в хорошем состоянии и относительно чистыми.
 В глубине города ходят слухи об активности сопротивления, хотя Департамент пропаганды, естественно, отрицает, что такие слухи могут быть чем-то иным, чем ложью.
 ]],
-	weapons = {"id_citizen"},
+	weapons = {"id_citizen", "weapon_fists"},
 	type = TEAMTYPE_CITIZEN,
 	command = 'citizen24',
 	max = 0,
@@ -104,7 +104,7 @@ TEAM_ANTICITIZEN = rp.addTeam('Беженец', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[Гражданин, который сумел сбежать от гнетущего режима альянса и потерял свои очки лояльности. Вынужден скрываться от них в наиболее темных закоулках города ради своей же безопасности.]],
-	weapons = {"id_citizen"},
+	weapons = {"id_citizen", "weapon_fists"},
 	type = TEAMTYPE_RABEL,
 	command = 'anticitizen',
 	max = 0,
@@ -121,7 +121,7 @@ TEAM_R1 = rp.addTeam('Рекрут Сопротивления', {
 	description = [[
 Начальное звено в повстанческой сети. Несогласный с диктатурой в городе, вынужден скрываться в сетях канализаций Сити 17.
 ]],
-	weapons = {"id_citizen", "id_rebel", "swb_p228"},
+	weapons = {"id_citizen", "id_rebel", "swb_p228", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r1',
@@ -139,7 +139,7 @@ TEAM_R2 = rp.addTeam('Повстанец', {
 	description = [[
 Верный член Сопротивления, который твердо для себя решил, что станет верным защитником всех, кто не согласен с диктатурой в Сити 17.
 ]],
-	weapons = {"id_citizen", "id_rebel", "swb_smg"},
+	weapons = {"id_citizen", "id_rebel", "swb_smg", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r2',
@@ -160,7 +160,7 @@ TEAM_R3 = rp.addTeam('Повстанец Штурмовик', {
 	description = [[
 Член сопротивления, неплохо обращающийся с тяжелым оружием.
 ]],
-	weapons = {"id_citizen", "id_rebel", "swb_shotgun", "swb_galil", "ammothreeaura"},
+	weapons = {"id_citizen", "id_rebel", "swb_shotgun", "swb_galil", "ammothreeaura", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r3',
@@ -182,7 +182,7 @@ TEAM_R4 = rp.addTeam('Повстанец Медик', {
 	description = [[
 Человек, обладающий познаниями и навыками медицины, которые он использует во благо постанческого движения Сити 17.
 ]],
-	weapons = {"id_citizen", "id_rebel", "ultheal", "weapon_medkit", "swb_smg"},
+	weapons = {"id_citizen", "id_rebel", "ultheal", "weapon_medkit", "swb_smg", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r4',
@@ -203,7 +203,7 @@ TEAM_R5 = rp.addTeam('Повстанец Снайпер', {
 	description = [[
 Верный боец сопротивления, который, проявив смелость, решился выйти на поверхность, чтобы активно докладывать командованию об обстановке в Сити 17.
 ]],
-	weapons = {"id_citizen", "id_rebel", "swb_usp", "weapon_crossbow", 'hook'},
+	weapons = {"id_citizen", "id_rebel", "swb_usp", "weapon_crossbow", 'hook', "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r5',
@@ -225,7 +225,7 @@ TEAM_R6 = rp.addTeam('Боец H.E.C.U', {
 	description = [[
 Человек попавший в это время прямиком из черной мезы, неизвестно как и зачем, но известно одно - Он решил объеденится с сопротивлением и дать отпор Альянсу!
 ]],
-	weapons = {"id_rebel", "swb_m4a1", "m9k_m61_frag"},
+	weapons = {"id_rebel", "swb_m4a1", "m9k_m61_frag", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r6',
@@ -247,7 +247,7 @@ TEAM_R7 = rp.addTeam('Повстанец Инженер', {
 	description = [[
 В прошлом ГСР Рабочий 4 разряда, сбежавший к Сопротивлению.
 Сейчас он Инженер в ячейке Сопротивления Сити-17. В бою, вы строите укрепления, баррикады и помогаете своим товарищам ]],
-	weapons = {"id_rebel", "cp_fort", "swb_famas", "swb_fiveseven", "m9k_m61_frag", "weapon_wrench", "ammothreeaura"},
+	weapons = {"id_rebel", "cp_fort", "swb_famas", "swb_fiveseven", "m9k_m61_frag", "weapon_wrench", "ammothreeaura", "weapon_fists", "ultarmor"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r7',
@@ -268,7 +268,7 @@ TEAM_R11 = rp.addTeam('Повстанец Подрывник', {
 	model = "models/tnb/citizens/male_hooded.mdl",
 	description = [[
 Опытный боец и эксперт по взрывчатке. Имеет мощное и тяжелое оружие. ]],
-	weapons = {"id_rebel", "swb_mac10", "weapon_rpg", "weapon_slam", "m9k_sticky_grenade", "m9k_m61_frag"},
+	weapons = {"id_rebel", "swb_mac10", "weapon_rpg", "weapon_slam", "m9k_sticky_grenade", "m9k_m61_frag", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r11',
@@ -290,7 +290,7 @@ TEAM_R9 = rp.addTeam('Повстанец Пулеметчик', {
 	description = [[ Тяжеловооруженный и бронированный боец, действует как танк.
 Поддерживает огнем своих товарищей в боевых действиях.
 ]],
-	weapons = {"id_rebel", "swb_m249", "swb_deagle", "m9k_m61_frag"},
+	weapons = {"id_rebel", "swb_m249", "swb_deagle", "m9k_m61_frag", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r9',
@@ -311,7 +311,7 @@ TEAM_R10 = rp.addTeam('Лидер Сопротивления', {
 	model = false,
 	description = [[
 Лицо повстанческого движения в Сити 17, под своим чутким руководством, он объединил всех повстанцев города под единым знаменем, чтобы в подходящий момент повести их к победе.]],
-	weapons = {"id_citizen", "id_rebel", "swb_ar2"},
+	weapons = {"id_citizen", "id_rebel", "swb_ar2", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r10',
@@ -331,7 +331,7 @@ TEAM_R8 = rp.addTeam('Бывший Сотрудник ГСР', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[Бывший Сотрудник ГСР, решивший примкнуть к Сопротивлению. Знает нахождение многих складов ГСР из-за этого, у него большой ассортимент, снабжает Сопротивление всем, что есть на складах ГСР.]],
-	weapons = {"id_citizen", "id_rebel", "swb_usp"},
+	weapons = {"id_citizen", "id_rebel", "swb_usp", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
 	command = 'r8',
@@ -354,7 +354,7 @@ TEAM_CRIME = rp.addTeam("Гражданин Вор", {
 	type = TEAMTYPE_CITIZEN,
 	description = [[
 	Гражданин, который выбрал нейтральную сторону, выживающий с помощью грабежа и мелких краж.]],
-	weapons = {"id_citizen", "takemoney"},
+	weapons = {"id_citizen", "takemoney", "swb_knife", "weapon_fists"},
 	command = "crime",
 	max = 4,
 	PlayerLoadout = function(ply)
@@ -369,7 +369,7 @@ TEAM_CRIME2 = rp.addTeam("Профессиональный Вор", {
 	type = TEAMTYPE_CITIZEN,
 	description = [[
 	Человек, который отлично разбирается в тонкостях воровского дела, и научился взламывать разного рода замки с помощью своих подручных инструментов.]],
-	weapons = {"id_citizen", "weapon_hl2pipe", "lockpick", "takemoney"},
+	weapons = {"id_citizen", "weapon_hl2pipe", "lockpick", "takemoney", "swb_p228", "weapon_fists"},
 	command = "crime2",
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 1)
@@ -385,7 +385,7 @@ TEAM_CRIME3 = rp.addTeam("Взломщик", {
 	type = TEAMTYPE_CITIZEN,
 	description = [[
 	Бывалый грабитель, с помощью добытых знаний сконструировал приспособление, которое может взламывать электронные замки.]],
-	weapons = {"id_citizen", "swb_knife", "lockpick", "keypad_cracker", "swb_usp", "takemoney", 'weapon_shieldsbreaker'},
+	weapons = {"id_citizen", "swb_knife", "lockpick", "keypad_cracker", "swb_usp", "takemoney", 'weapon_shieldsbreaker', "swb_mac10", "weapon_fists"},
 	command = "crime3",
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 1)
@@ -399,7 +399,7 @@ TEAM_CRIMES = rp.addTeam("Шпион Альянса", {
 	model = "models/tnb/citizens/male_29.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Синтетический юнит Альянса, разработанный для внедрения в ряды повстанцев. Внешне похож на человека, но под повязкой имеет глаз со встроенным чипом, для передачи данных.]],
-	weapons = {"id_citizen", "id_rebel", "swb_knife", "itemstore_pickup", "swb_usp", "swb_tmp"},
+	weapons = {"id_citizen", "id_rebel", "swb_knife", "itemstore_pickup", "swb_usp", "swb_tmp", "weapon_fists"},
 	radio = "cpu",
 	flashlight = true,
 	command = "crimes",
@@ -416,7 +416,7 @@ TEAM_HITMAN = rp.addTeam("Наёмник", {
 	type = TEAMTYPE_CITIZEN,
 	description = [[
 	Обыватель преступного мира, который не брезгует убийством людей для получения наживы.]],
-	weapons = {"lockpick", "swb_knife", "id_citizen"},
+	weapons = {"lockpick", "swb_knife", "id_citizen", "weapon_fists"},
 	command = "hit",
 	max = 4,
 	hitman = true,
@@ -691,8 +691,9 @@ TEAM_S1 = rp.addTeam("SHIELD", {
 	color = Color(51, 89, 160, 200),
 	model = "models/player/police_armored.mdl",
 	type = TEAMTYPE_COMBINE,
-	description = [[Юнит специального отделения ГО, который, находясь впереди всех, принимает весь удар на себя.]],
-	weapons = {"weapon_combineshield"},
+	description = [[Юнит специального отделения ГО, деятельность которого направлена на поддержание защиты бойцов,
+восстановления их бронепластин/жилетов.]],
+	weapons = {"ultarmor"},
 	radio = "cpu",
 	flashlight = true,
 	command = "s2",
@@ -1261,7 +1262,7 @@ TEAM_CITIZEN1 = rp.addTeam("Авторитетный Гражданин", {
 	model = loyal_models,
 	description = [[Получил свои первые очки Лояльности, вы хорошо знаете правила города и стараетесь их не нарушать, уважая ГО.
 Вы пытаетесь действовать во благо города и Альянса. Первая ступень Лояльности.]],
-	weapons = {"id_loyal_l1"},
+	weapons = {"id_loyal_l1", "weapon_fists"},
 	type = TEAMTYPE_LOYAL,
 	command = "citizen2",
 	max = 5,
@@ -1284,7 +1285,7 @@ TEAM_CITIZEN2 = rp.addTeam("Элитный Гражданин", {
 	model = loyal_models,
 	description = [[Вы имеете большее количество очков Лояльности, вы отлично знаете правила города и не нарушаете их, уважая ГО.
 Вы действуйте во благо города и Альянса. Вторая ступень Лояльности.]],
-	weapons = {"stunstick", "id_loyal_l2"},
+	weapons = {"stunstick", "id_loyal_l2", "weapon_fists"},
 	command = "citizen3",
 	max = 3,
 	needbuy = true,
@@ -1308,7 +1309,7 @@ TEAM_CITIZEN3 = rp.addTeam("Референт Администрации", {
 	model = loyal_models,
 	type = TEAMTYPE_LOYAL,
 	description = [[Вы достигли наивысшего количества очков Лояльности, уровень доверия ГО к вам наивысший. Вы действуйте на благо города и непрекословно повинуйтесь Альянсу. Высшая ступень Лояльности.]],
-	weapons = {"stunstick", "swb_usp", "id_loyal_l3"},
+	weapons = {"stunstick", "swb_usp", "id_loyal_l3", "weapon_fists"},
 	command = "citizen4",
 	max = 2,
 	needbuy = true,
@@ -1328,7 +1329,7 @@ TEAM_CITIZEN3 = rp.addTeam("Референт Администрации", {
 
 TEAM_CITIZEN4 = rp.addTeam("Администратор Сити 17", {
 	color = Color(178, 35, 35),
-	model = "models/player/scifi_bill.mdl",
+	model = "models/player/breen.mdl",
 	type = TEAMTYPE_COMBINE,
 	description = [[Управляет городом и проводит трансляции связанные с пропагандой из здания администрации Сити 17]],
 	weapons = {"stunstick", "swb_usp"},
@@ -1392,7 +1393,7 @@ TEAM_CWUWORK1 = rp.addTeam("ГСР Рабочий Завода", {
 	type = TEAMTYPE_CWU,
 	model = ind_models,
 	description = [[Гражданин в специальном костюме с противогазом, работает на заводе по переработке руды. Одна из самых трудных должностей в ГСР, но также одна из самых прибыльных.]],
-	weapons = {"id_cwu",'mgs_pickaxe'},
+	weapons = {"id_cwu",'mgs_pickaxe', "weapon_fists"},
 	command = "cwuvort2",
 	max = 4,
 	needbuy = true,
@@ -1429,7 +1430,7 @@ TEAM_HERO1 = rp.addTeam("Марио", {
 	model = "models/tnb/citizens/male_67.mdl",
 	type = TEAMTYPE_CITIZEN,
 	description = mario_desc,
-	weapons = {"swb_ak47", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker"},
+	weapons = {"swb_ak47", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker", "weapon_fists"},
 	command = "mario",
 	max = 1,
 	needbuy = true,
@@ -1453,7 +1454,7 @@ TEAM_HERO2 = rp.addTeam("Ева", {
 	color = Color(155, 89, 182, 200),
 	model = "models/tnb/citizens/female_15.mdl",
 	description = eva_desc,
-	weapons = {"swb_mp5", "lockpick", "swb_knife", "id_loyal_l3", "weapon_shieldsbreaker"},
+	weapons = {"swb_mp5", "lockpick", "swb_knife", "id_loyal_l3", "weapon_shieldsbreaker", "weapon_fists"},
 	command = "eva",
 	type = TEAMTYPE_CITIZEN,
 	PlayerLoadout = function(ply)
@@ -1483,7 +1484,7 @@ TEAM_HERO3 = rp.addTeam("Одноглазый", {
 	color = Color(41, 128, 185, 200),
 	model = "models/tnb/citizens/male_29.mdl",
 	description = oneeye_desc,
-	weapons = {"swb_deagle", "swb_scout", "lockpick", "swb_knife", "id_citizen"},
+	weapons = {"swb_deagle", "swb_scout", "lockpick", "swb_knife", "id_citizen", "weapon_fists"},
 	command = "oneeye",
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
@@ -1515,10 +1516,10 @@ TEAM_HERO4 = rp.addTeam("Синеглазый", {
 	color = Color(112, 161, 200, 200),
 	model = "models/tnb/citizens/male_19.mdl",
 	description = blueeyes_desc,
-	weapons = {"swb_tmp", "swb_usp", "id_citizen"},
+	weapons = {"swb_tmp", "swb_usp", "id_citizen", "weapon_fists"},
 	command = "blueeyes",
 	max = 1,
-	type = TEAMTYPE_RABEL,
+	type = TEAMTYPE_CITIZEN,
 	radio = "rebel",
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 12)
@@ -1547,7 +1548,7 @@ TEAM_HERO5 = rp.addTeam("Майор Овербек", {
 	color = Color(0, 148, 50, 200),
 	model = "models/tnb/citizens/male_75.mdl",
 	description = major_desc,
-	weapons = {"swb_m4a1", "id_citizen", "swb_deagle"},
+	weapons = {"swb_m4a1", "id_citizen", "swb_deagle", "weapon_fists"},
 	command = "major",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1579,7 +1580,7 @@ TEAM_HERO6 = rp.addTeam("Штаб-сержант МакТавиш", {
 	color = Color(211, 84, 0, 200),
 	model = "models/tnb/citizens/male_24.mdl",
 	description = mac_desc,
-	weapons = {"swb_m3super90", "id_citizen", "swb_deagle"},
+	weapons = {"swb_m3super90", "id_citizen", "swb_deagle", "weapon_fists"},
 	command = "mactavish",
 	max = 1,
 	PlayerLoadout = function(ply)
@@ -1613,7 +1614,7 @@ TEAM_HERO7 = rp.addTeam("Мария", {
 	color = Color(255, 195, 18, 200),
 	model = "models/tnb/citizens/female_53.mdl",
 	description = maria_desc,
-	weapons = {"swb_mp5", "swb_mac10", "med_kit", "id_citizen"},
+	weapons = {"swb_mp5", "swb_mac10", "med_kit", "id_citizen", "weapon_fists"},
 	command = "maria",
 	max = 1,
 	PlayerLoadout = function(ply)
@@ -1642,7 +1643,7 @@ TEAM_HERO8 = rp.addTeam("Неизвестный", {
 	color = Color(52, 73, 94, 200),
 	model = "models/tnb/citizens/male_tacticalcoat.mdl",
 	description = unkn_desc,
-	weapons = {"swb_ar2", "id_citizen"},
+	weapons = {"swb_ar2", "id_citizen", "weapon_fists"},
 	command = "unknown",
 	max = 1,
 	needbuy = true,
@@ -1674,7 +1675,7 @@ TEAM_HERO9 = rp.addTeam("Дрейк", {
 	color = Color(18, 203, 196, 200),
 	model = "models/tnb/citizens/male_88.mdl",
 	description = drake_desc,
-	weapons = {"swb_galil", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker"},
+	weapons = {"swb_galil", "lockpick", "swb_knife", "take_money", "weapon_shieldsbreaker", "id_citizen", "keypad_cracker", "weapon_fists"},
 	command = "drake",
 	max = 1,
 	type = TEAMTYPE_CITIZEN,
@@ -1695,7 +1696,7 @@ TEAM_HERO10 = rp.addTeam("Валерия", {
 	color = Color(255, 71, 87, 200),
 	model = "models/tnb/citizens/female_28.mdl",
 	description = valeria_desc,
-	weapons = {"swb_mp5", "swb_usp", "lockpick", "id_citizen"},
+	weapons = {"swb_mp5", "swb_usp", "lockpick", "id_citizen", "weapon_fists"},
 	command = "valeria",
 	max = 1,
 	type = TEAMTYPE_RABEL,
@@ -1717,7 +1718,7 @@ TEAM_TRADE = rp.addTeam("Торговец", {
 	model = nil,
 	type = TEAMTYPE_CITIZEN,
 	description = [[Обычный торговец, уже освоившийся в городе, решивший зарабатывать продавая контрабанду.]],
-	weapons = {"id_citizen"},
+	weapons = {"id_citizen", "weapon_fists"},
 	command = "trade",
 	max = 2,
 	PlayerLoadout = function(ply)
@@ -1731,7 +1732,7 @@ TEAM_METH = rp.addTeam("Варщик Мета", {
 	model = nil,
 	type = TEAMTYPE_CITIZEN,
 	description = [[Гражданин, который решил зарабатывать и выживать, за счет варки и продажи психотропных веществ скупщику.]],
-	weapons = {"id_citizen"},
+	weapons = {"id_citizen", "weapon_fists", "swb_deagle"},
 	command = "meth23",
 	max = 3,
 	PlayerLoadout = function(ply)
@@ -1745,7 +1746,7 @@ TEAM_VORT = rp.addTeam("Свободный Вортигонт", {
 	model = "models/player/bms_vortigaunt.mdl",
 	type = TEAMTYPE_CITIZEN,
 	description = [[Вортигонт, которого освободили от гнёта Альянса, теперь он имеет мощную силу, в целях благодарности, он решил помочь движению Сопротивления.]],
-	weapons = {"swep_vortigaunt_beam", "id_vortigaunt", "ultheal"},
+	weapons = {"swep_vortigaunt_beam", "id_vortigaunt", "ultheal", "ultarmor"},
 	command = "vort2",
 	max = 4,
 	needbuy = true,
@@ -1758,7 +1759,7 @@ TEAM_CITYWORKER = rp.addTeam("ГСР Рабочий", {
 	model = nil,
 	type = TEAMTYPE_CWU,
 	description = [[Гражданин, занимается различными поручениями от офиса, такие как уборка завалов, починка электроники и так далее.]],
-	weapons = {"id_cwu", "cityworker_pliers", "cityworker_shovel", "cityworker_wrench", "weapon_wrench"},
+	weapons = {"id_cwu", "cityworker_pliers", "cityworker_shovel", "cityworker_wrench", "weapon_wrench", "weapon_fists"},
 	command = "cwu1",
 	max = 5,
 	PlayerLoadout = function(ply)
@@ -1773,7 +1774,7 @@ TEAM_CWU1 = rp.addTeam("ГСР Повар", {
 	model = nil,
 	type = TEAMTYPE_CWU,
 	description = [[Гражданин получивший специализацию повара. Открывает магазины, закусочные, кафе. Продает разные продукты одобренные Альянсом.]],
-	weapons = {"id_cwu"},
+	weapons = {"id_cwu", "weapon_fists"},
 	command = "cwu2",
 	cook = true,
 	max = 4,
@@ -1789,7 +1790,7 @@ TEAM_CWUMED = rp.addTeam("ГСР Медик", {
 	model = nil,
 	type = TEAMTYPE_CWU,
 	description = [[Гражданин, получивший специализацию медика. Лечит обычных граждан от трамв, болезней и так далее.]],
-	weapons = {"id_cwu"},
+	weapons = {"id_cwu", "weapon_fists"},
 	command = "cwumed",
 	-- cook = true,
 	max = 4,
@@ -1809,7 +1810,7 @@ TEAM_CWUTRADE = rp.addTeam("ГСР Продавец", {
 Даже не гитаре сыграть не дадут! Но ведь Сити 17 повезло с вами? Ведь вы бывший складской рабочий!
 Используя свои таланты, а также смекалку, организуйте продажу разных предметов Гражданским Лицам!
 ]],
-	weapons = {"id_cwu"},
+	weapons = {"id_cwu", "weapon_fists"},
 	command = "cwutrade",
 	max = 4,
 	PlayerLoadout = function(ply)
@@ -1824,7 +1825,7 @@ TEAM_CWU3 = rp.addTeam("ГСР Уборщик", {
 	model = nil,
 	description = [[Гражданин, задачей которого, является уборка улиц города от мусора.
 Во время рабочей фазы сдает мусор в терминал по переработке мусора. Когда Рабочей Фазы нету, может продать мусор нелегальному скупщику мусора.]],
-	weapons = {"id_cwu"},
+	weapons = {"id_cwu", "weapon_fists"},
 	command = "cwu4",
 	max = 6,
 	PlayerLoadout = function(ply)
@@ -1845,6 +1846,20 @@ TEAM_CWU4 = rp.addTeam("Надзиратель", {
 	mask_group = 1,
 	control = CONTROL_COMBINE,
     mask_type = 'metropolice_white',
+	PlayerLoadout = function(ply)
+		ply:SetBodygroup(1, 5)
+	end,
+	needbuy = true,
+})
+
+TEAM_ADMIN = rp.addTeam("Администратор", {
+	color = Color(0, 156, 204),
+	type = TEAMTYPE_CITIZEN,
+	model = "models/dpfilms/metropolice/playermodels/pm_badass_police.mdl",
+	description = [[Раб своего дела]],
+	weapons = {"weaponchecker", "weapon_wrench"},
+	command = "admi",
+	max = 0,
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 5)
 	end,
@@ -1909,16 +1924,16 @@ rp.cfg.NPCs = {
 				[TEAM_CITIZEN24] = 0,
 			}
 		},
-		-- ['reg_npc2'] = {
-		-- 	title = 'Регистрация в Сити 17',
-		-- 	color = Color(255,255,255,255),
-		-- 	pos = Vector('-249.274704 1304.031250 642.031250'),
-		-- 	ang = Angle('0 -129.506714 0.000000'),
-		-- 	model = 'models/Police.mdl',
-		-- 	jobs = {
-		-- 		[TEAM_CITIZEN24] = 0,
-		-- 	}
-		-- },
+		 ['admin_npc'] = {
+			title = 'Профессия Администратора',
+		 	color = Color(255,255,255,255),
+		 	pos = Vector('-16.188004 -2708.723877 2118.031250'),
+			ang = Angle('0 -129.506714 0.000000'),
+			model = 'models/Kleiner.mdl',
+			jobs = {
+			[TEAM_ADMIN] = 0,
+			}
+		},
 		['crime_npc'] = {
 			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),

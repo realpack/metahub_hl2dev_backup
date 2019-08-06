@@ -1,1 +1,1 @@
-rp._Stats 	= mysql('127.0.0.1','server', 'g2t6\\N1udAdCl1CWN', 'gmod_hl2', 3306)
+rp._Stats 	= mysql('127.0.0.1','server', 'wwj//ZIVpVw//jL2C//Oe4', 'gmod_hl2', 3306)

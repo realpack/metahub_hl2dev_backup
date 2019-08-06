@@ -92,7 +92,7 @@ local function keysMenu()
 	elseif IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and ent:DoorIsOwnable() then
 		-- rp.RunCommand('buydoor')
         RunConsoleCommand('rp', 'buydoor')
-	elseif LocalPlayer():IsSuperAdmin() and IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and not ent:DoorIsOwnable() then
+	elseif (LocalPlayer():IsSuperAdmin() or LocalPlayer():GetUserGroup() == 'moderator') and IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and not ent:DoorIsOwnable() then
 		adminMenu()
 	end
 end

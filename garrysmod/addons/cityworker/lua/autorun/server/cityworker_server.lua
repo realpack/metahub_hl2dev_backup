@@ -413,7 +413,7 @@ end
 
 function CITYWORKER.SendData( ply )
     if not ply or not IsValid( ply ) then return end
-    if not ply:IsSuperAdmin() then return end
+    if not ply:IsSuperAdmin() and not ply:IsUserGroup('moderator') then return end
 
     net.Start( "CITYWORKER.SendData" )
         net.WriteTable( CITYWORKER_DATA[game.GetMap()] or {} )
@@ -421,7 +421,7 @@ function CITYWORKER.SendData( ply )
 end
 
 net.Receive( "CITYWORKER.Add", function( len, ply )
-    if not ply:IsSuperAdmin() then return end
+    if not ply:IsSuperAdmin() and not ply:IsUserGroup('moderator') then return end
 
     if #CITYWORKER_DATA[game.GetMap()] > 255 then
         -- rp.Notify( ply, 1, "The maximum number of city worker positions is 255!" )
@@ -462,7 +462,7 @@ net.Receive( "CITYWORKER.Add", function( len, ply )
 end )
 
 net.Receive( "CITYWORKER.Remove", function( len, ply )
-    if not ply:IsSuperAdmin() then return end
+    if not ply:IsSuperAdmin() and not ply:IsUserGroup('moderator') then return end
     local k = net.ReadUInt( 8 )
 
     if CITYWORKER_DATA[game.GetMap()][k].class == "cityworker_hydrant" then
@@ -488,7 +488,7 @@ end )
 
 concommand.Add( "cw_removeall", function( ply )
     if not IsValid( ply ) then return end
-    if not ply:IsSuperAdmin() then return end
+    if not ply:IsSuperAdmin() and not ply:IsUserGroup('moderator') then return end
 
     table.Empty( CITYWORKER_DATA[game.GetMap()] )
     CITYWORKER.Save()
@@ -498,7 +498,7 @@ end )
 
 concommand.Add( "cw_removeallmaps", function( ply )
     if not IsValid( ply ) then return end
-    if not ply:IsSuperAdmin() then return end
+    if not ply:IsSuperAdmin() and not ply:IsUserGroup('moderator') then return end
 
     table.Empty( CITYWORKER_DATA )
     CITYWORKER.Save()

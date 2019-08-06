@@ -42,6 +42,7 @@ gameinfo.txt
 # Dirs #
 ########
 /bin/
+/SteamCMD/
 /platform/
 /sourceengine/
 /steam_cache/
@@ -72,6 +73,7 @@ srcds_linux
 libmysqlclient.so.18
 ThirdPartyLegalNotices.txt
 steam_appid.txt
+*.txt
 
 # OS generated files #
 ######################

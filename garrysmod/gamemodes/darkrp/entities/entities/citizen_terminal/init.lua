@@ -88,7 +88,7 @@ net.Receive('Citizen_ChangeCharacter', function( len, pl )
             rp.data.SetModel(pl, model, function()
                 pl:SetModel(model)
                 pl:AddMoney(-rp.cfg.ChangeNamePrice)
-                pl:SetNetVar('Model', model)
+                pl:SetVar('Model', model)
             end)
         end
         pl:SetNetVar('Gender', gender)

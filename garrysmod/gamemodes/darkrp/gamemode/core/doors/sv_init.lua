@@ -131,7 +131,7 @@ end
 // Admin Commands
 //
 rp.AddCommand('/setownable', function(pl, text, args)
-	if pl:IsSuperAdmin() then
+	if pl:IsSuperAdmin() or pl:GetUserGroup() == 'moderator' then
 		local ent = pl:GetEyeTrace().Entity
 		if IsValid(ent) and ent:IsDoor() then
 			ent:DoorSetOwnable(ent:DoorIsOwnable())
@@ -141,7 +141,7 @@ rp.AddCommand('/setownable', function(pl, text, args)
 end)
 
 rp.AddCommand('/setteamown', function(pl, text, args)
-	if pl:IsSuperAdmin() then
+	if pl:IsSuperAdmin() or pl:GetUserGroup() == 'moderator' then
 		local ent = pl:GetEyeTrace().Entity
 		if IsValid(ent) and ent:IsDoor() then
 			ent:DoorUnOwn()
@@ -152,7 +152,7 @@ rp.AddCommand('/setteamown', function(pl, text, args)
 end)
 
 rp.AddCommand('/setgroupown', function(pl, text, args)
-	if pl:IsSuperAdmin() then
+	if pl:IsSuperAdmin() or pl:GetUserGroup() == 'moderator' then
 		local ent = pl:GetEyeTrace().Entity
 		if IsValid(ent) and ent:IsDoor() then
 			ent:DoorUnOwn()
@@ -163,7 +163,7 @@ rp.AddCommand('/setgroupown', function(pl, text, args)
 end)
 
 rp.AddCommand('/setlocked', function(pl, text, args)
-	if pl:IsSuperAdmin() then
+	if pl:IsSuperAdmin() or pl:GetUserGroup() == 'moderator' then
 		local ent = pl:GetEyeTrace().Entity
 		if IsValid(ent) and ent:IsDoor() then
 			rp.Notify(pl, NOTIFY_GENERIC, (ent.Locked and rp.Term('DoorUnlocked') or rp.Term('DoorLocked')))

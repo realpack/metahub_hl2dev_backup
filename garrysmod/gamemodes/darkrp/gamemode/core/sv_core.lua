@@ -116,9 +116,9 @@ function GM:PlayerUse(pl, ent)
 
 	return not pl:IsStalker()
 end
-function GM:PlayerSpawnSENT(pl, model) return pl:IsSuperAdmin() end
-function GM:PlayerSpawnSWEP(pl, class, model) return pl:IsSuperAdmin() end
-function GM:PlayerGiveSWEP(pl, class, model) return pl:IsSuperAdmin() end
+function GM:PlayerSpawnSENT(pl, model) return pl:IsSuperAdmin() or pl:IsUserGroup('moderator') end
+function GM:PlayerSpawnSWEP(pl, class, model) return pl:IsSuperAdmin() or pl:IsUserGroup('moderator') end
+function GM:PlayerGiveSWEP(pl, class, model) return pl:IsSuperAdmin() or pl:IsUserGroup('moderator') end
 function GM:PlayerSpawnVehicle(pl, model) return pl:IsSuperAdmin() end
 function GM:PlayerSpawnNPC(pl, model) return pl:HasAccess('*') end
 function GM:PlayerSpawnRagdoll(pl, model) return pl:HasAccess('*') end
