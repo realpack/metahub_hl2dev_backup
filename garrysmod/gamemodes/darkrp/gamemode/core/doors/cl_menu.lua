@@ -51,7 +51,7 @@ local doorOptions = {
 	{
 		Name 	= 'Admin options',
 		Check 	= function()
-			return LocalPlayer():IsSuperAdmin()
+			return LocalPlayer():IsSuperAdmin() or LocalPlayer():IsUserGroup('moderator')
 		end,
 		DoClick = function(self)
 			fr:Close()
@@ -92,7 +92,7 @@ local function keysMenu()
 	elseif IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and ent:DoorIsOwnable() then
 		-- rp.RunCommand('buydoor')
         RunConsoleCommand('rp', 'buydoor')
-	elseif (LocalPlayer():IsSuperAdmin() or LocalPlayer():GetUserGroup() == 'moderator') and IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and not ent:DoorIsOwnable() then
+	elseif (LocalPlayer():IsSuperAdmin() or LocalPlayer():IsUserGroup('moderator')) and IsValid(ent) and ent:IsDoor() and (ent:GetPos():DistToSqr(LocalPlayer():GetPos()) < 13225) and not ent:DoorIsOwnable() then
 		adminMenu()
 	end
 end

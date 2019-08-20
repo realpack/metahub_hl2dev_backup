@@ -18,13 +18,14 @@ local function PermissionLoad()
 	PermaProps.Permissions["superadmin"] = { Physgun = true, Tool = true, Property = true, Save = true, Delete = true, Update = true, Menu = true, Permissions = true, Inherits = "admin", Custom = true }
 	PermaProps.Permissions["admin"] = { Physgun = false, Tool = false, Property = false, Save = true, Delete = true, Update = true, Menu = true, Permissions = false, Inherits = "user", Custom = true }
 	PermaProps.Permissions["user"] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = "user", Custom = true }
-	PermaProps.Permissions["serverstaff"] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = "user", Custom = true }
+	PermaProps.Permissions["moderator"] = { Physgun = true, Tool = true, Property = false, Save = true, Delete = true, Update = true, Menu = false, Permissions = false, Inherits = "user", Custom = true }
+	PermaProps.Permissions["serverstaff"] = { Physgun = true, Tool = true, Property = false, Save = true, Delete = true, Update = true, Menu = false, Permissions = false, Inherits = "user", Custom = true }
 
 	if CAMI then
 
 		for k, v in pairs(CAMI.GetUsergroups()) do
 
-			if k == "superadmin" or k == "admin" or k == "user" or k == "serverstaff" then continue end
+			if k == "superadmin" or k == "admin" or k == "user" or k == "serverstaff" or k == "moderator" then continue end
 
 			PermaProps.Permissions[k] = { Physgun = false, Tool = false, Property = false, Save = false, Delete = false, Update = false, Menu = false, Permissions = false, Inherits = v.Inherits, Custom = false }
 

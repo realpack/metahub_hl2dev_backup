@@ -6,7 +6,7 @@ IGS.C.ProjectID  = 1879
 
 -- Секретный ключ проекта. Никому не сообщайте.
 -- Он используется для создания подписи запросов к серверам GM-DONATE
-IGS.C.ProjectKey = "b744da99ec473ead0c5bdbdd5eaec9ed"
+IGS.C.ProjectKey = "d8f6e35c8c5835d703dd2381782fd730"
 
 
 

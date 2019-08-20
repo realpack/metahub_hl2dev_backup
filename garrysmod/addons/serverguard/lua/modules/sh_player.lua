@@ -1,6 +1,6 @@
 --[[
 	© 2017 Thriving Ventures Limited do not share, re-distribute or modify
-	
+
 	without permission of its author (gustaf@thrivingventures.com).
 ]]
 
@@ -40,7 +40,7 @@ function serverguard.player:SetRank(player, rank, length, bSaveless)
 						insertObj:Insert("rank", rank);
 						insertObj:Insert("steam_id", player);
 						insertObj:Insert("last_played", os.time());
-						insertObj:Insert("data", 
+						insertObj:Insert("data",
 							serverguard.von.serialize(
 								{
 									groupExpire = ((length != nil and tonumber(length) != nil and length > 0) and os.time() + math.ceil(tonumber(length))) or 0
@@ -70,7 +70,7 @@ function serverguard.player:SetRank(player, rank, length, bSaveless)
 	if timer.Exists("serverguard.timer.RemoveRank_" .. player:UniqueID()) then
 		timer.Remove("serverguard.timer.RemoveRank_" .. player:UniqueID());
 	end;
-	
+
 	if (length != nil and tonumber(length) != nil and length > 0) then
 		serverguard.player:SetData(player, "groupExpire", os.time() + math.ceil(tonumber(length)));
 		timer.Create("serverguard.timer.RemoveRank_" .. player:UniqueID(), math.ceil(tonumber(length)), 1, function()
@@ -81,7 +81,7 @@ function serverguard.player:SetRank(player, rank, length, bSaveless)
 	else
 		serverguard.player:SetData(player, "groupExpire", false);
 	end
-	
+
 	if (!bSaveless) then
 		serverguard.ranks:SavePlayerRank(player, rankData.unique);
 	end;
@@ -183,7 +183,7 @@ function serverguard.player:GetName(pPlayer)
 		return "Console";
 	elseif (isplayer(pPlayer)) then
 		local playerName = pPlayer:Name();
-		
+
 		if (pPlayer.SteamName) then
 			playerName = "(" .. pPlayer:SteamName() .. ") " .. playerName;
 		end;
@@ -201,37 +201,37 @@ end;
 function serverguard.player:SetupSpectate(player, mode)
 	if (!player.sg_spectateData) then
 		local weapons = player:GetWeapons();
-	
+
 		player.sg_spectateData = {};
 		player.sg_spectateData.weapons = {};
 		player.sg_spectateData.position = player:GetPos();
 		player.sg_spectateData.team = player:Team();
-		
+
 		for k, v in pairs(weapons) do
 			table.insert(player.sg_spectateData.weapons, v:GetClass());
 		end;
 	end;
-	
+
 	player:StripWeapons();
 	player:SetTeam(TEAM_SPECTATOR);
 	player:Spectate(mode);
 	player:SpectateEntity(NULL);
 	player:SetCollisionGroup(COLLISION_GROUP_WORLD);
-	
+
 	if (mode == OBS_MODE_ROAMING) then
 		player:SetMoveType(MOVETYPE_NOCLIP);
 	else
 		player:SetMoveType(MOVETYPE_OBSERVER);
-		
+
 		if (IsValid(player.spectateTarget)) then
 			player:SpectateEntity(player.spectateTarget);
 		end;
 	end;
-	
+
 	if (!player.spectatorMode) then
 		player.spectatorMode = 1;
 	end;
-	
+
 	player.sg_spectating = true;
 end;
 
@@ -244,15 +244,15 @@ function serverguard.player:StopSpectate(player)
 	player:SetMoveType(MOVETYPE_WALK);
 	player:SpectateEntity(NULL);
 	player:SetCollisionGroup(COLLISION_GROUP_PLAYER);
-	
+
 	player:Spawn();
-	
+
 	player:SetPos(player.sg_spectateData.position);
-	
+
 	for k, v in pairs(player.sg_spectateData.weapons) do
 		player:Give(v);
 	end;
-	
+
 	player.sg_spectating = nil;
 	player.sg_spectateData = nil;
 end;
@@ -264,29 +264,29 @@ end;
 function serverguard.player:GetSpectatorTarget(pPlayer, decrease)
 	if (isentity(decrease)) then
 		pPlayer.spectatorIndex = pPlayer.spectatorIndex or 1;
-		
+
 		return decrease;
 	end
-	
+
 	local players = player.GetAll();
-	
+
 	for i = 1, #players do
 		if (v == pPlayer) then
 			table.remove(players, i);
-			
+
 			break;
 		end;
 	end;
 
 	pPlayer.spectatorIndex = pPlayer.spectatorIndex or 0;
 	pPlayer.spectatorIndex = decrease and pPlayer.spectatorIndex - 1 or pPlayer.spectatorIndex + 1;
-	
+
 	if (pPlayer.spectatorIndex > #players) then
 		pPlayer.spectatorIndex = 1;
 	elseif (pPlayer.spectatorIndex < 1) then
 		pPlayer.spectatorIndex = #players;
 	end;
-	
+
 	return players[player.spectatorIndex];
 end;
 
@@ -295,9 +295,9 @@ end;
 -- @bool[opt] decrease Whether to get the next/previous target.
 function serverguard.player:SpectateTarget(player, decrease)
 	local target = self:GetSpectatorTarget(player, decrease);
-	
+
 	player:SpectateEntity(target);
-	
+
 	player.spectateTarget = target;
 end;
 
@@ -312,15 +312,15 @@ function serverguard.player:ChangeSpectatorMode(player, decrease)
 	};
 
 	player.spectatorMode = decrease and player.spectatorMode - 1 or player.spectatorMode + 1;
-	
+
 	if (player.spectatorMode > #spectatorModes) then
 		player.spectatorMode = 1;
 	elseif (player.spectatorMode < 1) then
 		player.spectatorMode = #spectatorModes;
 	end;
-	
+
 	local mode = spectatorModes[player.spectatorMode];
-	
+
 	self:SetupSpectate(player, mode);
 end;
 
@@ -345,11 +345,11 @@ function serverguard.player:HasPermission(player, identifier)
 
 	if (permissionTable) then
 		local identype = type(identifier)
-		
+
 		if (identype == "string") then
 			return permissionTable[identifier];
 		end
-		
+
 		if (identype == "table") then
 			for k, v in pairs(identifier) do
 				if (isstring(v) and permissionTable[v]) then
@@ -377,7 +377,7 @@ do
 		if (self:IsSuperAdmin() or serverguard.player:HasPermission(self, "Admin")) then
 			return true;
 		end;
-		
+
 		return self:sgIsAdmin();
 	end;
 
@@ -389,7 +389,7 @@ do
 		if (serverguard.player:HasPermission(self, "Superadmin")) then
 			return true;
 		end;
-		
+
 		return self:sgIsSuperAdmin();
 	end;
 
@@ -401,7 +401,7 @@ do
 		if (serverguard.player:GetRank(self) == name) then
 			return true;
 		end;
-		
+
 		return self:sgIsUserGroup(name)
 	end;
 

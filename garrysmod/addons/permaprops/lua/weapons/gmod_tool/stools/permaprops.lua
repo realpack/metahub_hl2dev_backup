@@ -3,10 +3,10 @@
 	Created by Entoros, June 2010
 	Facepunch: http://www.facepunch.com/member.php?u=180808
 	Modified By Malboro 28 / 12 / 2012
-	
+
 	Ideas:
 		Make permaprops cleanup-able
-		
+
 	Errors:
 		Errors on die
 
@@ -33,10 +33,12 @@ function TOOL:LeftClick(trace)
 	if CLIENT then return true end
 
 	local ent = trace.Entity
+	if ent:GetClass() == 'spawned_money' then return end
+
 	local ply = self:GetOwner()
 
 	if not PermaProps then ply:ChatPrint( "ERROR: Lib not found" ) return end
-	
+
 	if !PermaProps.HasPermission( ply, "Save") then return end
 
 	if not ent:IsValid() then ply:ChatPrint( "That is not a valid entity !" ) return end
@@ -105,7 +107,7 @@ function TOOL:Reload(trace)
 		if !PermaProps.HasPermission( ply, "Update") then return end
 
 		if ent:IsPlayer() then ply:ChatPrint( "That is a player !" ) return end
-		
+
 		local content = PermaProps.PPGetEntTable(ent)
 		if not content then return end
 

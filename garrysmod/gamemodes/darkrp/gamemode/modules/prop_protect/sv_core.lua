@@ -38,7 +38,7 @@ function rp.pp.PlayerCanManipulate(pl, ent)
 		return true
 	end
 
-	return IsValid(ent:CPPIGetOwner())  and (ent:CPPIGetOwner() == pl) or pl:IsSuperAdmin() or pl:IsAdmin()
+	return IsValid(ent:CPPIGetOwner())  and (ent:CPPIGetOwner() == pl) or pl:IsSuperAdmin() or pl:IsUserGroup('moderator') or pl:IsUserGroup('serverstaff')
 end
 
 

@@ -451,20 +451,24 @@ if (SERVER) then
 				return;
 			end
 
-			if (IsValid(target)) then
-				serverguard.player:SetRank(target, rankData.unique, 0);
-				serverguard.player:SetImmunity(target, rankData.immunity);
-                serverguard.player:SetTargetableRank(target, rankData.targetable)
-				serverguard.player:SetBanLimit(target, rankData.banlimit)
+			if rankData.unique == 'founder' then
 
-				serverguard.Notify(nil, SERVERGUARD.NOTIFY.GREEN, "Console", SERVERGUARD.NOTIFY.WHITE, " has set ", SERVERGUARD.NOTIFY.RED, serverguard.player:GetName(target), SERVERGUARD.NOTIFY.WHITE, string.Ownership(serverguard.player:GetName(target), true) .. " rank to ", SERVERGUARD.NOTIFY.GREEN, rankData.name, SERVERGUARD.NOTIFY.WHITE, ".")
-			elseif (string.SteamID(arguments[1])) then
-				local steamID = arguments[1];
-
-				serverguard.player:SetRank(steamID, rankData.unique, 0);
-				serverguard.Notify(nil, SERVERGUARD.NOTIFY.GREEN, "Console", SERVERGUARD.NOTIFY.WHITE, " has set ", SERVERGUARD.NOTIFY.RED, steamID, SERVERGUARD.NOTIFY.WHITE, string.Ownership(serverguard.player:GetName(target), true) .. " rank to ", SERVERGUARD.NOTIFY.GREEN, rankData.name, SERVERGUARD.NOTIFY.WHITE, ".")
 			else
-				serverguard.PrintConsole("Could not find a player with that identifier!");
+				if (IsValid(target)) then
+					serverguard.player:SetRank(target, rankData.unique, 0);
+					serverguard.player:SetImmunity(target, rankData.immunity);
+					serverguard.player:SetTargetableRank(target, rankData.targetable)
+					serverguard.player:SetBanLimit(target, rankData.banlimit)
+
+					serverguard.Notify(nil, SERVERGUARD.NOTIFY.GREEN, "Console", SERVERGUARD.NOTIFY.WHITE, " has set ", SERVERGUARD.NOTIFY.RED, serverguard.player:GetName(target), SERVERGUARD.NOTIFY.WHITE, string.Ownership(serverguard.player:GetName(target), true) .. " rank to ", SERVERGUARD.NOTIFY.GREEN, rankData.name, SERVERGUARD.NOTIFY.WHITE, ".")
+				elseif (string.SteamID(arguments[1])) then
+					local steamID = arguments[1];
+
+					serverguard.player:SetRank(steamID, rankData.unique, 0);
+					serverguard.Notify(nil, SERVERGUARD.NOTIFY.GREEN, "Console", SERVERGUARD.NOTIFY.WHITE, " has set ", SERVERGUARD.NOTIFY.RED, steamID, SERVERGUARD.NOTIFY.WHITE, string.Ownership(serverguard.player:GetName(target), true) .. " rank to ", SERVERGUARD.NOTIFY.GREEN, rankData.name, SERVERGUARD.NOTIFY.WHITE, ".")
+				else
+					serverguard.PrintConsole("Could not find a player with that identifier!");
+				end;
 			end;
 		end;
 	end);

@@ -567,20 +567,21 @@ function GM:GetFallDamage(pl, speed)
 end
 
 local remove = {
-	/*['env_fire'] = true,
-	['trigger_hurt'] = true,
-	['prop_dynamic'] = true,
-	['prop_door_rotating'] = true,
-	['light'] = true,
-	['spotlight_end'] = true,
-	['beam'] = true,
-	['env_sprite'] = true,
-	['light_spot'] = true,
-	['point_template'] = true,*/
+	-- ['env_fire'] = true,
+	-- ['trigger_hurt'] = true,
+	-- ['prop_dynamic'] = true,
+	-- ['prop_door_rotating'] = true,
+	-- ['light'] = true,
+	-- ['spotlight_end'] = true,
+	-- ['beam'] = true,
+	-- ['env_sprite'] = true,
+	-- ['light_spot'] = true,
+	-- ['point_template'] = true,
 
-	['prop_physics'] = true,
-	['prop_physics_multiplayer'] = true,
-	['prop_ragdoll'] = true,
+	-- ['prop_physics'] = true,
+	-- ['prop_physics_multiplayer'] = true,
+	-- ['prop_ragdoll'] = true,
+
 	-- ['ambient_generic'] = true,
 	-- ['func_tracktrain'] = true,
 	['func_reflective_glass'] = true,
@@ -593,7 +594,7 @@ local remove = {
 	-- map shit
 	['lua_run'] 			= true,
 	['logic_timer'] 		= true,
-	['trigger_multiple']	= true
+	-- ['trigger_multiple']	= true
 }
 
 function GM:InitPostEntity()

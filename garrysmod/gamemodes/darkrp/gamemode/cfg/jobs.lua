@@ -63,7 +63,7 @@ TEAM_CITIZEN = rp.addTeam('Недавно Прибывший', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Недавно прибывший в Сити 17 человек, не прошедший проверку и идентификацию на получение CID-карты.
+Недавно прибывший в Сити 14 человек, не прошедший проверку и идентификацию на получение CID-карты.
 ]],
 	weapons = {},
 	type = TEAMTYPE_CITIZEN,
@@ -75,7 +75,7 @@ TEAM_CITIZEN = rp.addTeam('Недавно Прибывший', {
 	candemote = false,
 })
 
-TEAM_CITIZEN24 = rp.addTeam('Гражданин Сити 17', {
+TEAM_CITIZEN24 = rp.addTeam('Гражданин Сити 14', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
@@ -119,7 +119,7 @@ TEAM_R1 = rp.addTeam('Рекрут Сопротивления', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Начальное звено в повстанческой сети. Несогласный с диктатурой в городе, вынужден скрываться в сетях канализаций Сити 17.
+Начальное звено в повстанческой сети. Несогласный с диктатурой в городе, вынужден скрываться в сетях канализаций Сити 14.
 ]],
 	weapons = {"id_citizen", "id_rebel", "swb_p228", "weapon_fists"},
 	radio = "rebel",
@@ -137,7 +137,7 @@ TEAM_R2 = rp.addTeam('Повстанец', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Верный член Сопротивления, который твердо для себя решил, что станет верным защитником всех, кто не согласен с диктатурой в Сити 17.
+Верный член Сопротивления, который твердо для себя решил, что станет верным защитником всех, кто не согласен с диктатурой в Сити 14.
 ]],
 	weapons = {"id_citizen", "id_rebel", "swb_smg", "weapon_fists"},
 	radio = "rebel",
@@ -180,7 +180,7 @@ TEAM_R4 = rp.addTeam('Повстанец Медик', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Человек, обладающий познаниями и навыками медицины, которые он использует во благо постанческого движения Сити 17.
+Человек, обладающий познаниями и навыками медицины, которые он использует во благо постанческого движения Сити 14.
 ]],
 	weapons = {"id_citizen", "id_rebel", "ultheal", "weapon_medkit", "swb_smg", "weapon_fists"},
 	radio = "rebel",
@@ -201,7 +201,7 @@ TEAM_R5 = rp.addTeam('Повстанец Снайпер', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Верный боец сопротивления, который, проявив смелость, решился выйти на поверхность, чтобы активно докладывать командованию об обстановке в Сити 17.
+Верный боец сопротивления, который, проявив смелость, решился выйти на поверхность, чтобы активно докладывать командованию об обстановке в Сити 14.
 ]],
 	weapons = {"id_citizen", "id_rebel", "swb_usp", "weapon_crossbow", 'hook', "weapon_fists"},
 	radio = "rebel",
@@ -310,7 +310,7 @@ TEAM_R10 = rp.addTeam('Лидер Сопротивления', {
 	color = Color(102,153,102),
 	model = false,
 	description = [[
-Лицо повстанческого движения в Сити 17, под своим чутким руководством, он объединил всех повстанцев города под единым знаменем, чтобы в подходящий момент повести их к победе.]],
+Лицо повстанческого движения в Сити 14, под своим чутким руководством, он объединил всех повстанцев города под единым знаменем, чтобы в подходящий момент повести их к победе.]],
 	weapons = {"id_citizen", "id_rebel", "swb_ar2", "weapon_fists"},
 	radio = "rebel",
 	type = TEAMTYPE_RABEL,
@@ -1128,13 +1128,14 @@ TEAM_SYNTH1 = rp.addTeam("X1", {
     health = 300,
     PlayerSpawn = function(ply) ply:SetArmor(400) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel")
+	end,
 })
 
 TEAM_SYNTH2 = rp.addTeam("X2", {
@@ -1154,13 +1155,14 @@ TEAM_SYNTH2 = rp.addTeam("X2", {
     health = 300,
     PlayerSpawn = function(ply) ply:SetArmor(450) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel")
+	end,
 })
 
 TEAM_SYNTH3 = rp.addTeam("X3", {
@@ -1180,12 +1182,13 @@ TEAM_SYNTH3 = rp.addTeam("X3", {
     health = 300,
 	PlayerSpawn = function(ply) ply:SetArmor(500) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel")
+	end,
 })
 
 TEAM_SYNTH4 = rp.addTeam("ZEN", {
@@ -1205,11 +1208,12 @@ TEAM_SYNTH4 = rp.addTeam("ZEN", {
     health = 300,
     PlayerSpawn = function(ply) ply:SetArmor(550) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel")
+	end,
 })
 
 TEAM_SYNTH5 = rp.addTeam("CREMATOR", {
@@ -1229,10 +1233,11 @@ TEAM_SYNTH5 = rp.addTeam("CREMATOR", {
     health = 300,
     PlayerSpawn = function(ply) ply:SetArmor(600) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("thaumiel")
+	end,
 })
 
 TEAM_SYNTH6 = rp.addTeam("TRU", {
@@ -1252,9 +1257,10 @@ TEAM_SYNTH6 = rp.addTeam("TRU", {
     health = 300,
     PlayerSpawn = function(ply) ply:SetArmor(650) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" end,
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo")
+	end,
 })
 
 TEAM_CITIZEN1 = rp.addTeam("Авторитетный Гражданин", {
@@ -1327,11 +1333,11 @@ TEAM_CITIZEN3 = rp.addTeam("Референт Администрации", {
 	end,
 })
 
-TEAM_CITIZEN4 = rp.addTeam("Администратор Сити 17", {
+TEAM_CITIZEN4 = rp.addTeam("Администратор Сити 14", {
 	color = Color(178, 35, 35),
 	model = "models/player/breen.mdl",
 	type = TEAMTYPE_COMBINE,
-	description = [[Управляет городом и проводит трансляции связанные с пропагандой из здания администрации Сити 17]],
+	description = [[Управляет городом и проводит трансляции связанные с пропагандой из здания администрации Сити 14]],
 	weapons = {"stunstick", "swb_usp"},
 	command = "citizen5",
 	needteam = 'citizen4',
@@ -1437,14 +1443,15 @@ TEAM_HERO1 = rp.addTeam("Марио", {
     health = 200,
 	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная проф��ссия доступна только с Евклид!",
 	})
 local eva_desc = [[Ева Борджер - корреспондент канадского отделения BBC. Ева прославилась своими критическими статьями об ущемлении индейского населения страны. Она, рискуя своим положением, рассказывала людям правду, не боясь оскорбить какого-нибудь влиятельного чиновника или бизнесмена.
@@ -1469,14 +1476,15 @@ TEAM_HERO2 = rp.addTeam("Ева", {
 	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 	needbuy = true,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклид!",
 })
 local oneeye_desc = [[Одноглазый - неизвестный наемник, по некоторой информации, ранее служивший в 16-м пехотном полке 7-го корпуса армии США. После расформирования 7-го корпуса подался на работу в американскую ЧВК MPRI. Является ветераном войны в Персидском заливе, так-же в середине 1990-х годов в ходе гражданской войны в Югославии в составе вышеупомянутой ЧВК, занимался подготовкой хорватской армии и 5-го корпуса армии Бос��ии и Герцего��ины. В 1999 году в составе той же ЧВК MPRI по контракту прибыл в Колумбию  для работы с военными в период войн�� с наркотиками. Однако, к 2000 году, после прогремевшего на весь мир инцидента в “Чёрной Мезе”, и начавшимся по всему миру беспорядочными портальными штормами, бежал из Колумбии обратно в США. Прибыв в Нью-Йорк, вступил в мест��ое ополчение, которое помимо охраны периметра города, занималось рейдами загород, в поисках выживших людей и припасов. Во время начавшейся 7-часовой войны против Земли, наемник бежал в Канаду. Но, поняв что силы инопланетных интервентов повсюду, транзитом через Канадскую провинцию Квебек, в обход одноименной столицы, прибыл в штат Мэн, где осел среди групп беженцев из крупных городов. За 4 года до начала основных событий, с подачи Неизвестного, начал осуществлять д��ятельность наемного убийцы, принимая заказы как на жителей запретных секторов, так и на жителей City 16. Кличку “Одноглазого” получил за отсутствия левого глаза. Историю о потере своего глаза, наемник предпочитает не рассказывать.]]
@@ -1499,14 +1507,15 @@ TEAM_HERO3 = rp.addTeam("Одноглазый", {
     health = 200,
 	PlayerSpawn = function(ply) ply:SetArmor(200) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклид!",
 })
 local blueeyes_desc = [[Андроид, разработанный в Amaria Industries - Крупной довоенной корпорации, занимавшаяся разработкой оружия, бытовой техники, фармацевтической продукцией и прочих предметов широкого потребления и не только. Штаб-квартира корпорации располагается в городе Токио, Япония, ныне известном как Сити-8. Мощные связи этой организации в довоенном мире позволили ей выжить при установлении режима Альянса и, в конечном итоге стать одним из крупнейших производителей военной техники Альянса на Земле. Помимо этого, Амария также является разработчиком хим. добавок включаемы�� в рац��оны простых граждан и питательных масел, используемых для питания солдат ОТА. Хотя Амарии и позволили остаться, ее положение в эпоху Альянса шатко как никогда.
@@ -1532,13 +1541,15 @@ TEAM_HERO4 = rp.addTeam("Синеглазый", {
     health = 250,
 	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("euclid") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Евклид!",
 })
 local major_desc = [[Майор Уильям Овербек - ветеран войны в Персидском заливе, отслужил в 3-м батальоне специальных во��ск 7-го корпуса армии США с 1981 по 1992. После войны, и расформирования 7-го корпуса поселился в штате Массачусетс.
@@ -1564,13 +1575,14 @@ TEAM_HERO5 = rp.addTeam("Майор Овербек", {
 	PlayerSpawn = function(ply) ply:SetArmor(250) end,
 	needbuy = true,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Кетер!",
 })
 local mac_desc = [[Сержант МакТавиш начал службу в 22-м полку SAS в 1997-м, на базе в Креденхилле. Прежде ч����м ста��ь бойцом SAS, Лей ранее прослужил 4 года в 2-м батальоне Королевского английского полка 7-й пехотной бригады Британской армии. Служба Лея в 22-м полку представляла собой отрабатывание различных методик стрель��ы и ближнего боя.
@@ -1596,13 +1608,11 @@ TEAM_HERO6 = rp.addTeam("Штаб-сержант МакТавиш", {
 	PlayerSpawn = function(ply) ply:SetArmor(300) end,
 	needbuy = true,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "keter" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("keter") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Кетер!",
 })
 local maria_desc = [[Мария Беккер - молодая девушка родом из Лос-Анджелеса. Огромное состояние и неблагораз��мие её родителей привели к распутному образу жизни Марии. Учась ещё в средней школе, она стала заводилой на всевозможных алкогольных вечеринках золотой молодёжи города - ни одно событие, связанное с мажорными детишками, не обходилось без неё. Подобное времяпрепровождение, несомненно, негативно сказалось на учебной успеваемости девушки, однако весь разврат, захлестнувший её жизнь, впоследствии заставил её измениться… Во время очередной тусовки парень Марии (к слову, он был у неё уже пятым по счёту) употребил какую-то дрянь, от которой его состояние сильно ухудшилось. Потоки отвратительной рвоты, льющейся изо рта подростка, бьющегося в конвульсиях, перепугали всех окружающих. Тусовщики бросились бежать, только одна Мария осталась с умирающим - она просто застыла от шока…
@@ -1630,11 +1640,11 @@ TEAM_HERO7 = rp.addTeam("Мария", {
     health = 350,
 	PlayerSpawn = function(ply) ply:SetArmor(350) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "euclid" or
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" end,
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Афина!",
 })
 local unkn_desc = [[Доподлинно, ничего неизвестно об этом контрабандисте, кроме того что он носит противогаз с тонированными линзами и  дорогое довоенное пальто. Откуда он пришел, кто он такой, и какие цели он преследует - до сих пор остается загадкой. Загадкой остается и вопрос, откуда он берет оружие, которое он так свобод��о прод��ет всякому сброду вроде рейдеров в запретном районе. Ходили слухи, что оружие он берет с секретных складов Армии США, однако, так называемые “экспедиции”  - группы организованных беженцев, рейдеров  или пов��танцев так и ничего не смогли найти.
@@ -1658,12 +1668,13 @@ TEAM_HERO8 = rp.addTeam("Неизвестный", {
     health = 350,
 	PlayerSpawn = function(ply) ply:SetArmor(350) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "afina" or
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("afina") or
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Афина!",
 })
 local drake_desc = [[Нейтан Дрейк - опытный охотник за сокровищами, готовый “всадить пулю в лоб” любому, кто встанет на его пути. Мать Нейтана рано умерла, отец отказался от него. Воспитанием Дрейка занимался его старший брат Сэм, замеченный в преступной деятельности. Он же и соблазнил Нейта сбежать из христианского приюта, где тот был вынужден содержаться.
@@ -1683,11 +1694,12 @@ TEAM_HERO9 = rp.addTeam("Дрейк", {
     health = 400,
 	PlayerSpawn = function(ply) ply:SetArmor(400) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Таумиель!",
 })
 local valeria_desc = [[Валерия Лев��льд - молодая девушка, выросшая в семье пожарников. Она пошла по стопам отца, отучившись в школе со спортивным уклоном, пройдя подготовительные курсы по оказанию первой помощи и заступив на службу в пожарный департамент города Огаста, штат Мэн, США. Девушка хорошо проявила себя в первые месяцы работы: она быстро научилась преодолевать горящие препятствия, проникать в задымленные помещения через узкие проемы, выносить на себе людей, пострадавших от ожогов. Валерия всегда была готова столкнуться с опасностью лицом к лицу, за что её называли самой храброй ��евушк��й горо��а.
@@ -1705,11 +1717,12 @@ TEAM_HERO10 = rp.addTeam("Валерия", {
     health = 450,
 	PlayerSpawn = function(ply) ply:SetArmor(450) end,
 	customCheck = function(ply) return
-		ply:GetNWString("serverguard_rank") == "apollo" or
-		ply:GetNWString("serverguard_rank") == "thaumiel" or
-		ply:GetNWString("serverguard_rank") == "founder" or
-		ply:GetNWString("serverguard_rank") == "serverstaff" or
-		ply:GetNWString("serverguard_rank") == "moderator" end,
+		ply:IsUserGroup("apollo") or
+		ply:IsUserGroup("thaumiel") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("moderator")
+	end,
 	CustomCheckFailMsg = "Данная профессия доступна только с Таумиель!",
 })
 
@@ -1804,10 +1817,10 @@ TEAM_CWUMED = rp.addTeam("ГСР Медик", {
 TEAM_CWUTRADE = rp.addTeam("ГСР Продавец", {
 	color = Color(0, 156, 204),
 	model = nil,
-	type = TYPE_CWU,
+	type = TEAMTYPE_CWU,
 	description = [[
 Альянс отнял у людей многое. Свободу, развлечения, нормальную жизнь. Человечество в упадке.
-Даже не гитаре сыграть не дадут! Но ведь Сити 17 повезло с вами? Ведь вы бывший складской рабочий!
+Даже не гитаре сыграть не дадут! Но ведь Сити 14 повезло с вами? Ведь вы бывший складской рабочий!
 Используя свои таланты, а также смекалку, организуйте продажу разных предметов Гражданским Лицам!
 ]],
 	weapons = {"id_cwu", "weapon_fists"},
@@ -1839,7 +1852,7 @@ TEAM_CWU4 = rp.addTeam("Надзиратель", {
 	color = Color(0, 156, 204),
 	type = TEAMTYPE_COMBINE,
 	model = "models/player/Police.mdl",
-	description = [[Специальный юнит отдела гражданской обороны Сити 17 следящий за сотрудниками ГСР]],
+	description = [[Специальный юнит отдела гражданской обороны Сити 14 следящий за сотрудниками ГСР]],
 	weapons = {"id_cwu", "stun_baton", "swb_pistol"},
 	command = "cwu5",
 	max = 2,
@@ -1863,6 +1876,12 @@ TEAM_ADMIN = rp.addTeam("Администратор", {
 	PlayerLoadout = function(ply)
 		ply:SetBodygroup(1, 5)
 	end,
+	customCheck = function(ply) return
+		ply:IsUserGroup("serverstaff") or
+		ply:IsUserGroup("founder") or
+		ply:IsUserGroup("moderator")
+	end,
+	CustomCheckFailMsg = "Данная профессия доступна только Администраторам сервера.",
 	needbuy = true,
 })
 
@@ -1913,12 +1932,12 @@ rp.HitmanTeam = TEAM_HITMAN
 -- end
 
 rp.cfg.NPCs = {
-	['rp_city17_metahub_v2'] = {
+	['rp_city14_utopia'] = {
 		['reg_npc'] = {
-			title = 'Регистрация в Сити 17',
+			title = 'Регистрация в Сити 14',
 			color = Color(255,255,255,255),
-			pos = Vector('-2784.740723 607.062073 144.031250'),
-			ang = Angle('0 90 0.000000'),
+			pos = Vector('671.648804 224.657730 05.031250'),
+			ang = Angle('0 180 0.000000'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_CITIZEN24] = 0,
@@ -1927,7 +1946,7 @@ rp.cfg.NPCs = {
 		 ['admin_npc'] = {
 			title = 'Профессия Администратора',
 		 	color = Color(255,255,255,255),
-		 	pos = Vector('-16.188004 -2708.723877 2118.031250'),
+		 	pos = Vector('1688.290894 -3682.678955 39.031250'),
 			ang = Angle('0 -129.506714 0.000000'),
 			model = 'models/Kleiner.mdl',
 			jobs = {
@@ -1937,8 +1956,8 @@ rp.cfg.NPCs = {
 		['crime_npc'] = {
 			title = 'Криминальный Авторитет',
 			color = Color(255,255,255,255),
-			pos = Vector('3542.677734 -3284.575439 104.031186'),
-			ang = Angle('0 -30 0.000000'),
+			pos = Vector('2522.399902 -2860.968750 103.562096'),
+			ang = Angle('0 90 0'),
 			model = 'models/Eli.mdl',
 			jobs = {
 				[TEAM_CRIME] = 10000,
@@ -1953,8 +1972,8 @@ rp.cfg.NPCs = {
 		['cwu_npc'] = {
 			title = 'ГСР',
 			color = Color(255,255,255,255),
-			pos = Vector('-456.712402 1532.031250 144.031250'),
-			ang = Angle('0 -90 0'),
+			pos = Vector('3079.457764 -899.968750 39.031250'),
+			ang = Angle('0 90 0'),
 			model = 'models/Humans/Group02/Female_03.mdl',
 			jobs = {
 				[TEAM_CITYWORKER] = 4000,
@@ -1970,8 +1989,8 @@ rp.cfg.NPCs = {
 		['loyal_npc'] = {
 			title = 'Центр Лояльности',
 			color = Color(255,255,255,255),
-			pos = Vector('-75.968750 -1273.094116 80‬.031250'),
-			ang = Angle('0 180 0.000000'),
+			pos = Vector('4239.140625 667.185120 39.031250'),
+			ang = Angle('0 -45 0'),
 			model = 'models/mossman.mdl',
 			jobs = {
 				[TEAM_CITIZEN1] = 50000,
@@ -1983,8 +2002,8 @@ rp.cfg.NPCs = {
 		['rebel_npc'] = {
 			title = 'Повстанческое Движение',
 			color = Color(255,255,255,255),
-			pos = Vector('1099.557007 2280.070313 -1427.968750'),
-			ang = Angle('0 -130 0'),
+			pos = Vector('4664.033203 -2282.968750 -517.968750'),
+			ang = Angle('0 0 0'),
 			model = 'models/Humans/Group03/male_06.mdl',
 			jobs = {
 				[TEAM_R1] = 1500,
@@ -2005,7 +2024,7 @@ rp.cfg.NPCs = {
 		['synth_npc'] = {
 			title = 'Синтетический Отдел',
 			color = Color(255,255,255,255),
-			pos = Vector('4728.981934 -2380.657227 1610.031250'),
+			pos = Vector('4962.031250 -786.517944 487.031250'),
 			ang = Angle('0 90 0'),
 			model = 'models/Combine_Super_Soldier.mdl',
 			jobs = {
@@ -2020,8 +2039,8 @@ rp.cfg.NPCs = {
 		['cpu_npc'] = {
 			title = 'CPU.RCT.3322',
 			color = Color(255,255,255,255),
-			pos = Vector('3915.636719 70.661247 74.031250'),
-			ang = Angle('0 -90 0'),
+			pos = Vector('5924.778809 -371.676239 -30.031250'),
+			ang = Angle('0 -180 0'),
 			model = 'models/Police.mdl',
 			jobs = {
 				[TEAM_UN1] = 2500,
@@ -2037,8 +2056,8 @@ rp.cfg.NPCs = {
 		['scpu_npc'] = {
 			title = 'SCPU.SHIELD.3223',
 			color = Color(255,255,255,255),
-			pos = Vector('4876.147461 -2247.672363 74.031250'),
-			ang = Angle('0 45 0'),
+			pos = Vector('4962.031250 39.968750 487.031250'),
+			ang = Angle('0 0 0'),
 			model = 'models/Combine_Soldier.mdl',
 			jobs = {
 				[TEAM_S0] = 8000,
@@ -2056,8 +2075,8 @@ rp.cfg.NPCs = {
 		['sup_npc'] = {
 			title = 'SUP.NOVA.2332',
 			color = Color(255,255,255,255),
-			pos = Vector('4764.400879 -2387.083984 1610.031250'),
-			ang = Angle('0 90 0'),
+			pos = Vector('4976.461914 -664.548523 551.031250'),
+			ang = Angle('0 0 0'),
 			model = 'models/Combine_Super_Soldier.mdl',
 			jobs = {
 				[TEAM_COMBINE1] = 20000,
@@ -2073,7 +2092,7 @@ rp.cfg.NPCs = {
 		['fake_npc'] = {
 			title = 'C#U.#5.43#7',
 			color = Color(255,255,255,255),
-			pos = Vector('-453.249146 2341.024902 -1427.968750'),
+			pos = Vector('4723.733887 -1432.755737 -453.968750'),
 			ang = Angle('0 -40 0'),
 			model = 'models/Police.mdl',
 			jobs = {
@@ -2084,7 +2103,7 @@ rp.cfg.NPCs = {
 		['hero_npc'] = {
 			title = 'Барни Калхаун',
 			color = Color(255,255,255,255),
-			pos = Vector('662.260010 1749.661743 -1427.968750'),
+			pos = Vector('7859.664063 -1253.571533 39.031250'),
 			ang = Angle('0 -35 0'),
 			model = 'models/Barney.mdl',
 			jobs = {
